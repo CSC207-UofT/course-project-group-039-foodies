@@ -1,0 +1,11 @@
+CLASS: RECIPEBOOK (Entity)
+
+    - Responsibilties
+        - Store the recipe
+        - Store the recipe's type
+        - Store the serving number info
+        - Store recipe type
+
+    - Collaborators
+        - RecipeGateway
+        -

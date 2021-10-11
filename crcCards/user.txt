@@ -1,4 +1,4 @@
-USER (Entity)
+CLASS: USER (Entity)
 
     - Responsibility
         - store user usernames, user full name and emails

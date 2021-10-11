@@ -1,0 +1,12 @@
+CLASS : RECIPE (Entity)
+
+    - Responsilibities
+        - Store the recipe
+        - Store the recipe ratings
+        - Store serving number
+        - Store recipe type
+        - Store the allegens in
+
+    - Collaborators
+        - Recipe Gateway
+        - RecipeBook
