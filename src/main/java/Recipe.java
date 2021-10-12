@@ -4,7 +4,8 @@ public class Recipe {
     int servings;
     Arraylist ingredients;
     String instructions;
-    int rating;
+    int ratingTotal;
+    Arraylist ratingList;
 
     public Recipe(String foodName, String foodType, int servings, Arraylist ingredients, String instructions) {
         this.foodName = foodName;
@@ -12,7 +13,6 @@ public class Recipe {
         this.servings = servings;
         this.ingredients = ingredients;
         this.instructions = instructions;
-        this.rating = 0
     }
 
     public String toString() {
@@ -20,7 +20,4 @@ public class Recipe {
         return recipeString;
     }
 
-    public void addRating(int newRating) {
-        this.rating = (this.rating + newRating) / 2;
-    }
 }
