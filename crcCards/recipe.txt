@@ -5,7 +5,6 @@ CLASS : RECIPE (Entity)
         - Store the recipe ratings
         - Store serving number
         - Store recipe type
-        - Store the allegens in
 
     - Collaborators
         - Recipe Gateway

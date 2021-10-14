@@ -1,10 +1,11 @@
 CLASS: RECIPEBOOK (Entity)
 
     - Responsibilties
-        - Store the recipe
-        - Store the recipe's type
-        - Store the serving number info
-        - Store recipe type
+        - Create a recipebook (Instantiate)
+        - Store the saved recipes
+        - Retrieve recipes from the RecipeBook.
+        - Add recipes
+        - Remove recipes
 
     - Collaborators
         - RecipeGateway
