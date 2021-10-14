@@ -1,0 +1,2 @@
+SCENARIO WALK-THROUGH
+    ABC wants to use the programme. Firstly, ABC creates an account by inputting

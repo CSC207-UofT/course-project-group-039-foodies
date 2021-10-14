@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 /** A user's recipe book. Stores the user's saved recipes
  *
  */
 public class RecipeBook {
-    private final HashMap<String, Recipe> recipebook;
+    private final HashMap<Integer, Recipe> recipebook;
 
     /**
      * Instantiate an empty Recipe Book
@@ -20,7 +20,7 @@ public class RecipeBook {
      * @param recipecode - a unique String code identifier for Recipe
      * @param recipe - the recipe
      */
-    public void addRecipe(String recipecode, Recipe recipe) {
+    public void addRecipe(Integer recipecode, Recipe recipe) {
         this.recipebook.put(recipecode, recipe);
     }
 
@@ -29,16 +29,17 @@ public class RecipeBook {
      *
      * @param recipecode - a unique String code identifier for Recipe
      */
-    public void removeRecipe(String recipecode) {
+    public void removeRecipe(Integer recipecode) {
         this.recipebook.remove(recipecode);
     }
 
     /**
+     * Retrieve the recipe with recipecode
      *
      * @param recipecode - a unique String code identifier for Recipe
      * @return - return the recipe with recipecode
      */
-    public Recipe getRecipe(String recipecode) {
+    public Recipe getRecipe(Integer recipecode) {
         return this.recipebook.get(recipecode);
     }
 
