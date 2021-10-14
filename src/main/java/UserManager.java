@@ -24,7 +24,6 @@ public class UserManager {
     }
 
 
-
     /* If the ID string appears as a key in user_map,
        then remove the pair from user_map.
        Return true if the user was successfully deleted from user_map,
