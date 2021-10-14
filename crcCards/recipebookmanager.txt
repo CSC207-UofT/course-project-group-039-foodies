@@ -1,0 +1,10 @@
+Class: RecipeBookManager
+
+    - Responsibilities
+        - Add a preference for a user
+        - Request a recipe to rate
+        - Add recipe to the recipe book
+    - Collaborators
+        - User
+        - Recipe
+        - RecipeBook

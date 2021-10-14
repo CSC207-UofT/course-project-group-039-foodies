@@ -1,2 +1,10 @@
 CLASS: CommandLineInterface
 
+    - Responsibilities
+        - Takes input from the user, allowing them to
+        - Create a new account
+        - Create a new family
+        - Add users to a family
+    - Collaborators
+        - UserManager
+

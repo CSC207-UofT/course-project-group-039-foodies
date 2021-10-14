@@ -1,0 +1,7 @@
+Class: UserManager
+    - Responsibilities
+        - Add new users
+        - Delete a user
+        - Store a mapping of all usernames to users
+    - Collaborators
+        - User

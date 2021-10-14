@@ -1,0 +1,6 @@
+Class: RecipeGateway
+
+    - Responsibilities
+        - Get recipes from a database
+    - Collaborators
+        - Recipe

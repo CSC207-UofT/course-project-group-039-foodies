@@ -1,0 +1,9 @@
+Class: GroupManager
+
+    - Responsibilities
+        - Create a group
+        - Delete a group
+        - Add a user to an existing group
+        - Find a recipe that the entire group likes
+    - Collaborators
+        - Family

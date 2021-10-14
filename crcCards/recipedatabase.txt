@@ -1,0 +1,6 @@
+Class: RecipeDatabase
+- Responsibilities
+    - Store recipes
+- Collaborators
+	- Recipe
+	- DatabaseManager
