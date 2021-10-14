@@ -7,14 +7,13 @@ import java.util.ArrayList;
  */
 
 public class RecipeDatabase {
-    private ArrayList<Recipe> dataList;
+    public ArrayList<Recipe> dataList = new ArrayList<Recipe>();
 
     /**
      * Constructs an ArrayList and add recipes
-     * @param recipe
+     * @param recipe recipe given recipe
      */
     public RecipeDatabase(Recipe recipe) {
         this.dataList.add(recipe);
-        }
     }
 }
