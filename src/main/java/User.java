@@ -5,6 +5,7 @@ public class User {
     private String username;
     private String email;
 
+
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Please enter your name: ");
