@@ -9,4 +9,4 @@ CLASS: RECIPEBOOK (Entity)
 
     - Collaborators
         - RecipeGateway
-        - User
+        - Recipe

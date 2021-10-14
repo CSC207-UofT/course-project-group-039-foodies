@@ -1,0 +1,14 @@
+CLASS: RecipeRecommender
+
+    - Responsibilities
+        - Predict how much a user will like different recipes
+        - Give a list of recipes and user preferences, rank the
+          recipes to form a recommendation list
+        - Give a list of recipes and a list a users, find the most
+          likely recipe that all users will like.
+
+    - Collaborators
+        - RecipeDatabase
+        - Recipe
+        - User
+

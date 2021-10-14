@@ -1,0 +1,14 @@
+CLASS: PreferenceBook
+
+    - Responsibilities
+        - Store any allergies/ dietary restrictions of user
+            (set up during account creation)
+        - Store the preferences during a particular search - eg. type of food
+            (set up each search)
+        - Add allergies/ dietary restrictions
+        - Add meal specific preferences
+        - Remove meal specific preferences
+
+    - Collaborators
+        - User
+
