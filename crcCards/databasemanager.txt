@@ -1,0 +1,4 @@
+Class: DatabaseManager
+
+    - Responsibilities
+        - Filtering RecipeDatabase

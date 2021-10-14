@@ -1,0 +1,13 @@
+CLASS : Group
+
+    - Responsibilites
+        - Store users in the group
+        - Combine and store all family preferences
+        - Store the number of group members
+        - Add/ Invite users to a group
+        - Delete a user from a group
+        - Store a RecipeBook
+
+    - Collaborators
+        - User
+        - RecipeBook
