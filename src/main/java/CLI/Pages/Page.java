@@ -1,6 +1,7 @@
 package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.CLI.Pages.Commands.Command;
 import main.java.CLI.Pages.Commands.CommandNotFound;
 import main.java.CLI.Pages.Commands.HelpCommand;
 import main.java.CLI.Pages.Commands.QuitCommand;

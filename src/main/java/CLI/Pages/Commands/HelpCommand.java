@@ -2,7 +2,6 @@ package main.java.CLI.Pages.Commands;
 
 
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Pages.Command;
 
 /**
  * Allows the user to find which commands can be called

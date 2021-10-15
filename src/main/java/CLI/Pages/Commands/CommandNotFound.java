@@ -1,7 +1,6 @@
 package main.java.CLI.Pages.Commands;
 
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Pages.Command;
 
 /**
  * The default command returned when a command is not found

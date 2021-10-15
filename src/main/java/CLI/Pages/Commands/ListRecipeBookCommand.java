@@ -1,6 +1,5 @@
 package main.java.CLI.Pages.Commands;
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Pages.Command;
 import main.java.Entities.Recipe;
 import main.java.Utilities.RecipeBookManager;
 

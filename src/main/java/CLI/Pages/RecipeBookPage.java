@@ -1,5 +1,6 @@
 package main.java.CLI.Pages;
 
+import main.java.CLI.Pages.Commands.Command;
 import main.java.CLI.Pages.Commands.ListRecipeBookCommand;
 import main.java.CLI.Pages.Commands.RateRecipeCommand;
 import main.java.CLI.Pages.Commands.RemoveRecipeCommand;

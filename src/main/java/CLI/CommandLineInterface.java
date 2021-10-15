@@ -2,6 +2,7 @@ package main.java.CLI;
 
 import java.util.*;
 import main.java.CLI.Pages.*;
+import main.java.CLI.Pages.Commands.Command;
 import main.java.Entities.User;
 
 /**
