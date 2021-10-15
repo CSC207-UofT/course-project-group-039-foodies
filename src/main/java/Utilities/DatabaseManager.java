@@ -83,12 +83,12 @@ public class DatabaseManager {
     }
     
     /**
-     * Returns a new code for a recipe
+     * Returns the largest recipe code in the database
      * @return An Integer object with the code
      */
-    public Integer getHighest() {
-        Integer highest = 0;
-        for (Integer key : this.dataMap.keySet()) {
+    public static Integer getHighest() {
+        int highest = 0;
+        for (Integer key : dataList.keySet()) {
             if (highest < key) {
                 highest = key;
             }
