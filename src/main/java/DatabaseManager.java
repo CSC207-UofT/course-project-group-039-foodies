@@ -8,18 +8,28 @@ import java.util.Map;
  * Recipe.
  */
 public class DatabaseManager {
-    private HashMap<Integer, Recipe> dataList = new HashMap<>();
+    private HashMap<Integer, Recipe> dataMap = new HashMap<>();
     private static Integer i;
 
     public void addRecipe(Recipe recipe) {
-        dataList.put(i, recipe);
+        dataMap.put(i, recipe);
         i += 1;
     }
 
     public void removeRecipe(Recipe recipe) {
-        if (dataList.containsValue(recipe)) {
-            dataList.remove(getKey(this.dataList, recipe));
+        if (dataMap.containsValue(recipe)) {
+            dataMap.remove(getKey(this.dataMap, recipe));
         }
+    }
+
+    public Integer getHighest() {
+        Integer highest = 0;
+        for (Integer key : this.dataMap.keySet()) {
+            if (highest < key) {
+                highest = key;
+            }
+        }
+        return highest;
     }
 
     // Helper function for removeRecipe.
