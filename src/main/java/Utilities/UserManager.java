@@ -41,10 +41,10 @@ public class UserManager {
         return new User(fullname, username, email);
     }
 
-    /** If the ID string does not appear as a key in user_map,
-     * then add the pair to user_map.
+    /** If the ID string does not appear as a key in userMap,
+     * then add the pair to userMap.
      * @param user The user to be added
-     * @return true if the user was successfully added to user_map,
+     * @return true if the user was successfully added to userMap,
      * and false otherwise.
      */
     public static boolean addUser(User user){
@@ -59,7 +59,7 @@ public class UserManager {
     }
 
     /**
-     * Adds a new user to the user
+     * Adds a new user to userMap
      * @param fullname The name of the user
      * @param username The username of the user
      * @param email The email of the user
@@ -70,8 +70,8 @@ public class UserManager {
         return addUser(createNewUser(fullname, username, email));
     }
 
-    /** If the ID string appears as a key in user_map,
-     * then remove the pair from user_map.
+    /** If the ID string appears as a key in userMap,
+     * then remove the pair from userMap.
      * @param user The user object to be deleted
      * @return true if the user was successfully deleted from userMap,
      * and false otherwise.
