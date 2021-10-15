@@ -1,7 +1,5 @@
 package main.java.CLI;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CommandLineInterfaceTest {
 
     @org.junit.jupiter.api.Test
