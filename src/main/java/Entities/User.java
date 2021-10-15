@@ -1,3 +1,5 @@
+package main.java.Entities;
+
 import java.util.Scanner;
 
 public class User {
