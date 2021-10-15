@@ -1,8 +1,8 @@
 package main.java.CLI.Pages.Commands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Pages.Command;
-import main.java.Recipe;
-import main.java.RecipeBookManager;
+import main.java.Entities.Recipe;
+import main.java.Utilities.RecipeBookManager;
 
 /**
  * Allows the user to list all recipes in the recipe book

@@ -2,7 +2,7 @@ package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Pages.Commands.CreateAccountCommand;
-import main.java.UserManager;
+import main.java.Utilities.UserManager;
 
 public class SignedOutPage extends Page {
     public SignedOutPage(Page parent) {
@@ -24,11 +24,10 @@ public class SignedOutPage extends Page {
         public void runAction(CommandLineInterface CLI) {
             CLI.displayMessage("Enter your username");
             String username = CLI.getTextInput();
-            if (UserManager.isUser(username)) {
+            if (UserManager.containsUser(username)) {
                 CLI.signIn(UserManager.getUser(username));
-                UserManager.signIn(username);
-
                 CLI.changePage(new SignedInPage(SignedOutPage.this));
+                CLI.displayMessage("You have successfully signed in");
             } else {
                 CLI.displayMessage("User does not exist");
             }

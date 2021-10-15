@@ -2,7 +2,7 @@ package main.java.CLI.Pages.Commands;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Pages.Command;
-import main.java.RecipeBookManager;
+import main.java.Utilities.RecipeBookManager;
 
 /**
  * Allows the user to remove a recipe
