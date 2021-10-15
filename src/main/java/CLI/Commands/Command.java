@@ -1,4 +1,4 @@
-package main.java.CLI.Pages.Commands;
+package main.java.CLI.Commands;
 
 import main.java.CLI.CommandLineInterface;
 

@@ -1,8 +1,8 @@
 package main.java.CLI;
 
 import java.util.*;
-import main.java.CLI.Pages.*;
-import main.java.CLI.Pages.Commands.Command;
+
+import main.java.CLI.Commands.Command;
 import main.java.Entities.User;
 import main.java.UseCases.DatabaseManager;
 
@@ -14,22 +14,14 @@ public class CommandLineInterface {
     private final Scanner keyboard;
     private final DatabaseManager databaseManager;
     private User user;
-    Page currentPage;
+    PageManager pageManager;
 
     public CommandLineInterface() {
         isRunning = true;
-        currentPage = new SignedOutPage(null);
+        pageManager = new PageManager();
         databaseManager = new DatabaseManager();
         user = null;
         keyboard = new Scanner(System.in);
-    }
-
-    /**
-     * Changes the current page the user is on
-     * @param newPage A Page object representing the page to change to
-     */
-    public void changePage(Page newPage) {
-        currentPage = newPage;
     }
 
     /**
@@ -68,21 +60,16 @@ public class CommandLineInterface {
         return databaseManager;
     }
 
-    /**
-     * Returns all commands that the user can currently call
-     * @return An array of command
-     */
-    public Command[] getCurrentCommands() {
-        return currentPage.getAvailableCommands();
+    public PageManager getPageManager() {
+        return pageManager;
     }
-
     /**
      * Parses the user's input, taking input from the keyboard
      * @return Returns the command the user called, and the commandNotFound command otherwise
      */
     private Command parseInput() {
         String input = keyboard.nextLine();
-        return currentPage.findCommand(input);
+        return pageManager.findCommand(input);
     }
 
     public static void main(String[] args) {
