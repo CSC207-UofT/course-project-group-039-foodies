@@ -14,7 +14,7 @@ public class CommandLineInterface {
     private User user;
     Page currentPage;
 
-    private CommandLineInterface() {
+    public CommandLineInterface() {
         isRunning = true;
         currentPage = new SignedOutPage(null);
         user = null;

@@ -6,7 +6,8 @@ import main.java.CLI.Pages.Commands.CommandNotFound;
 import main.java.CLI.Pages.Commands.HelpCommand;
 import main.java.CLI.Pages.Commands.QuitCommand;
 
-/** Stores a page the user can enter.
+/**
+ * Stores a page the user can enter.
  * The commands attribute stores the commands that the user can call when on the page,
  * on top of the two default commands HelpCommand and QuitCommand
  *
@@ -21,14 +22,16 @@ public class Page {
         this.parent = parent;
     }
 
-    /** Sets the commands that the page can use on top of the default commands.
+    /**
+     * Sets the commands that the page can use on top of the default commands.
      * @param commands The array of commands to be used in the page
      */
     protected void setCommands(Command[] commands) {
         this.commands = commands;
     }
 
-    /** Gets the command with a certain name. If a command is not found, an instance of the
+    /**
+     * Gets the command with a certain name. If a command is not found, an instance of the
      * CommandNotFound command is returned
      * @param name The name of the command
      * @return The command with the right name
@@ -44,7 +47,8 @@ public class Page {
         return new CommandNotFound();
     }
 
-    /** Gets all commands the can currently be called by the user, including the
+    /**
+     * Gets all commands the can currently be called by the user, including the
      * two default commands QuitCommand and HelpCommand.
      * @return An array of commands that can be called in the current page
      */
@@ -60,7 +64,8 @@ public class Page {
         return allCommands;
     }
 
-    /** Allows the user to enter the previous page
+    /**
+     * Allows the user to enter the previous page
      */
     protected class GoBackCommand extends Command {
         public GoBackCommand() {

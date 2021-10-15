@@ -1,9 +1,7 @@
 package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Pages.Commands.Command;
-import main.java.CLI.Pages.Commands.UpdatePreferencesCommand;
-import main.java.CLI.Pages.Commands.ViewHighestRatedRecipesCommand;
+import main.java.CLI.Pages.Commands.*;
 
 public class SignedInPage extends Page {
     public SignedInPage(Page parent) {
@@ -13,8 +11,7 @@ public class SignedInPage extends Page {
                 new EnterRecipeBookCommand(),
                 new EnterRecipeViewerCommand(),
                 new SignOutCommand(),
-                new UpdatePreferencesCommand(),
-                new ViewHighestRatedRecipesCommand()
+                new UpdatePreferencesCommand()
         };
         setCommands(commands);
     }
@@ -49,6 +46,7 @@ public class SignedInPage extends Page {
         @Override
         public void runAction(CommandLineInterface CLI) {
             CLI.changePage(parent);
+            CLI.displayMessage("You have successfully signed out.");
         }
     }
 }

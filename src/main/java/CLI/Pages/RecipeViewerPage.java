@@ -1,9 +1,6 @@
 package main.java.CLI.Pages;
 
-import main.java.CLI.Pages.Commands.AddToRecipeBookCommand;
-import main.java.CLI.Pages.Commands.Command;
-import main.java.CLI.Pages.Commands.GetNewRecipeCommand;
-import main.java.CLI.Pages.Commands.RateRecipeCommand;
+import main.java.CLI.Pages.Commands.*;
 
 public class RecipeViewerPage extends Page {
     public RecipeViewerPage(Page parent) {

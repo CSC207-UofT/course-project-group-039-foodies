@@ -1,8 +1,7 @@
 package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Pages.Commands.Command;
-import main.java.CLI.Pages.Commands.CreateAccountCommand;
+import main.java.CLI.Pages.Commands.*;
 import main.java.Utilities.UserManager;
 
 public class SignedOutPage extends Page {
@@ -30,7 +29,7 @@ public class SignedOutPage extends Page {
                 CLI.changePage(new SignedInPage(SignedOutPage.this));
                 CLI.displayMessage("You have successfully signed in");
             } else {
-                CLI.displayMessage("User does not exist");
+                CLI.displayMessage("The user does not exist");
             }
         }
     }
