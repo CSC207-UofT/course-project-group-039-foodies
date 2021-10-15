@@ -2,89 +2,54 @@ package main.java.CLI;
 
 import java.util.*;
 import main.java.CLI.Pages.*;
-import main.java.RecipeBookManager;
-import main.java.RecipeManager;
 import main.java.User;
-import main.java.UserManager;
 
-import static java.util.Map.entry;
-
+/** The class responsible for handling input and output
+ */
 public class CommandLineInterface {
     public boolean isRunning;
     private final Scanner keyboard;
     private User user;
-    private final RecipeBookManager recipeBookManager;
-    private final UserManager userManager;
-    private final RecipeManager recipeManager;
-    String currentPage;
+    Page currentPage;
 
     private CommandLineInterface() {
-        currentPage = "SignedOut";
+        isRunning = true;
+        currentPage = new SignedOutPage(null);
         user = null;
         keyboard = new Scanner(System.in);
-        recipeBookManager = new RecipeBookManager();
-        userManager = new UserManager();
-        recipeManager = new RecipeManager();
     }
 
-    Map<String, Page> pages = Map.ofEntries(
-            entry("SignedOut", new SignedOutPage()),
-            entry("SignedIn", new SignedInPage()),
-            entry("RecipeBook", new RecipeBookPage()),
-            entry("RecipeViewer", new RecipeViewerPage())
-    );
-
-    private void changePage(String startPage, String endPage) {
-        if (currentPage.equals(startPage)) {
-            currentPage = endPage;
-        }
+    /** Changes the current page the user is on
+     * @param newPage A Page object representing the page to change to
+     */
+    public void changePage(Page newPage) {
+        currentPage = newPage;
     }
 
+    /** Updates the private attribute user, signing the new user in
+     * @param user The User object representing the user to sign in
+     */
     public void signIn(User user) {
-        changePage("SignedOut", "SignedIn");
         this.user = user;
     }
 
-    public void signOut() {
-        changePage("SignedIn", "SignedOut");
-    }
-
-    public void enterRecipeBook() {
-        changePage("SignedIn", "RecipeBook");
-    }
-
-    public void exitRecipeBook() {
-        changePage("RecipeBook", "SignedIn");
-    }
-
-    public void enterRecipeViewer() {
-        changePage("SignedIn", "RecipeViewer");
-    }
-
-    public void exitRecipeViewer() {
-        changePage("RecipeViewer", "SignedIn");
-    }
-
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
-    public UserManager getUserManager() {
-        return userManager;
-    }
-
-    public RecipeBookManager getRecipeBookManager() {
-        return recipeBookManager;
-    }
-
-    public RecipeManager getRecipeManager() {
-        return recipeManager;
-    }
-
+    /** A getter for the current user
+     * @return a User object representing the signed-in user
+     */
     public User getUser() {
         return user;
     }
 
+    /** Prints out a message to the user
+     * @param message A String representing the message to be displayed
+     */
+    public void displayMessage(String message) {
+        System.out.println(message);
+    }
+
+    /** Takes input from the user
+     * @return a String representing user input
+     */
     public String getTextInput() {
         return keyboard.nextLine();
     }
@@ -94,7 +59,7 @@ public class CommandLineInterface {
      * @return An array of command
      */
     public Command[] getCurrentCommands() {
-        return pages.get(currentPage).getAvailableCommands();
+        return currentPage.getAvailableCommands();
     }
 
     /**
@@ -103,7 +68,7 @@ public class CommandLineInterface {
      */
     private Command parseInput() {
         String input = keyboard.nextLine();
-        return pages.get(currentPage).findCommand(input);
+        return currentPage.findCommand(input);
     }
 
     public static void main(String[] args) {

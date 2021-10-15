@@ -1,70 +1,53 @@
 package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.CLI.Pages.Commands.UpdatePreferencesCommand;
+import main.java.CLI.Pages.Commands.ViewHighestRatedRecipesCommand;
 
 public class SignedInPage extends Page {
-    private static class EnterRecipeBookCommand extends Command{
+    public SignedInPage(Page parent) {
+        super(parent);
+
+        Command[] commands = {
+                new EnterRecipeBookCommand(),
+                new EnterRecipeViewerCommand(),
+                new SignOutCommand(),
+                new UpdatePreferencesCommand(),
+                new ViewHighestRatedRecipesCommand()
+        };
+        setCommands(commands);
+    }
+
+    private class EnterRecipeBookCommand extends Command{
         private EnterRecipeBookCommand() {
             super("enter recipe book", "Enters the recipe book");
         }
 
         @Override
         public void runAction(CommandLineInterface CLI) {
-            CLI.enterRecipeBook();
+            CLI.changePage(new RecipeBookPage(SignedInPage.this));
         }
     }
 
-    private static class EnterRecipeViewerCommand extends Command {
+    private class EnterRecipeViewerCommand extends Command {
         private EnterRecipeViewerCommand() {
             super("enter recipe viewer", "Enters the recipe viewer");
         }
 
         @Override
         public void runAction(CommandLineInterface CLI) {
-            CLI.enterRecipeViewer();
+            CLI.changePage(new RecipeViewerPage(SignedInPage.this));
         }
     }
 
-    private static class SignOutCommand extends Command {
+    private class SignOutCommand extends Command {
         public SignOutCommand() {
             super("sign out", "Signs out the current user");
         }
 
         @Override
         public void runAction(CommandLineInterface CLI) {
-            CLI.signOut();
+            CLI.changePage(parent);
         }
-    }
-
-    private static class UpdatePreferencesCommand extends Command {
-        public UpdatePreferencesCommand() {
-            super("update preferences", "Starts a questionnaire to update user preferences");
-        }
-
-        @Override
-        public void runAction(CommandLineInterface CLI) {
-
-        }
-    }
-
-    private static class ViewHighestRatedRecipesCommand extends Command {
-        public ViewHighestRatedRecipesCommand() {
-            super("view highest rated recipes", "Displays a list of the most popular recipes");
-        }
-
-        @Override
-        public void runAction(CommandLineInterface CLI) {
-
-        }
-    }
-
-    public SignedInPage() {
-        super(new Command[] {
-                new EnterRecipeBookCommand(),
-                new EnterRecipeViewerCommand(),
-                new SignOutCommand(),
-                new UpdatePreferencesCommand(),
-                new ViewHighestRatedRecipesCommand()
-        });
     }
 }
