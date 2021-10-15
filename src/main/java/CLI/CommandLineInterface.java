@@ -1,113 +1,85 @@
 package main.java.CLI;
 
 import java.util.*;
-import main.java.CLI.Pages.*;
-import main.java.RecipeBookManager;
-import main.java.RecipeManager;
-import main.java.User;
-import main.java.UserManager;
 
-import static java.util.Map.entry;
+import main.java.CLI.Commands.Command;
+import main.java.Entities.User;
+import main.java.UseCases.DatabaseManager;
 
+/**
+ * The class responsible for handling input and output
+ */
 public class CommandLineInterface {
     public boolean isRunning;
     private final Scanner keyboard;
+    private final DatabaseManager databaseManager;
+    private final PageManager pageManager;
     private User user;
-    private final RecipeBookManager recipeBookManager;
-    private final UserManager userManager;
-    private final RecipeManager recipeManager;
-    String currentPage;
 
-    private CommandLineInterface() {
-        currentPage = "SignedOut";
+    public CommandLineInterface(Scanner keyboard) {
+        isRunning = true;
+        pageManager = new PageManager();
+        databaseManager = new DatabaseManager();
         user = null;
-        keyboard = new Scanner(System.in);
-        recipeBookManager = new RecipeBookManager();
-        userManager = new UserManager();
-        recipeManager = new RecipeManager();
+        this.keyboard = keyboard;
     }
 
-    Map<String, Page> pages = Map.ofEntries(
-            entry("SignedOut", new SignedOutPage()),
-            entry("SignedIn", new SignedInPage()),
-            entry("RecipeBook", new RecipeBookPage()),
-            entry("RecipeViewer", new RecipeViewerPage())
-    );
-
-    private void changePage(String startPage, String endPage) {
-        if (currentPage.equals(startPage)) {
-            currentPage = endPage;
-        }
+    public CommandLineInterface() {
+        this(new Scanner(System.in));
     }
 
+    /**
+     * Updates the private attribute user, signing the new user in
+     * @param user The User object representing the user to sign in
+     */
     public void signIn(User user) {
-        changePage("SignedOut", "SignedIn");
         this.user = user;
     }
 
-    public void signOut() {
-        changePage("SignedIn", "SignedOut");
-    }
-
-    public void enterRecipeBook() {
-        changePage("SignedIn", "RecipeBook");
-    }
-
-    public void exitRecipeBook() {
-        changePage("RecipeBook", "SignedIn");
-    }
-
-    public void enterRecipeViewer() {
-        changePage("SignedIn", "RecipeViewer");
-    }
-
-    public void exitRecipeViewer() {
-        changePage("RecipeViewer", "SignedIn");
-    }
-
-    public void displayMessage(String message) {
-        System.out.println(message);
-    }
-
-    public UserManager getUserManager() {
-        return userManager;
-    }
-
-    public RecipeBookManager getRecipeBookManager() {
-        return recipeBookManager;
-    }
-
-    public RecipeManager getRecipeManager() {
-        return recipeManager;
-    }
-
+    /**
+     * A getter for the current user
+     * @return a User object representing the signed-in user
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * Prints out a message to the user
+     * @param message A String representing the message to be displayed
+     */
+    public void displayMessage(String message) {
+        System.out.println(message);
+    }
+
+    /**
+     * Takes input from the user
+     * @return a String representing user input
+     */
     public String getTextInput() {
         return keyboard.nextLine();
     }
 
-    /**
-     * Returns all commands that the user can currently call
-     * @return An array of command
-     */
-    public Command[] getCurrentCommands() {
-        return pages.get(currentPage).getAvailableCommands();
+    public DatabaseManager getRecipeDatabase() {
+        return databaseManager;
+    }
+
+    public PageManager getPageManager() {
+        return pageManager;
     }
 
     /**
      * Parses the user's input, taking input from the keyboard
      * @return Returns the command the user called, and the commandNotFound command otherwise
      */
-    private Command parseInput() {
+    public Command parseInput() {
         String input = keyboard.nextLine();
-        return pages.get(currentPage).findCommand(input);
+        return pageManager.findCommand(input);
     }
 
     public static void main(String[] args) {
         CommandLineInterface CLI = new CommandLineInterface();
+        CLI.displayMessage("Welcome to Recipick! Type \"help\" to see is a list of commands.");
         while (CLI.isRunning) {
             Command calledCommand = CLI.parseInput();
             calledCommand.runAction(CLI);
