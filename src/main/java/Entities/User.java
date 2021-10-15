@@ -2,6 +2,8 @@ package main.java.Entities;
 
 import java.util.Scanner;
 
+
+
 public class User {
     private final String fullname;
     private final String username;
