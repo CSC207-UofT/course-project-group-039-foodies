@@ -1,3 +1,4 @@
+package main.java.Entities;
 
 import java.util.HashMap;
 
@@ -34,6 +35,33 @@ public class RecipeBook {
     }
 
     /**
+     * Remove a recipe from recipebook
+     *
+     * @param recipe - the recipe to delete
+     */
+    public void removeRecipe(Recipe recipe) {
+        removeRecipe(recipe.getRecipeCode());
+    }
+
+    /**
+     * Return all recipes in the user's recipebook
+     *
+     * @return - return the recipes
+     */
+    public Recipe[] getRecipes() {
+        return recipebook.values().toArray(new Recipe[0]);
+    }
+
+    /**
+     * Return the codes of all codes in the user's recipebook
+     *
+     * @return - return the codes
+     */
+    public Integer[] getCodes() {
+        return recipebook.keySet().toArray(new Integer[0]);
+    }
+
+    /**
      * Retrieve the recipe with recipecode
      *
      * @param recipecode - a unique String code identifier for Recipe
@@ -44,4 +72,3 @@ public class RecipeBook {
     }
 
 }
-
