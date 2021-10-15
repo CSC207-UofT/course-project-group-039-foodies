@@ -1,6 +1,10 @@
 package main.java.Entities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import main.java.Entities.Recipe;
 
 /** A user's recipe book. Stores the user's saved recipes
  *
@@ -70,5 +74,10 @@ public class RecipeBook {
     public Recipe getRecipe(Integer recipecode) {
         return this.recipebook.get(recipecode);
     }
+
+    public int size() {
+        return this.recipebook.size();
+    }
+
 
 }
