@@ -1,4 +1,4 @@
-package main.java.Utilities;
+package main.java.UseCases.Utilities;
 
 import main.java.Entities.User;
 
@@ -7,7 +7,8 @@ import java.util.HashMap;
 public class UserManager {
     static HashMap<String, User> userMap = new HashMap<>();
 
-    /** Return whether a user with a certain username is in the userMap
+    /**
+     * Return whether a user with a certain username is in the userMap
      * @param username The username of the user
      * @return True if and only if user is in userMap
      */
@@ -15,7 +16,8 @@ public class UserManager {
         return userMap.containsKey(username);
     }
 
-    /** Return whether a user is in the userMap
+    /**
+     * Return whether a user is in the userMap
      * @param user The User object representing the user
      * @return True if and only if user is in userMap
      */
@@ -23,7 +25,8 @@ public class UserManager {
         return containsUser(user.getUsername());
     }
 
-    /** Assuming that a user is contained in userMap, return the User with a certain username
+    /**
+     * Assuming that a user is contained in userMap, return the User with a certain username
      * @param username The username of the user to search for
      * @return The user object representing the required user
      */
@@ -31,7 +34,8 @@ public class UserManager {
         return userMap.get(username);
     }
 
-    /** Create a new user
+    /**
+     * Create a new user
      * @param fullname The name of the user
      * @param username The username of the user
      * @param email The email of the user
@@ -41,7 +45,8 @@ public class UserManager {
         return new User(fullname, username, email);
     }
 
-    /** If the ID string does not appear as a key in userMap,
+    /**
+     * If the ID string does not appear as a key in userMap,
      * then add the pair to userMap.
      * @param user The user to be added
      * @return true if the user was successfully added to userMap,
@@ -70,13 +75,14 @@ public class UserManager {
         return addUser(createNewUser(fullname, username, email));
     }
 
-    /** If the ID string appears as a key in userMap,
+    /**
+     * If the ID string appears as a key in userMap,
      * then remove the pair from userMap.
      * @param user The user object to be deleted
      * @return true if the user was successfully deleted from userMap,
      * and false otherwise.
     */
-    public boolean deleteUser(User user) {
+    public static boolean deleteUser(User user) {
         String userName = user.getUsername();
         if ((userMap.containsKey(userName)) && userMap.get(userName).equals(user)) {
             userMap.remove(userName);

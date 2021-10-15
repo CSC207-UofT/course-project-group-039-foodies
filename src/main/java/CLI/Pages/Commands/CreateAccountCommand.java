@@ -1,7 +1,7 @@
 package main.java.CLI.Pages.Commands;
 
 import main.java.CLI.CommandLineInterface;
-import main.java.Utilities.UserManager;
+import main.java.UseCases.Utilities.UserManager;
 
 /**
  * Allows the user to create a new account

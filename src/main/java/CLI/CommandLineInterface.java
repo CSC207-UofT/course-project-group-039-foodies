@@ -4,6 +4,7 @@ import java.util.*;
 import main.java.CLI.Pages.*;
 import main.java.CLI.Pages.Commands.Command;
 import main.java.Entities.User;
+import main.java.UseCases.DatabaseManager;
 
 /**
  * The class responsible for handling input and output
@@ -11,12 +12,14 @@ import main.java.Entities.User;
 public class CommandLineInterface {
     public boolean isRunning;
     private final Scanner keyboard;
+    private final DatabaseManager databaseManager;
     private User user;
     Page currentPage;
 
     public CommandLineInterface() {
         isRunning = true;
         currentPage = new SignedOutPage(null);
+        databaseManager = new DatabaseManager();
         user = null;
         keyboard = new Scanner(System.in);
     }
@@ -59,6 +62,10 @@ public class CommandLineInterface {
      */
     public String getTextInput() {
         return keyboard.nextLine();
+    }
+
+    public DatabaseManager getRecipeDatabase() {
+        return databaseManager;
     }
 
     /**

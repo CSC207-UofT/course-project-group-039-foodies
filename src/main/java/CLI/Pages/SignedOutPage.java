@@ -2,7 +2,7 @@ package main.java.CLI.Pages;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Pages.Commands.*;
-import main.java.Utilities.UserManager;
+import main.java.UseCases.Utilities.UserManager;
 
 public class SignedOutPage extends Page {
     public SignedOutPage(Page parent) {

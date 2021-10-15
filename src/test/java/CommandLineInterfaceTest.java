@@ -2,7 +2,7 @@ package test.java;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.Entities.User;
-import main.java.Utilities.UserManager;
+import main.java.UseCases.Utilities.UserManager;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 

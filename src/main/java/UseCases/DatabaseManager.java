@@ -1,26 +1,23 @@
-package main.java.Utilities;
+package main.java.UseCases;
 
 import main.java.Entities.Recipe;
+import main.java.Entities.RecipeDatabase;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * This class stores instances of Recipe in Arraylist, adding Recipe to it,
- * removing Recipe from it, and filtering the Recipe.
+ * This class stores instances of Recipe in a HashMap, adding Recipe to it, removing Recipe from it, and filtering the
+ * Recipe.
  */
 public class DatabaseManager {
-    private static final HashMap<Integer, Recipe> dataList = new HashMap<>();
-    private static Integer i = 0;
+    private final RecipeDatabase recipeDatabase = new RecipeDatabase();
 
     /**
      * Adds a recipe to the database
      * @param recipe The Recipe object to add
      */
-    public static void addRecipe(Recipe recipe) {
-        dataList.put(i, recipe);
-        i += 1;
+    public void addRecipe(Recipe recipe) {
+        recipeDatabase.addRecipe(recipe);
     }
 
     /**
@@ -32,22 +29,17 @@ public class DatabaseManager {
      * @param instructions The instructions of the recipe
      * @return The recipe just created
      */
-    public static Recipe addRecipe(String name, String type, int servings,
+    public Recipe addRecipe(String name, String type, int servings,
                                  ArrayList<String> ingredients, String instructions) {
-        Recipe newRecipe = new Recipe(i, name, type, servings, ingredients, instructions);
-        dataList.put(i, newRecipe);
-        i += 1;
-        return newRecipe;
+        return recipeDatabase.addRecipe(name, type, servings, ingredients, instructions);
     }
 
     /**
      * Removes Recipe from the database
      * @param recipe The Recipe object to remove
      */
-    public static void removeRecipe(Recipe recipe) {
-        if (dataList.containsValue(recipe)) {
-            dataList.remove(recipe.getRecipeCode());
-        }
+    public void removeRecipe(Recipe recipe) {
+        recipeDatabase.removeRecipe(recipe);
     }
 
     /**
@@ -55,8 +47,20 @@ public class DatabaseManager {
      * @param recipe A Recipe object representing the recipe
      * @return Whether the recipe is contained in dataList
      */
-    public static boolean containsRecipe(Recipe recipe) {
-        return dataList.containsKey(recipe.getRecipeCode());
+    public boolean containsRecipe(Recipe recipe) {
+        return containsRecipe(recipe.getRecipeCode());
+    }
+
+    /**
+     * Returns whether a recipe id is contained in dataList
+     */
+    public boolean containsRecipe(int recipecode) {
+        for (int code : recipeDatabase.getKeys()) {
+            if (recipecode == code) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -64,7 +68,7 @@ public class DatabaseManager {
      * @param name A String representing the name of the recipe
      * @return Whether the recipe is contained in dataList
      */
-    public static boolean containsRecipe(String name) {
+    public boolean containsRecipe(String name) {
         return findRecipe(name) != null;
     }
 
@@ -73,10 +77,10 @@ public class DatabaseManager {
      * @param name A String representing the name of the recipe
      * @return A Recipe object if the recipe is included, and null otherwise
      */
-    public static Recipe findRecipe(String name) {
-        for (Map.Entry<Integer, Recipe> entry : DatabaseManager.dataList.entrySet()) {
-            if (entry.getValue().getName().equals(name)) {
-                return entry.getValue();
+    public Recipe findRecipe(String name) {
+        for (Recipe recipe : recipeDatabase.getRecipes()) {
+            if (recipe.getName().equals(name)) {
+                return recipe;
             }
         }
         return null;
@@ -86,9 +90,9 @@ public class DatabaseManager {
      * Returns the largest recipe code in the database
      * @return An Integer object with the code
      */
-    public static Integer getHighest() {
+    public Integer getHighest() {
         int highest = 0;
-        for (Integer key : dataList.keySet()) {
+        for (Integer key : recipeDatabase.getKeys()) {
             if (highest < key) {
                 highest = key;
             }

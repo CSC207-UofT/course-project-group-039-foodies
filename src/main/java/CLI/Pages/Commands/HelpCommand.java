@@ -1,6 +1,5 @@
 package main.java.CLI.Pages.Commands;
 
-
 import main.java.CLI.CommandLineInterface;
 
 /**
