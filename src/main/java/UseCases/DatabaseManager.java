@@ -13,14 +13,6 @@ public class DatabaseManager {
     private final RecipeDatabase recipeDatabase = new RecipeDatabase();
 
     /**
-     * Adds a recipe to the database
-     * @param recipe The Recipe object to add
-     */
-    public void addRecipe(Recipe recipe) {
-        recipeDatabase.addRecipe(recipe);
-    }
-
-    /**
      * Creates a new recipe from the parameters to add to the database and returns it
      * @param name The name of the recipe
      * @param type The type of the recipe
@@ -85,7 +77,7 @@ public class DatabaseManager {
         }
         return null;
     }
-    
+
     /**
      * Returns the largest recipe code in the database
      * @return An Integer object with the code
