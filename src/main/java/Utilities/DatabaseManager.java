@@ -81,4 +81,18 @@ public class DatabaseManager {
         }
         return null;
     }
+    
+    /**
+     * Returns a new code for a recipe
+     * @return An Integer object with the code
+     */
+    public Integer getHighest() {
+        Integer highest = 0;
+        for (Integer key : this.dataMap.keySet()) {
+            if (highest < key) {
+                highest = key;
+            }
+        }
+        return highest;
+    }
 }
