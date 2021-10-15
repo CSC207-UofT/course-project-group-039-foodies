@@ -1,6 +1,7 @@
-package main.java.CLI.Commands;
+package main.java.CLI.Commands.RecipeViewerCommands;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.CLI.Commands.Command;
 
 public class EnterRecipeViewerCommand extends Command {
     public EnterRecipeViewerCommand() {

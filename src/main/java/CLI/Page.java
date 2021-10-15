@@ -14,10 +14,6 @@ public class Page {
     private Command[] commands;
     protected Page parent;
 
-    public Page(Page parent) {
-        this.parent = parent;
-    }
-
     public Page(Page parent, Command[] commands) {
         this.parent = parent;
         this.commands = commands;

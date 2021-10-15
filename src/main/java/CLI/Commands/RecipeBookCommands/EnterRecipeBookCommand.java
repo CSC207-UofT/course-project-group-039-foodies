@@ -1,8 +1,9 @@
-package main.java.CLI.Commands;
+package main.java.CLI.Commands.RecipeBookCommands;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.CLI.Commands.Command;
 
-public class EnterRecipeBookCommand extends Command{
+public class EnterRecipeBookCommand extends Command {
     public EnterRecipeBookCommand() {
         super("enter recipe book", "Enters the recipe book");
     }

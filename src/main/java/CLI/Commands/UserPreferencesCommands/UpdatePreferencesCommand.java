@@ -1,6 +1,7 @@
-package main.java.CLI.Commands;
+package main.java.CLI.Commands.UserPreferencesCommands;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.CLI.Commands.Command;
 
 /**
  * Allows the user to update their preferences
