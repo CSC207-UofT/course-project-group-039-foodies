@@ -38,21 +38,26 @@ Worked on creating and modifying CRC cards, general designing discussions, and d
 * #### NEXT STEPS:
 Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
 
-
-
 ### EMILY
 
 * #### TASKS DONE: 
+Worked on general design discussions, implementing UserManager class (revised by Mark) and test cases, and modifying User class, worked on summary of scenario walkthrough for progress report
+
 * #### NEXT STEPS:
 
 ### HAYUN
 
 * #### TASKS DONE: 
+Worked on modifying and creating CRC cards as table, Worked on Summary of CRC cards for the progress report, modifying RecipeBook, RecipeBookManager and test cases, scheduling meetings with TA
+
 * #### NEXT STEPS:
 
 ### HELENA
 
 * #### TASKS DONE: 
+Came up with the project idea. Was involved in design discussion. Implemented the User Class and test cases, partial implementation of PreferenceBook. Worked on the progress report. Created and organized Gdoc for project planning. 
+
+
 * #### NEXT STEPS:
 
 ### MARK
@@ -75,4 +80,4 @@ Involved in design discussion. Implemented Recipe and RecipeGateway Classes (rev
 
 
 * #### NEXT STEPS:
->>>>>>> origin/main
+Work on implementing rating system for Recipe and possibly an Ingredient class
