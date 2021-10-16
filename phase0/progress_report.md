@@ -2,14 +2,14 @@
 
 ## Summary of Specification
 
-* In our programme, users can :
+In our programme, users can :
   * create an individual account to access a personalized feed of recipes based on their preferences
   * create folders of recipes that they would like to save, that is, create their own personal recipe book.
   * create groups where they can view recipes that fit everyones' preferences, as well as, share the recipes they like to members of a group.
   * create their own recipes and upload it to the database
   * rate recipes that they have tried 
 
-* In addition, our recipes can be ranked as :
+In addition, our recipes can be ranked as :
     * most popular recipes in certain categories
     * most highly rated recipes
     * recipes rising in popularity
@@ -35,25 +35,33 @@ Some things that have worked well with our design thus far are:
 ### DOHYUN
 
 * #### TASKS DONE: 
-Worked on creating and modifying CRC cards, general designing discussions, and designing part of the progress report. Implemented DatabaseManager class and tests, Filter interface, FoodTypeFilter class and tests, and RecipeDatabase class (with Mark).
+  * Creating and modifying CRC cards, general designing discussions
+  * Designing part of the progress report. 
+  * Implemented DatabaseManager class and tests, Filter interface, FoodTypeFilter class and tests, and RecipeDatabase class (with Mark).
 
 * #### NEXT STEPS:
-Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
+  * Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
 
 ### EMILY
 
 * #### TASKS DONE: 
-Worked on general design discussions, implementing UserManager class (revised by Mark) and test cases, and modifying User class, worked on summary of scenario walkthrough for progress report.
+  * Worked on general design discussions 
+  * Implementing UserManager class (revised by Mark) and test cases, and modifying User class 
+  * Worked on summary of scenario walkthrough for progress report.
 
 * #### NEXT STEPS:
+  * would work on implementing Group accounts
 
 ### HAYUN
 
 * #### TASKS DONE: 
-Worked on modifying and creating CRC cards as table, Worked on Summary of CRC cards for the progress report, modifying RecipeBook, RecipeBookManager and test cases, scheduling meetings with TA.
+  * Worked on modifying and creating CRC cards as table, 
+  * Worked on Summary of CRC cards for the progress report
+  * modifying RecipeBook, RecipeBookManager and test cases
+  * scheduling meetings with TA.
 
 * #### NEXT STEPS:
-* Would like to focus on the PreferenceBook class to specify the allergies and dietary restriction data.
+  * Would like to focus on the PreferenceBook class to specify the allergies and dietary restriction data.
 
 ### HELENA
 
@@ -69,23 +77,33 @@ Worked on modifying and creating CRC cards as table, Worked on Summary of CRC ca
 ### MARK
 
 * #### TASKS DONE: 
+  * Worked on building the commandLineInterface and the relevant Page and Command classes. 
+  * Helped write CRC cards of classes in the CLI package. 
+  * Reviewed the team’s code and worked on getting it running all together without errors.
+
 * #### NEXT STEPS:
+  * Would like to work on making the code even more SOLID
+  * add more functionality with respect to what the user can do (including adding their own recipes and rating them) and expanding the test suite.
+
 
 ### MICHELLE
 
 * #### TASKS DONE: 
-Worked on the writing the textfiles versions of and creation of CRC cards, participating in design discussions, implementing RecipeBook (revised by Mark), writing test cases, generating recipes, writing and editing the programme specification and scenario walk-through, converting the information to the Markdown versions, helping with the organisation of the GoogleDoc and meeting agenda creations
+  * Worked on the writing the textfiles versions of and creation of CRC cards, participating in design discussions,  writing and editing the programme specification and scenario walk-through, converting the information to the Markdown versions, generating recipes
+  * implementing RecipeBook (revised by Mark), writing test cases
+  * helping with the organisation of the GoogleDoc and meeting agenda creations
 
 * #### NEXT STEPS: 
-* Work on developing the RecipeBook - maybe have different sections, Group features and maybe some data analysis with the recommendations?
+  * Would like to work on developing the RecipeBook - different sections of recipe book
+  * Potentially work on group features and data analysis for the recommendations/ pulling data from the web
 
 
 ### MILICA
 
 * #### TASKS DONE: 
-Involved in design discussion. Implemented Recipe and RecipeGateway Classes (revised by Mark). Revised DatabaseManager and GetNewRecipeCommand. Scheduling and hosting zoom meetings for group work.
-
-
+  * Involved in design discussion.
+  * Implemented Recipe and RecipeGateway Classes (revised by Mark). Revised DatabaseManager and GetNewRecipeCommand. Scheduling 
+  * Hosting zoom meetings for group work.
 
 * #### NEXT STEPS:
-Work on implementing rating system for Recipe and possibly an Ingredient class
+  * Work on implementing rating system for Recipe and possibly an Ingredient class
