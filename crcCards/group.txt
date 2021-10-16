@@ -1,6 +1,6 @@
 CLASS : Group
 
-    - Responsibilites
+    - Responsibilities
         - Store users in the group
         - Combine and store all family preferences
         - Store the number of group members

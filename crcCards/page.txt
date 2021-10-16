@@ -1,0 +1,11 @@
+CLASS: PAGE
+
+    - Responsibilities
+        - store a page that user can enter
+        - find the command with a certain name
+        -
+
+
+    - Collaborators
+        - PageManager
+        - CommandLineInterface
