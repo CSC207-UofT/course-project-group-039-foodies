@@ -22,6 +22,8 @@
 
 ## Open Questions that our group needs assistance with
 1) Is having an entire class containing only static methods good design? Is there any ways that we can improve on this?
+2) Between HashMap and ArrayList, which may be a better choice for storing Recipes in the RecipeDatabase and RecipeBook? (currently, we are using HashMap)
+3) What is the best way to pull recipes from online sources? Tips on cleaning the data 
 
 ## What has worked well so far with the design?
 
