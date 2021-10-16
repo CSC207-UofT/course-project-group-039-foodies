@@ -57,10 +57,11 @@ Worked on modifying and creating CRC cards as table, Worked on Summary of CRC ca
 * #### TASKS DONE: 
   * Came up with the project idea, contributed to design discussion.
   * Implemented the User Class and test cases, partial implementation of PreferenceBook.
-  * Created and organized Gdoc for project planning. 
-
+  * Created and organized Gdoc for project planning.
 
 * #### NEXT STEPS:
+  * Would like to work on the data analysis for user recommendations.
+  * Would also like to work on more filter classes (ethnicity, prep time/difficulty).
 
 ### MARK
 
