@@ -11,7 +11,6 @@ public class UserTest {
         String y = emily.getFullname();
         assertEquals(y, "Emily Yi");
     }
-
     @Test
     public void testgetUsername() {
         User emily = new User("Emily Yi", "emilyyi", "emily@gmail.com");
