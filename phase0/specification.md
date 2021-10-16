@@ -5,7 +5,7 @@ Our team aims to create a programme that is geared towards _food lovers_ looking
 * Recommendations are done by filtering recipes from our database using the preferences provided to find the recipe that is the best match.
 * In the programme, users can : 
   * create folders of recipes that they would like to save, that is, create their own personal recipe book.
-  * share the recipes they like to members of a group.
+  * create groups where they can view recipes that fit everyones' preferences, as well as, share the recipes they like to members of a group.
   * create their own recipes and upload it to the database
   * rate recipes that they have tried
 * The programme also has a feature where data from all users can be aggregated, analysed and be presented in the form of:
