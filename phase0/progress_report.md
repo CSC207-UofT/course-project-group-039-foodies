@@ -41,16 +41,17 @@ Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
 ### EMILY
 
 * #### TASKS DONE: 
-Worked on general design discussions, implementing UserManager class (revised by Mark) and test cases, and modifying User class, worked on summary of scenario walkthrough for progress report
+Worked on general design discussions, implementing UserManager class (revised by Mark) and test cases, and modifying User class, worked on summary of scenario walkthrough for progress report.
 
 * #### NEXT STEPS:
 
 ### HAYUN
 
 * #### TASKS DONE: 
-Worked on modifying and creating CRC cards as table, Worked on Summary of CRC cards for the progress report, modifying RecipeBook, RecipeBookManager and test cases, scheduling meetings with TA
+Worked on modifying and creating CRC cards as table, Worked on Summary of CRC cards for the progress report, modifying RecipeBook, RecipeBookManager and test cases, scheduling meetings with TA.
 
 * #### NEXT STEPS:
+* Would like to focus on the PreferenceBook class to specify the allergies and dietary restriction data.
 
 ### HELENA
 
@@ -73,13 +74,15 @@ Worked on modifying and creating CRC cards as table, Worked on Summary of CRC ca
 * #### TASKS DONE: 
 Worked on the writing the textfiles versions of and creation of CRC cards, participating in design discussions, implementing RecipeBook (revised by Mark), writing test cases, generating recipes, writing and editing the programme specification and scenario walk-through, converting the information to the Markdown versions, helping with the organisation of the GoogleDoc and meeting agenda creations
 
-* #### NEXT STEPS:
+* #### NEXT STEPS: 
+* Work on developing the RecipeBook - maybe have different sections, Group features and maybe some data analysis with the recommendations?
 
 
 ### MILICA
 
 * #### TASKS DONE: 
-Involved in design discussion. Implemented Recipe and RecipeGateway Classes (revised by Mark). Revised DatabaseManager and GetNewRecipeCommand
+Involved in design discussion. Implemented Recipe and RecipeGateway Classes (revised by Mark). Revised DatabaseManager and GetNewRecipeCommand. Scheduling and hosting zoom meetings for group work.
+
 
 
 * #### NEXT STEPS:
