@@ -50,7 +50,7 @@ Some things that have worked well with our design thus far are:
 * #### TASKS DONE: 
   * Creating and modifying CRC cards, general designing discussions
   * Designing part of the progress report. 
-  * Implemented DatabaseManager class and tests, Filter interface, FoodTypeFilter class and tests, and RecipeDatabase class (with Mark).
+  * Implemented DatabaseManager class and tests, Filter interface, FoodTypeFilter class and tests, and RecipeDatabase class (revised by Mark).
 
 * #### NEXT STEPS:
   * Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
