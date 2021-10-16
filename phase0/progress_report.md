@@ -1,7 +1,7 @@
 # PROGRESS REPORT
 
 ## Summary of Specification
-<<<<<<< HEAD
+
 * In our programme, users can :
   * create an individual account to access a personalized feed of recipes based on their preferences
   * create folders of recipes that they would like to save, that is, create their own personal recipe book.
@@ -76,3 +76,4 @@ Involved in design discussion. Implemented Recipe and RecipeGateway Classes (rev
 
 
 * #### NEXT STEPS:
+>>>>>>> origin/main
