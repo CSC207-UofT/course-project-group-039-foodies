@@ -54,7 +54,14 @@ Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
 ### HELENA
 
 * #### TASKS DONE: 
+  * Came up with the project idea and contributed to design discussion
+  * Implemented the User Class and test cases 
+  * Partial implementation of PreferenceBook
+  * Created and organized Gdoc for project organization.
 * #### NEXT STEPS:
+  * Would like to work on the data analysis for user recommendations
+  * Would also like to work on more filter classes (ethnicity, prep time/difficulty).
+
 
 ### MARK
 
