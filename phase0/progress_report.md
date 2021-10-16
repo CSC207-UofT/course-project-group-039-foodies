@@ -10,9 +10,9 @@ In our programme, users can :
   * rate recipes that they have tried 
 
 In addition, our recipes can be ranked as :
-    * most popular recipes in certain categories
-    * most highly rated recipes
-    * recipes rising in popularity
+* most popular recipes in certain categories
+* most highly rated recipes
+* recipes rising in popularity
 
 ## Summary of CRC model
 We have created an interface adapter, seven entities, six use cases, one gateway, and fifteen controllers. The interface adapter CommandLineInterface is built based on controllers and entities to take control in handling inputs and outputs. The package of entities in our CRC model contains various data-based classes such as User, Recipe, recipeBook. Use cases consist of a group of managers that are able to identify, organize and accomplish different tasks. The one gateway class we have is RecipeGateway which plays a role as a gateway in converting raw recipe files to Recipe objects.
