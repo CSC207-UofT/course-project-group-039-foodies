@@ -25,6 +25,7 @@ public class CommandTests {
                         "testName",
                         "testUserName",
                         "testEmail",
+
                         "sign in",
                         "testUserName"
                 }, 2);
@@ -39,16 +40,20 @@ public class CommandTests {
                 "testName",
                 "testUserName",
                 "testEmail",
+
                 "sign in",
                 "testUserName",
+
                 "enter recipe viewer",
+
                 "get new recipe",
+
                 "add to recipe book",
-                "TemporaryRecipeName",
+                "Smoothie",
         }, 5);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.containsRecipe("TemporaryRecipeName"));
+        assertTrue(recipeBookManager.containsRecipe("Smoothie"));
     }
 
     @Test
@@ -67,16 +72,17 @@ public class CommandTests {
                 "get new recipe",
 
                 "add to recipe book",
-                "TemporaryRecipeName",
+                "Smoothie",
 
                 "go back",
 
                 "enter recipe book",
+
                 "remove recipe",
-                "TemporaryRecipeName"
+                "Smoothie"
         }, 8);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertFalse(recipeBookManager.containsRecipe("TemporaryRecipeName"));
+        assertFalse(recipeBookManager.containsRecipe("Smoothie"));
     }
 }
