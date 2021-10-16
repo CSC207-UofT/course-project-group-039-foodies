@@ -1,12 +1,9 @@
-package test;
+package test.java;
 
-import main.java.DatabaseManager;
-import main.java.Recipe;
-import org.junit.Before;
+import main.java.UseCases.DatabaseManager;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -24,21 +21,14 @@ public class DatabaseManagerTest {
         ingre3.add("e");
         ingre3.add("f");
 
-        Recipe recipe1 = new Recipe(1, "Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        Recipe recipe2 = new Recipe(2, "Hamburger", "Lunch", 2, ingre2, "Build.");
-        Recipe recipe3 = new Recipe(3, "Steak", "Dinner", 3, ingre3, "Grill.");
-
         DatabaseManager manager = new DatabaseManager();
-        manager.addRecipe(recipe1);
-        manager.addRecipe(recipe2);
-        manager.addRecipe(recipe3);
+        manager.addRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        manager.addRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
+        manager.addRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
 
-        HashMap<Integer, Recipe> expected = new HashMap<>();
-        expected.put(0, recipe1);
-        expected.put(1, recipe2);
-        expected.put(2, recipe3);
-
-        assertEquals(expected, manager.dataMap);
+        assertTrue(manager.containsRecipe("Ice Cream"));
+        assertTrue(manager.containsRecipe("Hamburger"));
+        assertTrue(manager.containsRecipe("Steak"));
     }
 
     @Test
@@ -53,21 +43,15 @@ public class DatabaseManagerTest {
         ingre3.add("k");
         ingre3.add("l");
 
-        Recipe recipe1 = new Recipe(1, "Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        Recipe recipe2 = new Recipe(2, "Hamburger", "Lunch", 2, ingre2, "Build.");
-        Recipe recipe3 = new Recipe(3, "Steak", "Dinner", 3, ingre3, "Grill.");
-
         DatabaseManager manager = new DatabaseManager();
-        manager.addRecipe(recipe1);
-        manager.addRecipe(recipe2);
-        manager.addRecipe(recipe3);
-        manager.removeRecipe(recipe2);
+        manager.addRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        manager.addRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
+        manager.addRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
+        manager.removeRecipe("Hamburger");
 
-        HashMap<Integer, Recipe> expected = new HashMap<>();
-        expected.put(0, recipe1);
-        expected.put(2, recipe3);
-
-        assertEquals(expected, manager.dataMap);
+        assertTrue(manager.containsRecipe("Ice Cream"));
+        assertFalse(manager.containsRecipe("Hamburger"));
+        assertTrue(manager.containsRecipe("Steak"));
     }
 
     @Test
@@ -82,15 +66,11 @@ public class DatabaseManagerTest {
         ingre3.add("q");
         ingre3.add("r");
 
-        Recipe recipe1 = new Recipe(1, "Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        Recipe recipe2 = new Recipe(2, "Hamburger", "Lunch", 2, ingre2, "Build.");
-        Recipe recipe3 = new Recipe(3, "Steak", "Dinner", 3, ingre3, "Grill.");
-
         DatabaseManager manager = new DatabaseManager();
-        manager.addRecipe(recipe1);
-        manager.addRecipe(recipe2);
-        manager.addRecipe(recipe3);
-        manager.removeRecipe(recipe3);
+        manager.addRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        manager.addRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
+        manager.addRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
+        manager.removeRecipe("Steak");
 
         Integer expected = 1;
 

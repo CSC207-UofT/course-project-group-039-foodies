@@ -35,6 +35,17 @@ public class DatabaseManager {
     }
 
     /**
+     * Removes Recipe from the database
+     * @param name The name of the recipe to remove
+     */
+    public void removeRecipe(String name) {
+        Recipe recipe = findRecipe(name);
+        if (recipe != null) {
+            removeRecipe(recipe);
+        }
+    }
+
+    /**
      * Returns whether a recipe object is contained in dataList
      * @param recipe A Recipe object representing the recipe
      * @return Whether the recipe is contained in dataList
@@ -76,6 +87,14 @@ public class DatabaseManager {
             }
         }
         return null;
+    }
+
+    /**
+     * Returns a Recipe array of all recipes in the database
+     * @return An array of all recipes in the database
+     */
+    public Recipe[] getRecipes() {
+        return recipeDatabase.getRecipes();
     }
 
     /**

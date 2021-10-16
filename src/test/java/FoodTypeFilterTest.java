@@ -1,12 +1,11 @@
-package test;
+package test.java;
 
-import main.java.DatabaseManager;
-import main.java.FoodTypeFilter;
-import main.java.Recipe;
+import main.java.Entities.Recipe;
+import main.java.Filters.FoodTypeFilter;
+import main.java.UseCases.DatabaseManager;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -24,21 +23,15 @@ public class FoodTypeFilterTest {
         ingre3.add("e");
         ingre3.add("f");
 
-        Recipe recipe1 = new Recipe(1, "Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        Recipe recipe2 = new Recipe(2, "Hamburger", "Dinner", 2, ingre2, "Build.");
-        Recipe recipe3 = new Recipe(3, "Steak", "Dinner", 3, ingre3, "Grill.");
-
         DatabaseManager manager = new DatabaseManager();
-        manager.addRecipe(recipe1);
-        manager.addRecipe(recipe2);
-        manager.addRecipe(recipe3);
+        manager.addRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        manager.addRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
+        manager.addRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
 
-        HashMap<Integer, Recipe> expected = new HashMap<>();
-        expected.put(1, recipe2);
-        expected.put(2, recipe3);
+        FoodTypeFilter foodType = new FoodTypeFilter(manager.getRecipes(), "Dinner");
+        Recipe[] filtered = foodType.filter();
 
-        FoodTypeFilter foodType = new FoodTypeFilter(manager.dataMap, "Dinner");
-
-        assertEquals(expected, foodType.filter());
+        assertEquals(1, filtered.length);
+        assertEquals("Steak", filtered[0].getName());
     }
 }

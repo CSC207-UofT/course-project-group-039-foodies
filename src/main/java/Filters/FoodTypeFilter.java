@@ -2,26 +2,25 @@ package main.java.Filters;
 
 import main.java.Entities.Recipe;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class FoodTypeFilter implements Filter{
-    private final HashMap<Integer, Recipe> dataMap;
+    private final Recipe[] data;
     private final String foodType;
 
-    public FoodTypeFilter(HashMap<Integer, Recipe> map, String foodType) {
-        this.dataMap = map;
+    public FoodTypeFilter(Recipe[] data, String foodType) {
+        this.data = data;
         this.foodType = foodType;
     }
 
     @Override
-    public HashMap<Integer, Recipe> filter() {
-        HashMap<Integer, Recipe> result = new HashMap<>();
-        for (Map.Entry<Integer, Recipe> entry : this.dataMap.entrySet()) {
-            if (entry.getValue().getFoodType().equals(foodType)) {
-                result.put(entry.getKey(), entry.getValue());
+    public Recipe[] filter() {
+        ArrayList<Recipe> result = new ArrayList<>();
+        for (Recipe recipe : data) {
+            if (recipe.getFoodType().equals(foodType)) {
+                result.add(recipe);
             }
         }
-        return result;
+        return result.toArray(new Recipe[0]);
     }
 }

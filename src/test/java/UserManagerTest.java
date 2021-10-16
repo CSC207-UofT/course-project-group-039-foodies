@@ -1,6 +1,6 @@
 package test.java;
-import main.UseCases.Utilities.UserManager;
-import main.Entities.User;
+import main.java.Entities.User;
+import main.java.UseCases.Utilities.UserManager;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
