@@ -60,7 +60,7 @@ Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
   * Created and organized Gdoc for project organization.
 * #### NEXT STEPS:
   * Would like to work on the data analysis for user recommendations
-  * Would also like to work on more filter classes (ethnicity, prep time/difficulty).
+  * Would also like to work on more filter classes.
 
 
 ### MARK
