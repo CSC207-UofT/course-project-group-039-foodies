@@ -62,7 +62,6 @@ Implement more filter classes. (e.g. CaloriesFilter class, AllergyFilter class).
   * Would like to work on the data analysis for user recommendations
   * Would also like to work on more filter classes.
 
-
 ### MARK
 
 * #### TASKS DONE: 
