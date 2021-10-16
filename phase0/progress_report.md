@@ -55,7 +55,9 @@ Worked on modifying and creating CRC cards as table, Worked on Summary of CRC ca
 ### HELENA
 
 * #### TASKS DONE: 
-Came up with the project idea. Was involved in design discussion. Implemented the User Class and test cases, partial implementation of PreferenceBook. Worked on the progress report. Created and organized Gdoc for project planning. 
+  * Came up with the project idea, contributed to design discussion.
+  * Implemented the User Class and test cases, partial implementation of PreferenceBook.
+  * Created and organized Gdoc for project planning. 
 
 
 * #### NEXT STEPS:
