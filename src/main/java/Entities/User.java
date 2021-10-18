@@ -3,10 +3,19 @@ package main.java.Entities;
 import java.util.Scanner;
 
 public class User {
+    /** Creates a User object */
     private final String fullname;
     private final String username;
     private final String email;
     private final RecipeBook recipeBook;
+
+    /**
+     * Creates a user with a name, username, email and  with code recipe code to the Recipe Book
+     *
+     * @param fullname - the user's first and last name
+     * @param username - the user's unique username
+     * @param email - the user's email address
+     */
 
     public User(String fullname, String username, String email) {
         this.fullname = fullname;
@@ -15,12 +24,37 @@ public class User {
         this.recipeBook = new RecipeBook();
     }
 
+    /**
+     * Returns the user's fullname
+     * @return - fullname
+     */
     public String getFullname() { return this.fullname; }
+
+    /**
+     * Returns the user's username
+     * @return - return the username
+     */
+
     public String getUsername() { return this.username; }
+
+    /**
+     * Returns the user's email address
+     * @return - return the email address
+     */
+
     public String getEmail() { return this.email; }
+
+    /**
+     * Returns the user's recipebook
+     * @return - return the recipebook
+     */
+
     public RecipeBook getRecipeBook() { return this.recipeBook; }
 
-
+    /**
+     * Users are prompted with messages from the command line.
+     * Private attribute for a new instance of user are added using input from the command line.
+     */
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Please enter your name: ");
