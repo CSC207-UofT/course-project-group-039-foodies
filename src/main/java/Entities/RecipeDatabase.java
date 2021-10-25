@@ -20,23 +20,6 @@ public class RecipeDatabase {
     }
 
     /**
-     * Creates a new recipe from the parameters to add to the database and returns it
-     * @param name The name of the recipe
-     * @param type The type of the recipe
-     * @param servings The servings of the recipe
-     * @param ingredients The ingredients of the recipe
-     * @param instructions The instructions of the recipe
-     * @return The recipe just created
-     */
-    public Recipe addRecipe(String name, String type, int servings,
-                            ArrayList<String> ingredients, String instructions) {
-        Recipe newRecipe = new Recipe(i, name, type, servings, ingredients, instructions);
-        dataMap.put(i, newRecipe);
-        i += 1;
-        return newRecipe;
-    }
-
-    /**
      * Removes Recipe from the database
      * @param recipe The Recipe object to remove
      */

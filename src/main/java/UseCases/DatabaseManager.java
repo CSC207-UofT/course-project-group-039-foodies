@@ -4,7 +4,6 @@ import main.java.Entities.Recipe;
 import main.java.Entities.RecipeDatabase;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * This class stores instances of Recipe in a HashMap, adding Recipe to it, removing Recipe from it, and filtering the
@@ -25,7 +24,9 @@ public class DatabaseManager {
      */
     public Recipe addRecipe(String name, String type, int servings,
                                  ArrayList<String> ingredients, String instructions) {
-        return recipeDatabase.addRecipe(name, type, servings, ingredients, instructions);
+        Recipe newRecipe = RecipeFactory.createRecipe(name, type, servings, ingredients, instructions);
+        recipeDatabase.addRecipe(newRecipe);
+        return newRecipe;
     }
 
     /**
