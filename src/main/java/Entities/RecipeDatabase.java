@@ -1,6 +1,5 @@
 package main.java.Entities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -8,15 +7,13 @@ import java.util.HashMap;
  */
 public class RecipeDatabase {
     private final HashMap<Integer, Recipe> dataMap = new HashMap<>();
-    private Integer i = 0;
 
     /**
      * Adds a recipe to the database
      * @param recipe The Recipe object to add
      */
     public void addRecipe(Recipe recipe) {
-        dataMap.put(i, recipe);
-        i += 1;
+        dataMap.put(recipe.getRecipeCode(), recipe);
     }
 
     /**
@@ -44,5 +41,4 @@ public class RecipeDatabase {
     public Recipe[] getRecipes() {
         return dataMap.values().toArray(new Recipe[0]);
     }
-
 }
