@@ -27,6 +27,8 @@ public class Recipe {
      */
     public String toString() { return this.foodName + "\n" + this.instructions; }
 
+    public String getInstructions() { return this.instructions; }
+
     public String getFoodType() { return this.foodType; }
 
     public String getName() { return this.foodName; }
