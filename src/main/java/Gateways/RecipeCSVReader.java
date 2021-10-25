@@ -13,7 +13,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class RecipeCSVReader {
-    private static final String databasePath = "C:\\Users\\Mark\\OneDrive\\University_of_Toronto\\Year 2\\CSC207\\course-project-group-039-foodies\\src\\main\\java\\Gateways\\databases\\recipes.csv";
+    private static final String databasePath = System.getProperty("user.dir")
+            + "\\src\\main\\java\\Gateways\\databases\\recipes.csv";
 
     /**
      * Adds a recipe to recipes.csv
