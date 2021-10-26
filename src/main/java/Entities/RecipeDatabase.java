@@ -61,5 +61,4 @@ public class RecipeDatabase {
     public Recipe[] getRecipes() {
         return dataMap.values().toArray(new Recipe[0]);
     }
-
 }

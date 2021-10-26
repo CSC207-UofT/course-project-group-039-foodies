@@ -1,7 +1,6 @@
 package main.java.Filters;
 
 import main.java.Entities.Recipe;
-
 import java.util.ArrayList;
 
 public class FoodTypeFilter implements Filter{

@@ -2,7 +2,6 @@ package main.java.UseCases;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeDatabase;
-
 import java.util.ArrayList;
 import java.util.Random;
 
