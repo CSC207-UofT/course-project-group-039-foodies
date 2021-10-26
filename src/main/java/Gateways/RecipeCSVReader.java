@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RecipeCSVReader extends CSVReader {
-
     private final static RecipeCSVReader instance = new RecipeCSVReader(); // a singleton
 
     public static RecipeCSVReader getInstance() {
