@@ -3,6 +3,7 @@ package main.java.CLI;
 import java.util.*;
 
 import main.java.CLI.Commands.Command;
+import main.java.Entities.RecipeDatabase;
 import main.java.Entities.User;
 import main.java.UseCases.DatabaseManager;
 
@@ -84,5 +85,9 @@ public class CommandLineInterface {
             Command calledCommand = CLI.parseInput();
             calledCommand.runAction(CLI);
         }
+    }
+
+    public void setRecipeDatabase(RecipeDatabase recipes) {
+        databaseManager.setRecipes(recipes);
     }
 }

@@ -3,6 +3,7 @@ package main.java.UseCases;
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeDatabase;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +11,16 @@ import java.util.ArrayList;
  * Recipe.
  */
 public class DatabaseManager {
-    private final RecipeDatabase recipeDatabase = new RecipeDatabase();
+    private RecipeDatabase recipeDatabase;
     private static int counter = 0;
+
+    public DatabaseManager() {
+        this(new RecipeDatabase());
+    }
+
+    public DatabaseManager(RecipeDatabase recipeDatabase) {
+        this.recipeDatabase = recipeDatabase;
+    }
 
     /**
      * Creates a new recipe from the parameters to add to the database and returns it
@@ -121,5 +130,9 @@ public class DatabaseManager {
             }
         }
         return highest;
+    }
+
+    public void setRecipes(RecipeDatabase recipes) {
+        this.recipeDatabase = recipes;
     }
 }
