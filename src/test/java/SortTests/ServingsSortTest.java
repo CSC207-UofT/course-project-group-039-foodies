@@ -1,4 +1,4 @@
-package test.java;
+package test.java.SortTests;
 
 import main.java.Entities.Recipe;
 import main.java.Sorts.ServingsSort;
