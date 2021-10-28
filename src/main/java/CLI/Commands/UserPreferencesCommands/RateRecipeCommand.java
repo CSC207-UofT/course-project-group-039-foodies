@@ -2,6 +2,7 @@ package main.java.CLI.Commands.UserPreferencesCommands;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
+import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 
 /**
@@ -20,7 +21,9 @@ public class RateRecipeCommand extends Command {
         if (CLI.getRecipeDatabase().containsRecipe(recipeName)) {
             CLI.displayMessage("Enter rating from 1-5");
             int rating = Integer.parseInt(CLI.getTextInput());
-            recipeBookManager.rateRecipe(CLI.getUser(), recipeName, rating);
+            Recipe recipe = recipeBookManager.findRecipe(recipeName);
+            recipe.addRating(rating);
+            CLI.displayMessage("Recipe successfully rated");
         } else {
             CLI.displayMessage("Recipe not found");
         }
