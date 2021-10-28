@@ -1,18 +1,28 @@
 package main.java.Gateways;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CSVReader {
     String databasePath;
+    String tempPath = "databases/temp.csv";
+    HashMap<String, Integer> columns = new HashMap<>();
 
-    protected CSVReader(String databasePath) {
+    protected CSVReader(String databasePath, String[] columns) {
         this.databasePath = databasePath;
+
+        for (int i = 0; i < columns.length; i++) {
+            this.columns.put(columns[i], i);
+        }
+    }
+
+    private CSVReader() {
+        // Creates a temporary reader
+        this.databasePath = tempPath;
     }
 
     protected void writeLine(ArrayList<String> line) {
@@ -28,6 +38,22 @@ public class CSVReader {
         }
     }
 
+    protected void removeLine(String line, String column) {
+        removeLine(line, columns.get(column));
+    }
+
+    protected void removeLine(String name, int location) {
+        FileManager fileManager = new FileManager(tempPath);
+        fileManager.createFile();
+        CSVReader tempReader = new CSVReader();
+        for (ArrayList<String> line : readFile()) {
+            if (!line.get(location).equals(name)) {
+                tempReader.writeLine(line);
+            }
+        }
+        fileManager.changeName(databasePath);
+    }
+
     private String removeNewLines(String line) {
         return line.replace("\n", "\\n");
     }
@@ -36,6 +62,7 @@ public class CSVReader {
         return line.replace("\\n", "\n");
     }
 
+    // TODO: Make readFile private, with the column attribute, shouldn't leak its implementation to its children
     protected ArrayList<ArrayList<String>> readFile() {
         ArrayList<ArrayList<String>> returnList = new ArrayList<>();
         try {

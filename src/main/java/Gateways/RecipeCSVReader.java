@@ -16,7 +16,8 @@ public class RecipeCSVReader extends CSVReader {
 
     private RecipeCSVReader() {
         super(System.getProperty("user.dir")
-                + "\\src\\main\\java\\Gateways\\databases\\recipes.csv");
+                + "\\src\\main\\java\\Gateways\\databases\\recipes.csv",
+                new String[]{"name", "type", "servings", "ingredients", "instructions"});
     }
 
     /**
@@ -71,5 +72,9 @@ public class RecipeCSVReader extends CSVReader {
         }
 
         return recipes;
+    }
+
+    public void removeRecipe(String name) {
+        removeLine(name, "name");
     }
 }

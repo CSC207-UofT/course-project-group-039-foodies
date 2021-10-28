@@ -13,7 +13,8 @@ public class UserCSVReader extends CSVReader {
 
     protected UserCSVReader() {
         super(System.getProperty("user.dir")
-                + "\\src\\main\\java\\Gateways\\databases\\users.csv");
+                + "\\src\\main\\java\\Gateways\\databases\\users.csv",
+                new String[]{"username", "password", "fullname", "email"});
     }
 
     public void addUser(User user, String password) {
@@ -56,5 +57,9 @@ public class UserCSVReader extends CSVReader {
             }
         }
         return null;
+    }
+
+    public void removeUser(String username) {
+        removeLine(username, "username");
     }
 }
