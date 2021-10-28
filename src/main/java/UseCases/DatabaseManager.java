@@ -2,7 +2,6 @@ package main.java.UseCases;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeDatabase;
-
 import java.util.ArrayList;
 
 /**
@@ -11,14 +10,7 @@ import java.util.ArrayList;
  */
 public class DatabaseManager {
     private final RecipeDatabase recipeDatabase = new RecipeDatabase();
-
-    /**
-     * Adds a recipe to the database
-     * @param recipe The Recipe object to add
-     */
-    public void addRecipe(Recipe recipe) {
-        recipeDatabase.addRecipe(recipe);
-    }
+    private static int counter = 0;
 
     /**
      * Creates a new recipe from the parameters to add to the database and returns it
@@ -31,7 +23,9 @@ public class DatabaseManager {
      */
     public Recipe addRecipe(String name, String type, int servings,
                                  ArrayList<String> ingredients, String instructions) {
-        return recipeDatabase.addRecipe(name, type, servings, ingredients, instructions);
+        Recipe newRecipe = RecipeFactory.createRecipe(name, type, servings, ingredients, instructions);
+        recipeDatabase.addRecipe(newRecipe);
+        return newRecipe;
     }
 
     /**
@@ -40,6 +34,17 @@ public class DatabaseManager {
      */
     public void removeRecipe(Recipe recipe) {
         recipeDatabase.removeRecipe(recipe);
+    }
+
+    /**
+     * Removes Recipe from the database
+     * @param name The name of the recipe to remove
+     */
+    public void removeRecipe(String name) {
+        Recipe recipe = findRecipe(name);
+        if (recipe != null) {
+            removeRecipe(recipe);
+        }
     }
 
     /**
@@ -85,7 +90,24 @@ public class DatabaseManager {
         }
         return null;
     }
-    
+
+    public Recipe getNextRecipe() {
+        if (recipeDatabase.getRecipes().length == counter) {
+            counter = 0;
+        }
+        Recipe x = recipeDatabase.getRecipes()[counter];
+        counter += 1;
+        return x;
+    }
+
+    /**
+     * Returns a Recipe array of all recipes in the database
+     * @return An array of all recipes in the database
+     */
+    public Recipe[] getRecipes() {
+        return recipeDatabase.getRecipes();
+    }
+
     /**
      * Returns the largest recipe code in the database
      * @return An Integer object with the code

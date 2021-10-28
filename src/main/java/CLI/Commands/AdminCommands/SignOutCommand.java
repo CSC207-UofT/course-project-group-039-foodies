@@ -2,6 +2,7 @@ package main.java.CLI.Commands.AdminCommands;
 
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
+import main.java.CLI.Commands.HelpCommand;
 
 public class SignOutCommand extends Command {
     public SignOutCommand() {
@@ -12,5 +13,7 @@ public class SignOutCommand extends Command {
     public void runAction(CommandLineInterface CLI) {
         CLI.getPageManager().signOut();
         CLI.displayMessage("You have successfully signed out.");
+        Command help = new HelpCommand();
+        help.runAction(CLI);
     }
 }

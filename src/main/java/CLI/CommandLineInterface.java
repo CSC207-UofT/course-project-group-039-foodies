@@ -13,15 +13,19 @@ public class CommandLineInterface {
     public boolean isRunning;
     private final Scanner keyboard;
     private final DatabaseManager databaseManager;
+    private final PageManager pageManager;
     private User user;
-    PageManager pageManager;
 
-    public CommandLineInterface() {
+    public CommandLineInterface(Scanner keyboard) {
         isRunning = true;
         pageManager = new PageManager();
         databaseManager = new DatabaseManager();
         user = null;
-        keyboard = new Scanner(System.in);
+        this.keyboard = keyboard;
+    }
+
+    public CommandLineInterface() {
+        this(new Scanner(System.in));
     }
 
     /**
@@ -63,11 +67,12 @@ public class CommandLineInterface {
     public PageManager getPageManager() {
         return pageManager;
     }
+
     /**
      * Parses the user's input, taking input from the keyboard
      * @return Returns the command the user called, and the commandNotFound command otherwise
      */
-    private Command parseInput() {
+    public Command parseInput() {
         String input = keyboard.nextLine();
         return pageManager.findCommand(input);
     }

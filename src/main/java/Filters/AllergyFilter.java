@@ -1,22 +1,23 @@
 package main.java.Filters;
 
 import main.java.Entities.Recipe;
+
 import java.util.ArrayList;
 
-public class FoodTypeFilter implements Filter{
+public class AllergyFilter implements Filter{
     private final Recipe[] data;
-    private final String foodType;
+    private final String ingredient;
 
-    public FoodTypeFilter(Recipe[] data, String foodType) {
+    public AllergyFilter(Recipe[] data, String ingredient) {
         this.data = data;
-        this.foodType = foodType;
+        this.ingredient = ingredient;
     }
 
     @Override
     public Recipe[] filter() {
         ArrayList<Recipe> result = new ArrayList<>();
         for (Recipe recipe : data) {
-            if (recipe.getFoodType().equals(foodType)) {
+            if (!recipe.getIngredients().contains(this.ingredient)) {
                 result.add(recipe);
             }
         }

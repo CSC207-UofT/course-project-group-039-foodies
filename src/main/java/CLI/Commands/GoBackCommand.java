@@ -10,5 +10,7 @@ public class GoBackCommand extends Command {
     @Override
     public void runAction(CommandLineInterface CLI) {
         CLI.getPageManager().goBack();
+        Command help = new HelpCommand();
+        help.runAction(CLI);
     }
 }

@@ -3,20 +3,14 @@ package test.java;
 import main.java.CLI.CommandLineInterface;
 import main.java.Entities.User;
 import main.java.UseCases.Utilities.UserManager;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CommandLineInterfaceTest {
-    CommandLineInterface CLI;
-    @Before
-    public void setup() {
-        CLI = new CommandLineInterface();
-    }
-
     @Test
     void testSignIn() {
+        CommandLineInterface CLI = new CommandLineInterface();
         User user = UserManager.createNewUser("test", "test", "test");
         CLI.signIn(user);
 
