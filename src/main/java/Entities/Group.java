@@ -40,7 +40,7 @@ public class Group {
         this.recipeBook = new RecipeBook();
     }
 
-    public String generateGroupCode() {
+    public String generateGroupCode(Group group) {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "1234567890"
                 + "abcdefghijklmnopqrstuvxyz";
@@ -50,9 +50,10 @@ public class Group {
             groupCode.append(chars.charAt(index));
         }
         if (this.usedCodes.contains(groupCode.toString())) {
-            return generateGroupCode();
+            return generateGroupCode(group);
         } else {
             this.usedCodes.add(groupCode.toString());
+            group.groupCode = groupCode.toString();
             return groupCode.toString();
         }
     }
@@ -77,8 +78,8 @@ public class Group {
         System.out.print("Please enter the group name: ");
         String groupName = keyboard.nextLine();
         Group group = new Group(groupName);
-        String groupCode = group.generateGroupCode();
+        group.generateGroupCode(group);
+        String groupCode = group.getGroupCode();
         System.out.print("Your group code is " + groupCode);
-        group.groupCode = groupCode;
     }
 }

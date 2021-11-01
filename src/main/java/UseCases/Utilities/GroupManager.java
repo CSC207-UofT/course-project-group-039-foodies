@@ -11,15 +11,16 @@ public class GroupManager {
 
     /**
      * Return whether a group with a certain group code is in the groupMap
-     * @param groupCode The unique group code
      * @return True if and only if group is in groupMap
      */
-    public static boolean containsGroup(String groupCode) {
+    public static boolean containsGroup(Group group) {
+        String groupCode = group.getGroupCode();
         return groupMap.containsKey(groupCode);
     }
 
     public static Group createNewGroup(String groupName, User creator) {
         Group group = new Group(groupName);
+        group.generateGroupCode(group);
         group.getGroupMembers().add(creator.getUsername());
         return group;
     }
@@ -37,11 +38,11 @@ public class GroupManager {
     public static boolean addMember(Group group, User member) {
         String groupCode = group.getGroupCode();
         String username = member.getUsername();
-        if (!containsGroup(groupCode)) {
-            return false;
-        } else {
+        if (containsGroup(group) && !group.getGroupMembers().contains(username)){
             groupMap.get(groupCode).add(username);
             return true;
+        } else {
+            return false;
         }
     }
 
