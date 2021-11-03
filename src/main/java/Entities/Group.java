@@ -4,21 +4,7 @@ import main.java.Entities.User;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/** Group (Entity)
- *  Responsibilities: - Store users in a group (completed in GroupManager)
- *                    - Store family preferences
- *                    - Add/invite users to a group (completed in GroupManager)
- *                    - Delete a user from a group (completed in GroupManager)
- *                    - Store a RecipeBook
- *  Collaborators: - User
- *                 - RecipeBook
- *
- *
- *  Questions: - Should we create a unique ID for each group? (generateGroupCode() is implemented)
- *             - Can a user join multiple groups?
- *             -
- *
- */
+
 public class Group {
     /** Creates a Group object */
     private final String groupName;
@@ -27,19 +13,24 @@ public class Group {
     private final ArrayList<String> usedCodes;
     private final RecipeBook recipeBook;
 
+
     /**
-     * Creates a group with a group name
-     *
-     * @param
+     * Creates a group with a name, group code, group members, and Recipe Book.
+     * @param groupName - the name of the group
      */
     public Group(String groupName) {
         this.groupName = groupName;
         this.groupCode = "";
         this.groupMembers = new ArrayList<>();
-        this.usedCodes = new ArrayList<>();
         this.recipeBook = new RecipeBook();
+        this.usedCodes = new ArrayList<>();
     }
 
+
+    /**
+     * Generates a unique 7 digit group code and assign the code to the group.
+     * @param group - the name of the group
+     */
     public String generateGroupCode(Group group) {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "1234567890"
@@ -58,22 +49,35 @@ public class Group {
         }
     }
 
+    /**
+     * Returns the group's name.
+     * @return - groupName
+     */
     public String getGroupName() {return this.groupName;}
 
+
+    /**
+     * Returns the group's unique code.
+     * @return - groupCode
+     */
     public String getGroupCode() {return this.groupCode;}
 
+
+    /**
+     * Returns the list of the group members.
+     * @return - groupMembers
+     */
     public ArrayList<String> getGroupMembers() {return this.groupMembers;}
 
+
+    /**
+     * Returns the group's recipebook
+     * @return - return the recipeBook
+     */
     public RecipeBook getRecipeBook() { return this.recipeBook; }
 
 
     public static void main(String[] args) {
-//        This provides an example usage of generateGroupCode():
-//        ArrayList<String> members = new ArrayList<>();
-//        members.add("abc");
-//        Group newGroup = new Group("abc", "abc", members);
-//        System.out.println(newGroup.generateGroupCode());
-
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Please enter the group name: ");
         String groupName = keyboard.nextLine();

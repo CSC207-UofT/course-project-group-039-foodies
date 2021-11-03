@@ -1,7 +1,9 @@
 package test.java;
+
 import main.java.Entities.Group;
 import main.java.Entities.User;
 import main.java.UseCases.Utilities.GroupManager;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
