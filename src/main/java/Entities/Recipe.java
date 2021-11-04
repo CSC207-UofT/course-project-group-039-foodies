@@ -1,6 +1,8 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import main.java.Entities.User;
 
 public class Recipe {
     /** Creates a Recipe object */
@@ -11,8 +13,8 @@ public class Recipe {
     private final int servings;
     private final ArrayList<String> ingredients;
     private final String instructions;
-    private final ArrayList<Integer> ratingList;
     public Integer rating;
+    private final HashMap<User, Integer> ratingMap;
 
     public Recipe(int recipeCode, String foodName, String foodType, int servings,
                   ArrayList<String> ingredients, String instructions) {
@@ -22,7 +24,7 @@ public class Recipe {
         this.servings = servings;
         this.ingredients = ingredients;
         this.instructions = instructions;
-        this.ratingList = new ArrayList<>();
+        this.ratingMap = new HashMap<>();
     }
 
     /** Returns a formatted Recipe for the user to read
@@ -30,13 +32,15 @@ public class Recipe {
      */
     public String toString() { return this.foodName + "\n" + this.instructions; }
 
-    public void addRating(Integer rating) {
-        this.ratingList.add(rating);
+    /** Updates the cumulative rating for this recipe
+     */
+    public void addRating(User user, Integer rating) {
+        this.ratingMap.put(user, rating);
         int counter = 0;
-        for (Integer i : this.ratingList) {
-            counter = counter + i;
+        for (User i : this.ratingMap.keySet()) {
+            counter = counter + this.ratingMap.get(i);
         }
-        this.rating = counter;
+        this.rating = counter/this.ratingMap.size();
     }
 
     public Integer getRating() { return this.rating; }

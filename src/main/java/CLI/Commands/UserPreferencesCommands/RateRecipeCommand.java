@@ -18,14 +18,14 @@ public class RateRecipeCommand extends Command {
         String recipeName = CLI.getTextInput();
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
 
-        if (CLI.getRecipeDatabase().containsRecipe(recipeName)) {
+        if (recipeBookManager.containsRecipe(recipeName)) {
             CLI.displayMessage("Enter rating from 1-5");
             int rating = Integer.parseInt(CLI.getTextInput());
             Recipe recipe = recipeBookManager.findRecipe(recipeName);
-            recipe.addRating(rating);
+            recipe.addRating(CLI.getUser(), rating);
             CLI.displayMessage("Recipe successfully rated");
         } else {
-            CLI.displayMessage("Recipe not found");
+            CLI.displayMessage("Recipe not in recipe book");
         }
     }
 }
