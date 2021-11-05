@@ -14,7 +14,7 @@ public class EnterRecipeViewerCommand extends Command {
     public void runAction(CommandLineInterface CLI) {
         CLI.getPageManager().enterRecipeViewer();
 
-        CLI.setRecipeDatabase(RecipeCSVReader.getInstance().getRecipes());
+        CLI.setRecipeCollection(RecipeCSVReader.getInstance().getRecipes());
 
         Command help = new HelpCommand();
         help.runAction(CLI);

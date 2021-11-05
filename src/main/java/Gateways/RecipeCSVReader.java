@@ -1,7 +1,7 @@
 package main.java.Gateways;
 
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeDatabase;
+import main.java.Entities.RecipeCollection;
 import main.java.UseCases.RecipeFactory;
 
 import java.util.ArrayList;
@@ -66,15 +66,15 @@ public class RecipeCSVReader extends CSVReader {
      * Returns all the recipes stored in the database
      * @return A RecipeDatabase of all the recipes stored
      */
-    public RecipeDatabase getRecipes() {
-        RecipeDatabase recipes = new RecipeDatabase();
+    public RecipeCollection getRecipes() {
+        RecipeCollection recipes = new RecipeCollection();
         for (ArrayList<String> line : readFile()) {
             Recipe newRecipe = RecipeFactory.createRecipe(
                     line.get(0),
                     line.get(1),
                     Integer.parseInt(line.get(2)),
-                    new ArrayList<>(Arrays.asList(line.get(2).split(","))),
-                    line.get(3)
+                    new ArrayList<>(Arrays.asList(line.get(3).split(","))),
+                    line.get(4)
             );
             recipes.addRecipe(newRecipe);
         }

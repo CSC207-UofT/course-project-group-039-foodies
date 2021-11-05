@@ -3,9 +3,8 @@ package main.java.CLI;
 import java.util.*;
 
 import main.java.CLI.Commands.Command;
-import main.java.Entities.RecipeDatabase;
+import main.java.Entities.RecipeCollection;
 import main.java.Entities.User;
-import main.java.UseCases.DatabaseManager;
 
 /**
  * The class responsible for handling input and output
@@ -13,14 +12,14 @@ import main.java.UseCases.DatabaseManager;
 public class CommandLineInterface {
     public boolean isRunning;
     private final Scanner keyboard;
-    private final DatabaseManager databaseManager;
     private final PageManager pageManager;
     private User user;
+    private RecipeCollection recipes;
 
     public CommandLineInterface(Scanner keyboard) {
         isRunning = true;
         pageManager = new PageManager();
-        databaseManager = new DatabaseManager();
+        recipes = new RecipeCollection();
         user = null;
         this.keyboard = keyboard;
     }
@@ -61,8 +60,8 @@ public class CommandLineInterface {
         return keyboard.nextLine();
     }
 
-    public DatabaseManager getRecipeDatabase() {
-        return databaseManager;
+    public RecipeCollection getRecipeCollection() {
+        return recipes;
     }
 
     public PageManager getPageManager() {
@@ -87,7 +86,7 @@ public class CommandLineInterface {
         }
     }
 
-    public void setRecipeDatabase(RecipeDatabase recipes) {
-        databaseManager.setRecipes(recipes);
+    public void setRecipeCollection(RecipeCollection recipes) {
+        this.recipes = recipes;
     }
 }

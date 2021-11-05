@@ -1,7 +1,8 @@
 package main.java.Gateways;
 
 import main.java.Entities.Recipe;
-import main.java.UseCases.DatabaseManager;
+import main.java.Entities.RecipeCollection;
+import main.java.UseCases.RecipeFactory;
 
 import java.util.ArrayList;
 
@@ -9,10 +10,10 @@ public class RecipeGateway {
     /**
      * Builds a RecipeGateway to convert raw recipe files to Recipe object and store them in the recipe database.
      */
-    DatabaseManager databaseManager;
+    RecipeCollection recipes;
 
-    public RecipeGateway(DatabaseManager databaseManager) {
-        this.databaseManager = databaseManager;
+    public RecipeGateway(RecipeCollection recipes) {
+        this.recipes = recipes;
     }
 
     /**
@@ -41,8 +42,9 @@ public class RecipeGateway {
         Object[][] setOfRecipes = new Object[][]{SmoothieList, RamenList, CapreseMacNCheeseList, AvocadoChipsList, PancakesList, RicePuddingList};
 
         for (Object[] setOfRecipe : setOfRecipes) {
-            databaseManager.addRecipe((String) setOfRecipe[0], (String) setOfRecipe[1],
+            Recipe recipe = RecipeFactory.createRecipe((String) setOfRecipe[0], (String) setOfRecipe[1],
                     (int) setOfRecipe[2], (ArrayList<String>) setOfRecipe[3], (String) setOfRecipe[4]);
+            recipes.addRecipe(recipe);
         }
     }
 
@@ -51,7 +53,7 @@ public class RecipeGateway {
      * @return The recipe just added
      */
     public Recipe getNewRecipe() {
-        return databaseManager.addRecipe("TemporaryRecipeName", "TemporaryRecipeType",
+        return RecipeFactory.createRecipe("TemporaryRecipeName", "TemporaryRecipeType",
                 1, new ArrayList<>(), "TemporaryRecipe");
     }
 }
