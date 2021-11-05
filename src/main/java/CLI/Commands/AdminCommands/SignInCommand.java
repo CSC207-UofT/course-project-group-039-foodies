@@ -19,7 +19,7 @@ public class SignInCommand extends Command {
 
         if (UserCSVReader.getInstance().isUser(username)) {
             if (UserCSVReader.getInstance().isCorrectPassword(username, password)) {
-                CLI.signIn(UserCSVReader.getInstance().getUser(username, password));
+                CLI.signIn(UserCSVReader.getInstance().getUser(username));
 
                 CLI.getPageManager().signIn();
                 CLI.displayMessage("You have successfully signed in");

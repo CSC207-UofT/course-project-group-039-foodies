@@ -8,16 +8,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RecipeCSVReader extends CSVReader {
-    private final static RecipeCSVReader instance = new RecipeCSVReader(); // a singleton
+    private final static RecipeCSVReader instance = new RecipeCSVReader(
+            System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\recipes.csv"
+    ); // a singleton
+
+    private final static RecipeCSVReader testInstance = new RecipeCSVReader(
+            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\recipesTest.csv"
+    ); // a singleton for testing safely
 
     public static RecipeCSVReader getInstance() {
         return instance;
     }
 
-    private RecipeCSVReader() {
-        super(System.getProperty("user.dir")
-                + "\\src\\main\\java\\Gateways\\databases\\recipes.csv",
-                new String[]{"name", "type", "servings", "ingredients", "instructions"});
+    public static RecipeCSVReader getTestInstance() {
+        return testInstance;
+    }
+
+    private RecipeCSVReader(String path) {
+        super(path, new String[]{"name", "type", "servings", "ingredients", "instructions"});
     }
 
     /**
@@ -74,6 +82,10 @@ public class RecipeCSVReader extends CSVReader {
         return recipes;
     }
 
+    /**
+     * Removes a recipe from the database
+     * @param name The name of the recipe to remove
+     */
     public void removeRecipe(String name) {
         removeLine(name, "name");
     }

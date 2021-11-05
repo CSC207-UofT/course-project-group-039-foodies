@@ -3,7 +3,6 @@ package main.java.CLI.Commands.AdminCommands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
 import main.java.Gateways.UserCSVReader;
-import main.java.UseCases.Utilities.UserManager;
 
 /**
  * Allows the user to create a new account
@@ -24,7 +23,6 @@ public class CreateAccountCommand extends Command {
         CLI.displayMessage("Input your email");
         String email = CLI.getTextInput();
         if (!UserCSVReader.getInstance().isUser(username)) {
-            UserManager.addUser(fullname, username, email);
             UserCSVReader.getInstance().addUser(username, password, fullname, email);
             CLI.displayMessage("The user has been created");
         } else {
