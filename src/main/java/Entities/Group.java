@@ -1,6 +1,4 @@
 package main.java.Entities;
-import main.java.Entities.User;
-import main.java.UseCases.GroupFactory;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -20,14 +20,6 @@ public class GroupManager {
     }
 
 
-    //    public static Group createNewGroup(String groupName, User creator) {
-//        Group group = new Group(groupName);
-//        group.generateGroupCode(group);
-//        group.getGroupMembers().add(creator.getUsername());
-//        return group;
-//    }
-
-
     /**
      * If the group code does not appear as a key in groupMap,
      * then add the list of the group members as its value to groupMap.

@@ -5,7 +5,6 @@ import main.java.Entities.User;
 import main.java.UseCases.Utilities.GroupManager;
 import main.java.UseCases.GroupFactory;
 
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
