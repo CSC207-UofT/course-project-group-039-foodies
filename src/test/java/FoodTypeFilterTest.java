@@ -25,10 +25,12 @@ public class FoodTypeFilterTest {
         ingre3.add("f");
 
         RecipeCollection recipes = new RecipeCollection();
-        Recipe recipe0 = RecipeFactory.createRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        Recipe recipe1 = RecipeFactory.createRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
-        Recipe recipe2 = RecipeFactory.createRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
-
+        Recipe recipe0 = RecipeFactory.createRecipe
+                ("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        Recipe recipe1 = RecipeFactory.createRecipe
+                ("Hamburger", "Lunch", 2, ingre2, "Build.");
+        Recipe recipe2 = RecipeFactory.createRecipe
+                ("Steak", "Dinner", 3, ingre3, "Grill.");
         recipes.addRecipe(recipe0);
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
