@@ -3,6 +3,8 @@ package test.java;
 import main.java.Entities.Group;
 import main.java.Entities.User;
 import main.java.UseCases.Utilities.GroupManager;
+import main.java.UseCases.GroupFactory;
+
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,63 +14,44 @@ public class GroupManagerTest {
 
     @Test
     public void testCreateNewGroup() {
-        Group group1 = new Group("Group 1");
-        User user1 = new User("Emily Yi", "emilyyi", "emily@gamil.com");
-        String groupName1 = group1.getGroupName();
-        Group createdGroup1 = GroupManager.createNewGroup(groupName1, user1);
-        assertTrue(createdGroup1.getGroupMembers().contains(user1.getUsername()));
+        User userEmily = new User("Emily Y", "emily", "emily@gamil.com");
+        Group group1 = GroupFactory.createNewGroup("Group 1", userEmily);
+        GroupManager.addGroup(group1);
+        assertTrue(group1.getGroupMembers().contains(userEmily.getUsername()));
 
-        Group group2 = new Group("Group 2");
-        User user2 = new User("Judy Kim", "judykim", "judy@gamil.com");
-        String groupName2 = group2.getGroupName();
-        Group createdGroup2 = GroupManager.createNewGroup(groupName2, user2);
-        assertTrue(createdGroup2.getGroupMembers().contains(user2.getUsername()));
+        User userJudy = new User("Judy K", "judy", "judy@gamil.com");
+        Group group2 = GroupFactory.createNewGroup("Group 2", userJudy);
+        assertTrue(group2.getGroupMembers().contains(userJudy.getUsername()));
 
-        assertNotEquals(createdGroup1.getGroupCode(), createdGroup2.getGroupCode());
+        assertNotEquals(group1.getGroupCode(), group2.getGroupCode());
+
 
     }
 
-    @Test
-    public void testAddGroup() {
-        Group group1 = new Group("Group 1");
-        User user1 = new User("Emily Yi", "emilyyi", "emily@gamil.com");
-        String groupName1 = group1.getGroupName();
-        Group createdGroup1 = GroupManager.createNewGroup(groupName1, user1);
-        assertTrue(GroupManager.addGroup(createdGroup1));
-        assertFalse(GroupManager.addGroup(createdGroup1));
-        assertTrue(GroupManager.containsGroup(createdGroup1));
-    }
 
     @Test
     public void testAddMember() {
-        Group group1 = new Group("Group 1");
-        User user1 = new User("Emily Yi", "emilyyi", "emily@gamil.com");
-        String groupName1 = group1.getGroupName();
-        Group createdGroup1 = GroupManager.createNewGroup(groupName1, user1);
-        assertTrue(GroupManager.addGroup(createdGroup1));
-        assertTrue(GroupManager.containsGroup(createdGroup1));
+        User userEmily = new User("Emily Yi", "emilyyi", "emily@gamil.com");
+        Group group1 = GroupFactory.createNewGroup("Group 1", userEmily);
+        assertTrue(GroupManager.containsGroup(group1));
 
-        User user3 = new User("Helena Jovic", "helenajovic", "helena@gamil.com");
-        assertTrue(GroupManager.addMember(createdGroup1, user3));
+        User userHelena = new User("Helena Jovic", "helenajovic", "helena@gamil.com");
+        assertTrue(GroupManager.addMember(group1, userHelena));
     }
 
     @Test
     public void testRemoveMember() {
-        Group group = new Group("Group 2");
         User userMichelle = new User("Michelle Lin", "michelle",
                 "lin@gamil.com");
-        String groupName = group.getGroupName();
-        Group createdGroup = GroupManager.createNewGroup(groupName, userMichelle);
-        assertTrue(GroupManager.addGroup(createdGroup));
-        assertTrue(GroupManager.containsGroup(createdGroup));
+        Group group2 = GroupFactory.createNewGroup("Group 2", userMichelle);
+        assertTrue(GroupManager.containsGroup(group2));
 
         User userHelena = new User("Helena Jovic", "helenajovic",
                 "helena@gamil.com");
-        assertFalse(GroupManager.removeMember(createdGroup, userHelena));
-        assertTrue(GroupManager.addMember(createdGroup, userHelena));
-        assertTrue(GroupManager.removeMember(createdGroup, userHelena));
-        assertFalse(createdGroup.getGroupMembers().contains(userHelena.getUsername()));
-
+        assertFalse(GroupManager.removeMember(group2, userHelena));
+        assertTrue(GroupManager.addMember(group2, userHelena));
+        assertTrue(GroupManager.removeMember(group2, userHelena));
+        assertFalse(group2.getGroupMembers().contains(userHelena.getUsername()));
     }
 
 }
