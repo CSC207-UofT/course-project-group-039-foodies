@@ -18,7 +18,6 @@ public class RatingComparator implements Comparator<Recipe> {
      */
     @Override
     public int compare (Recipe recipe1, Recipe recipe2) {
-        //return recipe2.getRating() - recipe1.getRating();
-        return 1;
+        return recipe2.getRating() - recipe1.getRating();
     }
 }
