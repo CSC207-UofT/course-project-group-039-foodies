@@ -1,8 +1,9 @@
 package test.java;
 
 import main.java.Entities.Recipe;
+import main.java.Entities.RecipeCollection;
 import main.java.Filters.FoodTypeFilter;
-import main.java.UseCases.DatabaseManager;
+import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -23,12 +24,16 @@ public class FoodTypeFilterTest {
         ingre3.add("e");
         ingre3.add("f");
 
-        DatabaseManager manager = new DatabaseManager();
-        manager.addRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
-        manager.addRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
-        manager.addRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
+        RecipeCollection recipes = new RecipeCollection();
+        Recipe recipe0 = RecipeFactory.createRecipe("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+        Recipe recipe1 = RecipeFactory.createRecipe("Hamburger", "Lunch", 2, ingre2, "Build.");
+        Recipe recipe2 = RecipeFactory.createRecipe("Steak", "Dinner", 3, ingre3, "Grill.");
 
-        FoodTypeFilter foodType = new FoodTypeFilter(manager.getRecipes(), "Dinner");
+        recipes.addRecipe(recipe0);
+        recipes.addRecipe(recipe1);
+        recipes.addRecipe(recipe2);
+
+        FoodTypeFilter foodType = new FoodTypeFilter(recipes.getRecipes(), "Dinner");
         Recipe[] filtered = foodType.filter();
 
         assertEquals(1, filtered.length);
