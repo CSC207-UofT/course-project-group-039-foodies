@@ -16,7 +16,7 @@ public class AddToRecipeBookCommand extends Command {
         CLI.displayMessage("Enter the name of the recipe you want to add");
         String recipeName = CLI.getTextInput();
 
-        Recipe recipe = CLI.getRecipeDatabase().findRecipe(recipeName);
+        Recipe recipe = CLI.getRecipeCollection().findRecipe(recipeName);
         if (recipe == null) {
             CLI.displayMessage("This recipe does not exist");
         } else {
