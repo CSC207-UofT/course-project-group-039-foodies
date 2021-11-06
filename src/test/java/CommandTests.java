@@ -21,14 +21,10 @@ public class CommandTests {
     public void testSignIn() {
         CommandLineInterface CLI = runCommands(
                 new String[]{
-                        "create account",
-                        "testName",
-                        "testUserName",
-                        "testEmail",
-
                         "sign in",
-                        "testUserName"
-                }, 2);
+                        "testUserName",
+                        "testPassword"
+                }, 1);
 
         assertEquals(CLI.getUser().getUsername(), "testUserName");
     }
@@ -36,13 +32,9 @@ public class CommandTests {
     @Test
     public void testAddToRecipeBook() {
         CommandLineInterface CLI = runCommands(new String[]{
-                "create account",
-                "testName",
-                "testUserName",
-                "testEmail",
-
                 "sign in",
                 "testUserName",
+                "testPassword",
 
                 "enter recipe viewer",
 
@@ -50,7 +42,7 @@ public class CommandTests {
 
                 "add to recipe book",
                 "Smoothie",
-        }, 5);
+        }, 4);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertTrue(recipeBookManager.containsRecipe("Smoothie"));
@@ -59,13 +51,9 @@ public class CommandTests {
     @Test
     public void testRemoveRecipeCommand() {
         CommandLineInterface CLI = runCommands(new String[]{
-                "create account",
-                "testName",
-                "testUserName",
-                "testEmail",
-
                 "sign in",
                 "testUserName",
+                "testPassword",
 
                 "enter recipe viewer",
 
@@ -80,7 +68,7 @@ public class CommandTests {
 
                 "remove recipe",
                 "Smoothie"
-        }, 8);
+        }, 7);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertFalse(recipeBookManager.containsRecipe("Smoothie"));

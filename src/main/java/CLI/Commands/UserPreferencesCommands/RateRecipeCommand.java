@@ -17,7 +17,7 @@ public class RateRecipeCommand extends Command {
         String recipeName = CLI.getTextInput();
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
 
-        if (CLI.getRecipeDatabase().containsRecipe(recipeName)) {
+        if (CLI.getRecipeCollection().containsRecipe(recipeName)) {
             CLI.displayMessage("Enter rating from 1-5");
             int rating = Integer.parseInt(CLI.getTextInput());
             recipeBookManager.rateRecipe(CLI.getUser(), recipeName, rating);
