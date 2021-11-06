@@ -1,9 +1,12 @@
 package main.java.UseCases;
+
+import main.java.Entities.Group;
 import java.util.ArrayList;
 
 public class GroupFactory{
   
   private static ArrayList<String> usedCodes;
+  
   
   /**
    * Generates a unique 7 digit group code and assign the code to the group.
