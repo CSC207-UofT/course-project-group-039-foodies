@@ -1,4 +1,4 @@
-package test.java;
+package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Filters.AllergyFilter;
@@ -24,7 +24,7 @@ public class AllergyFilterTest {
         ArrayList<String> ingre3 = new ArrayList<>();
         ingre3.add("eggplant");
         ingre3.add("egg");
-        ingre3.add("nut");
+        ingre3.add("oil");
 
         DatabaseManager manager = new DatabaseManager();
         manager.addRecipe("food1", "Dessert", 1, ingre1, "Just.");
@@ -35,7 +35,7 @@ public class AllergyFilterTest {
         Recipe[] filtered = allergy.filter();
 
         assertEquals(2, filtered.length);
-        assertEquals("food1", filtered[0].getName());
+        assertEquals("food2", filtered[0].getName());
         assertEquals("food3", filtered[1].getName());
     }
 }
