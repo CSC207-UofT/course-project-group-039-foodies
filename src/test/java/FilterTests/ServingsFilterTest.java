@@ -1,4 +1,4 @@
-package test.java;
+package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Filters.ServingsFilter;
