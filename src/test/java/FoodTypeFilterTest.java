@@ -1,4 +1,4 @@
-package test.java.FilterTests;
+package test.java;
 
 import main.java.Entities.Recipe;
 import main.java.Filters.FoodTypeFilter;
