@@ -15,8 +15,8 @@ public class Recipe {
     private final int servings;
     private final ArrayList<String> ingredients;
     private final String instructions;
-    public Integer rating;
-    public int ratingCount;
+    public double rating;
+    public double ratingCount;
 
     public Recipe(int recipeCode, String foodName, String foodType, int servings,
                   ArrayList<String> ingredients, String instructions) {
@@ -37,15 +37,14 @@ public class Recipe {
 
     /** Updates the cumulative rating for this recipe
      */
-    public void addRating(Integer rating) {
+    public void addRating(double rating) {
         this.ratingCount ++;
         this.rating = (this.rating * (this.ratingCount - 1) + rating) / this.ratingCount;
-        RecipeCSVReader.getInstance().addRating(this.foodName, this.rating, this.ratingCount);
     }
 
     public String getInstructions() {return this.instructions;}
 
-    public Integer getRating() { return this.rating; }
+    public double getRating() { return this.rating; }
 
     public String getFoodType() { return this.foodType; }
 

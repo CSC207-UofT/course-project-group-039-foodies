@@ -3,6 +3,7 @@ package main.java.CLI.Commands.UserPreferencesCommands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
 import main.java.Entities.Recipe;
+import main.java.Gateways.RecipeCSVReader;
 import main.java.UseCases.RecipeBookManager;
 
 /**
@@ -21,8 +22,9 @@ public class RateRecipeCommand extends Command {
         if (recipeBookManager.containsRecipe(recipeName)) {
             CLI.displayMessage("Enter rating from 1-5");
             int rating = Integer.parseInt(CLI.getTextInput());
-            Recipe recipe = recipeBookManager.findRecipe(recipeName);
-            recipe.addRating(rating);
+            Recipe recipe = CLI.getRecipeCollection().findRecipe(recipeName); //getting recipe from RecipeCollection
+            recipe.addRating(rating); //recipe object is updated
+            RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount); //csv is updated
             CLI.displayMessage("Recipe successfully rated");
         } else {
             CLI.displayMessage("Recipe not in recipe book");
