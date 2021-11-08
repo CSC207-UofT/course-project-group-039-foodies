@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class CSVReader {
     String databasePath;
-    String tempPath = System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\temp.csv";
+    String tempPath = System.getProperty("user.dir") + "/src/main/java/Gateways/databases/temp.csv";
     HashMap<String, Integer> columns = new HashMap<>();
 
     /**

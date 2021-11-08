@@ -22,7 +22,7 @@ public class RateRecipeCommand extends Command {
             CLI.displayMessage("Enter rating from 1-5");
             int rating = Integer.parseInt(CLI.getTextInput());
             Recipe recipe = recipeBookManager.findRecipe(recipeName);
-            recipe.addRating(CLI.getUser(), rating);
+            recipe.addRating(rating);
             CLI.displayMessage("Recipe successfully rated");
         } else {
             CLI.displayMessage("Recipe not in recipe book");

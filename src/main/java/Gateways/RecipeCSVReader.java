@@ -9,11 +9,11 @@ import java.util.Arrays;
 
 public class RecipeCSVReader extends CSVReader {
     private final static RecipeCSVReader instance = new RecipeCSVReader(
-            System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\recipes.csv"
+            System.getProperty("user.dir") + "/src/main/java/Gateways/databases/recipes.csv"
     ); // a singleton
 
     private final static RecipeCSVReader testInstance = new RecipeCSVReader(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\recipesTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipesTest.csv"
     ); // a singleton for testing safely
 
     public static RecipeCSVReader getInstance() {
@@ -25,7 +25,7 @@ public class RecipeCSVReader extends CSVReader {
     }
 
     private RecipeCSVReader(String path) {
-        super(path, new String[]{"name", "type", "servings", "ingredients", "instructions"});
+        super(path, new String[]{"name", "type", "servings", "ingredients", "instructions", "rating", "ratingcount"});
     }
 
     /**
@@ -81,6 +81,22 @@ public class RecipeCSVReader extends CSVReader {
 
         return recipes;
     }
+
+    /**
+     * Add a cumulative rating to a recipe
+     */
+    public void addRating(String recipeName, int rating, int ratingCount) {
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(recipeName)) {
+                removeRecipe(recipeName);
+                line.add(String.valueOf(rating));
+                line.add(String.valueOf(ratingCount));
+                writeLine(line);
+                break;
+            }
+        }
+    }
+
 
     /**
      * Removes a recipe from the database

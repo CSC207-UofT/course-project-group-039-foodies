@@ -3,6 +3,8 @@ package main.java.Entities;
 import java.util.ArrayList;
 import java.util.HashMap;
 import main.java.Entities.User;
+import main.java.Gateways.RecipeCSVReader;
+import main.java.Gateways.UserCSVReader;
 
 public class Recipe {
     /** Creates a Recipe object */
@@ -14,7 +16,7 @@ public class Recipe {
     private final ArrayList<String> ingredients;
     private final String instructions;
     public Integer rating;
-    private final HashMap<User, Integer> ratingMap;
+    public int ratingCount;
 
     public Recipe(int recipeCode, String foodName, String foodType, int servings,
                   ArrayList<String> ingredients, String instructions) {
@@ -24,7 +26,8 @@ public class Recipe {
         this.servings = servings;
         this.ingredients = ingredients;
         this.instructions = instructions;
-        this.ratingMap = new HashMap<>();
+        this.rating = 0;
+        this.ratingCount = 0;
     }
 
     /** Returns a formatted Recipe for the user to read
@@ -34,14 +37,13 @@ public class Recipe {
 
     /** Updates the cumulative rating for this recipe
      */
-    public void addRating(User user, Integer rating) {
-        this.ratingMap.put(user, rating);
-        int counter = 0;
-        for (User i : this.ratingMap.keySet()) {
-            counter = counter + this.ratingMap.get(i);
-        }
-        this.rating = counter/this.ratingMap.size();
+    public void addRating(Integer rating) {
+        this.ratingCount ++;
+        this.rating = (this.rating * (this.ratingCount - 1) + rating) / this.ratingCount;
+        RecipeCSVReader.getInstance().addRating(this.foodName, this.rating, this.ratingCount);
     }
+
+    public String getInstructions() {return this.instructions;}
 
     public Integer getRating() { return this.rating; }
 
