@@ -1,19 +1,17 @@
-package test.java;
+package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
 import main.java.Filters.AllergyFilter;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class AllergyFilterTest {
 
     @Test
-    public void testFoodTypeFilter() {
+    public void testAllergyFilter() {
         ArrayList<String> ingre1 = new ArrayList<>();
         ingre1.add("walnut");
         ingre1.add("carrot");

@@ -1,44 +1,39 @@
-package test.java;
+package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Filters.FoodTypeFilter;
+import main.java.Filters.ServingsFilter;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
-public class FoodTypeFilterTest {
+public class ServingsFilterTest {
 
     @Test
-    public void testFoodTypeFilter() {
+    public void testServingsFilter() {
         ArrayList<String> ingre1 = new ArrayList<>();
         ingre1.add("a");
         ArrayList<String> ingre2 = new ArrayList<>();
         ingre2.add("b");
-        ingre2.add("c");
         ArrayList<String> ingre3 = new ArrayList<>();
-        ingre3.add("d");
-        ingre3.add("e");
-        ingre3.add("f");
+        ingre3.add("c");
 
         RecipeCollection recipes = new RecipeCollection();
-        Recipe recipe0 = RecipeFactory.createRecipe
-                ("Ice Cream", "Dessert", 1, ingre1, "Cold.");
         Recipe recipe1 = RecipeFactory.createRecipe
-                ("Hamburger", "Lunch", 2, ingre2, "Build.");
+                ("food1", "Dessert", 1, ingre1, "Just.");
         Recipe recipe2 = RecipeFactory.createRecipe
-                ("Steak", "Dinner", 3, ingre3, "Grill.");
-        recipes.addRecipe(recipe0);
+                ("food2", "Lunch", 2, ingre2, "Do.");
+        Recipe recipe3 = RecipeFactory.createRecipe
+                ("food3", "Dinner", 3, ingre3, "It.");
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
+        recipes.addRecipe(recipe3);
 
-        FoodTypeFilter foodType = new FoodTypeFilter(recipes.getRecipes(), "Dinner");
-        Recipe[] filtered = foodType.filter();
+        ServingsFilter servings = new ServingsFilter(recipes.getRecipes(), 2);
+        Recipe[] filtered = servings.filter();
 
         assertEquals(1, filtered.length);
-        assertEquals("Steak", filtered[0].getName());
+        assertEquals("food2", filtered[0].getName());
     }
 }
