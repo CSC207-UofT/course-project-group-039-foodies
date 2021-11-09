@@ -96,7 +96,7 @@ public class UserCSVReader extends CSVReader {
     }
 
     /**
-     * @param username Removes a user with a certain username from the
+     * @param username Removes a user with a certain username from the database
      */
     public void removeUser(String username) {
         removeLine(username, "username");
