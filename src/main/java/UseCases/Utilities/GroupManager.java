@@ -21,21 +21,6 @@ public class GroupManager {
 
 
     /**
-     * Create a group
-     * @param groupName The name of the group.
-     * @param creator The user who creates the group.
-     * @return The group object with the group's unique group code and
-     * the list of members that contains the user who creates the group.
-     */
-    public static Group createNewGroup(String groupName, User creator) {
-        Group group = new Group(groupName);
-        group.generateGroupCode(group);
-        group.getGroupMembers().add(creator.getUsername());
-        return group;
-    }
-
-
-    /**
      * If the group code does not appear as a key in groupMap,
      * then add the list of the group members as its value to groupMap.
      * @param group The group code.
