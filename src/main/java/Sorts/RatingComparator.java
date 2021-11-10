@@ -7,20 +7,15 @@ public class RatingComparator implements Comparator<Recipe> {
     /**
      * Compares its two arguments for order.
      *
-     * Returns -1, 0, or 1 as recipe1 is less than, equal to, or greater than recipe2 in terms of the rating.
+     * Returns a negative integer, 0, or a positive integer as recipe1 is less than, equal to, or greater than recipe2
+     * in terms of the rating.
      *
      * @param recipe1 the first Recipe to compare
      * @param recipe2 the second Recipe to compare
-     * @return -1, 0, or 1 as recipe1 is less than, equal to, or greater than recipe2
+     * @return a negative integer, 0, or a positive integer as recipe1 is less than, equal to, or greater than recipe2
      */
     @Override
     public int compare (Recipe recipe1, Recipe recipe2) {
-        if (recipe1.getRating > recipe2.getRating) {
-            return 1;
-        } else if (recipe1.getRating == recipe2.getRating) {
-            return 0;
-        } else {
-            return -1;
-        }
+        return Double.compare(recipe1.getRating(), recipe2.getRating());
     }
 }
