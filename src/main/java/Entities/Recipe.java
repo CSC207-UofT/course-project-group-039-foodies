@@ -42,7 +42,7 @@ public class Recipe {
         this.rating = (this.rating * (this.ratingCount - 1) + rating) / this.ratingCount;
     }
 
-    public String getInstructions() {return this.instructions;}
+    public String getInstructions() { return this.instructions; }
 
     public double getRating() { return this.rating; }
 
