@@ -51,14 +51,4 @@ public class Group {
      */
     public RecipeBook getRecipeBook() { return this.recipeBook; }
 
-
-//    public static void main(String[] args) {
-//        Scanner keyboard = new Scanner(System.in);
-//        System.out.print("Please enter the group name: ");
-//        String groupName = keyboard.nextLine();
-//        Group group = GroupFactory.createGroup(groupName, )
-//        group.generateGroupCode(group);
-//        String groupCode = group.getGroupCode();
-//        System.out.print("Your group code is " + groupCode);
-//    }
 }
