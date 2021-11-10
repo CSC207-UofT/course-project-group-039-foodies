@@ -1,10 +1,9 @@
 package main.java.UseCases;
 
 import main.java.Entities.Group;
-import main.java.Entities.User;
-import main.java.UseCases.Utilities.GroupManager;
 
 import java.util.ArrayList;
+
 
 public class GroupFactory{
 
@@ -41,3 +40,4 @@ public class GroupFactory{
         return new Group(groupName, groupCode);
     }
 }
+

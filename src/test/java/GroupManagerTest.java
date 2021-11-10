@@ -45,6 +45,7 @@ public class GroupManagerTest {
         assertTrue(group1.getGroupMembers().contains(userHelena.getUsername()));
         assertFalse(GroupManager.addMember(group1.getGroupCode(), userHelena.getUsername()));
     }
+    
 
     @Test
     public void testRemoveMember() {
@@ -61,4 +62,3 @@ public class GroupManagerTest {
         assertTrue(GroupManager.removeMember(group2.getGroupCode(), userMichelle.getUsername()));
     }
 }
-

@@ -2,16 +2,16 @@ package test.java.SortTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Sorts.ServingsSort;
+import main.java.Sorts.RatingSort;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 
-public class ServingsSortTest {
+public class RatingSortTest {
 
     @Test
-    public void testServingsSort() {
+    public void testRatingSort() {
         ArrayList<String> ingre1 = new ArrayList<>();
         ingre1.add("a");
         ArrayList<String> ingre2 = new ArrayList<>();
@@ -26,12 +26,17 @@ public class ServingsSortTest {
                 ("food2", "Lunch", 1, ingre2, "Do.");
         Recipe recipe3 = RecipeFactory.createRecipe
                 ("food3", "Dinner", 2, ingre3, "It.");
+
+        recipe1.addRating(1);
+        recipe2.addRating(5);
+        recipe3.addRating(3);
+
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
 
-        ServingsSort servings = new ServingsSort(recipes.getRecipes());
-        Recipe[] sorted = servings.sort();
+        RatingSort ratings = new RatingSort(recipes.getRecipes());
+        Recipe[] sorted = ratings.sort();
 
         assertEquals("food2", sorted[0].getName());
         assertEquals("food3", sorted[1].getName());

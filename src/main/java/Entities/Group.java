@@ -1,7 +1,6 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class Group {
@@ -14,7 +13,7 @@ public class Group {
 
     /**
      * Creates a group with a name, group code, group members, and Recipe Book.
-     * @param groupName - the name of the group
+     * @param groupName - the name of a group
      */
     public Group(String groupName, String groupCode) {
         this.groupName = groupName;
