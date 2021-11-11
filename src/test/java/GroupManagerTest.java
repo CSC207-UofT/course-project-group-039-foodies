@@ -47,6 +47,7 @@ public class GroupManagerTest {
     }
     
 
+    
     @Test
     public void testRemoveMember() {
         User userMichelle = new User("Michelle Lin", "michelle",

@@ -40,4 +40,3 @@ public class GroupFactory{
         return new Group(groupName, groupCode);
     }
 }
-

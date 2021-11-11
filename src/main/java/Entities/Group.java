@@ -2,7 +2,6 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 
-
 public class Group {
     /** Creates a Group object */
     private final String groupName;
