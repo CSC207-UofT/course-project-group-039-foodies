@@ -27,6 +27,7 @@ public class Login {
 	private void initialize() {
 
 		frame = new JFrame();
+
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Recipick");
@@ -67,19 +68,20 @@ public class Login {
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				String user, pass;
+				String user;
+				char[] pass;
 				user = textField.getText();
-				pass = textField_1.getText();
+				pass = textField_1.getPassword();
+				String password = new String(pass);
 
 				if (UserCSVReader.getInstance().isUser(user)) {
-					if (UserCSVReader.getInstance().isCorrectPassword(user, pass)) {
-						JOptionPane.showMessageDialog(frame.getComponent(0), "Login Successfully");
+					if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
+						JOptionPane.showMessageDialog(null, "Login Successfully");
 						frame.setVisible(false);
 						GUIForm.menu.setVisible(true);
 					} else {
-						JOptionPane.showMessageDialog(frame.getComponent(0), "Login Failed. If this is your first time using Recipick, please sign-up. If not, log-in with the username and password you signed up with.");
+						JOptionPane.showMessageDialog(null, "Login Failed. If this is your first time using Recipick, please sign-up. If not, log-in with the username and password you signed up with.");
 					}
 
 				}
@@ -90,7 +92,6 @@ public class Login {
 		frame.getContentPane().add(btnLogin);
 
 	}
-
 	public void setVisible(boolean b) {
 		frame.setVisible(true);
 	}
