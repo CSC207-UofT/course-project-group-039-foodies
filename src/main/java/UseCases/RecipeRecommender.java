@@ -21,7 +21,7 @@ public class RecipeRecommender {
     }
 
     /**
-     * Return the option that most closely matches the preferences in preference.
+     * Return the option that most closely matches the groups in preference.
      * If options is empty, null is returned.
      * @param options The possible options
      * @return The most similar PreferenceBook
