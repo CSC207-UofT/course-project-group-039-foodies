@@ -83,11 +83,12 @@ public class Signup {
         frame1.getContentPane().add(btnSignup);
         btnSignup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String email,user;
-                char[] password;
-                email = textField.getText();
-                user = textField_1.getText();
-                password = textField_2.getPassword();
+//                String email,user;
+//                char[] password;
+//                email = textField.getText();
+//                user = textField_1.getText();
+//                password = textField_2.getPassword();
+                JOptionPane.showMessageDialog(null,"Sign Up Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
                 GUIForm.menu.setVisible(true);
                 }
 
