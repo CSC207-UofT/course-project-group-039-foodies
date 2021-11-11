@@ -55,6 +55,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     public void addPreferences(String username, int index, String preference) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
+                removePreferenceBook(username);
                 String update = line.get(index) + ";" + preference;
                 line.remove(index);
                 line.add(index, update);
@@ -67,6 +68,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     public void removePreferences(String username, int index, String preference) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
+                removePreferenceBook(username);
                 String[] arrayupdate = line.get(index).split(";");
                 ArrayList<String> arraylistupdate = new ArrayList<>();
                 for (String x : arrayupdate) {
@@ -85,6 +87,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     public void removePreferences(String username, int index, String preference, int prefIndex) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
+                removePreferenceBook(username);
                 String[] arrayupdate = line.get(index).split(";");
                 ArrayList<String> arraylistupdate = new ArrayList<>();
                 int counter = 0;
@@ -104,33 +107,33 @@ public class PreferenceBookCSVReader extends CSVReader {
 
     public void updateOmit(String username, String RemOrAdd, String foodItem) {
         if (Objects.equals(RemOrAdd, "add")) {
-            addPreferences(username, 1, foodItem);
-        } else {
-            removePreferences(username, 1, foodItem);
-        }
-    }
-
-    public void updateInclude(String username, String RemOrAdd, String foodItem) {
-        if (Objects.equals(RemOrAdd, "add")) {
             addPreferences(username, 2, foodItem);
         } else {
             removePreferences(username, 2, foodItem);
         }
     }
 
+    public void updateInclude(String username, String RemOrAdd, String foodItem) {
+        if (Objects.equals(RemOrAdd, "add")) {
+            addPreferences(username, 3, foodItem);
+        } else {
+            removePreferences(username, 3, foodItem);
+        }
+    }
+
     public void updateRatings(String username, String RemOrAdd, String recipe, Double rating) {
         if (Objects.equals(RemOrAdd, "add")) {
-            addPreferences(username, 3, recipe);
-            addPreferences(username, 4, String.valueOf(rating));
+            addPreferences(username, 4, recipe);
+            addPreferences(username, 5, String.valueOf(rating));
         } else {
             int index = 0;
             for (ArrayList<String> line : readFile()) {
                 if (line.get(0).equals(username)) {
-                    index += getIndex(recipe, line.get(3).split(";"));
+                    index += getIndex(recipe, line.get(4).split(";"));
                 }
             }
-            removePreferences(username, 3, recipe);
-            removePreferences(username, 4, String.valueOf(rating), index);
+            removePreferences(username, 4, recipe);
+            removePreferences(username, 5, String.valueOf(rating), index);
         }
     }
 
@@ -163,9 +166,28 @@ public class PreferenceBookCSVReader extends CSVReader {
         return ratingMap;
     }
 
-//    public PreferenceBook getPreferenceBook(String username) {
-//
-//    }
+    public ArrayList<String> ToArrayList (String preferences) {
+        String[] prefs = preferences.split(";");
+        return new ArrayList<>(Arrays.asList(prefs));
+    }
+
+    public PreferenceBook getPreferenceBook(String username) {
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(username)) {
+                return new PreferenceBook(username, ToArrayList(line.get(1)), ToArrayList(line.get(2)),
+                        ToArrayList(line.get(3)), ToArrayList(line.get(4)));
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Removes a preference book from the database
+     * @param user The name of the recipe to remove
+     */
+    public void removePreferenceBook(String user) {
+        removeLine(user, "username");
+    }
 
 }
 
