@@ -7,11 +7,7 @@ import main.java.GUIForm;
     public class Application {
         public static void main(String[] args)
         {
-            EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    GUIForm.start.start.setVisible(true);
-                }
-            });
+            EventQueue.invokeLater(() -> GUIForm.start.start.setVisible(true));
         }
     }
 

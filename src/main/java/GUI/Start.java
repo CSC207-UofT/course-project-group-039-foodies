@@ -40,16 +40,15 @@ public class Start {
         start.getContentPane().add(btnLogin);
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                GUIForm.login.setVisible(true);
+                main.java.GUIForm.login.setVisible(true);
             }
         });
 
         JButton btnSignup = new JButton("Sign Up");
         btnSignup.setBounds(160, 170, 89, 23);
         start.getContentPane().add(btnSignup);
-        btnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                GUIForm.signup.setVisible(true);
+        btnSignup.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {main.java.GUIForm.signup.setVisible(true);
             }
 
         });

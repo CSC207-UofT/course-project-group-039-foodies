@@ -1,14 +1,11 @@
 package main.java.GUI;
 
+import main.java.GUIForm;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import main.java.GUIForm;
-import main.java.Gateways.UserCSVReader;
-
-import static main.java.GUIForm.*;
 
 public class Signup {
 
@@ -27,6 +24,9 @@ public class Signup {
     /**
      * Initialize the contents of the frame1.
      */
+    public void setVisible(boolean b) {
+        frame1.setVisible(true);
+    }
     private void initialize() {
 
         frame1 = new JFrame();
@@ -52,26 +52,26 @@ public class Signup {
         lblEmail.setBounds(55, 119, 64, 23);
         frame1.getContentPane().add(lblEmail);
 
-        JLabel lblUsername = new JLabel("Username:");
-        lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblUsername.setBounds(55, 159, 64, 23);
-        frame1.getContentPane().add(lblUsername);
-
-        JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblPassword.setBounds(55, 199, 64, 23);
-        frame1.getContentPane().add(lblPassword);
-
         textField = new JTextField();
         textField.setBounds(130, 121, 86, 20);
         frame1.getContentPane().add(textField);
         textField.setColumns(10);
         textField.setText("");
 
+        JLabel lblUsername = new JLabel("Username:");
+        lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblUsername.setBounds(55, 159, 64, 23);
+        frame1.getContentPane().add(lblUsername);
+
         textField_1 = new JTextField();
         textField_1.setBounds(130, 161, 86, 20);
         frame1.getContentPane().add(textField_1);
         textField_1.setColumns(10);
+
+        JLabel lblPassword = new JLabel("Password:");
+        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblPassword.setBounds(55, 199, 64, 23);
+        frame1.getContentPane().add(lblPassword);
 
         textField_2 = new JPasswordField();
         textField_2.setBounds(130, 201, 86, 20);
@@ -98,7 +98,5 @@ public class Signup {
 
     }
 
-    public void setVisible(boolean b) {
-        frame1.setVisible(true);
-    }
+
 }
