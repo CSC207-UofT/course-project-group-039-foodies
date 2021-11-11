@@ -3,11 +3,8 @@ package main.java.GUI;
 import main.java.GUIForm;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -40,18 +37,18 @@ public class Menu {
         btnPreferences.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 menu.setVisible(false);
-//                GUIForm.preferences.setVisible(true);
+                GUIForm.preferences.setVisible(true);
 
             }
         });
         btnPreferences.setBounds(150, 50, 150, 23);
         menu.getContentPane().add(btnPreferences);
 
-        JButton btnNewRecipes = new JButton("Show New Recipes");
+        JButton btnNewRecipes = new JButton("New Recipes");
         btnNewRecipes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 menu.setVisible(false);
-//                GUIForm.new_recipes.setVisible(true);
+                GUIForm.new_recipes.setVisible(true);
 
             }
         });
@@ -62,7 +59,7 @@ public class Menu {
         btnRecipeBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 menu.setVisible(false);
-//                GUIForm.saved_recipes.setVisible(true);
+                GUIForm.show_recipes.setVisible(true);
 
             }
         });
@@ -73,7 +70,7 @@ public class Menu {
         btnGroups.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 menu.setVisible(false);
-//                GUIForm.groups.setVisible(true);
+                GUIForm.groups.setVisible(true);
 
             }
         });
