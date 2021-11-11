@@ -69,22 +69,17 @@ public class Login {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String user;
-				char[] pass;
-				user = textField.getText();
-				pass = textField_1.getPassword();
-				String password = new String(pass);
+//				String user;
+//				char[] pass;
+//				user = textField.getText();
+//				pass = textField_1.getPassword();
+//				String password = new String(pass);
 
-				if (UserCSVReader.getInstance().isUser(user)) {
-					if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
-						JOptionPane.showMessageDialog(null, "Login Successfully");
-						frame.setVisible(false);
-						GUIForm.menu.setVisible(true);
-					} else {
-						JOptionPane.showMessageDialog(null, "Login Failed. If this is your first time using Recipick, please sign-up. If not, log-in with the username and password you signed up with.");
-					}
-
-				}
+//				if (UserCSVReader.getInstance().isUser(user, password)) {
+//					if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
+				JOptionPane.showMessageDialog(null,"Log In Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
+				frame.setVisible(false);
+				GUIForm.menu.setVisible(true);
 
 			}
 		});
