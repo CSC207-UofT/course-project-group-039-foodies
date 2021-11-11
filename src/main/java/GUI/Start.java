@@ -30,13 +30,13 @@ public class Start {
         start.getContentPane().setLayout(null);
 
         // title
-        JLabel label = new JLabel("Recipick");
+        JLabel label = new JLabel("Recipick", SwingConstants.CENTER);
         label.setFont(new Font("Tahoma", Font.BOLD, 20));
-        label.setBounds(170, 98, 170, 50);
+        label.setBounds(150, 80, 170, 50);
         start.getContentPane().add(label);
 
-        JButton btnLogin = new JButton("Login");
-        btnLogin.setBounds(160, 138, 89, 23);
+        JButton btnLogin = new JButton("Log in");
+        btnLogin.setBounds(190, 138, 89, 23);
         start.getContentPane().add(btnLogin);
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -44,8 +44,8 @@ public class Start {
             }
         });
 
-        JButton btnSignup = new JButton("Sign Up");
-        btnSignup.setBounds(160, 170, 89, 23);
+        JButton btnSignup = new JButton("Sign up");
+        btnSignup.setBounds(190, 170, 89, 23);
         start.getContentPane().add(btnSignup);
         btnSignup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {main.java.GUIForm.signup.setVisible(true);
@@ -55,7 +55,7 @@ public class Start {
 
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/food background.jpeg"));
-        img.setBounds(0, 16, 460, 300);
+        img.setBounds(0, 0, 460, 300);
         start.getContentPane().add(img);
 
     }
