@@ -63,3 +63,4 @@ public class GroupManagerTest {
         assertTrue(GroupManager.removeMember(group2.getGroupCode(), userMichelle.getUsername()));
     }
 }
+
