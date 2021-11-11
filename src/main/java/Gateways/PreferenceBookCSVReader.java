@@ -134,6 +134,7 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
     }
 
+
     public int getIndex(String recipe, String[] recipes) {
         int counter = -1;
         for (String i : recipes) {
@@ -146,7 +147,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     }
     /**
      * collects all individual ratings into a hashmap
-     * @return
+     * @return the hashmap
      */
     public HashMap<String, Double> getRatings(String username) {
         HashMap<String, Double> ratingMap = new HashMap<>();
@@ -161,6 +162,10 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
         return ratingMap;
     }
+
+//    public PreferenceBook getPreferenceBook(String username) {
+//
+//    }
 
 }
 
