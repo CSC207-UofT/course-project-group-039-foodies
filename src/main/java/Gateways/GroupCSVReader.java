@@ -1,19 +1,16 @@
 package main.java.Gateways;
 
 import main.java.Entities.Group;
-import main.java.UseCases.GroupFactory;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GroupCSVReader extends CSVReader {
-  public class GroupCSVReader extends CSVReader {
     private final static GroupCSVReader instance = new GroupCSVReader(
-            System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\groups.csv"
+            System.getProperty("user.dir") + "/src/main/java/Gateways/databases/groups.csv"
     ); // a singleton
 
     private final static GroupCSVReader testInstance = new GroupCSVReader(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\groupsTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/groupsTest.csv"
     ); // a singleton for testing safely
 
     public static GroupCSVReader getInstance() {
@@ -25,18 +22,15 @@ public class GroupCSVReader extends CSVReader {
     }
 
     private GroupCSVReader(String path) {
-        super(path, new String[]{"name", "members"});
+        super(path, new String[]{"name", "code", "members"});
     }
 
     /**
-     * Adds a group to groups.csv
+     * Adds a group to the database given a group object
      * @param group The group to add
      */
     public void saveGroup(Group group) {
-        saveGroup(
-                group.getGroupName(),
-                group.getGroupMembers()
-        );
+        saveGroup(group.getGroupName(), group.getGroupCode(), group.getGroupMembers());
     }
 
     /**
@@ -44,13 +38,44 @@ public class GroupCSVReader extends CSVReader {
      * @param name The name of the group
      * @param members The list of the group members
      */
-    public void saveGroup(String name, ArrayList<String> members) {
+    public void saveGroup(String name, String code, ArrayList<String> members) {
         ArrayList<String> groupData = new ArrayList<>();
+
         groupData.add(name);
+        groupData.add(code);
         groupData.add(String.join(",", members));
 
         writeLine(groupData);
     }
+
+    /**
+     * Checks if a group exists with a certain groupName
+     * @param groupName The group to check
+     * @return A boolean representing whether there is a group with certain groupName
+     */
+    public boolean isGroup(String groupName) {
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(groupName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+//    /**
+//     * Returns a group with a certain groupName
+//     * @param groupName The groupName of the group
+//     * @return The group object with the right groupName and members
+//     */
+//    public Group getGroup(String groupName) {
+//        for (ArrayList<String> line : readFile()) {
+//            if (line.get(0).equals(groupName)) {
+//                return new Group(line.get(0), line.get(1));
+//            }
+//        }
+//        return null;
+//    }
 
 
     /**
@@ -62,3 +87,4 @@ public class GroupCSVReader extends CSVReader {
     }
 
 }
+
