@@ -1,10 +1,8 @@
 package main.java.UseCases;
 
 import main.java.Entities.Group;
-import main.java.Entities.User;
-import main.java.UseCases.Utilities.GroupManager;
-
 import java.util.ArrayList;
+
 
 public class GroupFactory{
 
@@ -12,7 +10,7 @@ public class GroupFactory{
 
 
     /**
-     * Generates a unique 7 digit group code and assign the code to the group.
+     * Generates a unique 7 digit group code.
      */
     public static String generateGroupCode() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -27,7 +25,6 @@ public class GroupFactory{
             return generateGroupCode();
         } else {
             usedCodes.add(groupCode.toString());
-            // group.groupCode = groupCode.toString();
             return groupCode.toString();
         }
     }
@@ -35,14 +32,10 @@ public class GroupFactory{
 
     /**
      * @param groupName The name of the group.
-     * @param creator The user who creates the group.
-     * @return The created recipe
+     * @return The created group with the 7 digit group code assigned to the group.
      */
-    public static Group createNewGroup(String groupName, User creator) {
+    public static Group createNewGroup(String groupName) {
         String groupCode = generateGroupCode();
-        Group newGroup = new Group(groupName, groupCode);
-        GroupManager.addGroup(newGroup);
-        GroupManager.addMember(newGroup, creator);
-        return newGroup;
+        return new Group(groupName, groupCode);
     }
 }
