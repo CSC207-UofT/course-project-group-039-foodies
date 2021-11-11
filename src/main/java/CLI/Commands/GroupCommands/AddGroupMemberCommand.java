@@ -3,7 +3,8 @@ package main.java.CLI.Commands.GroupCommands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
 import main.java.UseCases.Utilities.GroupManager;
-import main.java.UseCases.Utilities.UserManager;
+import main.java.Gateways.UserCSVReader;
+
 
 public class AddGroupMemberCommand extends Command {
     public AddGroupMemberCommand()  {
@@ -15,7 +16,7 @@ public class AddGroupMemberCommand extends Command {
         CLI.displayMessage("Input the username of a new member to be added");
         String username = CLI.getTextInput();
 
-        if (!UserManager.containsUser(username)) {
+        if (!UserCSVReader.getTestInstance().isUser(username)) {
             CLI.displayMessage("The username does not exist.");
         } else {
             CLI.displayMessage("Input your 7 digit Group Code");

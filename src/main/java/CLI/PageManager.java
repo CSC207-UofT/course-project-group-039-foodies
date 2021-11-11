@@ -93,3 +93,4 @@ public class PageManager {
         return currentPage.getAvailableCommands();
     }
 }
+

@@ -5,7 +5,7 @@ import main.java.CLI.Commands.Command;
 import main.java.Entities.Group;
 import main.java.UseCases.Utilities.GroupManager;
 import main.java.UseCases.GroupFactory;
-import main.java.UseCases.Utilities.UserManager;
+import main.java.Gateways.UserCSVReader;
 
 
 public class CreateGroupCommand extends Command {
@@ -19,7 +19,7 @@ public class CreateGroupCommand extends Command {
         CLI.displayMessage("Input your username");
         String username = CLI.getTextInput();
 
-        if (!UserManager.containsUser(username)) {
+        if (!UserCSVReader.getInstance().isUser(username)) {
             CLI.displayMessage("The username does not exist. Please create a new account first.");
         } else {
             CLI.displayMessage("Input your Group Name");
