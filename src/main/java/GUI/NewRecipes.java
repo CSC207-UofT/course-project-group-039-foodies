@@ -28,50 +28,42 @@ public class NewRecipes {
         // title
         JLabel label = new JLabel("New Recipes");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(200, 11, 170, 41);
+        label.setBounds(175, 11, 170, 41);
         new_recipes.getContentPane().add(label);
 
         JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new_recipes.setVisible(false);
-//                GUIForm.show_preferences.setVisible(true);
+        byFilter.addActionListener(e -> {
+            new_recipes.setVisible(false);
+            GUIForm.viewRecipesByFilter.setVisible(true);
 
-            }
         });
         byFilter.setBounds(150, 50, 150, 23);
         new_recipes.getContentPane().add(byFilter);
 
         JButton topPicks = new JButton("Top Picks");
-        topPicks.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new_recipes.setVisible(false);
-//                GUIForm.add_preferences.setVisible(true);
+        topPicks.addActionListener(e -> {
+            new_recipes.setVisible(false);
+            GUIForm.viewTopPicks.setVisible(true);
 
-            }
         });
         topPicks.setBounds(150, 90, 150, 23);
         new_recipes.getContentPane().add(topPicks);
 
         JButton random = new JButton("Random");
-        random.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new_recipes.setVisible(false);
-//                GUIForm.add_preferences.setVisible(true);
+        random.addActionListener(e -> {
+            new_recipes.setVisible(false);
+            GUIForm.viewByRandom.setVisible(true);
 
-            }
         });
         random.setBounds(150, 130, 150, 23);
         new_recipes.getContentPane().add(random);
 
 
         JButton btnBack = new JButton("Back to Menu");
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new_recipes.setVisible(false);
-                GUIForm.menu.setVisible(true);
+        btnBack.addActionListener(e -> {
+            new_recipes.setVisible(false);
+            GUIForm.menu.setVisible(true);
 
-            }
         });
         btnBack.setBounds(150, 210, 150, 23);
         new_recipes.getContentPane().add(btnBack);

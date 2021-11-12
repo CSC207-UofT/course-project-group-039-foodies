@@ -66,8 +66,7 @@ public class Login {
 		textField_1.setColumns(10);
 
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnLogin.addActionListener(e -> {
 //				String user;
 //				char[] pass;
 //				user = textField.getText();
@@ -76,11 +75,10 @@ public class Login {
 
 //				if (UserCSVReader.getInstance().isUser(user, password)) {
 //					if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
-				JOptionPane.showMessageDialog(null,"Log In Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
-				frame.setVisible(false);
-				GUIForm.menu.setVisible(true);
+			JOptionPane.showMessageDialog(null,"Log In Successful","MESSAGE",JOptionPane.INFORMATION_MESSAGE);
+			frame.setVisible(false);
+			GUIForm.menu.setVisible(true);
 
-			}
 		});
 		btnLogin.setBounds(260, 138, 89, 23);
 		frame.getContentPane().add(btnLogin);
