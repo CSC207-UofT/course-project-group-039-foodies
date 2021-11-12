@@ -1,9 +1,12 @@
 package main.java.CLI;
 
 import main.java.CLI.Commands.*;
+import main.java.CLI.Commands.AdminCommands.*;
 import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
-import main.java.CLI.Commands.AdminCommands.SignInCommand;
-import main.java.CLI.Commands.AdminCommands.SignOutCommand;
+import main.java.CLI.Commands.GroupCommands.EnterManageGroupCommand;
+import main.java.CLI.Commands.GroupCommands.CreateGroupCommand;
+import main.java.CLI.Commands.GroupCommands.AddGroupMemberCommand;
+import main.java.CLI.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
 import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
 import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
@@ -28,7 +31,8 @@ public class PageManager {
                     new EnterRecipeBookCommand(),
                     new EnterRecipeViewerCommand(),
                     new SignOutCommand(),
-                    new UpdatePreferencesCommand()
+                    new UpdatePreferencesCommand(),
+                    new EnterManageGroupCommand()
             }
     );
 
@@ -52,6 +56,15 @@ public class PageManager {
             }
     );
 
+    Page manageGroup = new Page(
+            signedIn,
+            new Command[] {
+                    new CreateGroupCommand(),
+                    new AddGroupMemberCommand(),
+                    new RemoveGroupMemberCommand()
+            }
+    );
+
     Page currentPage = signedOut;
 
     public void setPage(Page page) {
@@ -72,6 +85,7 @@ public class PageManager {
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
+    public void manageGroup() { setPage(manageGroup); }
     public void goBack() {
         setPage(currentPage.getParent());
     }
@@ -79,3 +93,4 @@ public class PageManager {
         return currentPage.getAvailableCommands();
     }
 }
+

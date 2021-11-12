@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class UserCSVReader extends CSVReader {
     private final static UserCSVReader instance = new UserCSVReader(
-            System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\users.csv"
+            System.getProperty("user.dir") + "/src/main/java/Gateways/databases/users.csv"
     ); // a singleton
 
     private final static UserCSVReader testInstance = new UserCSVReader(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\usersTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/usersTest.csv"
     ); // a singleton for testing safely
 
     public static UserCSVReader getInstance() {
@@ -96,7 +96,7 @@ public class UserCSVReader extends CSVReader {
     }
 
     /**
-     * @param username Removes a user with a certain username from the
+     * @param username Removes a user with a certain username from the database
      */
     public void removeUser(String username) {
         removeLine(username, "username");

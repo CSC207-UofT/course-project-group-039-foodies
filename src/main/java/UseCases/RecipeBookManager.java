@@ -77,5 +77,13 @@ public class RecipeBookManager {
         recipeBook.addRecipe(recipe.getRecipeCode(), recipe);
     }
 
-    public void rateRecipe(User user, String recipeName, int rating) {}
+    public Recipe findRecipe(String name) {
+        for (Recipe recipe : recipeBook.getRecipes()) {
+            if (recipe.getName().equals(name)) {
+                return recipe;
+            }
+        }
+        return null;
+    }
+
 }
