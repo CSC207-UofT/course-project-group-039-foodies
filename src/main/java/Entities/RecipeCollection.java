@@ -18,11 +18,21 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     }
 
     /**
-     * Adds a recipe from the collection
+     * Adds a recipe to the collection
      * @param recipe The Recipe object to add
      */
     public void addRecipe(Recipe recipe) {
         dataMap.put(recipe.getRecipeCode(), recipe);
+    }
+
+
+    /**
+     * Add a recipe to the collection
+     * @param recipecode - the Recipecode corresponding to the Recipe object to add
+     * @param recipe - the Recipe Object to add
+     */
+    public void addRecipe(Integer recipecode, Recipe recipe) {
+        dataMap.put(recipecode, recipe);
     }
 
     /**
@@ -47,6 +57,14 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     }
 
     /**
+     * Remove recipe with recipecode
+     * @param recipecode - the recipecode for the recipe to be removed
+     */
+    public void removeRecipe(Integer recipecode) {
+        dataMap.remove(recipecode);
+    }
+
+    /**
      * Returns a Recipe object with a certain name.
      * @param name A String representing the name of the recipe
      * @return A Recipe object if the recipe is included, and null otherwise
@@ -58,6 +76,15 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
             }
         }
         return null;
+    }
+
+    /**
+     * Return the recipe with recipecode
+     * @param recipecode - the code corresponding to the Recipe Object to be returned
+     * @return a Recipe object
+     */
+    public Recipe findRecipe(Integer recipecode) {
+        return this.dataMap.get(recipecode);
     }
 
     /**
