@@ -71,7 +71,7 @@ public class CSVReader {
         // Writes the file to the temporary database without the lines to delete
         CSVReader tempReader = new CSVReader();
         for (ArrayList<String> line : readFile()) {
-            if (!line.get(location).equals(name)) {
+            if (!line.isEmpty() && !line.get(location).equals(name)) {
                 tempReader.writeLine(line);
             }
         }
