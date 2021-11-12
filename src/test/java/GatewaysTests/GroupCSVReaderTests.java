@@ -1,6 +1,6 @@
 package test.java.GatewaysTests;
 
-// import main.java.Entities.Group;
+//import main.java.Entities.Group;
 import main.java.Gateways.GroupCSVReader;
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -41,9 +41,9 @@ public class GroupCSVReaderTests {
 //    public void getGroupTest() {
 //        ArrayList<String> member = new ArrayList<String>();
 //        member.add("TestGroupMember");
-//        database.saveGroup("TestGroupName", "TestGroupCode", member);
-//        Group group = database.getGroup("TestGroupName");
-//        assertEquals("TestGroupName", group.getGroupName());
+//        database.saveGroup("TestGroupName0", "TestGroupCode", member);
+//        Group group = database.getGroup("TestGroupName0");
+//        assertEquals("TestGroupName0", group.getGroupName());
 //        assertEquals("TestGroupCode", group.getGroupCode());
 //        assertEquals(member, group.getGroupMembers());
 //    }
