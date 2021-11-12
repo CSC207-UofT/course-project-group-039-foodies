@@ -64,22 +64,7 @@ public class GroupCSVReader extends CSVReader {
         return false;
     }
 
-
-//    /**
-//     * Returns a group with a certain groupName
-//     * @param groupName The groupName of the group
-//     * @return The group object with the right groupName and members
-//     */
-//    public Group getGroup(String groupName) {
-//        for (ArrayList<String> line : readFile()) {
-//            if (!line.isEmpty() && line.get(0).equals(groupName)) {
-//                return new Group(line.get(0), line.get(1));
-//            }
-//        }
-//        return null;
-//    }
-
-
+    
     /**
      * Removes a group from the database
      * @param name The name of the group to remove
