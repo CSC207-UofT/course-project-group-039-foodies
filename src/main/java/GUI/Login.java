@@ -2,27 +2,18 @@ package main.java.GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import main.java.GUIForm;
-import main.java.Gateways.UserCSVReader;
 
 public class Login {
 
 	public JFrame frame;
-	private JTextField textField;
-	private JPasswordField textField_1;
 
-	/**
-	 * Create the application.
-	 */
 	public Login() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame1.
+	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 
@@ -54,13 +45,13 @@ public class Login {
 		lblPassword.setBounds(55, 159, 64, 23);
 		frame.getContentPane().add(lblPassword);
 
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBounds(130, 121, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		textField.setText("");
 
-		textField_1 = new JPasswordField();
+		JPasswordField textField_1 = new JPasswordField();
 		textField_1.setBounds(130, 161, 86, 20);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);

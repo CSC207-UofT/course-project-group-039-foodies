@@ -8,10 +8,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
 
 public class Menu {
     public JFrame menu;
@@ -34,56 +32,46 @@ public class Menu {
         menu.getContentPane().add(label);
 
         JButton btnPreferences = new JButton("Preferences");
-        btnPreferences.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menu.setVisible(false);
-                GUIForm.preferences.setVisible(true);
+        btnPreferences.addActionListener(e -> {
+            menu.setVisible(false);
+            GUIForm.preferences.setVisible(true);
 
-            }
         });
         btnPreferences.setBounds(150, 50, 150, 23);
         menu.getContentPane().add(btnPreferences);
 
         JButton btnNewRecipes = new JButton("New Recipes");
-        btnNewRecipes.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menu.setVisible(false);
-                GUIForm.new_recipes.setVisible(true);
+        btnNewRecipes.addActionListener(e -> {
+            menu.setVisible(false);
+            GUIForm.new_recipes.setVisible(true);
 
-            }
         });
         btnNewRecipes.setBounds(150, 90, 150, 23);
         menu.getContentPane().add(btnNewRecipes);
 
         JButton btnRecipeBook = new JButton("Saved Recipes");
-        btnRecipeBook.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menu.setVisible(false);
-                GUIForm.show_recipes.setVisible(true);
+        btnRecipeBook.addActionListener(e -> {
+            menu.setVisible(false);
+            GUIForm.show_recipes.setVisible(true);
 
-            }
         });
         btnRecipeBook.setBounds(150, 130, 150, 23);
         menu.getContentPane().add(btnRecipeBook);
 
         JButton btnGroups = new JButton("Groups");
-        btnGroups.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menu.setVisible(false);
-                GUIForm.groups.setVisible(true);
+        btnGroups.addActionListener(e -> {
+            menu.setVisible(false);
+            GUIForm.groups.setVisible(true);
 
-            }
         });
         btnGroups.setBounds(150, 170, 150, 23);
         menu.getContentPane().add(btnGroups);
 
         JButton btnExit = new JButton("Exit");
-        btnExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menu.setVisible(false);
+        btnExit.addActionListener(e -> {
+            menu.setVisible(false);
 //                GUIForm.groups.setVisible(true);
 
-            }
         });
         btnExit.setBounds(150, 210, 150, 23);
         menu.getContentPane().add(btnExit);

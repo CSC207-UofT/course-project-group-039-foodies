@@ -10,9 +10,6 @@ import java.awt.event.ActionListener;
 public class Signup {
 
     public JFrame frame1;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JPasswordField textField_2;
 
     /**
      * Create the sign-up page.
@@ -52,7 +49,7 @@ public class Signup {
         lblEmail.setBounds(55, 119, 64, 23);
         frame1.getContentPane().add(lblEmail);
 
-        textField = new JTextField();
+        JTextField textField = new JTextField();
         textField.setBounds(130, 121, 86, 20);
         frame1.getContentPane().add(textField);
         textField.setColumns(10);
@@ -63,7 +60,7 @@ public class Signup {
         lblUsername.setBounds(55, 159, 64, 23);
         frame1.getContentPane().add(lblUsername);
 
-        textField_1 = new JTextField();
+        JTextField textField_1 = new JTextField();
         textField_1.setBounds(130, 161, 86, 20);
         frame1.getContentPane().add(textField_1);
         textField_1.setColumns(10);
@@ -73,7 +70,7 @@ public class Signup {
         lblPassword.setBounds(55, 199, 64, 23);
         frame1.getContentPane().add(lblPassword);
 
-        textField_2 = new JPasswordField();
+        JPasswordField textField_2 = new JPasswordField();
         textField_2.setBounds(130, 201, 86, 20);
         frame1.getContentPane().add(textField_2);
         textField_2.setColumns(10);
@@ -81,17 +78,14 @@ public class Signup {
         JButton btnSignup = new JButton("Sign Up");
         btnSignup.setBounds(260, 138, 89, 23);
         frame1.getContentPane().add(btnSignup);
-        btnSignup.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        btnSignup.addActionListener(e -> {
 //                String email,user;
 //                char[] password;
 //                email = textField.getText();
 //                user = textField_1.getText();
 //                password = textField_2.getPassword();
-                JOptionPane.showMessageDialog(null,"Sign Up Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
-                GUIForm.menu.setVisible(true);
-                }
-
+            JOptionPane.showMessageDialog(null,"Sign Up Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
+            GUIForm.menu.setVisible(true);
             });
 
         btnSignup.setBounds(260, 138, 89, 23);
