@@ -44,6 +44,10 @@ public class SubRecipeBook {
         this.description = description;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     /**
      * Add a Recipe recipe with code recipe code to the sub recipe book
      *
