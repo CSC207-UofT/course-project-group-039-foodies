@@ -17,14 +17,14 @@ public class RemoveRecipeCommand extends Command {
     @Override
     public void runAction(CommandLineInterface CLI) {
         CLI.displayMessage("Input the name of the recipe to remove");
-        String recipe = CLI.getTextInput();
+        String recipename = CLI.getTextInput();
         CLI.displayMessage("Please confirm the name of SubRecipeBook to remove the recipe from");
         String subrecipebookname = CLI.getTextInput();
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
                 recipeBookManager.findsubrecipebook(subrecipebookname));
-        if (subRecipeBookManager.containsRecipe(recipe)) {
-            subRecipeBookManager.removeRecipe(recipe);
+        if (subRecipeBookManager.containsRecipe(recipename)) {
+            subRecipeBookManager.removeRecipe(recipename);
             CLI.displayMessage("Recipe successfully deleted");
         } else {
             CLI.displayMessage("Recipe not found in recipe book.");
