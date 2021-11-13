@@ -8,15 +8,12 @@ import java.util.ArrayList;
  * Filter Recipes based on the number of servings.
  */
 public class ServingsFilter implements Filter {
-    private final Recipe[] data;
     private final int servings;
 
     /**
-     * @param data Array of Recipes.
      * @param servings Number of servings.
      */
-    public ServingsFilter(Recipe[] data, int servings) {
-        this.data = data;
+    public ServingsFilter(int servings) {
         this.servings = servings;
     }
 
@@ -24,9 +21,9 @@ public class ServingsFilter implements Filter {
      * @return Array of Recipes that is completely filtered based on the number of servings.
      */
     @Override
-    public Recipe[] filter() {
+    public Recipe[] filter(Recipe[] recipes) {
         ArrayList<Recipe> result = new ArrayList<>();
-        for (Recipe recipe : data) {
+        for (Recipe recipe : recipes) {
             if (recipe.getServings() == this.servings) {
                 result.add(recipe);
             }
