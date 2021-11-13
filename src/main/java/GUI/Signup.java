@@ -1,9 +1,11 @@
 package main.java.GUI;
 
 import main.java.GUIForm;
+import main.java.Gateways.UserCSVReader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class Signup {
 
@@ -25,7 +27,7 @@ public class Signup {
     private void initialize() {
 
         frame1 = new JFrame();
-        frame1.setBounds(100, 100, 450, 300);
+        frame1.setBounds(100, 100, 450, 350);
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame1.setTitle("Recipick");
         frame1.getContentPane().setLayout(null);
@@ -73,23 +75,41 @@ public class Signup {
         frame1.getContentPane().add(textField_2);
         textField_2.setColumns(10);
 
+        JLabel lblFullName = new JLabel("Full Name:");
+        lblFullName.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblFullName.setBounds(55, 239, 64, 23);
+        frame1.getContentPane().add(lblFullName);
+
+        JTextField textField_3 = new JTextField();
+        textField_3.setBounds(130, 241, 84, 20);
+        frame1.getContentPane().add(textField_3);
+        textField_3.setColumns(10);
+
         JButton btnSignup = new JButton("Sign Up");
-        btnSignup.setBounds(260, 138, 89, 23);
+        btnSignup.setBounds(260, 178, 89, 23);
         frame1.getContentPane().add(btnSignup);
         btnSignup.addActionListener(e -> {
-//                String email,user;
-//                char[] password;
-//                email = textField.getText();
-//                user = textField_1.getText();
-//                password = textField_2.getPassword();
-            JOptionPane.showMessageDialog(null,"Sign Up Successful","ALERT",JOptionPane.INFORMATION_MESSAGE);
-            GUIForm.menu.setVisible(true);
+                String email,user,fullName;
+                char[] password;
+                email = textField.getText();
+                user = textField_1.getText();
+                password = textField_2.getPassword();
+                fullName = textField_3.getText();
+
+                signUp(user, new String(password), fullName, email);
             });
 
         btnSignup.setBounds(260, 138, 89, 23);
         frame1.getContentPane().add(btnSignup);
-
     }
 
-
+    private void signUp(String user, String password, String fullName, String email) {
+        if (UserCSVReader.getInstance().isUser(user)) {
+            JOptionPane.showMessageDialog(null, "The user cannot be created; the username is already taken");
+        } else {
+            UserCSVReader.getInstance().addUser(user, password, fullName, email);
+            JOptionPane.showMessageDialog(null, "Sign Up Successful", "ALERT", JOptionPane.INFORMATION_MESSAGE);
+            frame1.setVisible(false);
+        }
+    }
 }

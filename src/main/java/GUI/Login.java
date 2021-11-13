@@ -3,6 +3,7 @@ package main.java.GUI;
 import javax.swing.*;
 import java.awt.*;
 import main.java.GUIForm;
+import main.java.Gateways.UserCSVReader;
 
 public class Login {
 
@@ -58,17 +59,12 @@ public class Login {
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(e -> {
-//				String user;
-//				char[] pass;
-//				user = textField.getText();
-//				pass = textField_1.getPassword();
-//				String password = new String(pass);
+				String user;
+				char[] password;
+				user = textField.getText();
+				password = textField_1.getPassword();
 
-//				if (UserCSVReader.getInstance().isUser(user, password)) {
-//					if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
-			JOptionPane.showMessageDialog(null,"Log In Successful","MESSAGE",JOptionPane.INFORMATION_MESSAGE);
-			frame.setVisible(false);
-			GUIForm.menu.setVisible(true);
+				login(user, new String(password));
 
 		});
 		btnLogin.setBounds(260, 138, 89, 23);
@@ -77,5 +73,19 @@ public class Login {
 	}
 	public void setVisible(boolean b) {
 		frame.setVisible(true);
+	}
+
+	private void login(String user, String password) {
+		if (UserCSVReader.getInstance().isUser(user)) {
+			if (UserCSVReader.getInstance().isCorrectPassword(user, password)) {
+				JOptionPane.showMessageDialog(null, "Log In Successful", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+				frame.setVisible(false);
+				GUIForm.menu.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "Wrong Password", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "User not found", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 }
