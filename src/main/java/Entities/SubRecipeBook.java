@@ -61,6 +61,15 @@ public class SubRecipeBook {
     }
 
     /**
+     * Add a Recipe object to the subrecipebook
+     *
+     * @param recipe - the recipe object to be added
+     */
+    public void addRecipe(Recipe recipe) {
+        this.recipes.addRecipe(recipe);
+    }
+
+    /**
      * Remove the recipe with recipecode from the sub recipe book.
      *
      * @param recipecode - a unique String code identifier for Recipe
@@ -122,8 +131,5 @@ public class SubRecipeBook {
     public int size() {
         return this.recipes.size();
     }
-
-
-
 
 }

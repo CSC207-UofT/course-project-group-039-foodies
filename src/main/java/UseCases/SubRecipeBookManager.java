@@ -1,7 +1,7 @@
 package main.java.UseCases;
 
 import main.java.Entities.Recipe;
-import main.java.Entities.OverallRecipeBook;
+import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Entities.User;
 
