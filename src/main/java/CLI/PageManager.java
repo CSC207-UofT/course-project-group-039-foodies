@@ -1,17 +1,11 @@
 package main.java.CLI;
 
 import main.java.CLI.Commands.*;
-import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
-import main.java.CLI.Commands.AdminCommands.SignInCommand;
-import main.java.CLI.Commands.AdminCommands.SignOutCommand;
-import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
+import main.java.CLI.Commands.AdminCommands.*;
+import main.java.CLI.Commands.RecipeBookCommands.*;
+import main.java.CLI.Commands.RecipeBookCommands.ModifyOutputCommands.*;
+import main.java.CLI.Commands.RecipeViewerCommands.*;
+import main.java.CLI.Commands.UserPreferencesCommands.*;
 
 public class PageManager {
     Page signedOut = new Page(
@@ -47,6 +41,10 @@ public class PageManager {
             new Command[] {
                     new ListRecipeBookCommand(),
                     new RemoveRecipeCommand(),
+                    new SortRecipeBookCommand(),
+                    new FilterRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()
             }
