@@ -1,6 +1,10 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import main.java.Entities.User;
+import main.java.Gateways.RecipeCSVReader;
+import main.java.Gateways.UserCSVReader;
 
 public class Recipe {
     /** Creates a Recipe object */
@@ -11,6 +15,8 @@ public class Recipe {
     private final int servings;
     private final ArrayList<String> ingredients;
     private final String instructions;
+    public double rating;
+    public double ratingCount;
 
     public Recipe(int recipeCode, String foodName, String foodType, int servings,
                   ArrayList<String> ingredients, String instructions) {
@@ -20,6 +26,8 @@ public class Recipe {
         this.servings = servings;
         this.ingredients = ingredients;
         this.instructions = instructions;
+        this.rating = 0;
+        this.ratingCount = 0;
     }
 
     /** Returns a formatted Recipe for the user to read
@@ -27,7 +35,16 @@ public class Recipe {
      */
     public String toString() { return this.foodName + "\n" + this.instructions; }
 
-    public String getInstructions() { return this.instructions; }
+    /** Updates the cumulative rating for this recipe
+     */
+    public void addRating(double rating) {
+        this.ratingCount ++;
+        this.rating = (this.rating * (this.ratingCount - 1) + rating) / this.ratingCount;
+    }
+
+    public String getInstructions() {return this.instructions;}
+
+    public double getRating() { return this.rating; }
 
     public String getFoodType() { return this.foodType; }
 

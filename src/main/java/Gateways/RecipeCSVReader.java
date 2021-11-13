@@ -9,11 +9,11 @@ import java.util.Arrays;
 
 public class RecipeCSVReader extends CSVReader {
     private final static RecipeCSVReader instance = new RecipeCSVReader(
-            System.getProperty("user.dir") + "\\src\\main\\java\\Gateways\\databases\\recipes.csv"
+            System.getProperty("user.dir") + "/src/main/java/Gateways/databases/recipes.csv"
     ); // a singleton
 
     private final static RecipeCSVReader testInstance = new RecipeCSVReader(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\recipesTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipesTest.csv"
     ); // a singleton for testing safely
 
     public static RecipeCSVReader getInstance() {
@@ -25,7 +25,7 @@ public class RecipeCSVReader extends CSVReader {
     }
 
     private RecipeCSVReader(String path) {
-        super(path, new String[]{"name", "type", "servings", "ingredients", "instructions"});
+        super(path, new String[]{"name", "type", "servings", "ingredients", "instructions", "rating", "ratingcount"});
     }
 
     /**
@@ -58,6 +58,8 @@ public class RecipeCSVReader extends CSVReader {
         recipeData.add(String.valueOf(servings));
         recipeData.add(String.join(",", ingredients));
         recipeData.add(instructions);
+        recipeData.add("-1"); //rating, -1 means not yet rated
+        recipeData.add("0"); //rating count
 
         writeLine(recipeData);
     }
@@ -76,11 +78,41 @@ public class RecipeCSVReader extends CSVReader {
                     new ArrayList<>(Arrays.asList(line.get(3).split(","))),
                     line.get(4)
             );
+            //adding ratings
+            if (line.size() == 7) { //recipe already has previous ratings
+                newRecipe.rating = Double.parseDouble(line.get(5));
+                newRecipe.ratingCount = Double.parseDouble(line.get(6));
+            } else { //recipe hasn't been rated yet
+                newRecipe.rating = -1.0;
+                newRecipe.ratingCount = 0.0;
+            }
+            //add to collection
             recipes.addRecipe(newRecipe);
         }
 
         return recipes;
     }
+
+    /**
+     * Add a cumulative rating to a recipe
+     */
+    public void addRating(String recipeName, double rating, double ratingCount) {
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(recipeName)) {
+                removeRecipe(recipeName);
+                if (line.size() == 7) {
+                    line.remove(6);
+                    line.remove(5);
+                }
+                //already calculated rating/count
+                line.add(String.valueOf(rating));
+                line.add(String.valueOf(ratingCount));
+                writeLine(line);
+                break;
+            }
+        }
+    }
+
 
     /**
      * Removes a recipe from the database
