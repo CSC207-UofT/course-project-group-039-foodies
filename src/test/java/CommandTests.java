@@ -1,6 +1,6 @@
 package test.java;
 
-import main.java.CLI.CommandLineInterface;
+import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UseCases.RecipeBookManager;
 import org.junit.Test;
 
