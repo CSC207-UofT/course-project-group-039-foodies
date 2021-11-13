@@ -1,6 +1,5 @@
 package main.java.UserInterface.GUI;
 
-import main.java.UserInterface.CLI.PageManager;
 import main.java.UserInterface.UserInterface;
 
 import java.awt.*;

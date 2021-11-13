@@ -1,7 +1,9 @@
 package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
+import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 
@@ -34,27 +36,17 @@ public class Groups {
         label.setBounds(200, 11, 170, 41);
         groups.getContentPane().add(label);
 
-        JButton viewGroups = new JButton("View Groups");
-        viewGroups.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                groups.setVisible(false);
-//                GUIForm.show_by_filter.setVisible(true);
-
-            }
-        });
-        viewGroups.setBounds(150, 50, 150, 23);
-        groups.getContentPane().add(viewGroups);
-
-        JButton createGroup = new JButton("Create Group");
-        createGroup.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Command createGroup = new CreateGroupCommand();
-                createGroup.runAction(Application.getInstance());
-            }
-        });
-        createGroup.setBounds(150, 90, 150, 23);
+        JButton createGroup = GUIForm.createButtonFromCommand(new CreateGroupCommand());
+        createGroup.setBounds(150, 50, 150, 23);
         groups.getContentPane().add(createGroup);
 
+        JButton addMember = GUIForm.createButtonFromCommand(new AddGroupMemberCommand());
+        addMember.setBounds(150, 90, 150, 23);
+        groups.getContentPane().add(addMember);
+
+        JButton removeMember = GUIForm.createButtonFromCommand(new RemoveGroupMemberCommand());
+        removeMember.setBounds(140, 130, 170, 23);
+        groups.getContentPane().add(removeMember);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(new ActionListener() {

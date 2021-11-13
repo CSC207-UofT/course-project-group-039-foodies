@@ -1,5 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
@@ -10,64 +11,67 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 public class NewRecipes {
-    public JFrame new_recipes;
+    public JFrame newRecipes;
 
     public NewRecipes() {
         initialize();
     }
 
     private void initialize() {
-        new_recipes = new JFrame();
-        new_recipes.setBounds(100, 100, 450, 300);
-        new_recipes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        new_recipes.setTitle("Recipick");
-        new_recipes.getContentPane().setLayout(null);
+        newRecipes = new JFrame();
+        newRecipes.setBounds(100, 100, 450, 300);
+        newRecipes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        newRecipes.setTitle("Recipick");
+        newRecipes.getContentPane().setLayout(null);
 
         // title
         JLabel label = new JLabel("New Recipes");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
         label.setBounds(175, 11, 170, 41);
-        new_recipes.getContentPane().add(label);
+        newRecipes.getContentPane().add(label);
 
         JButton byFilter = new JButton("By Filter");
         byFilter.addActionListener(e -> {
-            new_recipes.setVisible(false);
+            newRecipes.setVisible(false);
             GUIForm.viewRecipesByFilter.setVisible(true);
 
         });
         byFilter.setBounds(150, 50, 150, 23);
-        new_recipes.getContentPane().add(byFilter);
+        newRecipes.getContentPane().add(byFilter);
 
         JButton topPicks = new JButton("Top Picks");
         topPicks.addActionListener(e -> {
-            new_recipes.setVisible(false);
+            newRecipes.setVisible(false);
             GUIForm.viewTopPicks.setVisible(true);
 
         });
         topPicks.setBounds(150, 90, 150, 23);
-        new_recipes.getContentPane().add(topPicks);
+        newRecipes.getContentPane().add(topPicks);
 
         JButton random = new JButton("Random");
         random.addActionListener(e -> {
-            new_recipes.setVisible(false);
+            newRecipes.setVisible(false);
             GUIForm.viewByRandom.setVisible(true);
 
         });
         random.setBounds(150, 130, 150, 23);
-        new_recipes.getContentPane().add(random);
+        newRecipes.getContentPane().add(random);
 
+        JButton addToRecipeBook = GUIForm.createButtonFromCommand(new AddToRecipeBookCommand());
+        addToRecipeBook.setBounds(150, 170, 150, 23);
+        newRecipes.getContentPane().add(addToRecipeBook);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
-            new_recipes.setVisible(false);
+            newRecipes.setVisible(false);
             GUIForm.menu.setVisible(true);
 
         });
         btnBack.setBounds(150, 210, 150, 23);
-        new_recipes.getContentPane().add(btnBack);
+        newRecipes.getContentPane().add(btnBack);
     }
 
     public void setVisible(boolean b) {
-        new_recipes.setVisible(true);
+        newRecipes.setVisible(true);
     }
 }

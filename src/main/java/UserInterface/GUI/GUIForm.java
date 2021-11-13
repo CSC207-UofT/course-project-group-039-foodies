@@ -1,9 +1,12 @@
 package main.java.UserInterface.GUI;
+import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.GUI.GUIPages.*;
 import main.java.UserInterface.GUI.GUIPages.Menu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUIForm {
     public static Start start = new Start();
@@ -11,8 +14,8 @@ public class GUIForm {
     public static Signup signup = new Signup();
     public static Menu menu = new Menu();
     public static Preferences preferences = new Preferences();
-    public static NewRecipes new_recipes = new NewRecipes();
-    public static RecipeBook show_recipes = new RecipeBook();
+    public static NewRecipes newRecipes = new NewRecipes();
+    public static RecipeBook showRecipes = new RecipeBook();
     public static Groups groups = new Groups();
     public static ViewPreferences viewPreferences = new ViewPreferences();
     public static EditPreferences editPreferences = new EditPreferences();
@@ -31,14 +34,18 @@ public class GUIForm {
                 null,
                 createMessage(message),
                 "Recipick",
-                JOptionPane.PLAIN_MESSAGE,
+                JOptionPane.INFORMATION_MESSAGE,
                 null,
                 null,
                 ""
         );
     }
 
-    private static JScrollPane createMessage(String message) {
+    private static Object createMessage(String message) {
+        if (message.length() < 100) {
+            return message;
+        }
+
         JTextArea textArea = new JTextArea(message);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -52,6 +59,36 @@ public class GUIForm {
         scroll.setPreferredSize(new Dimension(500, 300));
 
         return scroll;
+    }
+
+    public static JButton createButtonFromCommand(Command command) {
+        JButton button = new JButton(capitalize(command.getName()));
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                command.runAction(Application.getInstance());
+            }
+        });
+        button.setToolTipText(command.getDescription());
+
+        return button;
+    }
+
+    private static String capitalize(String line) {
+        boolean atStartOfWord = true;
+        StringBuilder newString = new StringBuilder();
+        for (char c : line.toCharArray()) {
+            if (atStartOfWord) {
+                newString.append(Character.toUpperCase(c));
+                atStartOfWord = false;
+            } else {
+                if (c == ' ') {
+                    atStartOfWord = true;
+                }
+                newString.append(c);
+            }
+        }
+
+        return newString.toString();
     }
 
     public GUIForm(){

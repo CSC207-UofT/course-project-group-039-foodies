@@ -41,7 +41,7 @@ public class Menu {
         JButton btnNewRecipes = new JButton("New Recipes");
         btnNewRecipes.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.new_recipes.setVisible(true);
+            GUIForm.newRecipes.setVisible(true);
 
         });
         btnNewRecipes.setBounds(150, 90, 150, 23);
@@ -50,7 +50,7 @@ public class Menu {
         JButton btnRecipeBook = new JButton("Saved Recipes");
         btnRecipeBook.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.show_recipes.setVisible(true);
+            GUIForm.showRecipes.setVisible(true);
 
         });
         btnRecipeBook.setBounds(150, 130, 150, 23);

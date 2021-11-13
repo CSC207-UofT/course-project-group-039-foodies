@@ -58,30 +58,30 @@ public class Signup {
         lblUsername.setBounds(55, 159, 64, 23);
         frame1.getContentPane().add(lblUsername);
 
-        JTextField textField_1 = new JTextField();
-        textField_1.setBounds(130, 161, 86, 20);
-        frame1.getContentPane().add(textField_1);
-        textField_1.setColumns(10);
+        JTextField textField1 = new JTextField();
+        textField1.setBounds(130, 161, 86, 20);
+        frame1.getContentPane().add(textField1);
+        textField1.setColumns(10);
 
         JLabel lblPassword = new JLabel("Password:");
         lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
         lblPassword.setBounds(55, 199, 64, 23);
         frame1.getContentPane().add(lblPassword);
 
-        JPasswordField textField_2 = new JPasswordField();
-        textField_2.setBounds(130, 201, 86, 20);
-        frame1.getContentPane().add(textField_2);
-        textField_2.setColumns(10);
+        JPasswordField textField2 = new JPasswordField();
+        textField2.setBounds(130, 201, 86, 20);
+        frame1.getContentPane().add(textField2);
+        textField2.setColumns(10);
 
         JLabel lblFullName = new JLabel("Full Name:");
         lblFullName.setFont(new Font("Tahoma", Font.PLAIN, 12));
         lblFullName.setBounds(55, 239, 64, 23);
         frame1.getContentPane().add(lblFullName);
 
-        JTextField textField_3 = new JTextField();
-        textField_3.setBounds(130, 241, 84, 20);
-        frame1.getContentPane().add(textField_3);
-        textField_3.setColumns(10);
+        JTextField textField3 = new JTextField();
+        textField3.setBounds(130, 241, 84, 20);
+        frame1.getContentPane().add(textField3);
+        textField3.setColumns(10);
 
         JButton btnSignup = new JButton("Sign Up");
         btnSignup.setBounds(260, 178, 89, 23);
@@ -90,9 +90,9 @@ public class Signup {
                 String email,user,fullName;
                 char[] password;
                 email = textField.getText();
-                user = textField_1.getText();
-                password = textField_2.getPassword();
-                fullName = textField_3.getText();
+                user = textField1.getText();
+                password = textField2.getPassword();
+                fullName = textField3.getText();
 
                 signUp(user, new String(password), fullName, email);
             });

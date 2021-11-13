@@ -16,7 +16,7 @@ public class AddGroupMemberCommand extends Command {
     public void runAction(UserInterface UI) {
         String username = UI.queryUser("Input the username of a new member to be added");
 
-        if (!UserCSVReader.getTestInstance().isUser(username)) {
+        if (!UserCSVReader.getInstance().isUser(username)) {
             UI.displayMessage("The username does not exist.");
         } else {
             String groupCode = UI.queryUser("Input your 7 digit Group Code");

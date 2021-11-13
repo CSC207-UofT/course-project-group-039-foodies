@@ -30,7 +30,7 @@ public class ViewTopPicks {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             viewTopPicks.setVisible(false);
-            GUIForm.new_recipes.setVisible(true);
+            GUIForm.newRecipes.setVisible(true);
 
         });
         btnBack.setBounds(150, 210, 150, 23);

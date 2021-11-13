@@ -59,7 +59,7 @@ public class ViewSavedRecipesByFilter {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
             viewSavedRecipesByFilter.setVisible(false);
-            GUIForm.new_recipes.setVisible(true);
+            GUIForm.newRecipes.setVisible(true);
 
         });
         btnExit.setBounds(150, 210, 150, 23);
