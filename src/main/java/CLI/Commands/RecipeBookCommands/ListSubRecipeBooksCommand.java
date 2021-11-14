@@ -3,7 +3,9 @@ package main.java.CLI.Commands.RecipeBookCommands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
 import main.java.Entities.SubRecipeBook;
+import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
+import main.java.Entities.RecipeBook;
 
 public class ListSubRecipeBooksCommand extends Command {
     public ListSubRecipeBooksCommand() {
@@ -12,7 +14,8 @@ public class ListSubRecipeBooksCommand extends Command {
 
     @Override
     public void runAction(CommandLineInterface CLI) {
-        RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
+        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(CLI.getUser());
+        RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
         for (SubRecipeBook subrecipebook: recipeBookManager.getSubRecipeBooks()) {
             CLI.displayMessage(subrecipebook.getName());
         }

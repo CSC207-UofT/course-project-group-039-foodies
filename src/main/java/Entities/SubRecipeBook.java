@@ -52,6 +52,14 @@ public class SubRecipeBook {
     }
 
     /**
+     * Return the description of the subrecipebook.
+     * @return String representing the description of the subrecipebook.
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
      * Add a Recipe recipe with code recipe code to the sub recipe book
      *
      * @param recipecode - a unique String code identifier for Recipe
@@ -123,6 +131,10 @@ public class SubRecipeBook {
      */
     public Recipe getRecipe(String recipename) {
         return this.recipes.findRecipe(recipename);
+    }
+
+    public boolean containsRecipe(Recipe recipe) {
+        return this.recipes.containsRecipe(recipe);
     }
 
     /**

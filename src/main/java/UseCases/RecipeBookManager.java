@@ -121,11 +121,12 @@ import java.util.Iterator;
     /**
      * Remove a recipe of a certain name from a user's recipe book
      * @param recipeName The name of the recipe we are removing
+     * @param subrecipebookname - The name of the subrecipebook
      */
-    public void removeRecipe(SubRecipeBook subrecipebook,String recipeName) {
+    public void removeRecipe(String subrecipebookname,String recipeName) {
         for (Recipe recipe : overallRecipeBook.getAllRecipes()) {
             if (recipe.getName().equals(recipeName)) {
-                overallRecipeBook.removeRecipe(subrecipebook, recipe.getRecipeCode());
+                overallRecipeBook.removeRecipe(subrecipebookname, recipe.getRecipeCode());
             }
         }
     }
@@ -133,17 +134,19 @@ import java.util.Iterator;
     /**
      * Remove a recipe from a user's recipe book
      * @param recipe The recipe object representing the recipe we are removing
+     * @param subrecipebookname - name of the subrecipebook
      */
-    public void removeRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
-        overallRecipeBook.removeRecipe(subrecipebook, recipe.getRecipeCode());
+    public void removeRecipe(String subrecipebookname, Recipe recipe) {
+        overallRecipeBook.removeRecipe(subrecipebookname, recipe.getRecipeCode());
     }
 
     /**
      * Add a recipe to a user's recipe book
+     * @param subrecipebookname The name of the subrecipebook to which recipe is added
      * @param recipe The recipe object representing the recipe we are adding
      */
-    public void addRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
-        overallRecipeBook.addRecipe(subrecipebook, recipe);
+    public void addRecipe(String subrecipebookname, Recipe recipe) {
+        overallRecipeBook.addRecipe(subrecipebookname, recipe);
     }
 
 

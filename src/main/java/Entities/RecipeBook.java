@@ -46,6 +46,7 @@ public class RecipeBook {
         usersubrecipebooks.add(subrecipebook);
     }
 
+
     /**
      * Remove a sub-recipe book from the overall recipe book.
      * @param subrecipebook - the sub-recipe book to be deleted.
@@ -92,21 +93,21 @@ public class RecipeBook {
 
     /**
      * Add a Recipe to subrecipebook requested and the subrecipebook allrecipes
-     * @param subrecipebook - the subrecipebook to add the recipe to
+     * @param subrecipebookname - the subrecipebook to add the recipe to
      * @param recipe - the Recipe to be added
      */
-    public void addRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
-        showSubRecipeBook(subrecipebook).addRecipe(recipe);
+    public void addRecipe(String subrecipebookname, Recipe recipe) {
+        showSubRecipeBook(subrecipebookname).addRecipe(recipe);
         this.showSubRecipeBook("allrecipes").addRecipe(recipe);
     }
 
     /**
      * Remove Recipe from allrecipes list.
-     * @param subrecipebook - subrecipebook from which the recipe is removed
+     * @param subrecipebookname - subrecipebook from which the recipe is removed
      * @param recipe - the Recipe to be removed
      */
-    public void removeRecipe(SubRecipeBook subrecipebook , Recipe recipe) {
-        showSubRecipeBook(subrecipebook).removeRecipe(recipe);
+    public void removeRecipe(String subrecipebookname , Recipe recipe) {
+        showSubRecipeBook(subrecipebookname).removeRecipe(recipe);
         this.showSubRecipeBook("allrecipes").removeRecipe(recipe);
     }
 
@@ -117,11 +118,11 @@ public class RecipeBook {
 
     /**
      * Remove the recipe with recipecode from the sub recipe book.
-     * @param subrecipebook - the subrecipebook to remove the recipe from
+     * @param subrecipebookname - the subrecipebook to remove the recipe from
      * @param recipecode - a unique String code identifier for Recipe
      */
-    public void removeRecipe(SubRecipeBook subrecipebook,Integer recipecode) {
-        showSubRecipeBook(subrecipebook).removeRecipe(recipecode);
+    public void removeRecipe(String subrecipebookname, Integer recipecode) {
+        showSubRecipeBook(subrecipebookname).removeRecipe(recipecode);
         this.showSubRecipeBook("allrecipes").removeRecipe(recipecode);
     }
 
@@ -163,7 +164,7 @@ public class RecipeBook {
     }
 
     /**
-     * Return the number of recipes in the subrecipebook.
+     * Return the number of recipes in the recipebook.
      * @return an int indicating the number of recipes in the subrecipebook.
      */
     public int size() {
