@@ -7,7 +7,7 @@ import main.java.UseCases.RecipeBookManager;
 
 public class ListSubRecipeBooksCommand extends Command {
     public ListSubRecipeBooksCommand() {
-        super("Show SubRecipeBooks", "show all the SubRecipeBooks contained in RecipeBook");
+        super("show subrecipebooks", "show all the SubRecipeBooks contained in RecipeBook");
     }
 
     @Override

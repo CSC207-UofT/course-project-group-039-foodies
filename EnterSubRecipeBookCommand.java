@@ -8,7 +8,7 @@ import main.java.UseCases.RecipeBookManager;
 
 public class EnterSubRecipeBookCommand extends Command {
     public EnterSubRecipeBookCommand() {
-        super("Enter SubRecipeBook", "Enter the SubRecipeBook of given name");
+        super("enter subrecipebook", "Enter the SubRecipeBook of given name");
     }
 
     @Override
@@ -17,11 +17,12 @@ public class EnterSubRecipeBookCommand extends Command {
         String subrecipebookname = CLI.getTextInput();
         RecipeBookManager recipebookmanager = new RecipeBookManager(CLI.getUser());
         if (recipebookmanager.containsSubRecipeBook(subrecipebookname)) {
-            SubRecipeBook entersubrecipebook = recipebookmanager.findsubrecipebook(subrecipebookname);
+            CLI.getPageManager().enterSubRecipeBook();
+            Command help = new HelpCommand();
+            help.runAction(CLI);
+        } else {
+            CLI.displayMessage("The subrecipbook requested does not exist");
         }
-        CLI.getPageManager().enterSubRecipeBook();
-        Command help = new HelpCommand();
-        help.runAction(CLI);
     }
 }
 // how to enter into a specific recipebook.

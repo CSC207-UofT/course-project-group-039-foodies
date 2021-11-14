@@ -10,7 +10,7 @@ import main.java.UseCases.SubRecipeBookManager;
 public class AddSubRecipeBookCommand extends Command {
 
     public AddSubRecipeBookCommand() {
-        super("Add a SubRecipeBook", "Adds a new sub recipe book to the user's recipe book");
+        super("add a subrecipebook", "Adds a new sub recipe book to the user's recipe book");
     }
 
     @Override

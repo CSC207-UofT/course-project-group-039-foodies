@@ -7,7 +7,7 @@ import main.java.UseCases.RecipeBookManager;
 public class DeleteSubRecipeBookCommand extends Command {
 
     public DeleteSubRecipeBookCommand() {
-        super("Delete a SubRecipe Book", "deletes the subrecipe book with name provided");
+        super("delete subrecipebook", "deletes the subrecipe book with name provided");
     }
 
     public void runAction(CommandLineInterface CLI) {
