@@ -1,12 +1,11 @@
-package main.java.CLI.Commands.RecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
-import main.java.CLI.Commands.HelpCommand;
 import main.java.Entities.RecipeBook;
-import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.HelpCommand;
+import main.java.UserInterface.UserInterface;
 
 public class EnterSubRecipeBookCommand extends Command {
     public EnterSubRecipeBookCommand() {
@@ -14,17 +13,16 @@ public class EnterSubRecipeBookCommand extends Command {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        CLI.displayMessage("Input the name of the SubRecipeBook you would like to enter");
-        String subrecipebookname = CLI.getTextInput();
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(CLI.getUser());
+    public void runAction(UserInterface UI) {
+        String subRecipeBookName = UI.queryUser("Input the name of the SubRecipeBook you would like to enter");
+        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
-        if (recipebookmanager.containsSubRecipeBook(subrecipebookname)) {
-            CLI.getPageManager().enterSubRecipeBook();
+        if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
+            UI.getPageManager().enterSubRecipeBook();
             Command help = new HelpCommand();
-            help.runAction(CLI);
+            help.runAction(UI);
         } else {
-            CLI.displayMessage("The subrecipebook requested does not exist");
+            UI.displayMessage("The subrecipebook requested does not exist");
         }
     }
 }

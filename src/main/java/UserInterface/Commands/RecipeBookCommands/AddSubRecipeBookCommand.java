@@ -1,14 +1,11 @@
-package main.java.CLI.Commands.RecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
 import main.java.Entities.RecipeBook;
-import main.java.Entities.SubRecipeBook;
 import main.java.Entities.User;
 import main.java.Gateways.RecipeBookCSVReader;
-import main.java.Gateways.UserCSVReader;
 import main.java.UseCases.RecipeBookManager;
-import main.java.UseCases.SubRecipeBookManager;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.UserInterface;
 
 public class AddSubRecipeBookCommand extends Command {
 
@@ -17,25 +14,23 @@ public class AddSubRecipeBookCommand extends Command {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        CLI.displayMessage("Enter the name of the new sub recipe book");
-        String subrecipebookname = CLI.getTextInput();
+    public void runAction(UserInterface UI) {
+        String subRecipeBookName = UI.queryUser("Enter the name of the new sub recipe book");
 
-        CLI.displayMessage("Enter a description for the new sub recipe book");
-        String subrecipebookdesc = CLI.getTextInput();
+        String subRecipeBookDesc = UI.queryUser("Enter a description for the new sub recipe book");
 
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(CLI.getUser());
+        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
-        recipebookmanager.addSubRecipeBook(subrecipebookname, subrecipebookdesc);
+        recipebookmanager.addSubRecipeBook(subRecipeBookName, subRecipeBookDesc);
 
-        User user = CLI.getUser();
+        User user = UI.getUser();
         String username = user.getUsername();
-        if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, subrecipebookname)) {
-            RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, subrecipebookname, subrecipebookdesc);
-            CLI.displayMessage("New SubRecipeBook with name " + subrecipebookname + " and description " + subrecipebookdesc
+        if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, subRecipeBookName)) {
+            RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, subRecipeBookName, subRecipeBookDesc);
+            UI.displayMessage("New SubRecipeBook with name " + subRecipeBookName + " and description " + subRecipeBookDesc
                     + " created successfully");
         } else {
-            CLI.displayMessage("A subrecipebook with the name " + subrecipebookname + " already exists");
+            UI.displayMessage("A subrecipebook with the name " + subRecipeBookName + " already exists");
         }
     }
 }

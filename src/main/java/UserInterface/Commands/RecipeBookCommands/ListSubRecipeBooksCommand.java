@@ -1,11 +1,11 @@
-package main.java.CLI.Commands.RecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
+import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
-import main.java.Entities.RecipeBook;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.UserInterface;
 
 public class ListSubRecipeBooksCommand extends Command {
     public ListSubRecipeBooksCommand() {
@@ -13,11 +13,11 @@ public class ListSubRecipeBooksCommand extends Command {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(CLI.getUser());
+    public void runAction(UserInterface UI) {
+        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
         for (SubRecipeBook subrecipebook: recipeBookManager.getSubRecipeBooks()) {
-            CLI.displayMessage(subrecipebook.getName());
+            UI.displayMessage(subrecipebook.getName());
         }
     }
 }

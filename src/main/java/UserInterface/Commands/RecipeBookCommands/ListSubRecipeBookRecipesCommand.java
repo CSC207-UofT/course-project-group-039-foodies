@@ -1,12 +1,12 @@
-package main.java.CLI.Commands.RecipeBookCommands;
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
+package main.java.UserInterface.Commands.RecipeBookCommands;
+
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeBook;
-import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.SubRecipeBookManager;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.UserInterface;
 
 /**
  * List the recipes found in subrecipebook
@@ -18,19 +18,18 @@ public class ListSubRecipeBookRecipesCommand extends Command {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        CLI.displayMessage("Please confirm the recipe book you would like to see recipes for");
-        String subrecipebookname = CLI.getTextInput();
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(CLI.getUser());
+    public void runAction(UserInterface UI) {
+        String subRecipeBookName = UI.queryUser("Please confirm the recipe book you would like to see recipes for");
+        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
-        if (recipebookmanager.containsSubRecipeBook(subrecipebookname)) {
+        if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
-                recipebookmanager.findsubrecipebook(subrecipebookname));
+                recipebookmanager.findsubrecipebook(subRecipeBookName));
             for (Recipe recipe : subRecipeBookManager.getRecipes()) {
-                CLI.displayMessage(recipe.toString());
+                UI.displayMessage(recipe.toString());
             }
         } else {
-            CLI.displayMessage("The subrecipebook that you requested does not exist");
+            UI.displayMessage("The subrecipebook that you requested does not exist");
         }
     }
 }
