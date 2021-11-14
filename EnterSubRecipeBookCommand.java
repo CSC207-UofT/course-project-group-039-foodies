@@ -21,7 +21,7 @@ public class EnterSubRecipeBookCommand extends Command {
             Command help = new HelpCommand();
             help.runAction(CLI);
         } else {
-            CLI.displayMessage("The subrecipbook requested does not exist");
+            CLI.displayMessage("The subrecipebook requested does not exist");
         }
     }
 }
