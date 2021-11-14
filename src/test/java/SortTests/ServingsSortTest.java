@@ -30,8 +30,8 @@ public class ServingsSortTest {
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
 
-        ServingsSort servings = new ServingsSort(recipes.getRecipes());
-        Recipe[] sorted = servings.sort();
+        ServingsSort servings = new ServingsSort();
+        Recipe[] sorted = servings.sort(recipes.getRecipes());
 
         assertEquals("food2", sorted[0].getName());
         assertEquals("food3", sorted[1].getName());
