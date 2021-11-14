@@ -1,4 +1,4 @@
-package main.java.Filters;
+package main.java.UseCases.Filters;
 
 import main.java.Entities.Recipe;
 
@@ -8,15 +8,12 @@ import java.util.ArrayList;
  * Filter out the recipes that contains ingredients which may cause allergy.
  */
 public class AllergyFilter implements Filter{
-    private final Recipe[] data;
     private final String ingredient;
 
     /**
-     * @param data Array of Recipes
      * @param ingredient Ingredient that may cause allergy.
      */
-    public AllergyFilter(Recipe[] data, String ingredient) {
-        this.data = data;
+    public AllergyFilter(String ingredient) {
         this.ingredient = ingredient;
     }
 
@@ -24,13 +21,21 @@ public class AllergyFilter implements Filter{
      * @return Array of Recipes that is completely filtered based on the ingredient.
      */
     @Override
-    public Recipe[] filter() {
+    public Recipe[] filter(Recipe[] recipes) {
         ArrayList<Recipe> result = new ArrayList<>();
-        for (Recipe recipe : data) {
+        for (Recipe recipe : recipes) {
             if (!recipe.getIngredients().contains(this.ingredient)) {
                 result.add(recipe);
             }
         }
         return result.toArray(new Recipe[0]);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AllergyFilter) {
+            return ((AllergyFilter) obj).ingredient.equals(ingredient);
+        }
+        return false;
     }
 }

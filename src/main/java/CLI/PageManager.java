@@ -12,6 +12,10 @@ import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
 import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
 import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
 import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
 import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdateIncludeCommand;
@@ -44,6 +48,10 @@ public class PageManager {
                     new GetNewRecipeCommand(),
                     new RateRecipeCommand(), //remove this
                     new AddToRecipeBookCommand(),
+                    new SortRecipeBookCommand(),
+                    new FilterRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
                     new GoBackCommand()
             }
     );

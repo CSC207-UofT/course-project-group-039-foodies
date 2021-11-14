@@ -1,4 +1,4 @@
-package main.java.Filters;
+package main.java.UseCases.Filters;
 
 import main.java.Entities.Recipe;
 import java.util.ArrayList;
@@ -7,15 +7,12 @@ import java.util.ArrayList;
  * Filter Recipes based on the food type.
  */
 public class FoodTypeFilter implements Filter{
-    private final Recipe[] data;
     private final String foodType;
 
     /**
-     * @param data Array of Recipes.
      * @param foodType Food type (e.g. "Breakfast" or "Dinner").
      */
-    public FoodTypeFilter(Recipe[] data, String foodType) {
-        this.data = data;
+    public FoodTypeFilter(String foodType) {
         this.foodType = foodType;
     }
 
@@ -23,13 +20,22 @@ public class FoodTypeFilter implements Filter{
      * @return Array of Recipes that is completely filtered based on the food type.
      */
     @Override
-    public Recipe[] filter() {
+    public Recipe[] filter(Recipe[] recipes) {
         ArrayList<Recipe> result = new ArrayList<>();
-        for (Recipe recipe : data) {
+        for (Recipe recipe : recipes) {
             if (recipe.getFoodType().equals(foodType)) {
                 result.add(recipe);
             }
         }
         return result.toArray(new Recipe[0]);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FoodTypeFilter) {
+            return ((FoodTypeFilter) obj).foodType.equals(foodType);
+        }
+
+        return false;
     }
 }
