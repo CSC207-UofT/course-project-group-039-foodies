@@ -37,8 +37,8 @@ public class AllergyFilterTest {
         recipes.addRecipe(recipe3);
 
 
-        AllergyFilter allergy = new AllergyFilter(recipes.getRecipes(), "nut");
-        Recipe[] filtered = allergy.filter();
+        AllergyFilter allergy = new AllergyFilter("nut");
+        Recipe[] filtered = allergy.filter(recipes.getRecipes());
 
         assertEquals(2, filtered.length);
         assertEquals("food1", filtered[0].getName());
