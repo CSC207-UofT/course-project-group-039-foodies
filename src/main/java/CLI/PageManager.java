@@ -14,6 +14,8 @@ import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
 import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
 import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdateIncludeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdateOmitCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
@@ -40,7 +42,7 @@ public class PageManager {
             signedIn,
             new Command[]  {
                     new GetNewRecipeCommand(),
-                    new RateRecipeCommand(),
+                    new RateRecipeCommand(), //remove this
                     new AddToRecipeBookCommand(),
                     new GoBackCommand()
             }
@@ -65,6 +67,15 @@ public class PageManager {
             }
     );
 
+    Page updatePreferences = new Page(
+            signedIn,
+            new Command[] {
+                    new UpdateOmitCommand(),
+                    new UpdateIncludeCommand(),
+                    new GoBackCommand(),
+            }
+    );
+
     Page currentPage = signedOut;
 
     public void setPage(Page page) {
@@ -84,6 +95,9 @@ public class PageManager {
     }
     public void enterRecipeViewer() {
         setPage(recipeViewer);
+    }
+    public void setUpdatePreferences() {
+        setPage(updatePreferences);
     }
     public void manageGroup() { setPage(manageGroup); }
     public void goBack() {

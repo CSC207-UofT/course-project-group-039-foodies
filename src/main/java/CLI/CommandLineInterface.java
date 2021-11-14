@@ -3,6 +3,7 @@ package main.java.CLI;
 import java.util.*;
 
 import main.java.CLI.Commands.Command;
+import main.java.Entities.PreferenceBook;
 import main.java.Entities.RecipeCollection;
 import main.java.Entities.User;
 
@@ -15,12 +16,14 @@ public class CommandLineInterface {
     private final PageManager pageManager;
     private User user;
     private RecipeCollection recipes;
+    private PreferenceBook preferences;
 
     public CommandLineInterface(Scanner keyboard) {
         isRunning = true;
         pageManager = new PageManager();
         recipes = new RecipeCollection();
         user = null;
+        preferences = null;
         this.keyboard = keyboard;
     }
 
@@ -36,6 +39,9 @@ public class CommandLineInterface {
         this.user = user;
     }
 
+    public void buildPreferences(PreferenceBook prefs) {
+        this.preferences = prefs;
+    }
     /**
      * A getter for the current user
      * @return a User object representing the signed-in user
@@ -43,6 +49,12 @@ public class CommandLineInterface {
     public User getUser() {
         return user;
     }
+
+    /**
+     * A getter for the current preference book
+     * @return A PreferenceBook object representing the current user's preference book
+     */
+    public PreferenceBook getPreferenceBook() { return preferences; }
 
     /**
      * Prints out a message to the user
