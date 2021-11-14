@@ -1,15 +1,10 @@
-package main.java.CLI.Commands.RecipeBookCommands.ModifyOutputCommands;
-import main.java.CLI.CommandLineInterface;
-import main.java.Modifiers.Filters.AllergyFilter;
-import main.java.Modifiers.Filters.Filter;
-import main.java.Modifiers.Filters.FoodTypeFilter;
-import main.java.Modifiers.Filters.ServingsFilter;
+package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
+import main.java.CLI.*;
+import main.java.UseCases.Filters.*;
 
-
-
-public class FilterRecipeBookCommand extends ModifyOutputCommand<FilterOption> {
+public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
     public FilterRecipeBookCommand() {
-        super("filter recipe book", "Filters the recipes in the recipe book");
+        super("filter", "Filters the recipes to be seen");
     }
 
     @Override
@@ -19,7 +14,7 @@ public class FilterRecipeBookCommand extends ModifyOutputCommand<FilterOption> {
         switch (chooseOption(
                 CLI,
                 FilterOption.class,
-                "Input 'allergy' to filter out an allergen from the recipebook, " +
+                "Input 'allergy' to filter out an allergen, " +
                         "'foodtype' to filter in a type of food, and " +
                         "'servings' to filter the number of servings."
         )) {
@@ -42,4 +37,5 @@ public class FilterRecipeBookCommand extends ModifyOutputCommand<FilterOption> {
 
         CLI.getRecipeCollection().addFilter(filter);
     }
+
 }

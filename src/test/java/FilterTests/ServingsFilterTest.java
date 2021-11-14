@@ -2,7 +2,7 @@ package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Filters.ServingsFilter;
+import main.java.UseCases.Filters.ServingsFilter;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;

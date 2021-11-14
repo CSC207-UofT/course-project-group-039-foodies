@@ -1,4 +1,4 @@
-package main.java.Filters;
+package main.java.UseCases.Filters;
 
 import main.java.Entities.Recipe;
 import java.util.ArrayList;
@@ -28,5 +28,14 @@ public class FoodTypeFilter implements Filter{
             }
         }
         return result.toArray(new Recipe[0]);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FoodTypeFilter) {
+            return ((FoodTypeFilter) obj).foodType.equals(foodType);
+        }
+
+        return false;
     }
 }

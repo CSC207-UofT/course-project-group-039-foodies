@@ -3,7 +3,7 @@ package main.java.CLI;
 import main.java.CLI.Commands.*;
 import main.java.CLI.Commands.AdminCommands.*;
 import main.java.CLI.Commands.RecipeBookCommands.*;
-import main.java.CLI.Commands.RecipeBookCommands.ModifyOutputCommands.*;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.*;
 import main.java.CLI.Commands.RecipeViewerCommands.*;
 import main.java.CLI.Commands.UserPreferencesCommands.*;
 
@@ -32,6 +32,10 @@ public class PageManager {
                     new GetNewRecipeCommand(),
                     new RateRecipeCommand(),
                     new AddToRecipeBookCommand(),
+                    new SortRecipeBookCommand(),
+                    new FilterRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
                     new GoBackCommand()
             }
     );
@@ -41,10 +45,6 @@ public class PageManager {
             new Command[] {
                     new ListRecipeBookCommand(),
                     new RemoveRecipeCommand(),
-                    new SortRecipeBookCommand(),
-                    new FilterRecipeBookCommand(),
-                    new RemoveFilterCommand(),
-                    new RemoveSortCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()
             }

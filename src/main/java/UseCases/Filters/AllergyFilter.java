@@ -1,4 +1,4 @@
-package main.java.Filters;
+package main.java.UseCases.Filters;
 
 import main.java.Entities.Recipe;
 
@@ -29,5 +29,13 @@ public class AllergyFilter implements Filter{
             }
         }
         return result.toArray(new Recipe[0]);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AllergyFilter) {
+            return ((AllergyFilter) obj).ingredient.equals(ingredient);
+        }
+        return false;
     }
 }

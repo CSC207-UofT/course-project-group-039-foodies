@@ -1,4 +1,4 @@
-package main.java.Sorts;
+package main.java.UseCases.Sorts;
 
 import main.java.Entities.Recipe;
 import java.util.Comparator;

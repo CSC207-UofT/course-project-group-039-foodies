@@ -1,7 +1,7 @@
 package main.java.Entities;
 
-import main.java.Modifiers.Filters.Filter;
-import main.java.Modifiers.Sorts.Sort;
+import main.java.UseCases.Filters.Filter;
+import main.java.UseCases.Sorts.Sort;
 
 import java.util.*;
 

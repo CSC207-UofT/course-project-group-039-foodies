@@ -1,4 +1,4 @@
-package main.java.Sorts;
+package main.java.UseCases.Sorts;
 
 import main.java.Entities.Recipe;
 import java.util.Comparator;
@@ -18,6 +18,6 @@ public class RatingComparator implements Comparator<Recipe> {
      */
     @Override
     public int compare (Recipe recipe1, Recipe recipe2) {
-        return recipe2.getRating() - recipe1.getRating();
+        return (int)(recipe2.getRating() - recipe1.getRating());
     }
 }

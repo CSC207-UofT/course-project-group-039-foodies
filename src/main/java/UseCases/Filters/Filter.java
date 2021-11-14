@@ -1,4 +1,4 @@
-package main.java.Filters;
+package main.java.UseCases.Filters;
 
 import main.java.Entities.Recipe;
 

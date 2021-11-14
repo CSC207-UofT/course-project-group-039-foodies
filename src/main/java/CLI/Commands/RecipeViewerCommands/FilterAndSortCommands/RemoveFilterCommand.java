@@ -1,13 +1,9 @@
-package main.java.CLI.Commands.RecipeBookCommands.ModifyOutputCommands;
+package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
 
 import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
-import main.java.Modifiers.Filters.AllergyFilter;
-import main.java.Modifiers.Filters.Filter;
-import main.java.Modifiers.Filters.FoodTypeFilter;
-import main.java.Modifiers.Filters.ServingsFilter;
+import main.java.UseCases.Filters.*;
 
-public class RemoveFilterCommand extends ModifyOutputCommand<FilterOption> {
+public class RemoveFilterCommand extends ChoiceCommand<FilterOption> {
     public RemoveFilterCommand() {
         super("remove filter", "Removes a filter that has been added");
     }
@@ -41,7 +37,5 @@ public class RemoveFilterCommand extends ModifyOutputCommand<FilterOption> {
         }
 
         CLI.getRecipeCollection().removeFilter(filter);
-
-        CLI.getRecipeCollection().addFilter(filter);
     }
 }
