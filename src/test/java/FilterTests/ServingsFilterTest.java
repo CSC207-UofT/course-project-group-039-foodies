@@ -30,8 +30,8 @@ public class ServingsFilterTest {
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
 
-        ServingsFilter servings = new ServingsFilter(recipes.getRecipes(), 2);
-        Recipe[] filtered = servings.filter();
+        ServingsFilter servings = new ServingsFilter(2);
+        Recipe[] filtered = servings.filter(recipes.getRecipes());
 
         assertEquals(1, filtered.length);
         assertEquals("food2", filtered[0].getName());
