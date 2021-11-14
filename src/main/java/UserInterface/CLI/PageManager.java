@@ -1,21 +1,22 @@
-package main.java.UserInterface.CLI;
+package main.java.CLI;
 
-import main.java.UserInterface.Commands.*;
-import main.java.UserInterface.Commands.AdminCommands.*;
-import main.java.UserInterface.Commands.AdminCommands.CreateAccountCommand;
-import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
-import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
-import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
-import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.EnterRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.ListRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.RemoveRecipeCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
-import main.java.UserInterface.CLI.Page;
+import main.java.CLI.Commands.*;
+import main.java.CLI.Commands.AdminCommands.*;
+import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
+import main.java.CLI.Commands.GroupCommands.EnterManageGroupCommand;
+import main.java.CLI.Commands.GroupCommands.CreateGroupCommand;
+import main.java.CLI.Commands.GroupCommands.AddGroupMemberCommand;
+import main.java.CLI.Commands.GroupCommands.RemoveGroupMemberCommand;
+import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdateIncludeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdateOmitCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
     Page signedOut = new Page(
@@ -41,7 +42,7 @@ public class PageManager {
             signedIn,
             new Command[]  {
                     new GetNewRecipeCommand(),
-                    new RateRecipeCommand(),
+                    new RateRecipeCommand(), //remove this
                     new AddToRecipeBookCommand(),
                     new GoBackCommand()
             }
@@ -66,6 +67,15 @@ public class PageManager {
             }
     );
 
+    Page updatePreferences = new Page(
+            signedIn,
+            new Command[] {
+                    new UpdateOmitCommand(),
+                    new UpdateIncludeCommand(),
+                    new GoBackCommand(),
+            }
+    );
+
     Page currentPage = signedOut;
 
     public void setPage(Page page) {
@@ -85,6 +95,9 @@ public class PageManager {
     }
     public void enterRecipeViewer() {
         setPage(recipeViewer);
+    }
+    public void setUpdatePreferences() {
+        setPage(updatePreferences);
     }
     public void manageGroup() { setPage(manageGroup); }
     public void goBack() {
