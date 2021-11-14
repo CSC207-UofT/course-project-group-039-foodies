@@ -2,7 +2,7 @@ package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Filters.AllergyFilter;
+import main.java.UseCases.Filters.AllergyFilter;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ public class AllergyFilterTest {
         recipes.addRecipe(recipe3);
 
 
-        AllergyFilter allergy = new AllergyFilter(recipes.getRecipes(), "nut");
-        Recipe[] filtered = allergy.filter();
+        AllergyFilter allergy = new AllergyFilter("nut");
+        Recipe[] filtered = allergy.filter(recipes.getRecipes());
 
         assertEquals(2, filtered.length);
         assertEquals("food1", filtered[0].getName());
