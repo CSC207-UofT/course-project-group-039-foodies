@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class UpdateOmitCommand extends Command {
     public UpdateOmitCommand() {
-        super("update omitted ingredients", "Removes or adds ingredients to omit list");
+        super("update omitted ingredients", "Remove or add ingredients to omit list");
     }
     @Override
     public void runAction(CommandLineInterface CLI) {
@@ -40,6 +40,8 @@ public class UpdateOmitCommand extends Command {
                 CLI.displayMessage("List of omitted ingredients successfully updated");
             }
         }
+        CLI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(CLI.getUser().getUsername()));
+        //update preference book
     }
 
 }

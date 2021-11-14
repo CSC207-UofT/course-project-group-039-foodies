@@ -107,24 +107,24 @@ public class PreferenceBookCSVReader extends CSVReader {
 
     public void updateOmit(String username, String RemOrAdd, String foodItem) {
         if (Objects.equals(RemOrAdd, "add")) {
+            addPreferences(username, 1, foodItem);
+        } else {
+            removePreferences(username, 1, foodItem);
+        }
+    }
+
+    public void updateInclude(String username, String RemOrAdd, String foodItem) {
+        if (Objects.equals(RemOrAdd, "add")) {
             addPreferences(username, 2, foodItem);
         } else {
             removePreferences(username, 2, foodItem);
         }
     }
 
-    public void updateInclude(String username, String RemOrAdd, String foodItem) {
-        if (Objects.equals(RemOrAdd, "add")) {
-            addPreferences(username, 3, foodItem);
-        } else {
-            removePreferences(username, 3, foodItem);
-        }
-    }
-
     public void updateRatings(String username, String RemOrAdd, String recipe, Double rating) {
         if (Objects.equals(RemOrAdd, "add")) {
-            addPreferences(username, 4, recipe);
-            addPreferences(username, 5, String.valueOf(rating));
+            addPreferences(username, 3, recipe);
+            addPreferences(username, 4, String.valueOf(rating));
         } else {
             int index = 0;
             for (ArrayList<String> line : readFile()) {
@@ -132,8 +132,8 @@ public class PreferenceBookCSVReader extends CSVReader {
                     index += getIndex(recipe, line.get(4).split(";"));
                 }
             }
-            removePreferences(username, 4, recipe);
-            removePreferences(username, 5, String.valueOf(rating), index);
+            removePreferences(username, 3, recipe);
+            removePreferences(username, 4, String.valueOf(rating), index);
         }
     }
 
@@ -158,8 +158,12 @@ public class PreferenceBookCSVReader extends CSVReader {
             if (line.get(0).equals(username)) {
                 String[] recipes = line.get(3).split(";");
                 String[] ratings = line.get(4).split(";");
-                for (int i = 0; i < recipes.length; i++) {
-                    ratingMap.put(recipes[i], Double.valueOf(ratings[i]));
+                if (ratings.length == 1) {
+                    return ratingMap;
+                } else {
+                    for (int i = 1; i < recipes.length; i++) {
+                        ratingMap.put(recipes[i], Double.valueOf(ratings[i]));
+                    }
                 }
             }
         }
@@ -167,15 +171,20 @@ public class PreferenceBookCSVReader extends CSVReader {
     }
 
     public ArrayList<String> ToArrayList (String preferences) {
-        String[] prefs = preferences.split(";");
-        return new ArrayList<>(Arrays.asList(prefs));
+        if (Objects.equals(preferences, "")) {
+            return new ArrayList<>();
+        } else {
+            String[] prefs = preferences.split(";");
+            return new ArrayList<>(Arrays.asList(prefs));
+        }
     }
 
     public PreferenceBook getPreferenceBook(String username) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
-                return new PreferenceBook(username, ToArrayList(line.get(1)), ToArrayList(line.get(2)),
-                        ToArrayList(line.get(3)), ToArrayList(line.get(4)));
+                PreferenceBook newBook = new PreferenceBook(username, ToArrayList(line.get(1)), ToArrayList(line.get(2)));
+                newBook.addRating(getRatings(username));
+                return newBook;
             }
         }
         return null;
