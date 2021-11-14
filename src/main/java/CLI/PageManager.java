@@ -1,11 +1,21 @@
 package main.java.CLI;
 
 import main.java.CLI.Commands.*;
-import main.java.CLI.Commands.AdminCommands.*;
-import main.java.CLI.Commands.RecipeBookCommands.*;
-import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.*;
-import main.java.CLI.Commands.RecipeViewerCommands.*;
-import main.java.CLI.Commands.UserPreferencesCommands.*;
+import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
+import main.java.CLI.Commands.AdminCommands.SignInCommand;
+import main.java.CLI.Commands.AdminCommands.SignOutCommand;
+import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
+import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
+import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
     Page signedOut = new Page(
