@@ -37,8 +37,12 @@ public class PageManager {
             signedIn,
             new Command[]  {
                     new GetNewRecipeCommand(),
-                    new RateRecipeCommand(),
+                    new RateRecipeCommand(), //remove this
                     new AddToRecipeBookCommand(),
+                    new SortRecipeBookCommand(),
+                    new FilterRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
                     new GoBackCommand()
             }
     );
@@ -53,7 +57,7 @@ public class PageManager {
                     new GoBackCommand()
             }
     );
-
+    
     Page subrecipeBook = new Page(
             recipeBook,
             new Command[] {
@@ -70,6 +74,15 @@ public class PageManager {
                     new CreateGroupCommand(),
                     new AddGroupMemberCommand(),
                     new RemoveGroupMemberCommand()
+            }
+    );
+
+    Page updatePreferences = new Page(
+            signedIn,
+            new Command[] {
+                    new UpdateOmitCommand(),
+                    new UpdateIncludeCommand(),
+                    new GoBackCommand(),
             }
     );
 
@@ -96,6 +109,9 @@ public class PageManager {
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
+    public void setUpdatePreferences() {
+        setPage(updatePreferences);
+    }
     public void manageGroup() {
         setPage(manageGroup);
     }
@@ -106,4 +122,3 @@ public class PageManager {
         return currentPage.getAvailableCommands();
     }
 }
-
