@@ -7,19 +7,10 @@ import main.java.CLI.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.CLI.Commands.GroupCommands.CreateGroupCommand;
 import main.java.CLI.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.CLI.Commands.GroupCommands.RemoveGroupMemberCommand;
-import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.ListRecipeBookCommand;
-import main.java.CLI.Commands.RecipeBookCommands.RemoveRecipeCommand;
+import main.java.CLI.Commands.RecipeBookCommands.*;
 import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
 import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.UpdateIncludeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.UpdateOmitCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
@@ -46,12 +37,8 @@ public class PageManager {
             signedIn,
             new Command[]  {
                     new GetNewRecipeCommand(),
-                    new RateRecipeCommand(), //remove this
+                    new RateRecipeCommand(),
                     new AddToRecipeBookCommand(),
-                    new SortRecipeBookCommand(),
-                    new FilterRecipeBookCommand(),
-                    new RemoveFilterCommand(),
-                    new RemoveSortCommand(),
                     new GoBackCommand()
             }
     );
@@ -59,7 +46,18 @@ public class PageManager {
     Page recipeBook = new Page(
             signedIn,
             new Command[] {
-                    new ListRecipeBookCommand(),
+                    new ListSubRecipeBooksCommand(),
+                    new EnterSubRecipeBookCommand(),
+                    new AddSubRecipeBookCommand(),
+                    new DeleteSubRecipeBookCommand(),
+                    new GoBackCommand()
+            }
+    );
+
+    Page subrecipeBook = new Page(
+            recipeBook,
+            new Command[] {
+                    new ListSubRecipeBookRecipesCommand(),
                     new RemoveRecipeCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()
@@ -72,15 +70,6 @@ public class PageManager {
                     new CreateGroupCommand(),
                     new AddGroupMemberCommand(),
                     new RemoveGroupMemberCommand()
-            }
-    );
-
-    Page updatePreferences = new Page(
-            signedIn,
-            new Command[] {
-                    new UpdateOmitCommand(),
-                    new UpdateIncludeCommand(),
-                    new GoBackCommand(),
             }
     );
 
@@ -101,13 +90,15 @@ public class PageManager {
     public void enterRecipeBook() {
         setPage(recipeBook);
     }
+    public void enterSubRecipeBook() {
+        setPage(subrecipeBook);
+    }
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
-    public void setUpdatePreferences() {
-        setPage(updatePreferences);
+    public void manageGroup() {
+        setPage(manageGroup);
     }
-    public void manageGroup() { setPage(manageGroup); }
     public void goBack() {
         setPage(currentPage.getParent());
     }
