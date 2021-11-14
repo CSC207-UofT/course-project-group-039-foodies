@@ -33,8 +33,8 @@ public class FoodTypeFilterTest {
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
 
-        FoodTypeFilter foodType = new FoodTypeFilter(recipes.getRecipes(), "Dinner");
-        Recipe[] filtered = foodType.filter();
+        FoodTypeFilter foodType = new FoodTypeFilter("Dinner");
+        Recipe[] filtered = foodType.filter(recipes.getRecipes());
 
         assertEquals(1, filtered.length);
         assertEquals("Steak", filtered[0].getName());
