@@ -125,6 +125,10 @@ public class SubRecipeBook {
         return this.recipes.findRecipe(recipename);
     }
 
+    public boolean containsRecipe(Recipe recipe) {
+        return this.recipes.containsRecipe(recipe);
+    }
+
     /**
      * Return the number of recipes in the subrecipebook.
      * @return an int indicating the number of recipes in the subrecipebook.

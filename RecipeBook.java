@@ -163,7 +163,7 @@ public class RecipeBook {
     }
 
     /**
-     * Return the number of recipes in the subrecipebook.
+     * Return the number of recipes in the recipebook.
      * @return an int indicating the number of recipes in the subrecipebook.
      */
     public int size() {
