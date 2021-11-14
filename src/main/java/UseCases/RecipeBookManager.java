@@ -6,6 +6,7 @@ import main.java.Entities.SubRecipeBook;
 import main.java.Entities.User;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *A public class which manages the activities of the OverallRecipeBook.
@@ -52,6 +53,15 @@ import java.util.ArrayList;
     }
 
     /**
+     * Return the subrecipebook requested.
+     * @param subrecipebookname - the name of the subrecipebook to return
+     * @return the subrecipebook
+     */
+    public SubRecipeBook findsubrecipebook(String subrecipebookname) {
+        return overallRecipeBook.showSubRecipeBook(subrecipebookname);
+    }
+
+    /**
      * Return a list of the subrecipe books for a user in the overall recipe book.
      */
     public ArrayList<SubRecipeBook> getSubRecipeBooks() {
@@ -63,11 +73,8 @@ import java.util.ArrayList;
      * @param subrecipebookname The name of the recipe we are removing
      */
     public void removeSubRecipeBook(String subrecipebookname) {
-        for (SubRecipeBook subrecipebook: overallRecipeBook.getSubRecipeBooks()) {
-            if (subrecipebook.getName().equals(subrecipebookname)) {
-                overallRecipeBook.removeSubRecipeBook(subrecipebook);
-            }
-        }
+        SubRecipeBook subrecipebooktoremove = overallRecipeBook.showSubRecipeBook(subrecipebookname);
+        overallRecipeBook.removeSubRecipeBook(subrecipebooktoremove);
     }
 
     /**
@@ -81,7 +88,7 @@ import java.util.ArrayList;
 
 
     public boolean containsRecipe(String recipeName) {
-        for (Recipe recipe : overallRecipeBook.getRecipes()) {
+        for (Recipe recipe : overallRecipeBook.getAllRecipes()) {
             if (recipe.getName().equals(recipeName)) {
                 return true;
             }
@@ -90,7 +97,7 @@ import java.util.ArrayList;
     }
 
     /**
-     * Return whether a recipe object is contained in a user's sub recipe book
+     * Return whether a recipe object is contained in a user's recipe book
      * @param recipe The recipe name we are looking for
      * @return True if and only if the user contains the recipe
      */
@@ -108,17 +115,17 @@ import java.util.ArrayList;
      * @return The array of recipes
      */
     public Recipe[] getRecipes() {
-        return overallRecipeBook.getRecipes();
+        return overallRecipeBook.getAllRecipes();
     }
 
     /**
      * Remove a recipe of a certain name from a user's recipe book
      * @param recipeName The name of the recipe we are removing
      */
-    public void removeRecipe(String recipeName) {
-        for (Recipe recipe : overallRecipeBook.getRecipes()) {
+    public void removeRecipe(SubRecipeBook subrecipebook,String recipeName) {
+        for (Recipe recipe : overallRecipeBook.getAllRecipes()) {
             if (recipe.getName().equals(recipeName)) {
-                overallRecipeBook.removeRecipe(recipe);
+                overallRecipeBook.removeRecipe(subrecipebook, recipe.getRecipeCode());
             }
         }
     }
@@ -127,18 +134,18 @@ import java.util.ArrayList;
      * Remove a recipe from a user's recipe book
      * @param recipe The recipe object representing the recipe we are removing
      */
-    public void removeRecipe(Recipe recipe) {
-        overallRecipeBook.removeRecipe(recipe);
+    public void removeRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
+        overallRecipeBook.removeRecipe(subrecipebook, recipe.getRecipeCode());
     }
 
     /**
      * Add a recipe to a user's recipe book
      * @param recipe The recipe object representing the recipe we are adding
      */
-    public void addRecipe(Recipe recipe) {
-        overallRecipeBook.addRecipe(recipe.getRecipeCode(), recipe);
+    public void addRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
+        overallRecipeBook.addRecipe(subrecipebook, recipe);
     }
+
 
     public void rateRecipe(User user, String recipeName, int rating) {}
 }
-

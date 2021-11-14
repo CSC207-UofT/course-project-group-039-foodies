@@ -10,7 +10,7 @@ import main.java.UseCases.SubRecipeBookManager;
 public class AddToRecipeBookCommand extends Command {
 
     public AddToRecipeBookCommand() {
-        super("Add to recipe book", "Adds a viewed recipe to your recipe book");
+        super("add to subrecipebook", "Adds a viewed recipe to your recipe book");
     }
 
     @Override
@@ -26,12 +26,16 @@ public class AddToRecipeBookCommand extends Command {
 //            recipeBookManager.addRecipe(recipe);
             CLI.displayMessage("Input the name of the subrecipe book you would like to add recipe to");
             String subrecipebookname = CLI.getTextInput();
-            SubRecipeBook subrecipebook = recipeBookManager.findsubrecipebook(subrecipebookname);
-            recipeBookManager.addRecipe(subrecipebook, recipe);
+            if (recipeBookManager.containsSubRecipeBook(subrecipebookname)) {
+                SubRecipeBook subrecipebook = recipeBookManager.findsubrecipebook(subrecipebookname);
+                recipeBookManager.addRecipe(subrecipebook, recipe);
 //            SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
 //                    recipeBookManager.findsubrecipebook(subrecipebookname));
 //            subRecipeBookManager.addRecipe(recipe);
-            CLI.displayMessage("Recipe added successfully");
+                CLI.displayMessage("Recipe added successfully");
+            }else {
+                CLI.displayMessage("The subrecipebook you requested does not exist");
+            }
         }
     }
 }

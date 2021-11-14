@@ -11,7 +11,7 @@ import main.java.UseCases.SubRecipeBookManager;
  */
 public class RemoveRecipeCommand extends Command {
     public RemoveRecipeCommand() {
-        super("Remove Recipe", "Removes a recipe from the sub recipe book");
+        super("remove recipe", "Removes a recipe from the sub recipe book");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class RemoveRecipeCommand extends Command {
         SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
                 recipeBookManager.findsubrecipebook(subrecipebookname));
         if (subRecipeBookManager.containsRecipe(recipename)) {
-            subRecipeBookManager.removeRecipe(recipename);
+            recipeBookManager.removeRecipe(recipeBookManager.findsubrecipebook(subrecipebookname),recipename);
             CLI.displayMessage("Recipe successfully deleted");
         } else {
             CLI.displayMessage("Recipe not found in recipe book.");

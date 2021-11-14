@@ -1,14 +1,15 @@
 package main.java.UseCases;
 
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Entities.User;
 
 public class SubRecipeBookManager {
-    SubRecipeBook recipeBook;
+    SubRecipeBook subRecipeBook;
+
+
     public SubRecipeBookManager(SubRecipeBook recipeBook) {
-        this.recipeBook = recipeBook;
+        this.subRecipeBook = recipeBook;
     }
 
     /**
@@ -17,7 +18,7 @@ public class SubRecipeBookManager {
      * @return True if and only if the user contains the recipe
      */
     public boolean containsRecipe(String recipeName) {
-        for (Recipe recipe : recipeBook.getRecipes()) {
+        for (Recipe recipe : subRecipeBook.getRecipes()) {
             if (recipe.getName().equals(recipeName)) {
                 return true;
             }
@@ -31,7 +32,7 @@ public class SubRecipeBookManager {
      * @return True if and only if the user contains the recipe
      */
     public boolean containsRecipe(Recipe recipe) {
-        for (int code : recipeBook.getCodes()) {
+        for (int code : subRecipeBook.getCodes()) {
             if (code == recipe.getRecipeCode()) {
                 return true;
             }
@@ -44,7 +45,7 @@ public class SubRecipeBookManager {
      * @return The array of recipes
      */
     public Recipe[] getRecipes() {
-        return recipeBook.getRecipes();
+        return subRecipeBook.getRecipes();
     }
 
     /**
@@ -52,9 +53,9 @@ public class SubRecipeBookManager {
      * @param recipeName The name of the recipe we are removing
      */
     public void removeRecipe(String recipeName) {
-        for (Recipe recipe : recipeBook.getRecipes()) {
+        for (Recipe recipe : subRecipeBook.getRecipes()) {
             if (recipe.getName().equals(recipeName)) {
-                recipeBook.removeRecipe(recipe);
+                subRecipeBook.removeRecipe(recipe);
             }
         }
     }
@@ -64,7 +65,7 @@ public class SubRecipeBookManager {
      * @param recipe The recipe object representing the recipe we are removing
      */
     public void removeRecipe(Recipe recipe) {
-        recipeBook.removeRecipe(recipe);
+        subRecipeBook.removeRecipe(recipe);
     }
 
     /**
@@ -72,7 +73,7 @@ public class SubRecipeBookManager {
      * @param recipe The recipe object representing the recipe we are adding
      */
     public void addRecipe(Recipe recipe) {
-        recipeBook.addRecipe(recipe.getRecipeCode(), recipe);
+        subRecipeBook.addRecipe(recipe.getRecipeCode(), recipe);
     }
 
     public void rateRecipe(User user, String recipeName, int rating) {}

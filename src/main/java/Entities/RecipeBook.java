@@ -1,21 +1,24 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
- *  A Recipe Book that stores a list of the sub-Recipe Books.
+ *  A Recipe Book that stores a list of the sub-Recipe Books and an default subrecipe book
+ *  to which all recipes are added.
  *
  */
 public class RecipeBook {
     public final ArrayList<SubRecipeBook> usersubrecipebooks;
-    public final SubRecipeBook allrecipes;
+//    public final SubRecipeBook allrecipes;
 
     /**
      * Instantiate the overall recipe book when a new user registers with the app and has an empty recipe book.
      */
     public RecipeBook() {
         this.usersubrecipebooks = new ArrayList<>();
-        this.allrecipes = new SubRecipeBook();
+        this.usersubrecipebooks.add(new SubRecipeBook("allrecipes",
+                "a recipebook with all the recipes ever added"));
     }
 
     /**
@@ -61,6 +64,19 @@ public class RecipeBook {
     }
 
     /**
+     * Return a subrecipebook from the overall recipe book
+     * @param subrecipebookname - the name of the subrecipebook to return.
+     */
+    public SubRecipeBook showSubRecipeBook(String subrecipebookname) {
+        for (SubRecipeBook subrecipebook : usersubrecipebooks) {
+            if (subrecipebook.getName().equals(subrecipebookname)) {
+                return subrecipebook;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Return a list of all the SubRecipeBooks
      */
     public ArrayList<SubRecipeBook> getSubRecipeBooks() {
@@ -71,64 +87,52 @@ public class RecipeBook {
      * Return all the recipes the user has saved as a list.
      */
     public Recipe[] getAllRecipes() {
-        return this.allrecipes.getRecipes();
+        return this.showSubRecipeBook("allrecipes").getRecipes();
     }
 
     /**
-     * Add a Recipe to allrecipes list
+     * Add a Recipe to subrecipebook requested and the subrecipebook allrecipes
+     * @param subrecipebook - the subrecipebook to add the recipe to
      * @param recipe - the Recipe to be added
      */
-    public void addRecipetoallrecipes(Recipe recipe) {
-        allrecipes.addRecipe(recipe);
+    public void addRecipe(SubRecipeBook subrecipebook, Recipe recipe) {
+        showSubRecipeBook(subrecipebook).addRecipe(recipe);
+        this.showSubRecipeBook("allrecipes").addRecipe(recipe);
     }
 
     /**
      * Remove Recipe from allrecipes list.
+     * @param subrecipebook - subrecipebook from which the recipe is removed
      * @param recipe - the Recipe to be removed
      */
-    public void removeRecipefromAllRecipes(Recipe recipe) {
-        allrecipes.removeRecipe(recipe);
+    public void removeRecipe(SubRecipeBook subrecipebook , Recipe recipe) {
+        showSubRecipeBook(subrecipebook).removeRecipe(recipe);
+        this.showSubRecipeBook("allrecipes").removeRecipe(recipe);
     }
 
-    public void addRecipe(Integer recipecode, Recipe recipe) {
-        this.allrecipes.addRecipe(recipecode, recipe);
-    }
+//    public void addRecipe(Integer recipecode, Recipe recipe) {
+//        this.allrecipes.addRecipe(recipecode, recipe);
+//    }
 
-    /**
-     * Add a Recipe object to the subrecipebook
-     *
-     * @param recipe - the recipe object to be added
-     */
-    public void addRecipe(Recipe recipe) {
-        this.allrecipes.addRecipe(recipe);
-    }
 
     /**
      * Remove the recipe with recipecode from the sub recipe book.
-     *
+     * @param subrecipebook - the subrecipebook to remove the recipe from
      * @param recipecode - a unique String code identifier for Recipe
      */
-    public void removeRecipe(Integer recipecode) {
-        this.allrecipes.removeRecipe(recipecode);
+    public void removeRecipe(SubRecipeBook subrecipebook,Integer recipecode) {
+        showSubRecipeBook(subrecipebook).removeRecipe(recipecode);
+        this.showSubRecipeBook("allrecipes").removeRecipe(recipecode);
     }
 
-    /**
-     * Remove a recipe from the subrecipebook
-     *
-     * @param recipe - the recipe to delete
-     */
-    public void removeRecipe(Recipe recipe) {
-        removeRecipe(recipe.getRecipeCode());
-    }
-
-    /**
-     * Return all recipes in the user's sub recipe book
-     *
-     * @return - return the recipes
-     */
-    public Recipe[] getRecipes() {
-        return allrecipes.getRecipes();
-    }
+//    /**
+//     * Return all recipes in the user's sub recipe book
+//     *
+//     * @return - return the recipes
+//     */
+//    public Recipe[] getRecipes() {
+//        return allrecipes.getRecipes();
+//    }
 
     /**
      * Return the codes of all recipes in the user's sub recipe book
@@ -136,7 +140,7 @@ public class RecipeBook {
      * @return - return the codes
      */
     public Integer[] getCodes() {
-        return allrecipes.getCodes();
+        return this.showSubRecipeBook("allrecipes").getCodes();
     }
 
     /**
@@ -146,7 +150,7 @@ public class RecipeBook {
      * @return - return the recipe with recipecode
      */
     public Recipe getRecipe(Integer recipecode) {
-        return this.allrecipes.getRecipe(recipecode);
+        return this.showSubRecipeBook("allrecipes").getRecipe(recipecode);
     }
 
     /**
@@ -155,7 +159,7 @@ public class RecipeBook {
      * @return a Recipe object with name name
      */
     public Recipe getRecipe(String recipename) {
-        return this.allrecipes.getRecipe(recipename);
+        return this.showSubRecipeBook("allrecipes").getRecipe(recipename);
     }
 
     /**
@@ -163,7 +167,7 @@ public class RecipeBook {
      * @return an int indicating the number of recipes in the subrecipebook.
      */
     public int size() {
-        return this.allrecipes.size();
+        return this.showSubRecipeBook("allrecipes").size();
     }
 
 
