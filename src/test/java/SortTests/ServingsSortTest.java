@@ -2,7 +2,7 @@ package test.java.SortTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Sorts.ServingsSort;
+import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -30,8 +30,8 @@ public class ServingsSortTest {
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
 
-        ServingsSort servings = new ServingsSort(recipes.getRecipes());
-        Recipe[] sorted = servings.sort();
+        ServingsSort servings = new ServingsSort();
+        Recipe[] sorted = servings.sort(recipes.getRecipes());
 
         assertEquals("food2", sorted[0].getName());
         assertEquals("food3", sorted[1].getName());
