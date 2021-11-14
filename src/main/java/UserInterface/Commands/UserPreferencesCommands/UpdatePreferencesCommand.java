@@ -1,8 +1,8 @@
-package main.java.CLI.Commands.UserPreferencesCommands;
+package main.java.UserInterface.Commands.UserPreferencesCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
-import main.java.CLI.Commands.HelpCommand;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.HelpCommand;
+import main.java.UserInterface.UserInterface;
 
 /**
  * Allows the user to update their preferences
@@ -13,10 +13,10 @@ public class UpdatePreferencesCommand extends Command {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        CLI.getPageManager().setUpdatePreferences();
+    public void runAction(UserInterface UI) {
+        UI.getPageManager().setUpdatePreferences();
         Command help = new HelpCommand();
-        help.runAction(CLI);
+        help.runAction(UI);
     }
 }
 

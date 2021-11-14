@@ -1,46 +1,43 @@
-package main.java.CLI.Commands.UserPreferencesCommands;
+package main.java.UserInterface.Commands.UserPreferencesCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
-import main.java.Entities.PreferenceBook;
 import main.java.Gateways.PreferenceBookCSVReader;
-import main.java.Gateways.UserCSVReader;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.UserInterface;
 
 import java.util.Objects;
 // possible usecase import
 
 /**
- * allows user to update the list of ingredients they want to ommit from their recommended recipes.
+ * allows user to update the list of ingredients they want to omit from their recommended recipes.
  */
 public class UpdateOmitCommand extends Command {
     public UpdateOmitCommand() {
         super("update omitted ingredients", "Remove or add ingredients to omit list");
     }
     @Override
-    public void runAction(CommandLineInterface CLI) {
-        CLI.displayMessage("Would you like to remove or add an ingredient to your list of omitted ingredients?");
-        String AddOrRem = CLI.getTextInput();
+    public void runAction(UserInterface UI) {
+        String AddOrRem = UI.queryUser(
+                "Would you like to remove or add an ingredient to your list of omitted ingredients?"
+        );
         PreferenceBookCSVReader instance = PreferenceBookCSVReader.getInstance();
         if (Objects.equals(AddOrRem, "add")) {
-            CLI.displayMessage("Enter ingredient to omit from recipe selection");
-            String ingredient = CLI.getTextInput();
-            if (CLI.getPreferenceBook().contains("omit", ingredient)) {
-                CLI.displayMessage("This ingredient is already omitted");
+            String ingredient = UI.queryUser("Enter ingredient to omit from recipe selection");
+            if (UI.getPreferenceBook().contains("omit", ingredient)) {
+                UI.displayMessage("This ingredient is already omitted");
             } else {
-                 instance.updateOmit(CLI.getUser().getUsername(), AddOrRem, ingredient);
-                 CLI.displayMessage("List of omitted ingredients successfully updated");
+                 instance.updateOmit(UI.getUser().getUsername(), AddOrRem, ingredient);
+                 UI.displayMessage("List of omitted ingredients successfully updated");
             }
         } else {
-            CLI.displayMessage("Enter ingredient to remove from list of omitted ingredients");
-            String ingredient = CLI.getTextInput();
-            if (!CLI.getPreferenceBook().contains("omit", ingredient)) {
-                CLI.displayMessage("This ingredient is not in your omit list");
+            String ingredient = UI.queryUser("Enter ingredient to remove from list of omitted ingredients");
+            if (!UI.getPreferenceBook().contains("omit", ingredient)) {
+                UI.displayMessage("This ingredient is not in your omit list");
             } else {
-                instance.updateOmit(CLI.getUser().getUsername(), AddOrRem, ingredient);
-                CLI.displayMessage("List of omitted ingredients successfully updated");
+                instance.updateOmit(UI.getUser().getUsername(), AddOrRem, ingredient);
+                UI.displayMessage("List of omitted ingredients successfully updated");
             }
         }
-        CLI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(CLI.getUser().getUsername()));
+        UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
         //update preference book
     }
 

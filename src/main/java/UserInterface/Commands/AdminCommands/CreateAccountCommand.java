@@ -1,5 +1,6 @@
 package main.java.UserInterface.Commands.AdminCommands;
 
+import main.java.UseCases.AccountFactory;
 import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Gateways.UserCSVReader;
@@ -20,7 +21,7 @@ public class CreateAccountCommand extends Command {
         String password = UI.queryUser("Input your password");
         String email = UI.queryUser("Input your email");
         if (!UserCSVReader.getInstance().isUser(username)) {
-            UserCSVReader.getInstance().addUser(username, password, fullName, email);
+            AccountFactory.createAccount(username, password, fullName, email);
             UI.displayMessage("The user has been created");
         } else {
             UI.displayMessage("The user cannot be created; the username is already taken");

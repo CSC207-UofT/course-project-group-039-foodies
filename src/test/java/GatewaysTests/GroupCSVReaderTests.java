@@ -40,7 +40,6 @@ public class GroupCSVReaderTests {
         database.saveGroup("TestGroupName", "TestGroupCode", member);
         assertTrue(database.isGroup("TestGroupName"));
     }
-    }
 
 //    @Test
 //    public void getGroupTest() {
