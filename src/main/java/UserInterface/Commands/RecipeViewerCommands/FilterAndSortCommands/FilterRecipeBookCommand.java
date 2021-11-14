@@ -1,6 +1,10 @@
-package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
-import main.java.CLI.*;
-import main.java.UseCases.Filters.*;
+package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands;
+
+import main.java.UseCases.Filters.AllergyFilter;
+import main.java.UseCases.Filters.Filter;
+import main.java.UseCases.Filters.FoodTypeFilter;
+import main.java.UseCases.Filters.ServingsFilter;
+import main.java.UserInterface.UserInterface;
 
 public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
     public FilterRecipeBookCommand() {
@@ -8,34 +12,31 @@ public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
+    public void runAction(UserInterface UI) {
         Filter filter = null;
 
         switch (chooseOption(
-                CLI,
+                UI,
                 FilterOption.class,
                 "Input 'allergy' to filter out an allergen, " +
                         "'foodtype' to filter in a type of food, and " +
                         "'servings' to filter the number of servings."
         )) {
             case allergy:
-                CLI.displayMessage("Input the name of the ingredient to filter out");
-                String ingredient = CLI.getTextInput();
+                String ingredient = UI.queryUser("Input the name of the ingredient to filter out");
                 filter = new AllergyFilter(ingredient);
                 break;
             case foodtype:
-                CLI.displayMessage("Input the name of the food type to filter in");
-                String foodtype = CLI.getTextInput();
+                String foodtype = UI.queryUser("Input the name of the food type to filter in");
                 filter = new FoodTypeFilter(foodtype);
                 break;
             case servings:
-                CLI.displayMessage("Input the number of servings you need");
-                int servings = Integer.parseInt(CLI.getTextInput());
+                int servings = Integer.parseInt(UI.queryUser("Input the number of servings you need"));
                 filter = new ServingsFilter(servings);
                 break;
         }
 
-        CLI.getRecipeCollection().addFilter(filter);
+        UI.getRecipeCollection().addFilter(filter);
     }
 
 }

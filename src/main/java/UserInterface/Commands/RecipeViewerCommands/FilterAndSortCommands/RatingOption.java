@@ -1,4 +1,4 @@
-package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
+package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands;
 
 enum RatingOption {
     rating,

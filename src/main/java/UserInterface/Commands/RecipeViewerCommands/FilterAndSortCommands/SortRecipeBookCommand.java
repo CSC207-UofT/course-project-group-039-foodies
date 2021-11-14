@@ -1,7 +1,9 @@
-package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
+package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.UseCases.Sorts.*;
+import main.java.UseCases.Sorts.RatingSort;
+import main.java.UseCases.Sorts.ServingsSort;
+import main.java.UseCases.Sorts.Sort;
+import main.java.UserInterface.UserInterface;
 
 public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
     public SortRecipeBookCommand() {
@@ -9,10 +11,10 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
     }
 
     @Override
-    public void runAction(CommandLineInterface CLI) {
+    public void runAction(UserInterface UI) {
         Sort sort = null;
         switch (chooseOption(
-                CLI,
+                UI,
                 RatingOption.class,
                 "Input 'rating' to sort by rating, " +
                         "and 'servings' to sort by servings"
@@ -25,6 +27,6 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
                 break;
         }
 
-        CLI.getRecipeCollection().setSort(sort);
+        UI.getRecipeCollection().setSort(sort);
     }
 }

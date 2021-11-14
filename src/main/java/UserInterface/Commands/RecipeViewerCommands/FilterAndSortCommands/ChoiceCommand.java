@@ -1,7 +1,7 @@
-package main.java.CLI.Commands.RecipeViewerCommands.FilterAndSortCommands;
+package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands;
 
-import main.java.CLI.CommandLineInterface;
-import main.java.CLI.Commands.Command;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.UserInterface;
 
 /**
  * An abstract class that represents a command where the user must make a choice from an enum
@@ -15,22 +15,21 @@ public abstract class ChoiceCommand<T extends Enum<T>> extends Command {
     /**
      * Display a message repeatedly until the user inputs an enum that is recognised.
      * The choice of the user is returned.
-     * @param CLI The User Interface
+     * @param UI The User Interface
      * @param enumType The class of the Enum of all choices
      * @param choiceMessage The message displayed when the user is making a choice
      * @return The choice of the user
      */
-    protected T chooseOption(CommandLineInterface CLI, Class<T> enumType, String choiceMessage) {
+    protected T chooseOption(UserInterface UI, Class<T> enumType, String choiceMessage) {
         T option = null;
         boolean choseOption = false;
 
         while (!choseOption) {
-            CLI.displayMessage(choiceMessage);
             try {
-                option = Enum.valueOf(enumType, CLI.getTextInput());
+                option = Enum.valueOf(enumType, UI.queryUser(choiceMessage));
                 choseOption = true;
             } catch (IllegalArgumentException ignored) {
-                CLI.displayMessage("Input not recognized. Try again.");
+                UI.displayMessage("Input not recognized. Try again.");
             }
         }
 
@@ -38,5 +37,5 @@ public abstract class ChoiceCommand<T extends Enum<T>> extends Command {
     }
 
     @Override
-    public abstract void runAction(CommandLineInterface CLI);
+    public abstract void runAction(UserInterface UI);
 }
