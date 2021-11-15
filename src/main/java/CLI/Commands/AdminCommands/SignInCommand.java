@@ -3,6 +3,7 @@ package main.java.CLI.Commands.AdminCommands;
 import main.java.CLI.CommandLineInterface;
 import main.java.CLI.Commands.Command;
 import main.java.CLI.Commands.HelpCommand;
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.UserCSVReader;
 
 public class SignInCommand extends Command {
@@ -20,7 +21,7 @@ public class SignInCommand extends Command {
         if (UserCSVReader.getInstance().isUser(username)) {
             if (UserCSVReader.getInstance().isCorrectPassword(username, password)) {
                 CLI.signIn(UserCSVReader.getInstance().getUser(username));
-
+                CLI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(username));
                 CLI.getPageManager().signIn();
                 CLI.displayMessage("You have successfully signed in");
 

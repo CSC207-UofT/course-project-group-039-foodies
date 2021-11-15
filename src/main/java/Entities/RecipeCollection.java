@@ -1,15 +1,28 @@
 package main.java.Entities;
 
-import java.util.AbstractCollection;
-import java.util.HashMap;
-import java.util.Iterator;
+import main.java.UseCases.Filters.Filter;
+import main.java.UseCases.Sorts.Sort;
+
+import java.util.*;
 
 public class RecipeCollection extends AbstractCollection<Recipe> implements Iterable<Recipe> {
-    private final HashMap<Integer, Recipe> dataMap = new HashMap<>();
+    final HashMap<Integer, Recipe> dataMap = new HashMap<>();
+    Sort sortAlgorithm = null;
+    HashSet<Filter> filters = new HashSet<>();
+    boolean usesSort = false;
 
     @Override
     public Iterator<Recipe> iterator() {
-        return dataMap.values().iterator();
+        Recipe[] recipes = dataMap.values().toArray(new Recipe[0]);
+
+        if (usesSort) {
+            recipes = sortAlgorithm.sort(recipes);
+        }
+        for (Filter filter : filters) {
+            recipes = filter.filter(recipes);
+        }
+
+        return Arrays.stream(recipes).iterator();
     }
 
     @Override
@@ -107,5 +120,42 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
      */
     public Recipe[] getRecipes() {
         return dataMap.values().toArray(new Recipe[0]);
+    }
+
+    /**
+     * Sets the sort interface that the recipeCollection should apply
+     * @param sort The sort interface to use
+     */
+    public void setSort(Sort sort) {
+        usesSort = true;
+        sortAlgorithm = sort;
+    }
+
+    /**
+     * Stops the recipeCollection from using a sort interface
+     */
+    public void removeSort() {
+        usesSort = false;
+    }
+
+    /**
+     * Sets a filter interface that the recipeCollection should apply
+     * @param filter The filter interface to use
+     */
+    public void addFilter(Filter filter) {
+        filters.add(filter);
+    }
+
+    /**
+     * Removes a filter interface from the filters that the recipeCollection should apply
+     * @param filterToRemove The filter interface to remove
+     */
+    public void removeFilter(Filter filterToRemove) {
+        for (Filter filter : filters) {
+            if (filter.equals(filterToRemove)) {
+                filters.remove(filter);
+                return;
+            }
+        }
     }
 }
