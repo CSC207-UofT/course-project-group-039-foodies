@@ -16,6 +16,7 @@ import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdateIncludeCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdateOmitCommand;
+import main.java.CLI.Commands.UserPreferencesCommands.UpdateDietCommand;
 import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
@@ -72,6 +73,7 @@ public class PageManager {
             new Command[] {
                     new UpdateOmitCommand(),
                     new UpdateIncludeCommand(),
+                    new UpdateDietCommand(),
                     new GoBackCommand(),
             }
     );

@@ -13,6 +13,7 @@ public class PreferenceBook{
     private final ArrayList<String> include;
 //    private final ArrayList<String> time;
     private HashMap<String, Double> ratingMap;
+    private String diet;
 
     public PreferenceBook(String user) {
         this.user = user;
@@ -21,7 +22,7 @@ public class PreferenceBook{
         this.include = new ArrayList<>();
 //        this.time = new ArrayList<>();
         this.ratingMap = new HashMap<>();
-
+        this.diet = null;
     }
 
     public PreferenceBook(String user, ArrayList<String> omit, ArrayList<String> include) {
@@ -31,13 +32,18 @@ public class PreferenceBook{
         this.include = include;
 //        this.time = time;
         this.ratingMap = new HashMap<>();
+        this.diet = null;
     }
 
     public void addRating(Recipe recipe, Double rating) {
         ratingMap.put(recipe.getName(), rating);
     }
 
+    public void addDiet(String diet) { this.diet = diet; }
+
     public void addRating(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
+
+    public String getDiet() { return this.diet; }
 
     public boolean contains(String OmitInclRating, String ingredient) {
         if (Objects.equals(OmitInclRating, "omit")) {

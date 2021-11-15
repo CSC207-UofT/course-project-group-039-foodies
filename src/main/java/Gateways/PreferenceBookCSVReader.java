@@ -24,7 +24,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     }
 
     protected PreferenceBookCSVReader(String path) {
-        super(path, new String[]{"username", "omit", "include", "recipes", "ratings"});
+        super(path, new String[]{"username", "omit", "include", "recipes", "ratings", "diet"});
     }
 
     /**
@@ -36,11 +36,12 @@ public class PreferenceBookCSVReader extends CSVReader {
         ArrayList<String> emptyRatings = new ArrayList<>();
         ArrayList<String> emptyOmit = new ArrayList<>();
         ArrayList<String> emptyInclude = new ArrayList<>();
-        addPreferenceBook(user, emptyOmit, emptyInclude, emptyRecipes, emptyRatings);
+        String emptyDiet = "";
+        addPreferenceBook(user, emptyOmit, emptyInclude, emptyRecipes, emptyRatings, emptyDiet);
     }
 
     public void addPreferenceBook(String username, ArrayList<String> omit, ArrayList<String> include, ArrayList<String> recipes,
-                                  ArrayList<String> ratings) {
+                                  ArrayList<String> ratings, String diet) {
         ArrayList<String> prefInfo = new ArrayList<>();
 
         prefInfo.add(username);
@@ -48,6 +49,7 @@ public class PreferenceBookCSVReader extends CSVReader {
         prefInfo.add(String.join(";", include));
         prefInfo.add(String.join(";", recipes));
         prefInfo.add(String.join(";", ratings));
+        prefInfo.add(diet);
 
         writeLine(prefInfo);
     }
@@ -137,6 +139,14 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
     }
 
+    public void updateDiet(String username, String RemOrAdd, String diet) {
+        if (Objects.equals(RemOrAdd, "add")) {
+            removePreferences(username, 5, diet);
+            addPreferences(username, 5, diet);
+        } else {
+            removePreferences(username, 5, diet);
+        }
+    }
 
     public int getIndex(String recipe, String[] recipes) {
         int counter = -1;
@@ -170,6 +180,15 @@ public class PreferenceBookCSVReader extends CSVReader {
         return ratingMap;
     }
 
+    public String getDiet(String username) {
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(username)) {
+                return line.get(5);
+            }
+        }
+        return "";
+    }
+
     public ArrayList<String> ToArrayList (String preferences) {
         if (Objects.equals(preferences, "")) {
             return new ArrayList<>();
@@ -184,6 +203,7 @@ public class PreferenceBookCSVReader extends CSVReader {
             if (line.get(0).equals(username)) {
                 PreferenceBook newBook = new PreferenceBook(username, ToArrayList(line.get(1)), ToArrayList(line.get(2)));
                 newBook.addRating(getRatings(username));
+                newBook.addDiet(getDiet(username));
                 return newBook;
             }
         }
