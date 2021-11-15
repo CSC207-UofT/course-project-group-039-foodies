@@ -111,6 +111,7 @@ _State Pattern_:
 #### Design Patterns to be implemented in phase 2:
 _Factory_:
 * A factory for users to resolve the dependency issue in the gateway layer
+
 _Observer_:
 * Make PrefenceBook and RecipeBook observers so that when a user rates a new recipe, both can be updated
 
