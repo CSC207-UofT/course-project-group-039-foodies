@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.RecipeBookCommands;
 
-import main.java.Entities.RecipeBook;
 import main.java.Entities.User;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
@@ -16,13 +15,9 @@ public class AddSubRecipeBookCommand extends Command {
     @Override
     public void runAction(UserInterface UI) {
         String subRecipeBookName = UI.queryUser("Enter the name of the new sub recipe book");
-
         String subRecipeBookDesc = UI.queryUser("Enter a description for the new sub recipe book");
 
-//        RecipeBook recipebook = UI.getUser().getRecipeBook();
-//        RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
-        RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
+        RecipeBookManager recipebookmanager = new RecipeBookManager(UI.getUser());
         recipebookmanager.addSubRecipeBook(subRecipeBookName, subRecipeBookDesc);
 
         User user = UI.getUser();
