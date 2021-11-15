@@ -20,7 +20,7 @@ public class ListSubRecipeBookRecipesCommand extends Command {
     @Override
     public void runAction(UserInterface UI) {
         String subRecipeBookName = UI.queryUser("Please confirm the recipe book you would like to see recipes for");
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
+        RecipeBook recipebook = UI.getUser().getRecipeBook();
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(

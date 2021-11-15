@@ -23,7 +23,7 @@ public class AddToRecipeBookCommand extends Command {
         if (recipe == null) {
             UI.displayMessage("This recipe does not exist");
         } else {
-            RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
+            RecipeBook recipebook = UI.getUser().getRecipeBook();
             RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
             String subRecipeBookName = UI.queryUser("Input the name of the subrecipe book you would like to add recipe to");
             if (recipeBookManager.containsSubRecipeBook(subRecipeBookName)) {

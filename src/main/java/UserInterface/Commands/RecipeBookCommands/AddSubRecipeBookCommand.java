@@ -19,7 +19,7 @@ public class AddSubRecipeBookCommand extends Command {
 
         String subRecipeBookDesc = UI.queryUser("Enter a description for the new sub recipe book");
 
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
+        RecipeBook recipebook = UI.getUser().getRecipeBook();
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
         recipebookmanager.addSubRecipeBook(subRecipeBookName, subRecipeBookDesc);
 

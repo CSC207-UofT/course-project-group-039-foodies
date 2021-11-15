@@ -1,9 +1,5 @@
 package main.java.Entities;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-
 /** A category/ sub recipe book found in user's overall recipe book. Stores the user's saved recipes for this category.
  */
 public class SubRecipeBook {
@@ -57,16 +53,6 @@ public class SubRecipeBook {
      */
     public String getDescription() {
         return this.description;
-    }
-
-    /**
-     * Add a Recipe recipe with code recipe code to the sub recipe book
-     *
-     * @param recipecode - a unique String code identifier for Recipe
-     * @param recipe - the recipe
-     */
-    public void addRecipe(Integer recipecode, Recipe recipe) {
-        this.recipes.addRecipe(recipecode, recipe);
     }
 
     /**
@@ -135,6 +121,10 @@ public class SubRecipeBook {
 
     public boolean containsRecipe(Recipe recipe) {
         return this.recipes.containsRecipe(recipe);
+    }
+
+    public boolean containsRecipe(String name) {
+        return this.recipes.containsRecipe(name);
     }
 
     /**

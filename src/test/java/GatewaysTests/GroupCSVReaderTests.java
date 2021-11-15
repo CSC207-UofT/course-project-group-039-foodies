@@ -33,7 +33,7 @@ public class GroupCSVReaderTests {
 
     @Test
     public void saveGroupTest() {
-        ArrayList<String> member = new ArrayList<String>();
+        ArrayList<String> member = new ArrayList<>();
         member.add("TestGroupMember");
         member.add("TestGroupMember1");
         member.add("TestGroupMember2");
