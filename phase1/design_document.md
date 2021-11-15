@@ -202,6 +202,8 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
   * I created, updated and refactored the following classes RecipeBook, SubRecipeBook, RecipeBookManager, SubRecipeBookManager, RecipeBookCSVReader and RecipeCommands. 
   * I wrote tests for RecipeBook and SubRecipeBook
   * I participated in some of the design decisions.
+  * I worked on the MarkDown file for the Design Document.
+  * I also worked on some of sectons of the Design Document with team members.
 
 * ##### NEXT STEPS: 
   * I plan to continue testing the classes that I have written above and offer help to my other members.
