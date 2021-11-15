@@ -6,6 +6,7 @@ import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
 import main.java.CLI.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.CLI.Commands.GroupCommands.CreateGroupCommand;
 import main.java.CLI.Commands.GroupCommands.AddGroupMemberCommand;
+import main.java.CLI.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.CLI.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.CLI.Commands.RecipeBookCommands.AddToRecipeBookCommand;
 import main.java.CLI.Commands.RecipeBookCommands.EnterRecipeBookCommand;
@@ -61,7 +62,8 @@ public class PageManager {
             new Command[] {
                     new CreateGroupCommand(),
                     new AddGroupMemberCommand(),
-                    new RemoveGroupMemberCommand()
+                    new RemoveGroupMemberCommand(),
+                    new ViewGroupsCommand()
             }
     );
 
