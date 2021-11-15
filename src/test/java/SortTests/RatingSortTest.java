@@ -2,7 +2,7 @@ package test.java.SortTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Sorts.RatingSort;
+import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class RatingSortTest {
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
 
-        RatingSort ratings = new RatingSort(recipes.getRecipes());
-        Recipe[] sorted = ratings.sort();
+        RatingSort ratings = new RatingSort();
+        Recipe[] sorted = ratings.sort(recipes.getRecipes());
 
         assertEquals("food2", sorted[0].getName());
         assertEquals("food3", sorted[1].getName());

@@ -1,9 +1,12 @@
 package test.java;
 
 import main.java.CLI.CommandLineInterface;
+import main.java.Entities.Recipe;
+import main.java.Entities.RecipeCollection;
 import main.java.UseCases.RecipeBookManager;
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,14 +41,12 @@ public class CommandTests {
 
                 "enter recipe viewer",
 
-                "get new recipe",
-
                 "add to recipe book",
-                "Smoothie",
-        }, 4);
+                "Ramen",
+        }, 3);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.containsRecipe("Smoothie"));
+        assertTrue(recipeBookManager.containsRecipe("Ramen"));
     }
 
     @Test
@@ -57,20 +58,80 @@ public class CommandTests {
 
                 "enter recipe viewer",
 
-                "get new recipe",
-
                 "add to recipe book",
-                "Smoothie",
+                "Ramen",
 
                 "go back",
 
                 "enter recipe book",
 
                 "remove recipe",
-                "Smoothie"
-        }, 7);
+                "Ramen"
+        }, 6);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertFalse(recipeBookManager.containsRecipe("Smoothie"));
+    }
+
+    @Test
+    public void testFilterRecipeCommand() {
+        CommandLineInterface CLI = runCommands(new String[]{
+                "sign in",
+                "testUserName",
+                "testPassword",
+
+                "enter recipe viewer",
+
+                "filter",
+                "foodtype",
+                "dessert"
+        }, 3);
+
+        Iterator<Recipe> recipes = CLI.getRecipeCollection().iterator();
+        assertEquals(recipes.next().getFoodType(), "dessert");
+    }
+
+    @Test
+    public void testRemoveFilterRecipeCommand() {
+        CommandLineInterface CLI = runCommands(new String[]{
+                "sign in",
+                "testUserName",
+                "testPassword",
+
+                "enter recipe viewer",
+
+                "filter",
+                "foodtype",
+                "dessert",
+
+                "filter",
+                "foodtype",
+                "lunch",
+
+                "remove filter",
+                "foodtype",
+                "dessert"
+        }, 5);
+
+        Iterator<Recipe> recipes = CLI.getRecipeCollection().iterator();
+        assertTrue(recipes.hasNext());
+        assertEquals(recipes.next().getFoodType(), "lunch");
+    }
+
+    @Test
+    public void testSortRecipeCommand() {
+        CommandLineInterface CLI = runCommands(new String[]{
+                "sign in",
+                "testUserName",
+                "testPassword",
+
+                "enter recipe viewer",
+
+                "sort",
+                "servings",
+        }, 3);
+
+        Iterator<Recipe> recipes = CLI.getRecipeCollection().iterator();
+        assertTrue(recipes.next().getServings() <= recipes.next().getServings());
     }
 }

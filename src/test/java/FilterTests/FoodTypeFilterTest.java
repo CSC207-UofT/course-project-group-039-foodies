@@ -2,7 +2,7 @@ package test.java.FilterTests;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.Filters.FoodTypeFilter;
+import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class FoodTypeFilterTest {
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
 
-        FoodTypeFilter foodType = new FoodTypeFilter(recipes.getRecipes(), "Dinner");
-        Recipe[] filtered = foodType.filter();
+        FoodTypeFilter foodType = new FoodTypeFilter("Dinner");
+        Recipe[] filtered = foodType.filter(recipes.getRecipes());
 
         assertEquals(1, filtered.length);
         assertEquals("Steak", filtered[0].getName());
