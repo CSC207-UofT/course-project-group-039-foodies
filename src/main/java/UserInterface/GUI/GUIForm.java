@@ -63,11 +63,7 @@ public class GUIForm {
 
     public static JButton createButtonFromCommand(Command command) {
         JButton button = new JButton(capitalize(command.getName()));
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                command.runAction(Application.getInstance());
-            }
-        });
+        button.addActionListener(e -> command.runAction(Application.getInstance()));
         button.setToolTipText(command.getDescription());
 
         return button;
