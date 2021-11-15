@@ -50,6 +50,14 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     }
 
     /**
+     * Removes Recipe from the collection given recipecode
+     * @param recipecode The recipecode of the recipe to remove
+     */
+    public void removeRecipe(Integer recipecode) {
+        dataMap.remove(recipecode);
+    }
+
+    /**
      * Removes Recipe from the collection
      * @param recipe The Recipe object to remove
      */
@@ -71,6 +79,15 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
             }
         }
         return null;
+    }
+
+    /**
+     * Finds a recipe in the RecipeCollection given a recipecode
+     * @param recipecode The recipecode of the recipe to find
+     * @return The recipe to find
+     */
+    public Recipe findRecipe(Integer recipecode) {
+        return dataMap.get(recipecode);
     }
 
     /**

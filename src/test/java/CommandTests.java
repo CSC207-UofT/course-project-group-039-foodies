@@ -1,9 +1,8 @@
 package test.java;
 
-import main.java.CLI.CommandLineInterface;
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeCollection;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UserInterface.CLI.CommandLineInterface;
 import org.junit.Test;
 
 import java.util.Iterator;
@@ -39,14 +38,23 @@ public class CommandTests {
                 "testUserName",
                 "testPassword",
 
+                "enter recipe book",
+
+                "add a subrecipebook",
+                "testName",
+                "testDescription",
+
+                "go back",
+
                 "enter recipe viewer",
 
-                "add to recipe book",
+                "add to subrecipebook",
                 "Ramen",
-        }, 3);
+                "testName"
+        }, 6);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.containsRecipe("Ramen"));
+        assertTrue(recipeBookManager.findsubrecipebook("testName").containsRecipe("Ramen"));
     }
 
     @Test
@@ -56,21 +64,31 @@ public class CommandTests {
                 "testUserName",
                 "testPassword",
 
+                "enter recipe book",
+
+                "add a subrecipebook",
+                "testName",
+                "testDescription",
+
+                "go back",
+
                 "enter recipe viewer",
 
-                "add to recipe book",
+                "add to subrecipebook",
                 "Ramen",
+                "testName",
 
                 "go back",
 
                 "enter recipe book",
 
                 "remove recipe",
-                "Ramen"
-        }, 6);
+                "Ramen",
+                "testName"
+        }, 9);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertFalse(recipeBookManager.containsRecipe("Smoothie"));
+        assertFalse(recipeBookManager.containsRecipe("Ramen"));
     }
 
     @Test
