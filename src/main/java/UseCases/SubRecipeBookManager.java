@@ -68,13 +68,5 @@ public class SubRecipeBookManager {
         subRecipeBook.removeRecipe(recipe);
     }
 
-    /**
-     * Add a recipe to a user's recipe book
-     * @param recipe The recipe object representing the recipe we are adding
-     */
-    public void addRecipe(Recipe recipe) {
-        subRecipeBook.addRecipe(recipe.getRecipeCode(), recipe);
-    }
-
     public void rateRecipe(User user, String recipeName, int rating) {}
 }

@@ -24,7 +24,7 @@ public class PersonalizedRecommender {
 
     public HashMap<String, Integer> topIngredients(RecipeBook recipeBook) {
         HashMap<String, Integer> topIngredients = new HashMap<>();
-        for (Recipe recipe : recipeBook.getRecipes()) {
+        for (Recipe recipe : recipeBook.getAllRecipes()) {
             for (String ingredient : recipe.getIngredients()) {
                 topIngredients.put(ingredient, topIngredients.get(ingredient) + 1);
             }
