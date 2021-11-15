@@ -33,13 +33,13 @@ public class GroupCSVReaderTests {
 
     @Test
     public void saveGroupTest() {
-        ArrayList<String> member = new ArrayList<String>();
+        ArrayList<String> member = new ArrayList<>();
         member.add("TestGroupMember");
         member.add("TestGroupMember1");
         member.add("TestGroupMember2");
         database.saveGroup("TestGroupName", "TestGroupCode", member);
         assertTrue(database.isGroup("TestGroupName"));
-    } 
+    }
 
 //    @Test
 //    public void getGroupTest() {
