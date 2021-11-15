@@ -102,7 +102,6 @@ public class CSVReader {
      * Returns all entries in the csv file
      * @return Returns an arraylist where each element is an arraylist of the value at each column
      */
-    // TODO: Make readFile private, with the column attribute, shouldn't leak its implementation to its children
     protected ArrayList<ArrayList<String>> readFile() {
         ArrayList<ArrayList<String>> returnList = new ArrayList<>();
         try {
