@@ -24,6 +24,12 @@ public class User {
         this.recipeBook = new RecipeBook();
     }
 
+    public User(String fullname, String username, String email, RecipeBook recipebook) {
+        this.fullname = fullname;
+        this.username = username;
+        this.email = email;
+        this.recipeBook = recipebook;
+    }
     /**
      * Returns the user's fullname
      * @return - fullname
