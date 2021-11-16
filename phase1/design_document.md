@@ -37,7 +37,7 @@ There were several design decisions that had to be made during the development o
 All of our code dependencies only move from the outer levels inward. Code on the inner layers have no knowledge of methods on the outer layers. The variables, methods and classes that exist in the outer layers are not mentioned in the more inward levels. 
 Our two external interfaces the GUI and the CLI only interact with our controller layer, which includes 34 commands and a number of gateways, as found in AdminCommands, GroupCommands, RecipeBookCommands, RecipeViewerCommands and UserPreferenceCommands, and the Gateways package.
 
-For the most part, every layer depends only on the layer below it, but there are some violations where entities are accessed directly from the controller and gateway layer in our code left to fix. Namely, the PreferenceBookCSVReader gateway uses the constructor for a PreferenceBook, which we can fix by creating a PreferenceBookFactory, and the RateRecipeCommand controller calls the getUsername getter method in the User entity.
+For the most part, every layer depends only on the layer below it, but there are some violations where entities are accessed directly from the controller and gateway layer in our code left to fix. Namely, the PreferenceBookCSVReader gateway uses the constructor for a PreferenceBook, which we can fix by creating a PreferenceBookFactory, and the RateRecipeCommand controller calls the getUsername getter method in the User entity, which we can fix by creating a new UseCase class with this responsibility.
 
 As an example scenario walkthrough, we can look at what happens when the user decides to add a recipe to a subrecipe book. If either the CLI or GUI is used, the controller AddToSubRecipeBook would call its runAction method. Then, the RecipeCollectionFacade UseCase is used to find the recipe that the user inputted in the RecipeCollection of all recipes by calling findRecipe method within it. Internally, this calls the findRecipe method in the entity RecipeCollection, getting the appropriate recipe object, if it exists. 
 
@@ -53,7 +53,7 @@ The following SOLID principles were used and some examples of its use are:
 _Single-responsibility principle_:
   * The RecipeFactory class has only one responsibility, to create recipes and that responsibility has been taken out of other classes.
   * The GroupFactory also has only one responsibility– to create groups. We have taken out these responsibilities from Group class and added them to the GroupFactory to satisfy the single-responsibility principle.
-  * However, a current flaw in the design is that the RecipeCollection class seems to have too many responsibilites, being responsible for adding, removing, finding, iterating, filtering, and sorting over a collection of recipes.
+  * However, a current flaw in the design is that the RecipeCollection class seems to have too many responsibilites, being responsible for adding, removing, finding, iterating, filtering, and sorting over a collection of recipes. We can fix this by creating a series of classes that inherit from each other, splitting the resposibilities for adding, removing, finding and iterating, filtering, sorting.
 
 _Open–closed principle_:
   * It is easy to extend the functionality of our code while modifying very little of any of the existing source. For example:
