@@ -3,6 +3,7 @@ package main.java.UserInterface.Commands.RecipeBookCommands;
 import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
@@ -19,7 +20,7 @@ public class AddToRecipeBookCommand extends Command {
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Enter the name of the recipe you want to add");
 
-        Recipe recipe = UI.getRecipeCollection().findRecipe(recipeName);
+        Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), recipeName);
         if (recipe == null) {
             UI.displayMessage("This recipe does not exist");
         } else {
