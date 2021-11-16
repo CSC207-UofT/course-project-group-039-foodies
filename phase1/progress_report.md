@@ -32,3 +32,13 @@ Helena
 Michelle
 
 Milica
+* ##### TASKS DONE:
+  * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
+  * I added rating functionality to Recipe and RecipeCSVReader
+  * I made some minor changes to a few other CLI commands
+  * I made a powerpoint for the presentation
+
+* ##### NEXT STEPS:
+  * I will add more preference options to PreferenceBook (UpdateDietCommand)
+  * I will create comprehensive tests for PreferenceBook related methods
+  * I will help my teammates with any outstanding work
