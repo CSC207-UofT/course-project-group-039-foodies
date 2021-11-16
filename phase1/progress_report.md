@@ -1,14 +1,15 @@
 # PROGRESS REPORT
 
-## Open Questions that our group needs assistance with
-1) How do we cleanly separate controllers from the GUI, to maintain the single responsibility principle?
-- If we were to do this using commands, how do we get the GUI to have well formatted output?
+## OUTSTANDING QUESTIONS 
+1. What is the best way of cleanly separating controllers from the GUI, so that all code can be shared between the CLI and GUI and the single responsibility principle can be maintained?
+  * If we were to do this using commands, how do we get the GUI to have well formatted output?
+2. Some of our methods take 4+ parameters, like the RecipeFactoryClass. What is the best way to deal with this?
+3. Is there a better way for the controller and gateway classes to be able to access entities other than by creating facade usecases?
 
-2) Some of our methods take 4+ parameters, what is the best way to deal with this?
-
-## What has worked well so far with the design?
-1) Packaging by Layer followed by Components
-- This has worked in that we are more likely to adhere to the Clean Architecture while we develop the programme and it is easier to find and fix any areas where it was not followed. Furthermore, separating by components afterwards works well as it means that we can manage the visibility of parts of our code.
+## WHAT HAS WORKED WELL THUS FAR?
+* _Packaging by Layer followed by Components_ - This has worked in that we are more likely to adhere to the Clean Architecture while we develop the programme and it is easier to find and fix any areas where it was not followed. Furthermore, separating by components afterwards works well as it means that we can manage the visibility of parts of our code.
+* The Command classes - In practice, this made it very easy for all of the team to add new functionality. Because the interface is the bare minimum required, and each command has exactly one responsibility, it was easy for the team to quickly add new features without needing to worry about the implementation of the user interface.
+* The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
 ## A summary of what each group member has been working on and plans to work on next
 Judy
@@ -19,9 +20,20 @@ Dohyun
 - In Phase 1: Mainly focused on filtering and sorting algorithms of our program. Implemented AllergyFilter class, ServingsFilter class, ServingSort class and ServingComparator class, Sort interface, RatingSort class and RatingComparator class, test classes for all the classes that I implemented in Phase 1. Modified filter and sort tests to use RecipeCollection instead of DatabaseManager, filter and sort interfaces so that they get an array of recipes directly when calling filter/sort method not when initializing, and all codes that I implemented to work with modified filter and sort interfaces. Added Javadoc for all classes and interfaces that I implemented in Phase 0 and 1. Organized the test classes, using packaging by components (e.g. FilterTests and SortTests). Added design decisions and design patterns into the Design Document.
 - In Phase 2: If our online database contains calories, modify the Recipe to store calories and implement CalorieFilter and CalorieSort. Since a database of recipes can have a huge amount of recipes, I will try to improve the runtime efficiency of filters and sorts. Improve dependency between the codes related to filters and sorts.
 
-Mark
-- Starting by refactoring the RecipeDatabase and DatabaseManager out, building the RecipeFactory, RecipeCollection, and RecipeCSVReader to replace them. Built the CSVReader class to read CSV files, and the UserCSVReader to store users permanently. Built the RecipeGateway and JSON classes to allow recipes to be added to the recipes.csv file automatically. Built commands to interact with sorts and filters. Refactored the GUI and CLI to extend a UserInterface abstract class so that they can both execute Commands. Did some basic refactoring and bug fixes at the end.
-- I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, create a UserFactory to solve dependency issues, and implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate.
+#### MARK
+* ##### TASKS DONE: 
+  * Starting by refactoring the RecipeDatabase and DatabaseManager out, building the RecipeFactory, RecipeCollection, and RecipeCSVReader to replace them.
+  * Built the CSVReader class to read CSV files, and the UserCSVReader to store users permanently.
+  * Built the RecipeGateway and JSON classes to allow recipes to be added to the recipes.csv file automatically.
+  * Built commands to interact with sorts and filters.
+  * Refactored the GUI and CLI to extend a UserInterface abstract class so that they can both execute Commands.
+  * Did some basic refactoring and bug fixes at the end, fixing code smells and dependency issues, notably creating a RecipeCollectionFacade to help fix this.
+
+* ##### NEXT STEPS:
+  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, so that a nice looking GUI can be created while having all code be shared and seperated.
+  * Fix the bugs in the issues tab.
+  * Fix the remaining dependency issues.
+  * Implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate on rating recipes.
 
 Emily 
 - Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
