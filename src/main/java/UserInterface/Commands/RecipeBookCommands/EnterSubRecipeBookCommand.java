@@ -1,6 +1,7 @@
 package main.java.UserInterface.Commands.RecipeBookCommands;
 
 import main.java.Entities.RecipeBook;
+import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
@@ -15,6 +16,7 @@ public class EnterSubRecipeBookCommand extends Command {
     public void runAction(UserInterface UI) {
         String subRecipeBookName = UI.queryUser("Input the name of the SubRecipeBook you would like to enter");
         RecipeBook recipebook = UI.getUser().getRecipeBook();
+//        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             UI.getPageManager().enterSubRecipeBook();
@@ -25,4 +27,4 @@ public class EnterSubRecipeBookCommand extends Command {
         }
     }
 }
-// how to enter into a specific recipebook.
+

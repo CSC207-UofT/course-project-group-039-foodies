@@ -16,6 +16,7 @@ public class DeleteSubRecipeBookCommand extends Command {
         String subRecipeBookName = UI.queryUser("Please enter the name of the sub-recipe book to be deleted");
 
         RecipeBook recipebook = UI.getUser().getRecipeBook();
+//        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
 
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {

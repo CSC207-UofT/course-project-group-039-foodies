@@ -1,5 +1,6 @@
 package main.java.Gateways;
 
+import main.java.Entities.RecipeBook;
 import main.java.Entities.User;
 
 import java.util.ArrayList;
@@ -89,7 +90,8 @@ public class UserCSVReader extends CSVReader {
     public User getUser(String username) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
-                return new User(line.get(2), line.get(0), line.get(3));
+                RecipeBook userrecipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(username);
+                return new User(line.get(2), line.get(0), line.get(3), userrecipebook);
             }
         }
         return null;

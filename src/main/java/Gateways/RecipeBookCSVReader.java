@@ -135,6 +135,15 @@ public class RecipeBookCSVReader extends CSVReader {
     return null;
     }
 
+    public RecipeCollection getSubRecipeBookRecipesList(String username, SubRecipeBook subrecipebook) {
+        for (ArrayList<String> line : readFile())
+            if (line.get(1).equals(username + " - " + subrecipebook.getName())) {
+                ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
+                return makerecipelists(recipenames);
+            }
+        return null;
+    }
+
     /**
      * Generate the RecipeCollection containing the set of recipes in the subrecipebook
      * @param recipenames - an array list of the names of recipes
@@ -168,6 +177,24 @@ public class RecipeBookCSVReader extends CSVReader {
                 SubRecipeBook subrecipebook = new SubRecipeBook(subrecipebookname, subrecipebookdesc);
                 // get the recipes in the subrecipebook
                 RecipeCollection subrecipebookrecipes = getSubRecipeBookRecipesList(user,subrecipebook);
+                // add to the subrecipebook - recipes mapping
+                subrecipebooks.put(subrecipebook, subrecipebookrecipes);
+            }
+        }
+        return createrecipebook(subrecipebooks);
+    }
+
+    public RecipeBook getUserRecipeBook(String username) {
+        HashMap<SubRecipeBook, RecipeCollection> subrecipebooks = new HashMap<>();
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(username)) {
+                // create the subrecipebook
+                String[] usernamesubrecipebooknameinfo = line.get(1).split(" - ");
+                String subrecipebookname = usernamesubrecipebooknameinfo[1];
+                String subrecipebookdesc = line.get(2);
+                SubRecipeBook subrecipebook = new SubRecipeBook(subrecipebookname, subrecipebookdesc);
+                // get the recipes in the subrecipebook
+                RecipeCollection subrecipebookrecipes = getSubRecipeBookRecipesList(username, subrecipebook);
                 // add to the subrecipebook - recipes mapping
                 subrecipebooks.put(subrecipebook, subrecipebookrecipes);
             }
