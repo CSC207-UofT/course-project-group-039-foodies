@@ -160,7 +160,7 @@ public class RecipeBookCSVReader extends CSVReader {
         for (String recipename: recipenames) {
             if (!recipename.equals(" ")) {
                 Recipe recipe = RecipeCollectionFacade.findRecipe(recipelists, recipename);
-                recipes.addRecipe(recipe);
+                RecipeCollectionFacade.addRecipe(recipes, recipe);
             }
         }
         return recipes;
