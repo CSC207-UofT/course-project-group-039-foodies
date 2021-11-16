@@ -2,6 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.RecipeBook;
 import main.java.Entities.User;
+import main.java.UseCases.UserFactory;
 
 import java.util.ArrayList;
 
@@ -90,8 +91,12 @@ public class UserCSVReader extends CSVReader {
     public User getUser(String username) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
-                RecipeBook userrecipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(username);
-                return new User(line.get(2), line.get(0), line.get(3), userrecipebook);
+                return UserFactory.createUser(
+                        line.get(2),
+                        line.get(0),
+                        line.get(3),
+                        RecipeBookCSVReader.getInstance().getUserRecipeBook(username)
+                );
             }
         }
         return null;

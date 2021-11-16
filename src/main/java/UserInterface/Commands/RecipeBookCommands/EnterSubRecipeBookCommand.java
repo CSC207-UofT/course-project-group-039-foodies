@@ -15,9 +15,7 @@ public class EnterSubRecipeBookCommand extends Command {
     @Override
     public void runAction(UserInterface UI) {
         String subRecipeBookName = UI.queryUser("Input the name of the SubRecipeBook you would like to enter");
-        RecipeBook recipebook = UI.getUser().getRecipeBook();
-//        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
-        RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
+        RecipeBookManager recipebookmanager = new RecipeBookManager(UI.getUser());
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             UI.getPageManager().enterSubRecipeBook();
             Command help = new HelpCommand();

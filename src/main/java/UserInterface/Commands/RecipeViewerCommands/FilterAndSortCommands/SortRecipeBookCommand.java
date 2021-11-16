@@ -3,6 +3,7 @@ package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComma
 import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.Sorts.Sort;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.UserInterface;
 
 public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
@@ -27,6 +28,6 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
                 break;
         }
 
-        UI.getRecipeCollection().setSort(sort);
+        RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
     }
 }

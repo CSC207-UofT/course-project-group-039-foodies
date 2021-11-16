@@ -1,5 +1,6 @@
 package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands;
 
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -11,6 +12,6 @@ public class RemoveSortCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        UI.getRecipeCollection().removeSort();
+        RecipeCollectionFacade.removeSort(UI.getRecipeCollection());
     }
 }

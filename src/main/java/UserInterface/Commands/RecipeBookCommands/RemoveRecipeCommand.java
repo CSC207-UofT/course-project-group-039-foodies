@@ -21,9 +21,7 @@ public class RemoveRecipeCommand extends Command {
         String recipeName = UI.queryUser("Input the name of the recipe to remove");
         String subRecipeBookName = UI.queryUser("Please confirm the name of SubRecipeBook to remove the recipe from");
 
-        RecipeBook recipebook = UI.getUser().getRecipeBook();
-//        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
-        RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
+        RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
         SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
                 recipeBookManager.findsubrecipebook(subRecipeBookName));
         if (subRecipeBookManager.containsRecipe(recipeName)) {
