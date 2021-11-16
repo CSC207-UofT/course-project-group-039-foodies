@@ -18,3 +18,4 @@ public class RatingSort implements Sort {
         return result;
     }
 }
+
