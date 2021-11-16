@@ -101,11 +101,15 @@ public class RecipeBookCSVReader extends CSVReader {
         subrecipebookinfo.add(username);
         subrecipebookinfo.add(username + " - " + subrecipebookname);
         subrecipebookinfo.add(subrecipebookdesc);
-        ArrayList<String> recipelist = new ArrayList<>();
+        ArrayList<String> recipeList = new ArrayList<>();
         for (Recipe recipe: recipes) {
-            recipelist.add(recipe.getName());
+            recipeList.add(recipe.getName());
         }
-        subrecipebookinfo.add(String.join(", ", recipelist));
+        if (recipeList.size() == 0) {
+            subrecipebookinfo.add(" ");
+        } else {
+            subrecipebookinfo.add(String.join(", ", recipeList));
+        }
 
         writeLine(subrecipebookinfo);
     }
@@ -212,38 +216,4 @@ public class RecipeBookCSVReader extends CSVReader {
             }
         } return recipebook;
     }
-
-
-//        for (ArrayList<String> line: readFile()) {
-//            if (line.get(0).equals(user.getUsername())) {
-//                String[] usernamesubrecipebooknamesplit = line.get(1).split(" - ");
-//                String subrecipebookname = usernamesubrecipebooknamesplit[1];
-//                // create a list of the recipes in subrecipebook
-//                ArrayList<Recipe> recipes = new ArrayList<>();
-//                RecipeCollection recipedatabase = RecipeCSVReader.getInstance().getRecipes();
-//                for (String recipename: line.get(2).split(",")) {
-//                    recipes.add(recipedatabase.findRecipe(recipename));
-//                }
-//                subrecipebooks.put(subrecipebookname, recipes);
-//            }
-//        }
-//        return makerecipebook(subrecipebooks);
-//    }
-//
-//    private RecipeBook makerecipebook(HashMap<String, ArrayList<Recipe>> subrecipebooks) {
-//        RecipeBook recipebook = new RecipeBook();
-//        for(String subrecipebookname: subrecipebooks.keySet()) {
-//            recipebook.addSubRecipeBook();
-//            for (Recipe recipe: subrecipebooks.get(subrecipebookname)) {
-//                recipebook.addRecipe();
-//            }
-//        }
-//    }
-
-
-    // find all of the subrecipe books
-    // regenerate all of the subrecipe books
-    // re-add all of the recipes in each subrecipe book to each of the recipe books
-
-
 }
