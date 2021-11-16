@@ -192,9 +192,10 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### HELENA
 
 * ##### TASKS DONE: 
-
+* My main task was setting up a GUI that thoroughly represents our program. Using Java’s SwingX framework. I was the primary contributor for all design decisions revolving around the UI and UX in the GUI by formatting and adding different components to maximize the usability and visual aspect of our program. I also implemented a “Top Picks'' algorithm that would predict a series of recipes that a user would like based on the user’s previous recipe choices. I did some basic bug fixes and resolved remaining IntelliJ warnings at the end.
 
 * ##### NEXT STEPS:
+* I plan on continuing to add to the GUI and improving our UI and UX design(increasing functionality and visual apealness, maintaining a certain style), elaborating on the implementation of the Top Picks algorithm and am thinking about adding new methods for data analytics/stats on food trends found in individuals and across all users.
 
 
 #### MARK
@@ -204,14 +205,6 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 
 * ##### NEXT STEPS:
   * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, create a UserFactory to solve dependency issues, and implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate
-
-#### EMILY
-
-* ##### TASKS DONE: 
-  * Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
-
-* ##### NEXT STEPS: 
-  * I will continue to work on implementing a few more Group commands and add them to GUI. 
 
 #### MICHELLE
 
@@ -230,12 +223,11 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### MILICA
 
 * ##### TASKS DONE:
-  * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, and AccountFactory
-  * I added rating functionality to Recipe and RecipeCSVReader
-  * I made some minor changes to a few other CLI commands
-  * I made a powerpoint for the presentation
+ * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
+ * I added rating functionality to Recipe and RecipeCSVReader
+ * I made some minor changes to a few other CLI commands
+ * I made a powerpoint for the presentation
 
 * ##### NEXT STEPS:
-  * I will add more preference options to PreferenceBook (UpdateDietCommand)
-  * I will create comprehensive tests for PreferenceBook related methods
-  * I will help my teammates with any outstanding work
+
+
