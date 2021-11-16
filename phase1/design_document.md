@@ -215,13 +215,13 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
   * Built the RecipeGateway and JSON classes to allow recipes to be added to the recipes.csv file automatically.
   * Built commands to interact with sorts and filters.
   * Refactored the GUI and CLI to extend a UserInterface abstract class so that they can both execute Commands.
-  * Did some basic refactoring and bug fixes at the end, fixing code smells and dependency issues, notably creating a RecipeCollectionFacade to help fix this
+  * Did some basic refactoring and bug fixes at the end, fixing code smells and dependency issues, notably creating a RecipeCollectionFacade to help fix this.
 
 * ##### NEXT STEPS:
-  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, so that a nice looking GUI can be created while having all code be shared and seperated
-  * Fix the bugs in the issues tab
-  * Fix the remaining dependency issues
-  * Implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate
+  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, so that a nice looking GUI can be created while having all code be shared and seperated.
+  * Fix the bugs in the issues tab.
+  * Fix the remaining dependency issues.
+  * Implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate on rating recipes.
 
 #### MICHELLE
 
