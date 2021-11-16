@@ -219,10 +219,10 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### MILICA
 
 * ##### TASKS DONE:
-* I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
-* I added rating functionality to Recipe and RecipeCSVReader
-* I made some minor changes to a few other CLI commands
-* I made a powerpoint for the presentation
+ * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
+ * I added rating functionality to Recipe and RecipeCSVReader
+ * I made some minor changes to a few other CLI commands
+ * I made a powerpoint for the presentation
 
 * ##### NEXT STEPS:
 
