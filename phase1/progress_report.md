@@ -27,9 +27,23 @@ Emily
 - Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
 - I will continue to work on implementing a few more Group commands with Recipebook and add them to GUI. 
 
-Helena
+HELENA
+- My main task was setting up a GUI that thoroughly represents our program. Using Java’s SwingX framework. I was the primary contributor for all design decisions revolving around the UI and UX in the GUI by formatting and adding different components to maximize the usability and visual aspect of our program. I also implemented a “Top Picks'' algorithm that would predict a series of recipes that a user would like based on the user’s previous recipe choices. I did some basic bug fixes and resolved remaining IntelliJ warnings at the end.
+- I plan on continuing to add to the GUI and improving our UI and UX design(increasing functionality and visual apealness, maintaining a certain style), elaborating on the implementation of the Top Picks algorithm and am thinking about adding new methods for data analytics/stats on food trends found in individuals and across all users.
 
-Michelle
+MICHELLE
+
+* ##### TASKS DONE: 
+  * I created, updated and refactored the following classes RecipeBook, SubRecipeBook, RecipeBookManager, SubRecipeBookManager, RecipeBookCSVReader and RecipeCommands. 
+  * I wrote tests for RecipeBook and SubRecipeBook
+  * I participated in some of the design decisions.
+  * I worked on the MarkDown file for the Design Document.
+  * I also worked on some of sectons of the Design Document with team members.
+
+* ##### NEXT STEPS: 
+  * I plan to continue testing the classes that I have written above and offer help to my other members.
+  * I plan on potentially helping with the GUI. 
+  * I plan to work on reviewing my teammates pull requests
 
 Milica
 * ##### TASKS DONE:
