@@ -115,6 +115,12 @@ _Factory_:
 _Observer_:
 * Make PrefenceBook and RecipeBook observers so that when a user rates a new recipe, both can be updated
 
+#### Other Features to be added in phase 2:
+Factories: 
+* We currently have 4 factory classes, maybe we can create a factory interface.
+
+PreferenceBook: 
+* Add more preferences such as diet (ex, vegan, vegetarian, gluten free, halal, kosher)
 
 ## GITHUB FEATURES USED
 * Extensive use of _pull requests_ to manage our main branch was made. All changes to the code base had to go through a pull request first and be reviewed by other team members before merging.
