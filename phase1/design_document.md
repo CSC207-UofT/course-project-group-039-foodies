@@ -45,6 +45,7 @@ The following SOLID principles were used and some examples of its use are:
 _Single-responsibility principle_:
   * The RecipeFactory class has only one responsibility, to create recipes and that responsibility has been taken out of other classes.
   * The GroupFactory also has only one responsibility– to create groups. We have taken out these responsibilities from Group class and added them to the GroupFactory to satisfy the single-responsibility principle.
+  * However, a current flaw in the design is that the RecipeCollection class seems to have too many responsibilites, being responsible for adding, removing, finding, iterating, filtering, and sorting over a collection of recipes.
 
 _Open–closed principle_:
   * It is easy to extend the functionality of our code while modifying very little of any of the existing source. For example:
@@ -157,14 +158,15 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 ## PROGRESS REPORT 
 
 ### OUTSTANDING QUESTIONS 
-1. How do we cleanly separate controllers from the GUI, to maintain the single responsibility principle?
+1. What is the best way of cleanly separating controllers from the GUI, so that all code can be shared between the CLI and GUI and the single responsibility principle can be maintained?
   * If we were to do this using commands, how do we get the GUI to have well formatted output?
-2. Some of our methods take 4+ parameters, what is the best way to deal with this?
-
+2. Some of our methods take 4+ parameters, like the RecipeFactoryClass. What is the best way to deal with this?
+3. Is there a better way for the controller and gateway classes to be able to access entities other than by creating facade usecases?
 
 ### WHAT HAS WORKED WELL THUS FAR?
 * _Packaging by Layer followed by Components_ - This has worked in that we are more likely to adhere to the Clean Architecture while we develop the programme and it is easier to find and fix any areas where it was not followed. Furthermore, separating by components afterwards works well as it means that we can manage the visibility of parts of our code.
-
+* The Command classes - In practice, this made it very easy for all of the team to add new functionality. Because the interface is the bare minimum required, and each command has exactly one responsibility, it was easy for the team to quickly add new features without needing to worry about the implementation of the user interface.
+* The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
 ### Brief Summary of Tasks undertaken by each member and Next Steps to be taken
 
@@ -208,10 +210,18 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### MARK
 
 * ##### TASKS DONE: 
-  * Starting by refactoring the RecipeDatabase and DatabaseManager out, building the RecipeFactory, RecipeCollection, and RecipeCSVReader to replace them. Built the CSVReader class to read CSV files, and the UserCSVReader to store users permanently. Built the RecipeGateway and JSON classes to allow recipes to be added to the recipes.csv file automatically. Built commands to interact with sorts and filters. Refactored the GUI and CLI to extend a UserInterface abstract class so that they can both execute Commands. Did some basic refactoring and bug fixes at the end.
+  * Starting by refactoring the RecipeDatabase and DatabaseManager out, building the RecipeFactory, RecipeCollection, and RecipeCSVReader to replace them.
+  * Built the CSVReader class to read CSV files, and the UserCSVReader to store users permanently.
+  * Built the RecipeGateway and JSON classes to allow recipes to be added to the recipes.csv file automatically.
+  * Built commands to interact with sorts and filters.
+  * Refactored the GUI and CLI to extend a UserInterface abstract class so that they can both execute Commands.
+  * Did some basic refactoring and bug fixes at the end, fixing code smells and dependency issues, notably creating a RecipeCollectionFacade to help fix this
 
 * ##### NEXT STEPS:
-  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, create a UserFactory to solve dependency issues, and implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate
+  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, so that a nice looking GUI can be created while having all code be shared and seperated
+  * Fix the bugs in the issues tab
+  * Fix the remaining dependency issues
+  * Implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate
 
 #### MICHELLE
 
