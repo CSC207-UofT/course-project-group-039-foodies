@@ -178,8 +178,10 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### EMILY
 
 * ##### TASKS DONE: 
+   * Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Patt on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
 
-* ##### NEXT STEPS:
+* ##### NEXT STEPS: 
+   * I will continue to work on implementing a few more Group commands and add them to GUI. 
 
 
 #### HAYUN
