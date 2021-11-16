@@ -6,8 +6,8 @@ Our team aims to create a programme that is geared towards food lovers looking t
 The programme is able to match users to recipes based on a series of their preferences. Matches may be made based on likes/ dislikes, dietary restrictions and more. If no preferences are provided, these matches may also be made randomly.
 Recommendations are done by filtering recipes from our database using the preferences provided to find the recipe that is the best match.
 In the programme, users can :
-* create subfolders of recipes that they would like to save, that is, create their own personal recipe book with different categories.
-* create groups where each group is assigned with a unique ID so they can add and remove users without any conflict.
+* create subfolders of recipes that they would like to save, that is, create their own personal recipe book with different categories
+* create groups where each group is assigned with a unique ID so they can add and remove users without any conflict
 * create their own recipes and upload it to the database
 * rate recipes that they have tried
 
@@ -29,7 +29,7 @@ There were several design decisions that had to be made during the development o
   * Creating a recipe object. This has been replaced with RecipeFactory. 
   * Holding a collection of recipes. This has been replaced with RecipeCollection. 
   * Accessing and modifying all the recipes in the database. This has been replaced with the RecipeCSVReader. 
-  * _Why?_ RecipeDatabase was an entity when it should have been in the layer of Framework and Driver. Thus, the design was flawed. Furthermore, refactoring its responsibilities   out to other classes also makes the code more SOLID as it allows follows the Single Responsibility Principle
+  * _Why?_ RecipeDatabase was an entity when it should have been in the layer of Framework and Driver. Thus, the design was flawed. Furthermore, refactoring its responsibilities   out to other classes also makes the code more SOLID as it allows follows the Single Responsibility Principle.
 * Using an interface rather than an abstract class for the filters and sorts. Implemented Filter interface, Sort interface, and several filtering/sorting algorithms (classes). _Why?_ Allows adding other filtering/sorting algorithms (classes) easily.
 * Using adapter for filter/sort controllers. _Why?_ We can avoid changing the whole code that is related to the filtering and sorting whenever there is a change, eliminating a code smell.
 * Using comparator classes for ServingsSort and RatingSort. _Why?_ to make code simple and easy to modify.
@@ -56,7 +56,7 @@ _Open–closed principle_:
 
 _Liskov substitution principle_:
   * Filters and sorts can be interchanged safely, and the program would still run as intended.
-  * Commands can all be interchanged with each other in the CLI, and the code would function as intended
+  * Commands can all be interchanged with each other in the CLI, and the code would function as intended.
   * However, a current flaw in the design is that the GUI has no PageManager to manage how pages work, so running a command that uses the PageManager in the GUI would result in a NullPointerException, the Liskov substitution principle fails in this respect.
 
 _Interface segregation principle_:
@@ -88,11 +88,11 @@ _Factory_:
 * Create a user representing a new account, in the AccountFactory class
 
 _Dependency Injection_:
-* The use case interfaces Sort and Filter are injected into the entity RecipeCollection so that it can use methods in a more concrete layer, without depending on their   implementation, allowing clean architecture to stay respected.
+* The use case interfaces Sort and Filter are injected into the entity RecipeCollection so that it can use methods in a more concrete layer, without depending on their   implementation, allowing clean architecture to stay respected
 * The UserInterface has setters to allow for the injection of RecipeCollections, PreferenceBook, etc.
 
 _Facade_:
-* The RecipeBook acts as a facade for the overall subrecipebook which contains all recipes the user adds to their individual subrecipebooks
+* The RecipeBook acts as a facade for the overall subrecipebook which contains all recipes the user adds to their individual subrecipebooks.
 
 _Singleton_:
 * This is used to create a single global instance of the children of CSVReader, namely the UserCSVReader, RecipeCSVReader, GroupCSVReader, and PreferenceCSVReader, RecipeBookCSVReader classes so that it can act as a static class while still having a state.
@@ -138,9 +138,9 @@ PreferenceBook:
 ## REFACTORING OF CODE
 A lot of the code was refactored in Phase 1. Some examples of these include the following: 
 * The largest example of this is pull request #14 which completely replaces the incorrectly designed RecipeDatabase and DatabaseManager classes. As a consequence, we had to change many parts of the program such as test classes for filters and sorts.
-* We exchanged any call of the Recipe constructor with a RecipeFactory in pull request #8, washing away a ‘duplicate code’ code smell
-* RecipeCollection is used instead of HashMap<Integer, Recipe> in the RecipeBook, and later the SubRecipeBook, washing away a ‘primitive obsession’ code smell. This is done in pull request #40
-* RecipeBook was refactored to store SubRecipeBooks, instead of directly storing Recipes in pull request #40
+* We exchanged any call of the Recipe constructor with a RecipeFactory in pull request #8, washing away a ‘duplicate code’ code smell.
+* RecipeCollection is used instead of HashMap<Integer, Recipe> in the RecipeBook, and later the SubRecipeBook, washing away a ‘primitive obsession’ code smell. This is done in pull request #40.
+* RecipeBook was refactored to store SubRecipeBooks, instead of directly storing Recipes in pull request #40.
 * Pull request #45 fixes a bug that stopped RecipeBooks from being created when the user is, and fixes an issue with dependencies in the Command layer, as well as removing a bunch of dispensables.
 * Pull request #35 refactors the CLI and GUI to both implement the same interface, allowing commands to be run on both of them.
 * However, there are still a few code smells in our code which we plan to solve in Phase 2:
