@@ -170,10 +170,10 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### DOHYUN
 
 * ##### TASKS DONE: 
-
+   * Mainly focused on filtering and sorting algorithms of our program. Implemented AllergyFilter class, ServingsFilter class, ServingSort class and ServingComparator class, Sort interface, RatingSort class and RatingComparator class, test classes for all the classes that I implemented in Phase 1. Modified filter and sort tests to use RecipeCollection instead of DatabaseManager, filter and sort interfaces so that they get an array of recipes directly when calling filter/sort method not when initializing, and all codes that I implemented to work with modified filter and sort interfaces. Added Javadoc for all classes and interfaces that I implemented in Phase 0 and 1. Organized the test classes, using packaging by components (e.g. FilterTests and SortTests). Added design decisions and design patterns into the Design Document.
 
 * ##### NEXT STEPS:
-
+   * If our online database contains calories, modify the Recipe to store calories and implement CalorieFilter and CalorieSort. Since a database of recipes can have a huge amount of recipes, I will try to improve the runtime efficiency of filters and sorts. Improve dependency between the codes related to filters and sorts.
 
 #### EMILY
 
