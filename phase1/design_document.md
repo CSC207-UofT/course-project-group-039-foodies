@@ -18,10 +18,7 @@ The programme also has a feature where data from all users can be aggregated, an
 
 
 ## UML MODEL
-The following images show the UML for various aspects of our programme: 
-* UML of everything
-* High Level UML showing the dependencies
-
+The UML model can be seen in the pdf in this directory.
 
 ## MAJOR DESIGN DECISIONS SUMMARY
 There were several design decisions that had to be made during the development of this programme. The following is a summary of some of the design decisions we encountered:
@@ -38,7 +35,9 @@ There were several design decisions that had to be made during the development o
 
 ## CLEAN ARCHITECTURE IN THE PROGRAMME
 All of our code dependencies only move from the outer levels inward. Code on the inner layers have no knowledge of methods on the outer layers. The variables, methods and classes that exist in the outer layers are not mentioned in the more inward levels. 
-Our two external interfaces the GUI and the CLI only interact with our controller layer, which includes 34 commands and a number of gateways, as found in AdminCommands, GroupCommands, RecipeBookCommands, RecipeViewerCommands and UserPreferenceCommands, and the Gateways package. For the most part, every layer depends only on the layer below it, but there is one violation in our code. Namely, the AccountManager UseCase calls on the PreferenceBookCSVReader and UserCSVReader to create a new account, the use case depends on a gateway. We can fix this in phase 2 by either moving the logic for creating an account into the Gateway layer, or using dependency injection.
+Our two external interfaces the GUI and the CLI only interact with our controller layer, which includes 34 commands and a number of gateways, as found in AdminCommands, GroupCommands, RecipeBookCommands, RecipeViewerCommands and UserPreferenceCommands, and the Gateways package. For the most part, every layer depends only on the layer below it, but there are some violations where entities are accessed directly from the controller and gateway layer in our code left to fix. Namely, the PreferenceBookCSVReader gateway uses the constructor for a PreferenceBook, which we can fix by creating a PreferenceBookFactory, and the RateRecipeCommand controller calls the getUsername getter method in the User entity.
+
+As an example scenario walkthrough, we can look at what happens when the user decides to add a recipe to a subrecipe book. If either the CLI or GUI is used, the controller AddToSubRecipeBook would call its runAction method. Then, the RecipeCollectionFacade UseCase is used to find a the inputted user recipe in the RecipeCollection of all recipes by calling findRecipe method within it. This calls the findRecipe method in the entity RecipeCollection, getting the appropriate recipe object, if it exists. We then create a recipeBookManager UseCase to be able to add to the user's recipeBook. Then, call the recipeBookManager.containsSubRecipeBook method to check if the subrecipebook inputted by the user exists, which within the UseCase accesses the information within the entity. Then, RecipeBookManager.addRecipe is called to add the recipe to the appropriate subrecipebook. Finally, we store this information the database by getting the singleton instance of the gateway RecipeBookCSVReader, and calling its updateRecipeBook method. This deletes the appropriate file line, then adds a new one without accessing any usecase or entity.
 
 ## SOLID DESIGN PRINCIPLES IN THE PROGRAMME
 The following SOLID principles were used and some examples of its use are:
@@ -93,6 +92,7 @@ _Dependency Injection_:
 * The UserInterface has setters to allow for the injection of RecipeCollections, PreferenceBook, etc.
 
 _Facade_:
+* The RecipeCollectionFacade is a facade Usecase that allows controllers to access methods in the entity without breaking clean architecture.
 * The RecipeBook acts as a facade for the overall subrecipebook which contains all recipes the user adds to their individual subrecipebooks.
 * The RecipeBookManager and SubRecipeBookManager act as facades, allowing controllers to access methods in the RecipeBook.
 * The UserFactory is a facade for the User Constructor, allowing the code to respect clean architecture.
@@ -146,6 +146,7 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 * Pull request #35 refactors the CLI and GUI to both implement the same interface, allowing commands to be run on both of them.
 * Pull request #49 refactors the code to fix a dependency issue by creating a UserFactory class.
 * Pull request #48 refactors the code to fix a bug with removing recipes.
+* Pull requests #49 and #50 refactor the code to fix dependency issues.
 * However, there are still a few code smells in our code which we plan to solve in Phase 2:
   * Some code is repeated in the GUI and CLI, such as, the sign in code. This is done so that the display to the user is nicely formatted, and so the command isn’t called directly. In Phase 2, we could fix this by having each command specify how the output should look like, making it so that it doesn’t have to be rewritten for the GUI.
   * The Application class has a ‘refused bequest’ code smell, storing null for the PageManager. In Phase 2, we could fix this by removing the getPageManager class from the UserInterface, or by creating a PageManager for the GUI to manage the transition between pages and the creation of pages.
