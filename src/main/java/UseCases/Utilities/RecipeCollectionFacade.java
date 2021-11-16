@@ -29,5 +29,7 @@ public class RecipeCollectionFacade {
         recipeCollection.removeSort();
     }
 
-
+    public static void addRecipe(RecipeCollection recipeCollection, Recipe recipe) {
+        recipeCollection.addRecipe(recipe);
+    }
 }

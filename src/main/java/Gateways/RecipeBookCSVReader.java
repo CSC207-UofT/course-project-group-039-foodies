@@ -2,6 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.*;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -158,8 +159,8 @@ public class RecipeBookCSVReader extends CSVReader {
         RecipeCollection recipelists = RecipeCSVReader.getInstance().getRecipes();
         for (String recipename: recipenames) {
             if (!recipename.equals(" ")) {
-                Recipe recipe = recipelists.findRecipe(recipename);
-                recipes.addRecipe(recipe);
+                Recipe recipe = RecipeCollectionFacade.findRecipe(recipelists, recipename);
+                RecipeCollectionFacade.addRecipe(recipes, recipe);
             }
         }
         return recipes;
