@@ -205,6 +205,14 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 * ##### NEXT STEPS:
   * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, create a UserFactory to solve dependency issues, and implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate
 
+#### EMILY
+
+* ##### TASKS DONE: 
+  * Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
+
+* ##### NEXT STEPS: 
+  * I will continue to work on implementing a few more Group commands and add them to GUI. 
+
 #### MICHELLE
 
 * ##### TASKS DONE: 
