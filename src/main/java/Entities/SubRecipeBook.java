@@ -1,22 +1,17 @@
 package main.java.Entities;
 
-import java.util.HashMap;
-
-
 /** A category/ sub recipe book found in user's overall recipe book. Stores the user's saved recipes for this category.
- *
- *
  */
 public class SubRecipeBook {
-    public final HashMap<Integer, Recipe> recipes;
+    public final RecipeCollection recipes;
     public final String name;
     public final String description;
 
     /**
-     * Instantiate an empty sub-recipe Book
+     * Instantiate an empty sub-recipe Book with no name or description provided.
      */
     public SubRecipeBook() {
-        this.recipes = new HashMap<>();
+        this.recipes = new RecipeCollection();
         this.name = "SubRecipe Book";
         this.description = " ";
     }
@@ -27,7 +22,7 @@ public class SubRecipeBook {
      * @param  name - user provided name for the Recipe Book
      */
     public SubRecipeBook(String name) {
-        this.recipes = new HashMap<>();
+        this.recipes = new RecipeCollection();
         this.name = name;
         this.description = " ";
     }
@@ -39,19 +34,34 @@ public class SubRecipeBook {
      * @param description - user provided description for the recipe book
      */
     public SubRecipeBook(String name, String description) {
-        this.recipes = new HashMap<>();
+        this.recipes = new RecipeCollection();
         this.name = name;
         this.description = description;
     }
 
     /**
-     * Add a Recipe recipe with code recipe code to the sub recipe book
-     *
-     * @param recipecode - a unique String code identifier for Recipe
-     * @param recipe - the recipe
+     * Return the name of the subrecipebook.
+     * @return String representing the name of the subrecipebook.
      */
-    public void addRecipe(Integer recipecode, Recipe recipe) {
-        this.recipes.put(recipecode, recipe);
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Return the description of the subrecipebook.
+     * @return String representing the description of the subrecipebook.
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Add a Recipe object to the subrecipebook
+     *
+     * @param recipe - the recipe object to be added
+     */
+    public void addRecipe(Recipe recipe) {
+        this.recipes.addRecipe(recipe);
     }
 
     /**
@@ -60,7 +70,7 @@ public class SubRecipeBook {
      * @param recipecode - a unique String code identifier for Recipe
      */
     public void removeRecipe(Integer recipecode) {
-        this.recipes.remove(recipecode);
+        this.recipes.removeRecipe(recipecode);
     }
 
     /**
@@ -78,7 +88,7 @@ public class SubRecipeBook {
      * @return - return the recipes
      */
     public Recipe[] getRecipes() {
-        return recipes.values().toArray(new Recipe[0]);
+        return recipes.getRecipes();
     }
 
     /**
@@ -87,7 +97,7 @@ public class SubRecipeBook {
      * @return - return the codes
      */
     public Integer[] getCodes() {
-        return recipes.keySet().toArray(new Integer[0]);
+        return recipes.getRecipeCodes();
     }
 
     /**
@@ -97,14 +107,32 @@ public class SubRecipeBook {
      * @return - return the recipe with recipecode
      */
     public Recipe getRecipe(Integer recipecode) {
-        return this.recipes.get(recipecode);
+        return this.recipes.findRecipe(recipecode);
     }
 
+    /**
+     * Retrieve the recipe with name name
+     * @param recipename - the nanme of the recipe to return
+     * @return a Recipe object with name name
+     */
+    public Recipe getRecipe(String recipename) {
+        return this.recipes.findRecipe(recipename);
+    }
+
+    public boolean containsRecipe(Recipe recipe) {
+        return this.recipes.containsRecipe(recipe);
+    }
+
+    public boolean containsRecipe(String name) {
+        return this.recipes.containsRecipe(name);
+    }
+
+    /**
+     * Return the number of recipes in the subrecipebook.
+     * @return an int indicating the number of recipes in the subrecipebook.
+     */
     public int size() {
         return this.recipes.size();
     }
-
-
-
 
 }

@@ -71,7 +71,7 @@ public class CSVReader {
         // Writes the file to the temporary database without the lines to delete
         CSVReader tempReader = new CSVReader();
         for (ArrayList<String> line : readFile()) {
-            if (!line.get(location).equals(name)) {
+            if (!line.isEmpty() && !line.get(location).equals(name)) {
                 tempReader.writeLine(line);
             }
         }
@@ -102,7 +102,6 @@ public class CSVReader {
      * Returns all entries in the csv file
      * @return Returns an arraylist where each element is an arraylist of the value at each column
      */
-    // TODO: Make readFile private, with the column attribute, shouldn't leak its implementation to its children
     protected ArrayList<ArrayList<String>> readFile() {
         ArrayList<ArrayList<String>> returnList = new ArrayList<>();
         try {
