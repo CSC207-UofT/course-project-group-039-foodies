@@ -53,7 +53,7 @@ The following SOLID principles were used and some examples of its use are:
 _Single-responsibility principle_:
   * The RecipeFactory class has only one responsibility, to create recipes and that responsibility has been taken out of other classes.
   * The GroupFactory also has only one responsibility– to create groups. We have taken out these responsibilities from Group class and added them to the GroupFactory to satisfy the single-responsibility principle.
-  * However, a current flaw in the design is that the RecipeCollection class seems to have too many responsibilites, being responsible for adding, removing, finding, iterating, filtering, and sorting over a collection of recipes. We can fix this by creating a series of classes that inherit from each other, splitting the resposibilities for adding, removing, finding and iterating, filtering, sorting.
+  * However, a current flaw in the design is that the RecipeCollection class seems to have too many responsibilites, being responsible for adding, removing, finding, iterating, filtering, and sorting over a collection of recipes. We can fix this by creating a series of classes that inherit from each other, splitting the resposibilities for adding, removing, finding, iterating and filtering, sorting.
 
 _Open–closed principle_:
   * It is easy to extend the functionality of our code while modifying very little of any of the existing source. For example:
