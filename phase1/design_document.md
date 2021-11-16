@@ -187,8 +187,12 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 #### HAYUN
 
 * ##### TASKS DONE: 
+   * I have mostly worked on Group related classes for phase 1 (implemented Group, GroupManager, GroupCSVReader, GroupCSVReaderTest, and some groups.csv). I have also helped Michelle in implementing some of the Recipebook tests such as RecipeBookManager and SubRecipeBookManager tests. For the last two days, I have worked on refactoring GroupCommands so that we can use CSV methods in the GroupCommands. 
 
 * ##### NEXT STEPS:
+   * For phase 2, I will be working on refactoring existing Group Commands.
+   * I also plan on working to implement the methods to connect Recipebook to the group entities. 
+   * I will help my teammates with any outstanding work.
 
 
 #### HELENA
