@@ -33,13 +33,13 @@ There were several design decisions that had to be made during the development o
 * Separating the storage or cumulative recipe ratings and individual recipe ratings. _Why?_ Initially, all rating information for a recipe could be accessed through a recipe object, and cumulative ratings were calculated by getting the average of the list of individual ratings. When storing the rating information in CSV files, we realized that the recipes.csv file would be too large to handle efficiently and if individual and cumulative ratings were linked, then deleting a user (thus deleting their individual ratings) would mess up the calculation of cumulative ratings.
 
 
-## CLEAN ARCHITECTURE IN THE PROGRAMME
+## CLEAN ARCHITECTURE IN THE PROGRAM
 All of our code dependencies only move from the outer levels inward. Code on the inner layers have no knowledge of methods on the outer layers. The variables, methods and classes that exist in the outer layers are not mentioned in the more inward levels. 
 Our two external interfaces the GUI and the CLI only interact with our controller layer, which includes 34 commands and a number of gateways, as found in AdminCommands, GroupCommands, RecipeBookCommands, RecipeViewerCommands and UserPreferenceCommands, and the Gateways package. For the most part, every layer depends only on the layer below it, but there are some violations where entities are accessed directly from the controller and gateway layer in our code left to fix. Namely, the PreferenceBookCSVReader gateway uses the constructor for a PreferenceBook, which we can fix by creating a PreferenceBookFactory, and the RateRecipeCommand controller calls the getUsername getter method in the User entity.
 
 As an example scenario walkthrough, we can look at what happens when the user decides to add a recipe to a subrecipe book. If either the CLI or GUI is used, the controller AddToSubRecipeBook would call its runAction method. Then, the RecipeCollectionFacade UseCase is used to find a the inputted user recipe in the RecipeCollection of all recipes by calling findRecipe method within it. This calls the findRecipe method in the entity RecipeCollection, getting the appropriate recipe object, if it exists. We then create a recipeBookManager UseCase to be able to add to the user's recipeBook. Then, call the recipeBookManager.containsSubRecipeBook method to check if the subrecipebook inputted by the user exists, which within the UseCase accesses the information within the entity. Then, RecipeBookManager.addRecipe is called to add the recipe to the appropriate subrecipebook. Finally, we store this information the database by getting the singleton instance of the gateway RecipeBookCSVReader, and calling its updateRecipeBook method. This deletes the appropriate file line, then adds a new one without accessing any usecase or entity.
 
-## SOLID DESIGN PRINCIPLES IN THE PROGRAMME
+## SOLID DESIGN PRINCIPLES IN THE PROGRAM
 The following SOLID principles were used and some examples of its use are:
 
 _Single-responsibility principle_:
@@ -68,13 +68,13 @@ _Dependency inversion principle_:
   * Dependency injection is used, as described in the section on design patterns, to maintain this.
 
 
-## PACKAGING STRATEGIES USED IN PROGRAMME
+## PACKAGING STRATEGIES USED IN THE PROGRAM
 We first _package by clean architecture layers_. This ensures that we follow the clean architecture structure as it is very easy to visualise the structure and find places where clean architecture is broken, and fix them. This also forces us to think about which layer a class is in before we even start coding. All in all, this makes it almost trivial to adhere to clean architecture.
 
 Within each layer package, we _package by component_. This makes it very easy to find any class within a package and group together relevant classes. Moreover, in some places, we can use this to manage visibility and dependencies in our code. Components can be grouped together in a package and methods that should only be called internally can be protected. This is done in the JSONComponents package and the CLI package.
 
 
-## SUMMARY OF DESIGN PATTERNS USED IN PROGRAMME
+## SUMMARY OF DESIGN PATTERNS USED IN THE PROGRAM
 The following design patterns were used in the programme:
 
 _Strategy_:
