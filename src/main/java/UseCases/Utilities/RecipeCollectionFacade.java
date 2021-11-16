@@ -5,6 +5,9 @@ import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
 
+/**
+ * A facade for the recipe collection to preserve clean architecture
+ */
 public class RecipeCollectionFacade {
     public static Recipe findRecipe(RecipeCollection recipeCollection, String recipeName) {
         return recipeCollection.findRecipe(recipeName);
