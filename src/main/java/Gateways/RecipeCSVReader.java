@@ -3,6 +3,7 @@ package main.java.Gateways;
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
 import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,23 +72,27 @@ public class RecipeCSVReader extends CSVReader {
     public RecipeCollection getRecipes() {
         RecipeCollection recipes = new RecipeCollection();
         for (ArrayList<String> line : readFile()) {
+            //adding ratings
+            double rating, ratingCount;
+            if (line.size() == 7) { //recipe already has previous ratings
+                rating = Double.parseDouble(line.get(5));
+                ratingCount = Double.parseDouble(line.get(6));
+            } else { //recipe hasn't been rated yet
+                rating = -1.0;
+                ratingCount = 0.0;
+            }
             Recipe newRecipe = RecipeFactory.createRecipe(
                     line.get(0),
                     line.get(1),
                     Integer.parseInt(line.get(2)),
                     new ArrayList<>(Arrays.asList(line.get(3).split(","))),
-                    line.get(4)
+                    line.get(4),
+                    rating,
+                    ratingCount
             );
-            //adding ratings
-            if (line.size() == 7) { //recipe already has previous ratings
-                newRecipe.rating = Double.parseDouble(line.get(5));
-                newRecipe.ratingCount = Double.parseDouble(line.get(6));
-            } else { //recipe hasn't been rated yet
-                newRecipe.rating = -1.0;
-                newRecipe.ratingCount = 0.0;
-            }
+
             //add to collection
-            recipes.addRecipe(newRecipe);
+            RecipeCollectionFacade.addRecipe(recipes, newRecipe);
         }
 
         return recipes;

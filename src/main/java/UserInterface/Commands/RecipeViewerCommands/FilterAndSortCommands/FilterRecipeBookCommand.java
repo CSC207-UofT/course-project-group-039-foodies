@@ -4,6 +4,7 @@ import main.java.UseCases.Filters.AllergyFilter;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.Filters.ServingsFilter;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.UserInterface;
 
 public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
@@ -36,7 +37,7 @@ public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
                 break;
         }
 
-        UI.getRecipeCollection().addFilter(filter);
+        RecipeCollectionFacade.addFilter(UI.getRecipeCollection(), filter);
     }
 
 }
