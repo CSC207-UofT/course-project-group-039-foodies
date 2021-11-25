@@ -38,8 +38,8 @@ public class PreferenceBookCSVReader extends CSVReader {
         addPreferenceBook(user, emptyOmit, emptyInclude, emptyRecipes, emptyRatings);
     }
 
-    public void addPreferenceBook(String username, ArrayList<String> omit, ArrayList<String> include, ArrayList<String> recipes,
-                                  ArrayList<String> ratings) {
+    public void addPreferenceBook(String username, ArrayList<String> omit, ArrayList<String> include,
+                                  ArrayList<String> recipes, ArrayList<String> ratings) {
         ArrayList<String> prefInfo = new ArrayList<>();
 
         prefInfo.add(username);
@@ -120,8 +120,8 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
     }
 
-    public void updateRatings(String username, String RemOrAdd, String recipe, Double rating) {
-        if (Objects.equals(RemOrAdd, "add")) {
+    public void updateRatings(String username, boolean isAdd, String recipe, Double rating) {
+        if (isAdd) {
             addPreferences(username, 3, recipe);
             addPreferences(username, 4, String.valueOf(rating));
         } else {

@@ -21,20 +21,37 @@ public class RateRecipeCommand extends Command {
         RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
         UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
 
-        if (recipeBookManager.containsRecipe(recipeName) && !(UI.getPreferenceBook().contains("rating",
-                recipeName))) {
-            double rating = Double.parseDouble(UI.queryUser("Enter rating from 1-5"));
-            Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), recipeName); //getting recipe from RecipeCollection
-            recipe.addRating(rating); //recipe object is updated
-            RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount); //csv is updated
-            PreferenceBookCSVReader.getInstance().updateRatings(UI.getUser().getUsername(), "add",
-                    recipeName, rating);
+        if (recipeBookManager.containsRecipe(recipeName)
+                && !(UI.getPreferenceBook().contains("rating", recipeName))) {
+            rateRecipe(
+                    UI,
+                    recipeName,
+                    Double.parseDouble(UI.queryUser("Enter rating from 1-5"))
+            );
+
             UI.displayMessage("Recipe successfully rated");
-        } else if (UI.getPreferenceBook().contains("rating",
-                recipeName)) {
+        } else if (UI.getPreferenceBook().contains("rating", recipeName)) {
             UI.displayMessage("You have already rated this recipe");
         } else {
             UI.displayMessage("Recipe book does not contain " + recipeName);
         }
+    }
+
+    private void rateRecipe(UserInterface UI, String recipeName, double rating) {
+        //getting recipe from RecipeCollection
+        Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), recipeName);
+
+        //recipe object is updated
+        recipe.addRating(rating);
+
+        //csv is updated
+        RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount);
+
+        PreferenceBookCSVReader.getInstance().updateRatings(
+                UI.getUser().getUsername(),
+                true,
+                recipeName,
+                rating
+        );
     }
 }
