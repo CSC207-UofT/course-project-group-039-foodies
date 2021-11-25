@@ -69,15 +69,15 @@ public class PreferenceBookCSVReader extends CSVReader {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
                 removePreferenceBook(username);
-                String[] arrayupdate = line.get(index).split(";");
-                ArrayList<String> arraylistupdate = new ArrayList<>();
-                for (String x : arrayupdate) {
+                String[] arrayUpdate = line.get(index).split(";");
+                ArrayList<String> arraylistUpdate = new ArrayList<>();
+                for (String x : arrayUpdate) {
                     if (!(Objects.equals(x, preference))) {
-                        arraylistupdate.add(x);
+                        arraylistUpdate.add(x);
                     }
                 }
                 line.remove(index);
-                line.add(index, String.join(";", arraylistupdate));
+                line.add(index, String.join(";", arraylistUpdate));
                 writeLine(line);
                 break;
             }
@@ -88,17 +88,17 @@ public class PreferenceBookCSVReader extends CSVReader {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
                 removePreferenceBook(username);
-                String[] arrayupdate = line.get(index).split(";");
-                ArrayList<String> arraylistupdate = new ArrayList<>();
+                String[] arrayUpdate = line.get(index).split(";");
+                ArrayList<String> arraylistUpdate = new ArrayList<>();
                 int counter = 0;
-                for (String x : arrayupdate) {
+                for (String x : arrayUpdate) {
                     if (!(counter == prefIndex)) {
-                        arraylistupdate.add(x);
+                        arraylistUpdate.add(x);
                     counter++;
                     }
                 }
                 line.remove(index);
-                line.add(index, String.join(";", arraylistupdate));
+                line.add(index, String.join(";", arraylistUpdate));
                 writeLine(line);
                 break;
             }

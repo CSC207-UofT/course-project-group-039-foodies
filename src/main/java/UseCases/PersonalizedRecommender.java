@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class PersonalizedRecommender {
     RecipeBook recipebook;
-    private HashMap<String, Integer> topIngredients;
+    private final HashMap<String, Integer> topIngredients;
 
     public PersonalizedRecommender(RecipeBook recipebook, HashMap<String, Integer> topIngredients) {
         this.recipebook = recipebook;
