@@ -21,12 +21,21 @@ public class GetNewRecipeCommand extends Command {
     public void runAction(UserInterface UI) {
         // If the iterator hasn't been set yet, or we have already iterated over all elements
         if (!isIteratorSet || !recipeIterator.hasNext()) {
-            isIteratorSet = true;
-            recipeIterator = UI.getRecipeCollection().iterator();
+            initializeIterator(UI);
         }
 
         if (recipeIterator.hasNext()) {
             UI.displayMessage(recipeIterator.next().toString());
         }
+    }
+
+    /**
+     * Sets the iterator of Recipes to go through,
+     * by taking the current RecipeCollection stored in the UI
+     * @param UI The userInterface being used
+     */
+    protected void initializeIterator(UserInterface UI) {
+        isIteratorSet = true;
+        recipeIterator = UI.getRecipeCollection().iterator();
     }
 }
