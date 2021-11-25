@@ -5,6 +5,7 @@ import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.RecipeCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
+import main.java.UseCases.Utilities.RecipeFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -42,7 +43,7 @@ public class RateRecipeCommand extends Command {
         Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), recipeName);
 
         //recipe object is updated
-        recipe.addRating(rating);
+        RecipeFacade.addRating(recipe, rating);
 
         //csv is updated
         RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount);

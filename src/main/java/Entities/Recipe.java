@@ -30,12 +30,14 @@ public class Recipe {
         this.ratingCount = 0;
     }
 
-    /** Returns a formatted Recipe for the user to read
+    /**
+     * Returns a formatted Recipe for the user to read
      * @return a formatted string
      */
     public String toString() { return this.foodName + "\n" + this.instructions; }
 
-    /** Updates the cumulative rating for this recipe
+    /**
+     * Updates the cumulative rating for this recipe
      */
     public void addRating(double rating) {
         this.ratingCount ++;
