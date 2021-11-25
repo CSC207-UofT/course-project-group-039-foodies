@@ -1,8 +1,7 @@
 package main.java.Gateways;
 
-import main.java.Entities.RecipeBook;
 import main.java.Entities.User;
-import main.java.UseCases.UserFactory;
+import main.java.UseCases.Factories.UserFactory;
 
 import java.util.ArrayList;
 

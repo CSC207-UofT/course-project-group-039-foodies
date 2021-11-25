@@ -2,7 +2,7 @@ package test.java;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.SubRecipeBook;
-import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Factories.RecipeFactory;
 import org.junit.Test;
 
 import java.util.ArrayList;

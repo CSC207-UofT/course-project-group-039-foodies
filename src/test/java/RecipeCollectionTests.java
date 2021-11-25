@@ -3,7 +3,7 @@ package test.java;
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Filters.FoodTypeFilter;
-import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Factories.RecipeFactory;
 import main.java.UseCases.Sorts.ServingsSort;
 import org.junit.After;
 import org.junit.Before;

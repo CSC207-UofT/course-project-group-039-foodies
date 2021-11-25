@@ -1,7 +1,5 @@
 package main.java.Entities;
 
-import main.java.Entities.User;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -37,7 +35,7 @@ public class PreferenceBook{
         ratingMap.put(recipe.getName(), rating);
     }
 
-    public void addRating(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
+    public void addRatings(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
 
     public boolean contains(String OmitInclRating, String ingredient) {
         if (Objects.equals(OmitInclRating, "omit")) {

@@ -3,7 +3,7 @@ package test.java.SortTests;
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Sorts.ServingsSort;
-import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Factories.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.*;

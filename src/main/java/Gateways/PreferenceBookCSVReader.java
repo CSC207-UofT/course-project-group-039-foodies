@@ -1,8 +1,7 @@
 package main.java.Gateways;
 
 import main.java.Entities.PreferenceBook;
-import main.java.Entities.Recipe;
-import main.java.Entities.User;
+import main.java.UseCases.Factories.PreferenceBookFactory;
 
 import java.util.*;
 
@@ -182,9 +181,12 @@ public class PreferenceBookCSVReader extends CSVReader {
     public PreferenceBook getPreferenceBook(String username) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
-                PreferenceBook newBook = new PreferenceBook(username, ToArrayList(line.get(1)), ToArrayList(line.get(2)));
-                newBook.addRating(getRatings(username));
-                return newBook;
+                return PreferenceBookFactory.createRecipeCollection(
+                        username,
+                        getRatings(username),
+                        ToArrayList(line.get(1)),
+                        ToArrayList(line.get(2))
+                );
             }
         }
         return null;

@@ -1,18 +1,13 @@
 package test.java;
 
-import com.sun.source.tree.AssertTree;
 import main.java.Entities.RecipeBook;
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeCollection;
 import main.java.Entities.SubRecipeBook;
 import main.java.UseCases.RecipeBookManager;
-import main.java.UseCases.RecipeFactory;
-import org.junit.Before;
+import main.java.UseCases.Factories.RecipeFactory;
 import org.junit.Test;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 

@@ -2,7 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
-import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Factories.RecipeFactory;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
 
 import java.util.ArrayList;

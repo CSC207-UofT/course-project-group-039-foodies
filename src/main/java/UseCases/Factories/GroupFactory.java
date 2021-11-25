@@ -1,4 +1,4 @@
-package main.java.UseCases;
+package main.java.UseCases.Factories;
 
 import main.java.Entities.Group;
 import java.util.ArrayList;

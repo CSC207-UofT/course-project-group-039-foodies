@@ -3,7 +3,7 @@ package test.java;
 import main.java.Entities.Group;
 import main.java.Entities.User;
 import main.java.UseCases.Utilities.GroupManager;
-import main.java.UseCases.GroupFactory;
+import main.java.UseCases.Factories.GroupFactory;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
