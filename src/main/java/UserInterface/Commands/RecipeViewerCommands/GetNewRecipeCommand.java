@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.RecipeViewerCommands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
 import main.java.UserInterface.UserInterface;
