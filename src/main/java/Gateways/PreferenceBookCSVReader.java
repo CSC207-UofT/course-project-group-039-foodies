@@ -181,7 +181,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     public PreferenceBook getPreferenceBook(String username) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
-                return PreferenceBookFactory.createRecipeCollection(
+                return PreferenceBookFactory.createPreferenceBook(
                         username,
                         getRatings(username),
                         ToArrayList(line.get(1)),

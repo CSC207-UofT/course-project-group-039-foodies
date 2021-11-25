@@ -2,6 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
+import main.java.UseCases.Factories.RecipeCollectionFactory;
 import main.java.UseCases.Factories.RecipeFactory;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
 
@@ -70,7 +71,7 @@ public class RecipeCSVReader extends CSVReader {
      * @return A RecipeDatabase of all the recipes stored
      */
     public RecipeCollection getRecipes() {
-        RecipeCollection recipes = new RecipeCollection();
+        RecipeCollection recipes = RecipeCollectionFactory.createRecipeCollection();
         for (ArrayList<String> line : readFile()) {
             //adding ratings
             double rating, ratingCount;
