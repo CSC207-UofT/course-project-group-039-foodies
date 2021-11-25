@@ -1,5 +1,6 @@
 package main.java.UserInterface.Commands.RecipeViewerCommands;
 
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
 import main.java.UserInterface.UserInterface;
@@ -36,6 +37,6 @@ public class GetNewRecipeCommand extends Command {
      */
     protected void initializeIterator(UserInterface UI) {
         isIteratorSet = true;
-        recipeIterator = UI.getRecipeCollection().iterator();
+        recipeIterator = RecipeCollectionFacade.getIterator(UI.getRecipeCollection());
     }
 }
