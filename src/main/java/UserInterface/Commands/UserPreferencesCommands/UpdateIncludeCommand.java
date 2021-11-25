@@ -4,9 +4,6 @@ import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
-import java.util.Objects;
-// possible usecase import
-
 /**
  * allows user to update the list of ingredients they want to include in their recommended recipes.
  */
@@ -14,31 +11,42 @@ public class UpdateIncludeCommand extends Command {
     public UpdateIncludeCommand() {
         super("update included ingredients", "Remove or add ingredients to include list");
     }
+
     @Override
     public void runAction(UserInterface UI) {
         String AddOrRem = UI.queryUser(
                 "Would you like to remove or add an ingredient to your list of included ingredients?"
         );
-        PreferenceBookCSVReader instance = PreferenceBookCSVReader.getInstance();
-        if (Objects.equals(AddOrRem, "add")) {
-            String ingredient = UI.queryUser("Enter ingredient to include in the recipe selection");
-            if (UI.getPreferenceBook().contains("include", ingredient)) {
-                UI.displayMessage("This ingredient is already included");
-            } else {
-                instance.updateInclude(UI.getUser().getUsername(), AddOrRem, ingredient);
-                UI.displayMessage("List of included ingredients successfully updated");
-            }
+        if (AddOrRem.equals("add")) {
+            updateInclude(
+                    UI,
+                    true,
+                    "Enter ingredient to include in the recipe selection",
+                    "This ingredient is already included"
+            );
         } else {
-            String ingredient = UI.queryUser("Enter ingredient to remove from list of included ingredients");
-            if (!UI.getPreferenceBook().contains("include", ingredient)) {
-                UI.displayMessage("This ingredient is not in your include list");
-            } else {
-                instance.updateInclude(UI.getUser().getUsername(), AddOrRem, ingredient);
-                UI.displayMessage("List of included ingredients successfully updated");
-            }
+            updateInclude(
+                    UI,
+                    false,
+                    "Enter ingredient to remove from list of included ingredients",
+                    "This ingredient is not in your include list"
+            );
         }
-        UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
-        //update preference book
 
+        //update preference book
+        UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
+    }
+
+    private void updateInclude(UserInterface UI, boolean isOptionAdd, String queryMessage, String failureMessage) {
+        PreferenceBookCSVReader instance = PreferenceBookCSVReader.getInstance();
+        String ingredient = UI.queryUser(queryMessage);
+
+        // If you add when it contains, or remove when it doesn't contain, then the update fails
+        if (isOptionAdd == UI.getPreferenceBook().contains("include", ingredient)) {
+            UI.displayMessage(failureMessage);
+        } else {
+            instance.updateInclude(UI.getUser().getUsername(), isOptionAdd, ingredient);
+            UI.displayMessage("List of included ingredients successfully updated");
+        }
     }
 }

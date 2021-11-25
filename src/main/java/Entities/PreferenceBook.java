@@ -2,7 +2,6 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class PreferenceBook{
     private final String user;
@@ -38,9 +37,9 @@ public class PreferenceBook{
     public void addRatings(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
 
     public boolean contains(String OmitInclRating, String ingredient) {
-        if (Objects.equals(OmitInclRating, "omit")) {
+        if (OmitInclRating.equals("omit")) {
             return (this.omit.contains(ingredient));
-        } else if (Objects.equals(OmitInclRating, "include")) {
+        } else if (OmitInclRating.equals("include")) {
             return (this.include.contains(ingredient));
         } else {
             return (this.ratingMap.containsKey(ingredient));

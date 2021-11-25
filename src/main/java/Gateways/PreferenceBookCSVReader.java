@@ -104,24 +104,24 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
     }
 
-    public void updateOmit(String username, String RemOrAdd, String foodItem) {
-        if (Objects.equals(RemOrAdd, "add")) {
+    public void updateOmit(String username, boolean isOptionAdd, String foodItem) {
+        if (isOptionAdd) {
             addPreferences(username, 1, foodItem);
         } else {
             removePreferences(username, 1, foodItem);
         }
     }
 
-    public void updateInclude(String username, String RemOrAdd, String foodItem) {
-        if (Objects.equals(RemOrAdd, "add")) {
+    public void updateInclude(String username, boolean isOptionAdd, String foodItem) {
+        if (isOptionAdd) {
             addPreferences(username, 2, foodItem);
         } else {
             removePreferences(username, 2, foodItem);
         }
     }
 
-    public void updateRatings(String username, boolean isAdd, String recipe, Double rating) {
-        if (isAdd) {
+    public void updateRatings(String username, boolean isOptionAdd, String recipe, Double rating) {
+        if (isOptionAdd) {
             addPreferences(username, 3, recipe);
             addPreferences(username, 4, String.valueOf(rating));
         } else {
@@ -169,7 +169,7 @@ public class PreferenceBookCSVReader extends CSVReader {
         return ratingMap;
     }
 
-    public ArrayList<String> ToArrayList (String preferences) {
+    public ArrayList<String> ToArrayList(String preferences) {
         if (Objects.equals(preferences, "")) {
             return new ArrayList<>();
         } else {
