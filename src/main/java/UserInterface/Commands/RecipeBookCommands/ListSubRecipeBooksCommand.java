@@ -14,8 +14,7 @@ public class ListSubRecipeBooksCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        RecipeBook recipebook = UI.getUser().getRecipeBook();
-        RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
+        RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
         for (SubRecipeBook subrecipebook: recipeBookManager.getSubRecipeBooks()) {
             UI.displayMessage(subrecipebook.getName());
         }

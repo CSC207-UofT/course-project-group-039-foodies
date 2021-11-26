@@ -54,6 +54,7 @@ public class PageManager {
                     new EnterSubRecipeBookCommand(),
                     new AddSubRecipeBookCommand(),
                     new DeleteSubRecipeBookCommand(),
+                    new RemoveRecipeCommand(),
                     new GoBackCommand()
             }
     );

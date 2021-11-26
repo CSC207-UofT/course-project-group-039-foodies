@@ -2,6 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.*;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UseCases.Utilities.RecipeCollectionFacade;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -101,11 +102,15 @@ public class RecipeBookCSVReader extends CSVReader {
         subrecipebookinfo.add(username);
         subrecipebookinfo.add(username + " - " + subrecipebookname);
         subrecipebookinfo.add(subrecipebookdesc);
-        ArrayList<String> recipelist = new ArrayList<>();
+        ArrayList<String> recipeList = new ArrayList<>();
         for (Recipe recipe: recipes) {
-            recipelist.add(recipe.getName());
+            recipeList.add(recipe.getName());
         }
-        subrecipebookinfo.add(String.join(", ", recipelist));
+        if (recipeList.size() == 0) {
+            subrecipebookinfo.add(" ");
+        } else {
+            subrecipebookinfo.add(String.join(", ", recipeList));
+        }
 
         writeLine(subrecipebookinfo);
     }
@@ -135,6 +140,15 @@ public class RecipeBookCSVReader extends CSVReader {
     return null;
     }
 
+    public RecipeCollection getSubRecipeBookRecipesList(String username, SubRecipeBook subrecipebook) {
+        for (ArrayList<String> line : readFile())
+            if (line.get(1).equals(username + " - " + subrecipebook.getName())) {
+                ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
+                return makerecipelists(recipenames);
+            }
+        return null;
+    }
+
     /**
      * Generate the RecipeCollection containing the set of recipes in the subrecipebook
      * @param recipenames - an array list of the names of recipes
@@ -145,8 +159,8 @@ public class RecipeBookCSVReader extends CSVReader {
         RecipeCollection recipelists = RecipeCSVReader.getInstance().getRecipes();
         for (String recipename: recipenames) {
             if (!recipename.equals(" ")) {
-                Recipe recipe = recipelists.findRecipe(recipename);
-                recipes.addRecipe(recipe);
+                Recipe recipe = RecipeCollectionFacade.findRecipe(recipelists, recipename);
+                RecipeCollectionFacade.addRecipe(recipes, recipe);
             }
         }
         return recipes;
@@ -175,6 +189,24 @@ public class RecipeBookCSVReader extends CSVReader {
         return createrecipebook(subrecipebooks);
     }
 
+    public RecipeBook getUserRecipeBook(String username) {
+        HashMap<SubRecipeBook, RecipeCollection> subrecipebooks = new HashMap<>();
+        for (ArrayList<String> line : readFile()) {
+            if (line.get(0).equals(username)) {
+                // create the subrecipebook
+                String[] usernamesubrecipebooknameinfo = line.get(1).split(" - ");
+                String subrecipebookname = usernamesubrecipebooknameinfo[1];
+                String subrecipebookdesc = line.get(2);
+                SubRecipeBook subrecipebook = new SubRecipeBook(subrecipebookname, subrecipebookdesc);
+                // get the recipes in the subrecipebook
+                RecipeCollection subrecipebookrecipes = getSubRecipeBookRecipesList(username, subrecipebook);
+                // add to the subrecipebook - recipes mapping
+                subrecipebooks.put(subrecipebook, subrecipebookrecipes);
+            }
+        }
+        return createrecipebook(subrecipebooks);
+    }
+
     private RecipeBook createrecipebook(HashMap<SubRecipeBook, RecipeCollection> subrecipebooks) {
         RecipeBook recipebook = new RecipeBook();
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
@@ -185,38 +217,4 @@ public class RecipeBookCSVReader extends CSVReader {
             }
         } return recipebook;
     }
-
-
-//        for (ArrayList<String> line: readFile()) {
-//            if (line.get(0).equals(user.getUsername())) {
-//                String[] usernamesubrecipebooknamesplit = line.get(1).split(" - ");
-//                String subrecipebookname = usernamesubrecipebooknamesplit[1];
-//                // create a list of the recipes in subrecipebook
-//                ArrayList<Recipe> recipes = new ArrayList<>();
-//                RecipeCollection recipedatabase = RecipeCSVReader.getInstance().getRecipes();
-//                for (String recipename: line.get(2).split(",")) {
-//                    recipes.add(recipedatabase.findRecipe(recipename));
-//                }
-//                subrecipebooks.put(subrecipebookname, recipes);
-//            }
-//        }
-//        return makerecipebook(subrecipebooks);
-//    }
-//
-//    private RecipeBook makerecipebook(HashMap<String, ArrayList<Recipe>> subrecipebooks) {
-//        RecipeBook recipebook = new RecipeBook();
-//        for(String subrecipebookname: subrecipebooks.keySet()) {
-//            recipebook.addSubRecipeBook();
-//            for (Recipe recipe: subrecipebooks.get(subrecipebookname)) {
-//                recipebook.addRecipe();
-//            }
-//        }
-//    }
-
-
-    // find all of the subrecipe books
-    // regenerate all of the subrecipe books
-    // re-add all of the recipes in each subrecipe book to each of the recipe books
-
-
 }
