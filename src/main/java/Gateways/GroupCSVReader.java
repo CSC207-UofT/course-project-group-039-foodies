@@ -73,6 +73,21 @@ public class GroupCSVReader extends CSVReader {
         removeLine(name, "name");
     }
 
+
+    /**
+     * Checks if a username exists in a certain group
+     * @param groupCode The group code
+     * @param username The username to check
+     * @return A boolean representing whether there is a username in certain groupCode
+     */
+    public boolean containsMember(String groupCode, String username) {
+        for (ArrayList<String> line : readFile()) {
+            if (!line.isEmpty() && line.get(1).equals(groupCode)) {
+                return line.get(2).contains(username);
+            }
+        }
+        return false;
+    }
 }
 
 

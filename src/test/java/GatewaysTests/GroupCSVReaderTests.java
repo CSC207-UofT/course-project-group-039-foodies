@@ -39,6 +39,9 @@ public class GroupCSVReaderTests {
         member.add("TestGroupMember2");
         database.saveGroup("TestGroupName", "TestGroupCode", member);
         assertTrue(database.isGroup("TestGroupName"));
+        assertTrue(database.containsMember("TestGroupCode", "TestGroupMember"));
+        assertTrue(database.containsMember("TestGroupCode", "TestGroupMember1"));
+        assertTrue(database.containsMember("TestGroupCode", "TestGroupMember2"));
     }
 
 //    @Test
@@ -63,4 +66,5 @@ public class GroupCSVReaderTests {
         assertTrue(database.isGroup("TestGroupName3"));
         assertFalse(database.isGroup("TestGroupName1"));
     }
+
 }
