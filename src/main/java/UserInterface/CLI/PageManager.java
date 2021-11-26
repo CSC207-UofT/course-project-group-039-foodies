@@ -1,17 +1,26 @@
-package main.java.CLI;
+package main.java.UserInterface.CLI;
 
-import main.java.CLI.Commands.*;
-import main.java.CLI.Commands.AdminCommands.*;
-import main.java.CLI.Commands.AdminCommands.CreateAccountCommand;
-import main.java.CLI.Commands.GroupCommands.EnterManageGroupCommand;
-import main.java.CLI.Commands.GroupCommands.CreateGroupCommand;
-import main.java.CLI.Commands.GroupCommands.AddGroupMemberCommand;
-import main.java.CLI.Commands.GroupCommands.RemoveGroupMemberCommand;
-import main.java.CLI.Commands.RecipeBookCommands.*;
-import main.java.CLI.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
-import main.java.CLI.Commands.RecipeViewerCommands.GetNewRecipeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.CLI.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
+import main.java.UserInterface.Commands.AdminCommands.CreateAccountCommand;
+import main.java.UserInterface.Commands.AdminCommands.SignInCommand;
+import main.java.UserInterface.Commands.AdminCommands.SignOutCommand;
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.GoBackCommand;
+import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
+import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
+import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
+import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
+import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
+import main.java.UserInterface.Commands.RecipeBookCommands.*;
+import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
 
 public class PageManager {
     Page signedOut = new Page(
@@ -74,7 +83,8 @@ public class PageManager {
             new Command[] {
                     new CreateGroupCommand(),
                     new AddGroupMemberCommand(),
-                    new RemoveGroupMemberCommand()
+                    new RemoveGroupMemberCommand(),
+                    new ViewGroupsCommand()
             }
     );
 
