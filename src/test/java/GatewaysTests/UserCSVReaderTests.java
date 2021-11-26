@@ -44,7 +44,7 @@ public class UserCSVReaderTests {
         database.addUser("TestUserName", "TestPassword", "TestFullName", "TestEmail");
         User user = database.getUser("TestUserName");
         assertEquals("TestUserName", user.getUsername());
-        assertEquals("TestFullName", user.getFullname());
+        assertEquals("TestFullName", user.getFullName());
         assertEquals("TestEmail", user.getEmail());
     }
 

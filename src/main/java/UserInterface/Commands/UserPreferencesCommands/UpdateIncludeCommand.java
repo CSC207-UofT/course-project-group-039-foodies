@@ -1,6 +1,7 @@
 package main.java.UserInterface.Commands.UserPreferencesCommands;
 
 import main.java.Gateways.PreferenceBookCSVReader;
+import main.java.UseCases.Utilities.UserFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -34,7 +35,9 @@ public class UpdateIncludeCommand extends Command {
         }
 
         //update preference book
-        UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
+        UI.buildPreferences(
+                PreferenceBookCSVReader.getInstance().getPreferenceBook(UserFacade.getUsername(UI.getUser()))
+        );
     }
 
     private void updateInclude(UserInterface UI, boolean isOptionAdd, String queryMessage, String failureMessage) {
@@ -45,7 +48,7 @@ public class UpdateIncludeCommand extends Command {
         if (isOptionAdd == UI.getPreferenceBook().contains("include", ingredient)) {
             UI.displayMessage(failureMessage);
         } else {
-            instance.updateInclude(UI.getUser().getUsername(), isOptionAdd, ingredient);
+            instance.updateInclude(UserFacade.getUsername(UI.getUser()), isOptionAdd, ingredient);
             UI.displayMessage("List of included ingredients successfully updated");
         }
     }

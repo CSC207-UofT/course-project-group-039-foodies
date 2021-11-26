@@ -6,6 +6,7 @@ import main.java.Gateways.RecipeCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UseCases.Utilities.RecipeFacade;
+import main.java.UseCases.Utilities.UserFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -20,7 +21,9 @@ public class RateRecipeCommand extends Command {
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Enter the name of the recipe to rate");
         RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
-        UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
+        UI.buildPreferences(
+                PreferenceBookCSVReader.getInstance().getPreferenceBook(UserFacade.getUsername(UI.getUser()))
+        );
 
         if (recipeBookManager.containsRecipe(recipeName)
                 && !(UI.getPreferenceBook().contains("rating", recipeName))) {
@@ -49,7 +52,7 @@ public class RateRecipeCommand extends Command {
         RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount);
 
         PreferenceBookCSVReader.getInstance().updateRatings(
-                UI.getUser().getUsername(),
+                UserFacade.getUsername(UI.getUser()),
                 true,
                 recipeName,
                 rating

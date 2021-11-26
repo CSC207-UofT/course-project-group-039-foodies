@@ -1,5 +1,6 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
+import main.java.UseCases.Utilities.UserFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Group;
 import main.java.UseCases.Utilities.GroupManager;
@@ -15,7 +16,7 @@ public class CreateGroupCommand extends Command {
     @Override
     public void runAction(UserInterface UI) {
 
-        String username = UI.getUser().getUsername();
+        String username = UserFacade.getUsername(UI.getUser());
 
         String groupName = UI.queryUser("Input your Group Name");
         Group createdGroup = GroupFactory.createNewGroup(groupName);

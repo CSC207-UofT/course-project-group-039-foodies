@@ -3,6 +3,7 @@ package main.java.UserInterface.Commands.RecipeBookCommands;
 import main.java.Entities.User;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UseCases.Utilities.UserFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -21,7 +22,7 @@ public class AddSubRecipeBookCommand extends Command {
         recipebookmanager.addSubRecipeBook(subRecipeBookName, subRecipeBookDesc);
 
         User user = UI.getUser();
-        String username = user.getUsername();
+        String username = UserFacade.getUsername(user);
         if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, subRecipeBookName)) {
             RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, subRecipeBookName, subRecipeBookDesc);
             UI.displayMessage("New SubRecipeBook with name " + subRecipeBookName + " and description " + subRecipeBookDesc

@@ -2,6 +2,7 @@ package main.java.Gateways;
 
 import main.java.Entities.User;
 import main.java.UseCases.Factories.UserFactory;
+import main.java.UseCases.Utilities.UserFacade;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,7 @@ public class UserCSVReader extends CSVReader {
      * @param password The password of the user
      */
     public void addUser(User user, String password) {
-        addUser(user.getUsername(), password, user.getFullname(), user.getEmail());
+        addUser(UserFacade.getUsername(user), password, user.getFullName(), user.getEmail());
     }
 
     /**

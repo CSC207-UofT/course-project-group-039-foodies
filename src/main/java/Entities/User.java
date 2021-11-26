@@ -38,7 +38,7 @@ public class User {
      *
      * @return - fullname
      */
-    public String getFullname() {
+    public String getFullName() {
         return this.fullname;
     }
 

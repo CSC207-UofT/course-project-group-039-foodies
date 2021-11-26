@@ -3,6 +3,7 @@ package main.java.Gateways;
 import main.java.Entities.*;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
+import main.java.UseCases.Utilities.UserFacade;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class RecipeBookCSVReader extends CSVReader {
      * @param subrecipebookdesc - the subrecipebook desc
      */
     public void addnewSubRecipeBook(User user, String subrecipebookname, String subrecipebookdesc) {
-        addSubRecipeBook(user.getUsername(), subrecipebookname, subrecipebookdesc);
+        addSubRecipeBook(UserFacade.getUsername(user), subrecipebookname, subrecipebookdesc);
     }
 
     /**
@@ -85,7 +86,7 @@ public class RecipeBookCSVReader extends CSVReader {
      * @param subrecipebook - the name of the subrecipebook to add to
      */
     public void updateRecipeBookCSV(User user, SubRecipeBook subrecipebook) {
-        String username = user.getUsername();
+        String username = UserFacade.getUsername(user);
         String subrecipebookname = subrecipebook.getName();
         String subrecipebookdesc = subrecipebook.getDescription();
         // remove the current line
@@ -121,7 +122,7 @@ public class RecipeBookCSVReader extends CSVReader {
      * @param subrecipebookname - the subrecipebook to be deleted.
      */
     public void deleteSubRecipeBook(User user, String subrecipebookname) {
-        removeLine(user.getUsername() + " - " + subrecipebookname, "username - subrecipebookname");
+        removeLine(UserFacade.getUsername(user) + " - " + subrecipebookname, "username - subrecipebookname");
     }
 
     /**
@@ -133,7 +134,7 @@ public class RecipeBookCSVReader extends CSVReader {
      */
     public RecipeCollection getSubRecipeBookRecipesList(User user, SubRecipeBook subrecipebook) {
     for (ArrayList<String> line : readFile())
-        if (line.get(1).equals(user.getUsername() + " - " + subrecipebook.getName())) {
+        if (line.get(1).equals(UserFacade.getUsername(user) + " - " + subrecipebook.getName())) {
             ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
             return makerecipelists(recipenames);
         }
@@ -174,7 +175,7 @@ public class RecipeBookCSVReader extends CSVReader {
     public RecipeBook getUserRecipeBook(User user) {
         HashMap<SubRecipeBook, RecipeCollection> subrecipebooks = new HashMap<>();
         for (ArrayList<String> line: readFile()) {
-            if (line.get(0).equals(user.getUsername())) {
+            if (line.get(0).equals(UserFacade.getUsername(user))) {
                 // create the subrecipebook
                 String[] usernamesubrecipebooknameinfo = line.get(1).split(" - ");
                 String subrecipebookname = usernamesubrecipebooknameinfo[1];
