@@ -5,6 +5,8 @@ import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
 
+import java.util.Iterator;
+
 /**
  * A facade for the recipe collection to preserve clean architecture
  */
@@ -31,5 +33,9 @@ public class RecipeCollectionFacade {
 
     public static void addRecipe(RecipeCollection recipeCollection, Recipe recipe) {
         recipeCollection.addRecipe(recipe);
+    }
+
+    public static Iterator<Recipe> getIterator(RecipeCollection recipeCollection) {
+        return recipeCollection.iterator();
     }
 }
