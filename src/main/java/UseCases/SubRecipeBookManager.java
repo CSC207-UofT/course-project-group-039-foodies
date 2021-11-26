@@ -69,4 +69,20 @@ public class SubRecipeBookManager {
     }
 
     public void rateRecipe(User user, String recipeName, int rating) {}
+
+    /**
+     * Return the name of the subrecipebook
+     * @return a String with the name
+     */
+    public String getName() {
+        return subRecipeBook.getName();
+    }
+
+    /**
+     * Return the description of the subrecipebook
+     * @return a String with the description
+     */
+    public String getDescription() {
+        return subRecipeBook.getDescription();
+    }
 }

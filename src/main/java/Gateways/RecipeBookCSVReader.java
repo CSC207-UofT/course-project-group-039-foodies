@@ -1,7 +1,9 @@
 package main.java.Gateways;
 
 import main.java.Entities.*;
+import main.java.UseCases.Factories.RecipeBookFactory;
 import main.java.UseCases.RecipeBookManager;
+import main.java.UseCases.SubRecipeBookManager;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UseCases.Utilities.UserFacade;
 
@@ -87,13 +89,14 @@ public class RecipeBookCSVReader extends CSVReader {
      */
     public void updateRecipeBookCSV(User user, SubRecipeBook subrecipebook) {
         String username = UserFacade.getUsername(user);
-        String subrecipebookname = subrecipebook.getName();
-        String subrecipebookdesc = subrecipebook.getDescription();
+        SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(subrecipebook);
+        String subrecipebookname = subRecipeBookManager.getName();
+        String subrecipebookdesc = subRecipeBookManager.getDescription();
         // remove the current line
         removeLine(username + " - " + subrecipebookname, "username - subrecipebookname");
 
         // add the updated subrecipebook
-        addSubRecipeBook(username, subrecipebookname, subrecipebookdesc, subrecipebook.getRecipes());
+        addSubRecipeBook(username, subrecipebookname, subrecipebookdesc, subRecipeBookManager.getRecipes());
 
 
     }
@@ -133,17 +136,21 @@ public class RecipeBookCSVReader extends CSVReader {
      * @return - the SubRecipeBook
      */
     public RecipeCollection getSubRecipeBookRecipesList(User user, SubRecipeBook subrecipebook) {
-    for (ArrayList<String> line : readFile())
-        if (line.get(1).equals(UserFacade.getUsername(user) + " - " + subrecipebook.getName())) {
-            ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
-            return makerecipelists(recipenames);
-        }
-    return null;
+        SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(subrecipebook);
+
+        for (ArrayList<String> line : readFile())
+            if (line.get(1).equals(UserFacade.getUsername(user) + " - " + subRecipeBookManager.getName())) {
+                ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
+                return makerecipelists(recipenames);
+            }
+        return null;
     }
 
     public RecipeCollection getSubRecipeBookRecipesList(String username, SubRecipeBook subrecipebook) {
+        SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(subrecipebook);
+
         for (ArrayList<String> line : readFile())
-            if (line.get(1).equals(username + " - " + subrecipebook.getName())) {
+            if (line.get(1).equals(username + " - " + subRecipeBookManager.getName())) {
                 ArrayList<String> recipenames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
                 return makerecipelists(recipenames);
             }
@@ -173,21 +180,7 @@ public class RecipeBookCSVReader extends CSVReader {
      * @return an arraylist containing the subrecipebooks of user
      */
     public RecipeBook getUserRecipeBook(User user) {
-        HashMap<SubRecipeBook, RecipeCollection> subrecipebooks = new HashMap<>();
-        for (ArrayList<String> line: readFile()) {
-            if (line.get(0).equals(UserFacade.getUsername(user))) {
-                // create the subrecipebook
-                String[] usernamesubrecipebooknameinfo = line.get(1).split(" - ");
-                String subrecipebookname = usernamesubrecipebooknameinfo[1];
-                String subrecipebookdesc = line.get(2);
-                SubRecipeBook subrecipebook = new SubRecipeBook(subrecipebookname, subrecipebookdesc);
-                // get the recipes in the subrecipebook
-                RecipeCollection subrecipebookrecipes = getSubRecipeBookRecipesList(user,subrecipebook);
-                // add to the subrecipebook - recipes mapping
-                subrecipebooks.put(subrecipebook, subrecipebookrecipes);
-            }
-        }
-        return createrecipebook(subrecipebooks);
+        return getUserRecipeBook(UserFacade.getUsername(user));
     }
 
     public RecipeBook getUserRecipeBook(String username) {
@@ -198,7 +191,10 @@ public class RecipeBookCSVReader extends CSVReader {
                 String[] usernamesubrecipebooknameinfo = line.get(1).split(" - ");
                 String subrecipebookname = usernamesubrecipebooknameinfo[1];
                 String subrecipebookdesc = line.get(2);
-                SubRecipeBook subrecipebook = new SubRecipeBook(subrecipebookname, subrecipebookdesc);
+                SubRecipeBook subrecipebook = RecipeBookFactory.createSubRecipeBook(
+                        subrecipebookname,
+                        subrecipebookdesc
+                );
                 // get the recipes in the subrecipebook
                 RecipeCollection subrecipebookrecipes = getSubRecipeBookRecipesList(username, subrecipebook);
                 // add to the subrecipebook - recipes mapping
@@ -209,13 +205,19 @@ public class RecipeBookCSVReader extends CSVReader {
     }
 
     private RecipeBook createrecipebook(HashMap<SubRecipeBook, RecipeCollection> subrecipebooks) {
-        RecipeBook recipebook = new RecipeBook();
+        RecipeBook recipebook = RecipeBookFactory.createRecipeBook();
         RecipeBookManager recipebookmanager = new RecipeBookManager(recipebook);
         for (SubRecipeBook subrecipebook: subrecipebooks.keySet()) {
-            recipebookmanager.addSubRecipeBook(subrecipebook.getName(), subrecipebook.getDescription());
+            SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(subrecipebook);
+
+            recipebookmanager.addSubRecipeBook(
+                    subRecipeBookManager.getName(),
+                    subRecipeBookManager.getDescription()
+            );
             for (Recipe recipe : subrecipebooks.get(subrecipebook)) {
-                recipebookmanager.addRecipe(subrecipebook.getName(), recipe);
+                recipebookmanager.addRecipe(subRecipeBookManager.getName(), recipe);
             }
-        } return recipebook;
+        }
+        return recipebook;
     }
 }
