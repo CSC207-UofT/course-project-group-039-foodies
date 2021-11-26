@@ -18,7 +18,8 @@ import java.util.Iterator;
      * Instantiate an overall recipe book manager for a particular user.
      */
     public RecipeBookManager(User user) {
-        this.overallRecipeBook = user.getRecipeBook();}
+        this.overallRecipeBook = user.getRecipeBook();
+    }
 
     public RecipeBookManager(RecipeBook overallrecipebook) {
         this.overallRecipeBook = overallrecipebook;

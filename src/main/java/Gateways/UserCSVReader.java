@@ -33,7 +33,7 @@ public class UserCSVReader extends CSVReader {
      * @param password The password of the user
      */
     public void addUser(User user, String password) {
-        addUser(UserFacade.getUsername(user), password, user.getFullName(), user.getEmail());
+        addUser(UserFacade.getUsername(user), password, UserFacade.getFullName(user), UserFacade.getEmail(user));
     }
 
     /**
