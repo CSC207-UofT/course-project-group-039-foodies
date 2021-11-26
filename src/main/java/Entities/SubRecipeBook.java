@@ -8,7 +8,7 @@ public class SubRecipeBook {
     public final String description;
 
     /**
-     * Instantiate an empty sub-recipe Book with no name or description provided.
+     * Instantiate an empty SubRecipeBook with no name or description provided.
      */
     public SubRecipeBook() {
         this.recipes = new RecipeCollection();
@@ -17,7 +17,7 @@ public class SubRecipeBook {
     }
 
     /**
-     * Instantiate an empty sub-recipe book with name name
+     * Instantiate an empty SubRecipeBook with name - name.
      *
      * @param  name - user provided name for the Recipe Book
      */
@@ -28,10 +28,10 @@ public class SubRecipeBook {
     }
 
     /**
-     * Instantiate an empty sub-recipe book with name name and description descriptiion.
+     * Instantiate an empty SubRecipeBook with name and description.
      *
-     * @param name - user provided name of the Recipe Book
-     * @param description - user provided description for the recipe book
+     * @param name - user provided name of the RecipeBook
+     * @param description - user provided description for the RecipeBook
      */
     public SubRecipeBook(String name, String description) {
         this.recipes = new RecipeCollection();
@@ -40,96 +40,112 @@ public class SubRecipeBook {
     }
 
     /**
-     * Return the name of the subrecipebook.
-     * @return String representing the name of the subrecipebook.
+     * Return the name of the SubRecipeBook.
+     *
+     * @return the name of the SubRecipeBook
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * Return the description of the subrecipebook.
-     * @return String representing the description of the subrecipebook.
+     * Return the description of the SubRecipeBook.
+     *
+     * @return the description of the SubRecipeBook
      */
     public String getDescription() {
         return this.description;
     }
 
     /**
-     * Add a Recipe object to the subrecipebook
+     * Add a recipe to the SubRecipeBook.
      *
-     * @param recipe - the recipe object to be added
+     * @param recipe - the Recipe object to be added
      */
     public void addRecipe(Recipe recipe) {
         this.recipes.addRecipe(recipe);
     }
 
     /**
-     * Remove the recipe with recipecode from the sub recipe book.
+     * Remove the recipe with recipeCode from the SubRecipeBook.
      *
-     * @param recipecode - a unique String code identifier for Recipe
+     * @param recipeCode - a unique Integer code identifier for Recipe
      */
-    public void removeRecipe(Integer recipecode) {
-        this.recipes.removeRecipe(recipecode);
+    public void removeRecipe(Integer recipeCode) {
+        this.recipes.removeRecipe(recipeCode);
     }
 
     /**
-     * Remove a recipe from the subrecipebook
+     * Remove a recipe from the SubRecipeBook.
      *
-     * @param recipe - the recipe to delete
+     * @param recipe - the Recipe to delete from the SubRecipeBook
      */
     public void removeRecipe(Recipe recipe) {
         removeRecipe(recipe.getRecipeCode());
     }
 
     /**
-     * Return all recipes in the user's sub recipe book
+     * Return all recipes in the user's SubRecipeBook.
      *
-     * @return - return the recipes
+     * @return - return all the recipes
      */
     public Recipe[] getRecipes() {
         return recipes.getRecipes();
     }
 
     /**
-     * Return the codes of all recipes in the user's sub recipe book
+     * Return the codes of all Recipes in the user's SubRecipeBook.
      *
-     * @return - return the codes
+     * @return - return the codes of recipes found in user's SubRecipeBook
      */
     public Integer[] getCodes() {
         return recipes.getRecipeCodes();
     }
 
     /**
-     * Retrieve the recipe with recipecode
+     * Retrieve the Recipe with recipeCode.
      *
-     * @param recipecode - a unique String code identifier for Recipe
-     * @return - return the recipe with recipecode
+     * @param recipeCode - a unique Integer code identifier for Recipe
+     * @return - return the Recipe with recipeCode
      */
-    public Recipe getRecipe(Integer recipecode) {
-        return this.recipes.findRecipe(recipecode);
+    public Recipe getRecipe(Integer recipeCode) {
+        return this.recipes.findRecipe(recipeCode);
     }
 
     /**
-     * Retrieve the recipe with name name
-     * @param recipename - the nanme of the recipe to return
-     * @return a Recipe object with name name
+     * Retrieve the recipe with name - name.
+     *
+     * @param recipeName - the name of the Recipe to return
+     * @return the recipe with name - name
      */
-    public Recipe getRecipe(String recipename) {
-        return this.recipes.findRecipe(recipename);
+    public Recipe getRecipe(String recipeName) {
+        return this.recipes.findRecipe(recipeName);
     }
 
+    /**
+     * Check if the recipe is contained in the SubRecipeBook.
+     *
+     * @param recipe - the Recipe to check for in SubRecipeBook
+     * @return true if and only if the Recipe is found in the SubRecipeBook and false otherwise
+     */
     public boolean containsRecipe(Recipe recipe) {
         return this.recipes.containsRecipe(recipe);
     }
 
+    /**
+     * Check if the Recipe with name - name is contained in the SubRecipeBook.
+     *
+     * @param name the name of the recipe to check for
+     * @return true if and only if the Recipe with name - name is found in the SubRecipeBook and false otherwise.
+     */
     public boolean containsRecipe(String name) {
         return this.recipes.containsRecipe(name);
     }
 
     /**
-     * Return the number of recipes in the subrecipebook.
-     * @return an int indicating the number of recipes in the subrecipebook.
+     * Return the number of recipes in the SubRecipeBook.
+     *
+     * @return an int indicating the number of recipes in the SubRecipeBook.
      */
     public int size() {
         return this.recipes.size();
