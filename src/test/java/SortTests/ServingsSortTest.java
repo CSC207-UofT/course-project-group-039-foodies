@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * Test class which tests ServingsSort class.
+ * A test class which tests ServingsSort class.
  */
 public class ServingsSortTest {
 

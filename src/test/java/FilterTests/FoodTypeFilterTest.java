@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * Test class which tests FoodTypeFilter class.
+ * A test class which tests FoodTypeFilter class.
  */
 public class FoodTypeFilterTest {
 

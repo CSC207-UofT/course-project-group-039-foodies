@@ -3,7 +3,7 @@ package main.java.UseCases.Filters;
 import main.java.Entities.Recipe;
 
 /**
- * Interface for filtering algorithms.
+ * Interface for the filtering algorithms.
  */
 public interface Filter {
     /**

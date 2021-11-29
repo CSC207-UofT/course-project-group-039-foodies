@@ -5,7 +5,7 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter out the recipes that contain ingredients that may cause allergy.
+ * Filter out the recipes that contain ingredients that may cause allergies.
  */
 public class AllergyFilter implements Filter{
     private final String ingredient;

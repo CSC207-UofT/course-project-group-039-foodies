@@ -4,7 +4,7 @@ import main.java.Entities.Recipe;
 import java.util.Comparator;
 
 /**
- * Helper method which helps to sort recipes based on their ratings.
+ * A helper method which helps to sort recipes based on their ratings.
  */
 public class RatingComparator implements Comparator<Recipe> {
     /**

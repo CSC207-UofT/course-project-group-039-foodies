@@ -5,7 +5,7 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter Recipes based on the number of servings.
+ * Filter Recipes based on the numbers of servings.
  */
 public class ServingsFilter implements Filter {
     private final int servings;

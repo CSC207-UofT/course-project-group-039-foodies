@@ -3,7 +3,7 @@ package main.java.UseCases.Sorts;
 import main.java.Entities.Recipe;
 
 /**
- * Interface for sorting algorithms.
+ * Interface for the sorting algorithms.
  */
 public interface Sort {
     /**

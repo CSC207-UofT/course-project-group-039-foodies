@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * Test class which tests RatingSort class.
+ * A test class which tests RatingSort class.
  */
 public class RatingSortTest {
 

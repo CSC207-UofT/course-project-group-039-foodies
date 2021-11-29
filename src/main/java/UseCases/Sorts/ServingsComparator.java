@@ -4,7 +4,7 @@ import main.java.Entities.Recipe;
 import java.util.Comparator;
 
 /**
- * Helper method which helps to sort recipes based on their numbers of servings.
+ * A helper method which helps to sort recipes based on their numbers of servings.
  */
 public class ServingsComparator implements Comparator<Recipe> {
     /**

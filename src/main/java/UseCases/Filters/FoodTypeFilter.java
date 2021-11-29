@@ -4,7 +4,7 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter Recipes based on the food type.
+ * Filter Recipes based on the food types.
  */
 public class FoodTypeFilter implements Filter{
     private final String foodType;
