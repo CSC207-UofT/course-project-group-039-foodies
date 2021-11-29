@@ -3,6 +3,9 @@ package main.java.UseCases.Sorts;
 import main.java.Entities.Recipe;
 import java.util.Comparator;
 
+/**
+ * Helper method which helps to sort recipes based on their ratings.
+ */
 public class RatingComparator implements Comparator<Recipe> {
     /**
      * Compares its two arguments for order.

@@ -31,6 +31,11 @@ public class ServingsFilter implements Filter {
         return result.toArray(new Recipe[0]);
     }
 
+    /**
+     * @param obj an instance of a filter class that implements Filter interface.
+     * @return true if obj is another ServingsFilter, and it is filtering same number of servings with itself.
+     * false if obj is not an ServingsFilter, or it is not filtering same number of servings with itself.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof ServingsFilter) {

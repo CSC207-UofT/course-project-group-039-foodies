@@ -8,27 +8,33 @@ import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 
+/**
+ * Test class which tests FoodTypeFilter class.
+ */
 public class FoodTypeFilterTest {
 
+    /**
+     * Test FoodTypeFilter with three recipes which have all different food types.
+     */
     @Test
     public void testFoodTypeFilter() {
-        ArrayList<String> ingre1 = new ArrayList<>();
-        ingre1.add("a");
-        ArrayList<String> ingre2 = new ArrayList<>();
-        ingre2.add("b");
-        ingre2.add("c");
-        ArrayList<String> ingre3 = new ArrayList<>();
-        ingre3.add("d");
-        ingre3.add("e");
-        ingre3.add("f");
+        ArrayList<String> ingredient1 = new ArrayList<>();
+        ingredient1.add("a");
+        ArrayList<String> ingredient2 = new ArrayList<>();
+        ingredient2.add("b");
+        ingredient2.add("c");
+        ArrayList<String> ingredient3 = new ArrayList<>();
+        ingredient3.add("d");
+        ingredient3.add("e");
+        ingredient3.add("f");
 
         RecipeCollection recipes = new RecipeCollection();
         Recipe recipe0 = RecipeFactory.createRecipe
-                ("Ice Cream", "Dessert", 1, ingre1, "Cold.");
+                ("Ice Cream", "Dessert", 1, ingredient1, "Cold.");
         Recipe recipe1 = RecipeFactory.createRecipe
-                ("Hamburger", "Lunch", 2, ingre2, "Build.");
+                ("Hamburger", "Lunch", 2, ingredient2, "Build.");
         Recipe recipe2 = RecipeFactory.createRecipe
-                ("Steak", "Dinner", 3, ingre3, "Grill.");
+                ("Steak", "Dinner", 3, ingredient3, "Grill.");
         recipes.addRecipe(recipe0);
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
