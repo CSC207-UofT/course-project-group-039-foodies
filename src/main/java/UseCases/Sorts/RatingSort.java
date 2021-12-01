@@ -4,7 +4,7 @@ import main.java.Entities.Recipe;
 import java.util.Arrays;
 
 /**
- * Sort Recipes based on the ratings of the recipe (from high to low).
+ * Sort Recipes based on their ratings (from high to low).
  */
 public class RatingSort implements Sort {
 

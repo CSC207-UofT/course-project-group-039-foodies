@@ -5,7 +5,7 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter out the recipes that contains ingredients which may cause allergy.
+ * Filter out the recipes that contain ingredients that may cause allergies.
  */
 public class AllergyFilter implements Filter{
     private final String ingredient;
@@ -31,6 +31,11 @@ public class AllergyFilter implements Filter{
         return result.toArray(new Recipe[0]);
     }
 
+    /**
+     * @param obj an instance of a filter class that implements Filter interface.
+     * @return true if obj is another AllergyFilter, and it is filtering same ingredient with itself.
+     * false if obj is not an AllergyFilter, or it is not filtering same ingredient with itself.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof AllergyFilter) {

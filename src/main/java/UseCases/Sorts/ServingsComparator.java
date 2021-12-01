@@ -3,6 +3,9 @@ package main.java.UseCases.Sorts;
 import main.java.Entities.Recipe;
 import java.util.Comparator;
 
+/**
+ * A helper method which helps to sort recipes based on their numbers of servings.
+ */
 public class ServingsComparator implements Comparator<Recipe> {
     /**
      * Compares its two arguments for order.
