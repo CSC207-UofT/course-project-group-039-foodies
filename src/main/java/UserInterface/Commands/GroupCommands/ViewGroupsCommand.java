@@ -1,18 +1,18 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
+import main.java.Gateways.GroupCSVReader;
 import main.java.UserInterface.Commands.Command;
-import main.java.UseCases.Utilities.GroupManager;
 import main.java.UserInterface.UserInterface;
 
 
 public class ViewGroupsCommand extends Command {
-    public ViewGroupsCommand()  {super("view joined groups",
+    public ViewGroupsCommand()  {super("view my groups",
                 "Displays all the groups that you've joined");}
 
     @Override
     public void runAction(UserInterface UI) {
         String username = UI.queryUser("Input your username");
-        String joinedGroups = GroupManager.getJoinedGroups(username);
+        String joinedGroups = GroupCSVReader.getInstance().getJoinedGroups(username);
         UI.displayMessage(joinedGroups);
     }
 }

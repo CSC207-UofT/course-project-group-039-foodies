@@ -1,11 +1,9 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Group;
-import main.java.UseCases.Utilities.GroupManager;
 import main.java.UseCases.GroupFactory;
-import main.java.Gateways.UserCSVReader;
+import main.java.Gateways.GroupCSVReader;
 import main.java.UserInterface.UserInterface;
 
 
@@ -16,16 +14,15 @@ public class CreateGroupCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-
         String username = UI.getUser().getUsername();
-
-        String groupName = UI.queryUser("Input your Group Name");
+        String groupName = UI.queryUser("Input your group name");
         Group createdGroup = GroupFactory.createNewGroup(groupName);
-        if (!GroupManager.addGroup(createdGroup)) {
+
+        if (!GroupCSVReader.getInstance().saveGroup(createdGroup)) {
             UI.displayMessage("The group cannot be created; the group already exists");
         } else {
-            GroupManager.addMember(createdGroup.getGroupCode(), username);
             String groupCode = createdGroup.getGroupCode();
+            GroupCSVReader.getInstance().addMember(groupCode, username);
             UI.displayMessage("The group has been created\nYour group code is " + groupCode);
         }
     }
