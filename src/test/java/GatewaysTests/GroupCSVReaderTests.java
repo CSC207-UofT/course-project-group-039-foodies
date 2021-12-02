@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class GroupCSVReaderTests {
     GroupCSVReader database = GroupCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\groupsTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/groupsTest.csv"
     );
 
     @Before
@@ -28,7 +28,7 @@ public class GroupCSVReaderTests {
     }
 
     @Test
-    public void saveGroupTest() {
+    public void testSaveGroup() {
         ArrayList<String> member = new ArrayList<>();
         member.add("TestGroupMember");
         member.add("TestGroupMember1");
@@ -49,7 +49,7 @@ public class GroupCSVReaderTests {
 //    }
 
     @Test
-    public void removeGroup() {
+    public void testRemoveGroup() {
         database.saveGroup("TestGroupName1", "TestGroupCode", new ArrayList<>());
         database.saveGroup("TestGroupName2", "TestGroupCode", new ArrayList<>());
         database.saveGroup("TestGroupName3", "TestGroupCode", new ArrayList<>());

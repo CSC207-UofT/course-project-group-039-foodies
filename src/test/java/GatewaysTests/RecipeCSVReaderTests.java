@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class RecipeCSVReaderTests {
     RecipeCSVReader database = RecipeCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\recipesTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipesTest.csv"
     );
 
     @Before
@@ -62,6 +62,7 @@ public class RecipeCSVReaderTests {
         );
         database.removeRecipe("TestName1");
         Recipe[] recipes = database.getRecipes().getRecipes();
+        assertEquals(recipes.length, 2);
         assertEquals(recipes[0].getName(), "TestName0");
         assertEquals(recipes[1].getName(), "TestName2");
     }
