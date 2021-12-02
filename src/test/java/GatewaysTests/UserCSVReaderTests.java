@@ -1,14 +1,12 @@
 package test.java.GatewaysTests;
 import main.java.Entities.User;
 import main.java.Gateways.UserCSVReader;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class UserCSVReaderTests {
     UserCSVReader database = UserCSVReader.getTestInstance();

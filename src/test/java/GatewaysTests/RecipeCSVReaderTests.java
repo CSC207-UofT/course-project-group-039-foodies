@@ -2,15 +2,13 @@ package test.java.GatewaysTests;
 
 import main.java.Entities.Recipe;
 import main.java.Gateways.RecipeCSVReader;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class RecipeCSVReaderTests {
     RecipeCSVReader database = RecipeCSVReader.getTestInstance();
