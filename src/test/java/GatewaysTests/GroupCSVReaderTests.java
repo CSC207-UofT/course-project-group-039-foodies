@@ -28,7 +28,7 @@ public class GroupCSVReaderTests {
     }
 
     @Test
-    public void testSaveGroup() {
+    public void saveGroupTest() {
         ArrayList<String> member = new ArrayList<>();
         member.add("TestGroupMember");
         member.add("TestGroupMember1");
@@ -49,7 +49,7 @@ public class GroupCSVReaderTests {
 //    }
 
     @Test
-    public void testRemoveGroup() {
+    public void removeGroupTest() {
         database.saveGroup("TestGroupName1", "TestGroupCode", new ArrayList<>());
         database.saveGroup("TestGroupName2", "TestGroupCode", new ArrayList<>());
         database.saveGroup("TestGroupName3", "TestGroupCode", new ArrayList<>());
