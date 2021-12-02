@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class RecipeCSVReaderTests {
     RecipeCSVReader database = RecipeCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\recipesTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipesTest.csv"
     );
 
     @Before

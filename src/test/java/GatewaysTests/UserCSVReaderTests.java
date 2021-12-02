@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class UserCSVReaderTests {
     UserCSVReader database = UserCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\usersTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/usersTest.csv"
     );
 
     @Before
