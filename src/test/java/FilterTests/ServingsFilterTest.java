@@ -3,35 +3,29 @@ package test.java.FilterTests;
 import main.java.Entities.Recipe;
 import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Filters.ServingsFilter;
-import main.java.UseCases.RecipeFactory;
+import main.java.UseCases.Factories.RecipeFactory;
 import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 
-/**
- * A test class which tests ServingsFilter class.
- */
 public class ServingsFilterTest {
 
-    /**
-     * Test ServingsFilter with three recipes which have all different number of servings.
-     */
     @Test
     public void testServingsFilter() {
-        ArrayList<String> ingredient1 = new ArrayList<>();
-        ingredient1.add("a");
-        ArrayList<String> ingredient2 = new ArrayList<>();
-        ingredient2.add("b");
-        ArrayList<String> ingredient3 = new ArrayList<>();
-        ingredient3.add("c");
+        ArrayList<String> ingre1 = new ArrayList<>();
+        ingre1.add("a");
+        ArrayList<String> ingre2 = new ArrayList<>();
+        ingre2.add("b");
+        ArrayList<String> ingre3 = new ArrayList<>();
+        ingre3.add("c");
 
         RecipeCollection recipes = new RecipeCollection();
         Recipe recipe1 = RecipeFactory.createRecipe
-                ("food1", "Dinner", 1, ingredient1, "Just.");
+                ("food1", "Dessert", 1, ingre1, "Just.");
         Recipe recipe2 = RecipeFactory.createRecipe
-                ("food2", "Lunch", 2, ingredient2, "Do.");
+                ("food2", "Lunch", 2, ingre2, "Do.");
         Recipe recipe3 = RecipeFactory.createRecipe
-                ("food3", "Breakfast", 3, ingredient3, "It.");
+                ("food3", "Dinner", 3, ingre3, "It.");
         recipes.addRecipe(recipe1);
         recipes.addRecipe(recipe2);
         recipes.addRecipe(recipe3);
