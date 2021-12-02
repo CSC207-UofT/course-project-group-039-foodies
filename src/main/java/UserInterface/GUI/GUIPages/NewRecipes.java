@@ -3,11 +3,9 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-
-import javax.swing.JLabel;
 import java.awt.Font;
-
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class NewRecipes {
@@ -36,8 +34,16 @@ public class NewRecipes {
             GUIForm.viewRecipesByFilter.setVisible(true);
 
         });
-        byFilter.setBounds(150, 50, 150, 23);
+        byFilter.setBounds(75, 50, 150, 23);
         newRecipes.getContentPane().add(byFilter);
+
+        JButton bySort = new JButton("By Sort");
+        bySort.addActionListener(e -> {
+            newRecipes.setVisible(false);
+            GUIForm.viewRecipesBySort.setVisible(true);
+        });
+        bySort.setBounds(225, 50, 150, 23);
+        newRecipes.getContentPane().add(bySort);
 
         JButton topPicks = new JButton("Top Picks");
         topPicks.addActionListener(e -> {

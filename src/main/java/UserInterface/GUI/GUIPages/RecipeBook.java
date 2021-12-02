@@ -5,10 +5,8 @@ import main.java.UserInterface.Commands.RecipeBookCommands.RemoveRecipeCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
-
 import javax.swing.JLabel;
 import java.awt.Font;
-
 import javax.swing.JButton;
 
 public class RecipeBook {
@@ -35,10 +33,17 @@ public class RecipeBook {
         byFilter.addActionListener(e -> {
             showRecipes.setVisible(false);
             GUIForm.viewSavedRecipesByFilter.setVisible(true);
-
         });
-        byFilter.setBounds(150, 50, 150, 23);
+        byFilter.setBounds(75, 50, 150, 23);
         showRecipes.getContentPane().add(byFilter);
+
+        JButton bySort = new JButton("By Sort");
+        bySort.addActionListener(e -> {
+            showRecipes.setVisible(false);
+            GUIForm.viewSavedRecipesBySort.setVisible(true);
+        });
+        bySort.setBounds(225, 50, 150, 23);
+        showRecipes.getContentPane().add(bySort);
 
         //JButton showAll = new JButton("Show All");
         //showAll.addActionListener(e -> {

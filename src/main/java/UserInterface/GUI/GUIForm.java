@@ -1,12 +1,13 @@
 package main.java.UserInterface.GUI;
+
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.GUI.GUIPages.*;
 import main.java.UserInterface.GUI.GUIPages.Menu;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+
 
 public class GUIForm {
     public static Start start = new Start();
@@ -20,9 +21,11 @@ public class GUIForm {
     public static ViewPreferences viewPreferences = new ViewPreferences();
     public static EditPreferences editPreferences = new EditPreferences();
     public static ViewRecipesByFilter viewRecipesByFilter = new ViewRecipesByFilter();
+    public static ViewRecipesBySort viewRecipesBySort = new ViewRecipesBySort();
     public static ViewTopPicks viewTopPicks = new ViewTopPicks();
     public static ViewRecipesByRandom viewByRandom = new ViewRecipesByRandom();
     public static ViewSavedRecipesByFilter viewSavedRecipesByFilter = new ViewSavedRecipesByFilter();
+    public static ViewSavedRecipesBySort viewSavedRecipesBySort = new ViewSavedRecipesBySort();
     public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
 
     public static void displayMessage(String message) {

@@ -1,5 +1,8 @@
 package main.java.Entities;
 
+import main.java.UseCases.Filters.Filter;
+import main.java.UseCases.Sorts.Sort;
+
 /** A category/ sub recipe book found in user's overall recipe book. Stores the user's saved recipes for this category.
  */
 public class SubRecipeBook {
@@ -135,4 +138,34 @@ public class SubRecipeBook {
         return this.recipes.size();
     }
 
+    /**
+     * Adds filter to the sub-recipe book.
+     * @param filter instance of a filter that needs to be added.
+     */
+    public void addFilter(Filter filter) {
+        recipes.addFilter(filter);
+    }
+
+    /**
+     * Removes filter from the sub-recipe book.
+     * @param filterToRemove instance of a filter that needs to be removed.
+     */
+    public void removeFilter(Filter filterToRemove) {
+        recipes.removeFilter(filterToRemove);
+        }
+
+    /**
+     * Sets sort to the sub-recipe book.
+     * @param sort instance of a sort that needs to be added.
+     */
+    public void setSort(Sort sort) {
+        recipes.setSort(sort);
+    }
+
+    /**
+     * Removes sort from the sub-recipe book.
+     */
+    public void removeSort() {
+        recipes.removeSort();
+    }
 }

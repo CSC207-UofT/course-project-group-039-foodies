@@ -1,13 +1,13 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-
 import javax.swing.JButton;
+
+
 
 public class ViewRecipesByFilter {
     public JFrame viewRecipesByFilter;
@@ -24,6 +24,7 @@ public class ViewRecipesByFilter {
         viewRecipesByFilter.getContentPane().setLayout(null);
 
         // title
+        /*
         JLabel label = new JLabel("View By Filter");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
         label.setBounds(175, 11, 170, 41);
@@ -55,6 +56,15 @@ public class ViewRecipesByFilter {
         });
         btnServing.setBounds(150, 130, 150, 23);
         viewRecipesByFilter.getContentPane().add(btnServing);
+        */
+
+        JButton addFilter = GUIForm.createButtonFromCommand(new FilterRecipeBookCommand());
+        addFilter.setBounds(150, 50, 150, 23);
+        viewRecipesByFilter.getContentPane().add(addFilter);
+
+        JButton removeFilter = GUIForm.createButtonFromCommand(new RemoveFilterCommand());
+        removeFilter.setBounds(150, 100, 150, 23);
+        viewRecipesByFilter.getContentPane().add(removeFilter);
 
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
