@@ -1,7 +1,6 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *  A Recipe Book that stores a list of the sub-Recipe Books and an default subrecipe book
@@ -9,15 +8,14 @@ import java.util.Iterator;
  *
  */
 public class RecipeBook {
-    public final ArrayList<SubRecipeBook> usersubrecipebooks;
-//    public final SubRecipeBook allrecipes;
+    public final ArrayList<SubRecipeBook> userSubRecipeBooks;
 
     /**
      * Instantiate the overall recipe book when a new user registers with the app and has an empty recipe book.
      */
     public RecipeBook() {
-        this.usersubrecipebooks = new ArrayList<>();
-        this.usersubrecipebooks.add(new SubRecipeBook("allrecipes",
+        this.userSubRecipeBooks = new ArrayList<>();
+        this.userSubRecipeBooks.add(new SubRecipeBook("allrecipes",
                 "a recipebook with all the recipes ever added"));
     }
 
@@ -27,7 +25,7 @@ public class RecipeBook {
      * @param description - description of subrecipe book
      */
     public void addSubRecipeBook(String name, String description) {
-        this.usersubrecipebooks.add(new SubRecipeBook(name, description));
+        this.userSubRecipeBooks.add(new SubRecipeBook(name, description));
     }
 
     /**
@@ -35,7 +33,7 @@ public class RecipeBook {
      * @param name - name of subrecipe book
      */
     public void addSubRecipeBook(String name) {
-        this.usersubrecipebooks.add(new SubRecipeBook(name, " "));
+        this.userSubRecipeBooks.add(new SubRecipeBook(name, " "));
     }
 
     /**
@@ -43,7 +41,7 @@ public class RecipeBook {
      * @param subrecipebook - a subrecipe book to be added
      */
     public void addSubRecipeBook(SubRecipeBook subrecipebook) {
-        usersubrecipebooks.add(subrecipebook);
+        userSubRecipeBooks.add(subrecipebook);
     }
 
 
@@ -52,7 +50,7 @@ public class RecipeBook {
      * @param subrecipebook - the sub-recipe book to be deleted.
      */
     public void removeSubRecipeBook(SubRecipeBook subrecipebook) {
-        usersubrecipebooks.remove(subrecipebook);
+        userSubRecipeBooks.remove(subrecipebook);
     }
 
     /**
@@ -60,8 +58,8 @@ public class RecipeBook {
      * @param subrecipebook - the sub-recipe book to return
      */
     public SubRecipeBook showSubRecipeBook(SubRecipeBook subrecipebook) {
-        int subrecipebookindex = this.usersubrecipebooks.indexOf(subrecipebook);
-        return this.usersubrecipebooks.get(subrecipebookindex);
+        int subRecipeBookIndex = this.userSubRecipeBooks.indexOf(subrecipebook);
+        return this.userSubRecipeBooks.get(subRecipeBookIndex);
     }
 
     /**
@@ -69,7 +67,7 @@ public class RecipeBook {
      * @param subrecipebookname - the name of the subrecipebook to return.
      */
     public SubRecipeBook showSubRecipeBook(String subrecipebookname) {
-        for (SubRecipeBook subrecipebook : usersubrecipebooks) {
+        for (SubRecipeBook subrecipebook : userSubRecipeBooks) {
             if (subrecipebook.getName().equals(subrecipebookname)) {
                 return subrecipebook;
             }
@@ -81,7 +79,7 @@ public class RecipeBook {
      * Return a list of all the SubRecipeBooks
      */
     public ArrayList<SubRecipeBook> getSubRecipeBooks() {
-        return usersubrecipebooks;
+        return userSubRecipeBooks;
     }
 
     /**
@@ -111,11 +109,6 @@ public class RecipeBook {
         this.showSubRecipeBook("allrecipes").removeRecipe(recipe);
     }
 
-//    public void addRecipe(Integer recipecode, Recipe recipe) {
-//        this.allrecipes.addRecipe(recipecode, recipe);
-//    }
-
-
     /**
      * Remove the recipe with recipecode from the sub recipe book.
      * @param subrecipebookname - the subrecipebook to remove the recipe from
@@ -125,15 +118,6 @@ public class RecipeBook {
         showSubRecipeBook(subrecipebookname).removeRecipe(recipecode);
         this.showSubRecipeBook("allrecipes").removeRecipe(recipecode);
     }
-
-//    /**
-//     * Return all recipes in the user's sub recipe book
-//     *
-//     * @return - return the recipes
-//     */
-//    public Recipe[] getRecipes() {
-//        return allrecipes.getRecipes();
-//    }
 
     /**
      * Return the codes of all recipes in the user's sub recipe book
