@@ -1,5 +1,8 @@
 package main.java.Entities;
 
+import main.java.UseCases.Filters.Filter;
+import main.java.UseCases.Sorts.Sort;
+
 import java.util.ArrayList;
 
 /**
@@ -172,6 +175,39 @@ public class RecipeBook {
         return this.showSubRecipeBook("AllRecipes").size();
     }
 
+    /**
+     * Adds filter to a SubRecipeBook in the RecipeBook.
+     * @param subRecipeBook name of the sub-recipe book.
+     * @param filter instance of a filter that needs to be added.
+     */
+    public void addFilter(String subRecipeBook, Filter filter) {
+        showSubRecipeBook(subRecipeBook).addFilter(filter);
+    }
 
+    /**
+     * Remove filter from a SubRecipeBook in the RecipeBook.
+     * @param subRecipeBook name of the sub-recipe book.
+     * @param filter instance of a filter that needs to be removed.
+     */
+    public void removeFilter(String subRecipeBook, Filter filter) {
+        showSubRecipeBook(subRecipeBook).removeFilter(filter);
+    }
+
+    /**
+     * Sets sort to a SubRecipeBook in the RecipeBook.
+     * @param subRecipeBook name of the sub-recipe book.
+     * @param sort instance of a sort that needs to be set.
+     */
+    public void setSort(String subRecipeBook, Sort sort) {
+        showSubRecipeBook(subRecipeBook).setSort(sort);
+    }
+
+    /**
+     * Removes sort from a SubRecipeBook in the RecipeBook.
+     * @param subRecipeBook name of the sub-recipe book.
+     */
+    public void removeSort(String subRecipeBook) {
+        showSubRecipeBook(subRecipeBook).removeSort();
+    }
 }
 
