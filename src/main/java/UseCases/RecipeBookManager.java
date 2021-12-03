@@ -6,7 +6,6 @@ import main.java.Entities.SubRecipeBook;
 import main.java.Entities.User;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *A public class which manages the activities of the overall RecipeBook.
@@ -21,8 +20,8 @@ import java.util.Iterator;
         this.overallRecipeBook = user.getRecipeBook();
     }
 
-    public RecipeBookManager(RecipeBook overallrecipebook) {
-        this.overallRecipeBook = overallrecipebook;
+    public RecipeBookManager(RecipeBook overallRecipeBook) {
+        this.overallRecipeBook = overallRecipeBook;
     }
 
     /**
@@ -34,21 +33,6 @@ import java.util.Iterator;
     public boolean containsSubRecipeBook(String subRecipeBookName) {
         for (SubRecipeBook subRecipeBook : overallRecipeBook.getSubRecipeBooks()) {
             if (subRecipeBook.getName().equals(subRecipeBookName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Return whether a SubRecipeBook of a certain name is contained in a User's overall RecipeBook.
-     *
-     * @param subRecipeBookInterested The subRecipeBook we are looking for
-     * @return True if and only if the user contains the SubRecipeBook
-     */
-    public boolean containsSubRecipeBook(SubRecipeBook subRecipeBookInterested) {
-        for (SubRecipeBook subRecipeBook : overallRecipeBook.getSubRecipeBooks()) {
-            if (subRecipeBook.getName().equals(subRecipeBookInterested.getName())) {
                 return true;
             }
         }
@@ -101,21 +85,6 @@ import java.util.Iterator;
     public boolean containsRecipe(String recipeName) {
         for (Recipe recipe : overallRecipeBook.getAllRecipes()) {
             if (recipe.getName().equals(recipeName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Return whether a Recipe object is contained in a User's RecipeBook.
-     *
-     * @param recipe The recipe name we are looking for
-     * @return True if and only if the user contains the Recipe
-     */
-    public boolean containsRecipe(Recipe recipe) {
-        for (int code : overallRecipeBook.getCodes()) {
-            if (code == recipe.getRecipeCode()) {
                 return true;
             }
         }
