@@ -10,7 +10,7 @@ public class RecipeBook {
     public final ArrayList<SubRecipeBook> userSubRecipeBooks;
 
     /**
-     * Instantiate the overall recipe book when a new user registers with the app and has an empty recipe book.
+     * Instantiate the overall RecipeBook when a new User registers with the app and has an empty RecipeBook.
      *
      */
     public RecipeBook() {
@@ -20,7 +20,7 @@ public class RecipeBook {
     }
 
     /**
-     * Create a new sub-recipe book in the overall recipe book with name - name and description - description.
+     * Create a new SubRecipeBook in the overall RecipeBook with name - name and description - description.
      *
      * @param name        - name of sub-recipe book
      * @param description - description of sub-recipe book
@@ -30,7 +30,7 @@ public class RecipeBook {
     }
 
     /**
-     * Add a sub-recipe book to the overall recipe book by providing a name.
+     * Add a SubRecipeBook to the overall RecipeBook by providing a name.
      *
      * @param name - name of sub-recipe book
      */
@@ -39,7 +39,7 @@ public class RecipeBook {
     }
 
     /**
-     * Add a sub-recipe book to the user's overall recipe book.
+     * Add a SubRecipeBook to the user's overall RecipeBook.
      *
      * @param subRecipeBook - a sub- recipe book to be added
      */
@@ -49,7 +49,7 @@ public class RecipeBook {
 
 
     /**
-     * Remove a sub-recipe book from the overall recipe book.
+     * Remove a SubRecipeBook from the overall RecipeBook.
      *
      * @param subRecipeBook - the sub-recipe book to be deleted
      */
@@ -58,7 +58,7 @@ public class RecipeBook {
     }
 
     /**
-     * Return a sub-recipe book from the overall recipe book.
+     * Return a SubRecipeBook from the overall RecipeBook.
      *
      * @param subRecipeBook - the sub-recipe book to return
      * @return a SubRecipeBook
@@ -69,7 +69,7 @@ public class RecipeBook {
     }
 
     /**
-     * Return a sub-recipe book from the overall recipe book.
+     * Return a SubRecipeBook from the overall RecipeBook.
      *
      * @param subRecipeBookName - the name of the sub-recipe book to return
      * @return a SubRecipeBook
@@ -84,16 +84,16 @@ public class RecipeBook {
     }
 
     /**
-     * Return a list of all the sub-recipe books.
+     * Return a list of all the SubRecipeBook.
      *
-     * @return a list of the user's SubRecipeBooks in their overall recipe book
+     * @return a list of the user's SubRecipeBooks in their overall RecipeBook
      */
     public ArrayList<SubRecipeBook> getSubRecipeBooks() {
         return userSubRecipeBooks;
     }
 
     /**
-     * Return all the recipes the user has saved as a list.
+     * Return all the Recipes the User has saved as a list.
      *
      * @return a list of the Recipes that a user has saved
      */
@@ -102,7 +102,7 @@ public class RecipeBook {
     }
 
     /**
-     * Add a recipe to sub-recipe book requested and the sub-recipe book AllRecipes.
+     * Add a Recipe to SubRecipeBook requested and the sub-recipe book AllRecipes.
      *
      * @param subRecipeBookName - the sub-recipe book to add the recipe to
      * @param recipe - the Recipe to be added
@@ -123,13 +123,8 @@ public class RecipeBook {
         this.showSubRecipeBook("AllRecipes").removeRecipe(recipe);
     }
 
-//    public void addRecipe(Integer recipecode, Recipe recipe) {
-//        this.allrecipes.addRecipe(recipecode, recipe);
-//    }
-
-
     /**
-     * Remove the recipe with recipeCode from the sub-recipe book.
+     * Remove the Recipe with recipeCode from the SubRecipeBook.
      *
      * @param subRecipeBookName - the sub-recipe book to remove the recipe from
      * @param recipeCode - a unique Integer code identifier for Recipe
@@ -139,17 +134,8 @@ public class RecipeBook {
         this.showSubRecipeBook("AllRecipes").removeRecipe(recipeCode);
     }
 
-//    /**
-//     * Return all recipes in the user's sub recipe book
-//     *
-//     * @return - return the recipes
-//     */
-//    public Recipe[] getRecipes() {
-//        return allrecipes.getRecipes();
-//    }
-
     /**
-     * Return the codes of all recipes in the user's sub-recipe book.
+     * Return the codes of all Recipes in the User's SubRecipeBooks.
      *
      * @return - return the codes for recipes found in the user's recipe book.
      */
@@ -158,7 +144,7 @@ public class RecipeBook {
     }
 
     /**
-     * Retrieve the recipe with recipeCode.
+     * Retrieve the Recipe with recipeCode.
      *
      * @param recipeCode - a unique Integer code identifier for Recipe
      * @return - return the recipe with recipeCode
@@ -168,7 +154,7 @@ public class RecipeBook {
     }
 
     /**
-     * Retrieve the recipe with name - recipeName.
+     * Retrieve the Recipe with name - recipeName.
      *
      * @param recipeName - the name of the recipe to return
      * @return a Recipe object with name- recipeName
@@ -178,7 +164,7 @@ public class RecipeBook {
     }
 
     /**
-     * Return the number of recipes in the recipe book.
+     * Return the number of Recipes in the RecipeBook.
      *
      * @return an int indicating the number of recipes overall that the user has saved in their recipe book.
      */
