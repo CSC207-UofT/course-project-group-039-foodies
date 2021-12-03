@@ -3,12 +3,12 @@ package test.java;
 import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.CLI.CommandLineInterface;
-import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CommandTests {
     private CommandLineInterface runCommands(String[] inputs, int length) {

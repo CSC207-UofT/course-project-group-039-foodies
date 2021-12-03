@@ -4,6 +4,7 @@ import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.Sorts.Sort;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
 public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
@@ -29,5 +30,6 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
         }
 
         RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
+        GetNewRecipeCommand.initializeIterator(UI);
     }
 }

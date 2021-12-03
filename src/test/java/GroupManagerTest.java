@@ -8,7 +8,6 @@ import main.java.UseCases.GroupFactory;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 public class GroupManagerTest {
 
     @Test
