@@ -1,59 +1,20 @@
 package test.java;
 
-import com.sun.source.tree.AssertTree;
 import main.java.Entities.RecipeBook;
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeCollection;
 import main.java.Entities.SubRecipeBook;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.RecipeFactory;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
 public class RecipeBookTests {
-    Recipe recipe1;
-    Recipe recipe2;
-    RecipeBook overallrecipebook;
-    SubRecipeBook subrecipebook1;
-    SubRecipeBook subrecipebook2;
+    SubRecipeBook subRecipeBook1;
+    SubRecipeBook subRecipeBook2;
 
-//    @Before
-//    public void setUp() {
-//        // create an overallrecipebook
-//        final RecipeBook overallrecipebook = new RecipeBook();
-//
-//        // create the recipes
-//        final RecipeCollection recipes = new RecipeCollection();
-//
-//        final ArrayList<String> pancakeingre = new ArrayList<>();
-//        pancakeingre.add("milk");
-//        pancakeingre.add("pancake mix");
-//
-//        final ArrayList<String> mashedpotatoesingre = new ArrayList<>();
-//        mashedpotatoesingre.add("potatoes");
-//        mashedpotatoesingre.add("milk");
-//        mashedpotatoesingre.add("seasoning");
-//
-//        final Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-//                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
-//
-//        final Recipe recipe2 = RecipeFactory.createRecipe("mashedpotatoes", "lunch", 2,
-//                mashedpotatoesingre, "Cook potatoes. Mash potatoes until smooth. Add milk and seasoning to " +
-//                        "taste. Enjoy");
-//
-//        recipes.addRecipe(recipe1);
-//        recipes.addRecipe(recipe2);
-//
-//        final SubRecipeBook subrecipebook1 = new SubRecipeBook("breakfast");
-//        final SubRecipeBook subrecipebook2 = new SubRecipeBook("lunch", "lunch ideas");
-//
-//    }
 
     @Test
     public void OverallRecipeBookTest() {
@@ -75,33 +36,33 @@ public class RecipeBookTests {
     @Test
     public void removeSubRecipeBookTest() {
         RecipeBook overallRecipeBook = new RecipeBook();
-        overallRecipeBook.addSubRecipeBook(subrecipebook1);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook1);
         assertEquals(2, overallRecipeBook.getSubRecipeBooks().size());
-        overallRecipeBook.addSubRecipeBook(subrecipebook2);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook2);
         assertEquals(3, overallRecipeBook.getSubRecipeBooks().size());
-        overallRecipeBook.removeSubRecipeBook(subrecipebook1);
+        overallRecipeBook.removeSubRecipeBook(subRecipeBook1);
         assertEquals(2, overallRecipeBook.getSubRecipeBooks().size());
     }
 
     @Test
     public void showSubRecipeBookTest() {
         RecipeBook overallRecipeBook = new RecipeBook();
-        overallRecipeBook.addSubRecipeBook(subrecipebook1);
-        overallRecipeBook.addSubRecipeBook(subrecipebook2);
-        SubRecipeBook shownSubRecipeBook = overallRecipeBook.showSubRecipeBook(subrecipebook1);
-        assertEquals(subrecipebook1, shownSubRecipeBook);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook1);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook2);
+        SubRecipeBook shownSubRecipeBook = overallRecipeBook.showSubRecipeBook(subRecipeBook1);
+        assertEquals(subRecipeBook1, shownSubRecipeBook);
     }
 
     @Test
     public void getSubRecipeBooksTest(){
         RecipeBook overallRecipeBook = new RecipeBook();
-        overallRecipeBook.addSubRecipeBook(subrecipebook1);
-        overallRecipeBook.addSubRecipeBook(subrecipebook2);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook1);
+        overallRecipeBook.addSubRecipeBook(subRecipeBook2);
         ArrayList<SubRecipeBook> subRecipeBooks = overallRecipeBook.getSubRecipeBooks();
         subRecipeBooks.remove(0); // removes the "AllRecipes" SubRecipeBook
         ArrayList<SubRecipeBook> expected = new ArrayList<>();
-        expected.add(subrecipebook1);
-        expected.add(subrecipebook2);
+        expected.add(subRecipeBook1);
+        expected.add(subRecipeBook2);
         assertEquals(expected, subRecipeBooks);
     }
 
