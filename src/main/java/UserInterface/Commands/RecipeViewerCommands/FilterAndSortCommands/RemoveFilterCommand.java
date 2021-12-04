@@ -12,12 +12,15 @@ import main.java.UserInterface.UserInterface;
  * Remove filter from RecipeBook.
  */
 public class RemoveFilterCommand extends ChoiceCommand<FilterOption> {
+    /**
+     * Initialize RemoveFilterCommand.
+     */
     public RemoveFilterCommand() {
         super("remove filter", "Removes a filter that has been added");
     }
 
     /**
-     * Remove filter given by the user from RecipeBook
+     * Remove filter given by the user from RecipeBook.
      * @param UI an instance of the user interface.
      */
     @Override

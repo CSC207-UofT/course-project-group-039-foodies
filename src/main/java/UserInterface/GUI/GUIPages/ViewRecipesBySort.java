@@ -8,10 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 
-
+/**
+ * Create GUI page ViewRecipesBySort, which allows user to sort recipes in the database.
+ */
 public class ViewRecipesBySort {
     public JFrame viewRecipesBySort;
 
+    /**
+     * Initialize ViewRecipesBySort.
+     */
     public ViewRecipesBySort() {
         initialize();
     }
@@ -67,6 +72,10 @@ public class ViewRecipesBySort {
         viewRecipesBySort.getContentPane().add(btnExit);
     }
 
+    /**
+     * Make ViewRecipesBySort GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
+     */
     public void setVisible(boolean b) {
         viewRecipesBySort.setVisible(true);
     }

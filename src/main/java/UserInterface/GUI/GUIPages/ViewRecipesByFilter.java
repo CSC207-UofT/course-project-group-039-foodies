@@ -8,10 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 
-
+/**
+ * Create GUI page ViewRecipesByFilter, which allows user to filter recipes in the database.
+ */
 public class ViewRecipesByFilter {
     public JFrame viewRecipesByFilter;
 
+    /**
+     * Initialize ViewRecipesByFilter.
+     */
     public ViewRecipesByFilter() {
         initialize();
     }
@@ -76,6 +81,10 @@ public class ViewRecipesByFilter {
         viewRecipesByFilter.getContentPane().add(btnExit);
     }
 
+    /**
+     * Make ViewRecipesByFilter GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
+     */
     public void setVisible(boolean b) {
         viewRecipesByFilter.setVisible(true);
     }

@@ -8,10 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 
-
+/**
+ * Create GUI page ViewSavedRecipesByFilter, which allows user to filter saved recipes.
+ */
 public class ViewSavedRecipesByFilter {
     public JFrame viewSavedRecipesByFilter;
 
+    /**
+     * Initialize ViewSavedRecipesByFilter.
+     */
     public ViewSavedRecipesByFilter() {
         initialize();
     }
@@ -76,6 +81,10 @@ public class ViewSavedRecipesByFilter {
         viewSavedRecipesByFilter.getContentPane().add(btnExit);
     }
 
+    /**
+     * Make ViewSavedRecipesByFilter GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
+     */
     public void setVisible(boolean b) {
         viewSavedRecipesByFilter.setVisible(true);
     }

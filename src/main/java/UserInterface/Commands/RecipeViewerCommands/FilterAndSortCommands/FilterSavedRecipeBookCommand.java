@@ -11,6 +11,9 @@ import main.java.UserInterface.UserInterface;
  * Filter recipes in the saved sub-recipe book.
  */
 public class FilterSavedRecipeBookCommand extends ChoiceCommand<FilterOption> {
+    /**
+     * Initialize FilterSavedRecipeBookCommand.
+     */
     public FilterSavedRecipeBookCommand() {super("filter", "Filters the saved recipes to be seen"); }
 
     /**

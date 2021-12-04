@@ -8,10 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 
-
+/**
+ * Create GUI page ViewSavedRecipesBySort, which allows user to sort saved recipes.
+ */
 public class ViewSavedRecipesBySort {
     public JFrame viewSavedRecipesBySort;
 
+    /**
+     * Initialize ViewSavedRecipesBySort.
+     */
     public ViewSavedRecipesBySort() {
         initialize();
     }
@@ -25,38 +30,29 @@ public class ViewSavedRecipesBySort {
 
         // title
         /*
-        JLabel label = new JLabel("View By Filter");
+        JLabel label = new JLabel("View By Sort");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
         label.setBounds(175, 11, 170, 41);
-        viewSavedRecipesByFilter.getContentPane().add(label);
+        viewSavedRecipesBySort.getContentPane().add(label);
 
-        JButton btnIngredient = new JButton("By Ingredient");
-        btnIngredient.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
+        JButton btnRating = new JButton("By Rating");
+        btnRating.addActionListener(e -> {
+            viewSavedRecipesBySort.setVisible(false);
 //                GUIForm.preferences.setVisible(true);
 
         });
-        btnIngredient.setBounds(150, 50, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnIngredient);
+        btnRating.setBounds(150, 50, 150, 23);
+        viewSavedRecipesBySort.getContentPane().add(btnRating);
 
-        JButton btnType = new JButton("By Type");
-        btnType.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
+        JButton btnServings = new JButton("By Number of Servings");
+        btnServings.addActionListener(e -> {
+            viewSavedRecipesBySort.setVisible(false);
 //                GUIForm.new_recipes.setVisible(true);
 
         });
-        btnType.setBounds(150, 90, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnType);
-
-        JButton btnServing = new JButton("By Servings");
-        btnServing.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-//                GUIForm.show_recipes.setVisible(true);
-
-        });
-        btnServing.setBounds(150, 130, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnServing);
-         */
+        btnServings.setBounds(150, 90, 150, 23);
+        viewSavedRecipesBySort.getContentPane().add(btnServings);
+        */
 
         JButton setSort = GUIForm.createButtonFromCommand(new SortSavedRecipeBookCommand());
         setSort.setBounds(150, 50, 150, 23);
@@ -76,6 +72,10 @@ public class ViewSavedRecipesBySort {
         viewSavedRecipesBySort.getContentPane().add(btnExit);
     }
 
+    /**
+     * Make ViewSavedRecipesBySort GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
+     */
     public void setVisible(boolean b) {
         viewSavedRecipesBySort.setVisible(true);
     }

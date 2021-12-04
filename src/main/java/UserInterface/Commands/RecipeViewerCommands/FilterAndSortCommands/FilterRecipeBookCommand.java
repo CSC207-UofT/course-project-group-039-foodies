@@ -8,11 +8,21 @@ import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Filter recipes from the database.
+ */
 public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
+    /**
+     * Initialize FilterRecipeBookCommand.
+     */
     public FilterRecipeBookCommand() {
         super("filter", "Filters the recipes to be seen");
     }
 
+    /**
+     * Add filter to the recipes in the database based on its given filter algorithm by the user.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         Filter filter = null;

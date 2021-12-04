@@ -10,6 +10,9 @@ import main.java.UserInterface.UserInterface;
  * Sort recipes in the sub-recipe book.
  */
 public class SortSavedRecipeBookCommand extends ChoiceCommand<RatingOption> {
+    /**
+     * Initialize SortSavedRecipeBookCommand.
+     */
     public SortSavedRecipeBookCommand() {super("sort", "Sorts the saved recipes to be seen");}
 
     /**

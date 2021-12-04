@@ -8,6 +8,9 @@ import main.java.UserInterface.UserInterface;
  * Remove sort from the sub-recipe book.
  */
 public class RemoveSavedSortCommand extends Command {
+    /**
+     * Initialize RemoveSavedSortCommand.
+     */
     public RemoveSavedSortCommand() {super("remove sort", "Stops the saved recipe book from being" +
             "sorted");}
 

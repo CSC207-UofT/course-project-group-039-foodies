@@ -11,6 +11,9 @@ import main.java.UserInterface.UserInterface;
  * Remove filter from sub-recipe book.
  */
 public class RemoveSavedFilterCommand extends ChoiceCommand<FilterOption> {
+    /**
+     * Initialize RemoveSavedFilterCommand.
+     */
     public RemoveSavedFilterCommand() {
         super("remove saved filter", "Removes a filter from a sub-recipe book.");
     }
