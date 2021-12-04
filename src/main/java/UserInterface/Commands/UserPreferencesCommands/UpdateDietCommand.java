@@ -4,40 +4,108 @@ import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 /**
- * allows user to update the list of ingredients they want to include in their recommended recipes.
+ * allows user to update their diet prefrerences.
  */
 public class UpdateDietCommand extends Command {
+
+    List<String> pescatarian = Arrays.asList("chicken", "beef", "pork", "lamb", "steak");
+    List<String> vegetarian = Arrays.asList("fish", "salmon", "tuna", "tilapia");
+    List<String> vegan = Arrays.asList("milk", "eggs", "honey", "cheese", "yogurt", "cream", "mayonnaise");
+
     public UpdateDietCommand() {
         super("update diet preferences", "Choose a diet to adhere to");
     }
     @Override
     public void runAction(UserInterface UI) {
-        String AddOrRem = UI.queryUser(
-                "Would you like to remove or add an ingredient to your list of included ingredients?"
+        String diet = UI.queryUser(
+                "Which diet would you like to adhere to? Options: Vegetarian, Vegan, Pescatarian, No Diet"
         );
         PreferenceBookCSVReader instance = PreferenceBookCSVReader.getInstance();
-        if (Objects.equals(AddOrRem, "add")) {
-            String ingredient = UI.queryUser("Enter ingredient to include in the recipe selection");
-            if (UI.getPreferenceBook().contains("include", ingredient)) {
-                UI.displayMessage("This ingredient is already included");
-            } else {
-                instance.updateInclude(UI.getUser().getUsername(), AddOrRem, ingredient);
-                UI.displayMessage("List of included ingredients successfully updated");
-            }
-        } else {
-            String ingredient = UI.queryUser("Enter ingredient to remove from list of included ingredients");
-            if (!UI.getPreferenceBook().contains("include", ingredient)) {
-                UI.displayMessage("This ingredient is not in your include list");
-            } else {
-                instance.updateInclude(UI.getUser().getUsername(), AddOrRem, ingredient);
-                UI.displayMessage("List of included ingredients successfully updated");
-            }
+
+        //cases for adding different diets
+        switch (diet) {
+            case "Pescatarian":
+                //creating list of ingredients to remove; not part of pesc diet
+                List<String> RemoveFromDiet = new ArrayList<String>();
+                RemoveFromDiet.addAll(vegetarian);
+                RemoveFromDiet.addAll(vegan);
+
+                //update csv file
+                changeDiet(pescatarian, RemoveFromDiet, UI, instance);
+
+                break;
+
+            case "Vegetarian":
+                //creating list for vegetarian diet
+                List<String> VegAddToDiet = new ArrayList<String>();
+                VegAddToDiet.addAll(pescatarian);
+                VegAddToDiet.addAll(vegetarian);
+
+                //update csv file
+                changeDiet(VegAddToDiet, vegan, UI, instance);
+
+                break;
+
+            case "Vegan":
+                //creating list for vegan diet
+                List<String> VeganAddToDiet = new ArrayList<String>();
+                VeganAddToDiet.addAll(pescatarian);
+                VeganAddToDiet.addAll(vegetarian);
+                VeganAddToDiet.addAll(vegan);
+
+                //empty list to remove
+                List<String> VeganRemFromDiet = new ArrayList<String>();
+
+                //update csv
+                changeDiet(VeganAddToDiet, VeganRemFromDiet, UI, instance);
+
+                break;
+
+            case "No Diet":
+                //empty list to 'add'
+                List<String> NDAddToDiet = new ArrayList<String>();
+
+                //list of dietary restrictions to remove
+                List<String> NDRemFromDiet = new ArrayList<String>();
+                NDRemFromDiet.addAll(pescatarian);
+                NDRemFromDiet.addAll(vegetarian);
+                NDRemFromDiet.addAll(vegan);
+
+                //update csv
+                changeDiet(NDAddToDiet, NDRemFromDiet, UI, instance);
+
+                break;
+
+            default:
+                UI.displayMessage("This option does not exist");
+                break;
         }
         UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
-        //update preference book
+    }
 
+    public void changeDiet(List<String> AddToDiet, List<String> RemoveFromDiet, UserInterface UI, PreferenceBookCSVReader instance) {
+        if (!AddToDiet.isEmpty()) {
+            for (String i : AddToDiet) {
+                if (!UI.getPreferenceBook().contains("omit", i)) {
+                    instance.updateOmit(UI.getUser().getUsername(), "add", i);
+                }
+            }
+        }
+
+        if (!RemoveFromDiet.isEmpty()) {
+            for (String j : RemoveFromDiet) {
+                if (UI.getPreferenceBook().contains("omit", j)) {
+                    instance.updateOmit(UI.getUser().getUsername(), "remove", j);
+                }
+            }
+        }
+
+        UI.displayMessage("Diet preference successfully updated");
     }
 }
