@@ -15,7 +15,7 @@ public class RemoveSavedFilterCommand extends ChoiceCommand<FilterOption> {
      * Initialize RemoveSavedFilterCommand.
      */
     public RemoveSavedFilterCommand() {
-        super("remove saved filter", "Removes a filter from a sub-recipe book.");
+        super("remove filter", "Removes a filter from a sub-recipe book.");
     }
 
     /**
