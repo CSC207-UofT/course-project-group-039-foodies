@@ -1,13 +1,11 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.Gateways.UserCSVReader;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-import javax.swing.JLabel;
 import java.awt.Font;
-
-import javax.swing.JButton;
 
 public class Preferences {
     public JFrame preferences;
@@ -54,6 +52,12 @@ public class Preferences {
             GUIForm.menu.setVisible(true);
 
         });
+
+//        JLabel img = new JLabel("New image");
+//        img.setIcon(new ImageIcon("src/food background.jpeg"));
+//        img.setBounds(0, 0, 460, 300);
+//        preferences.getContentPane().add(img);
+
         btnBack.setBounds(150, 210, 150, 23);
         preferences.getContentPane().add(btnBack);
     }
@@ -61,4 +65,7 @@ public class Preferences {
     public void setVisible(boolean b) {
         preferences.setVisible(true);
     }
+
 }
+
+

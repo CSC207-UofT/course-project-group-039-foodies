@@ -7,12 +7,10 @@ import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-import javax.swing.JLabel;
 import java.awt.Font;
 
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -47,6 +45,11 @@ public class Groups {
         JButton removeMember = GUIForm.createButtonFromCommand(new RemoveGroupMemberCommand());
         removeMember.setBounds(140, 130, 170, 23);
         groups.getContentPane().add(removeMember);
+
+//        JLabel img = new JLabel("New image");
+//        img.setIcon(new ImageIcon("src/food background.jpeg"));
+//        img.setBounds(0, 0, 460, 300);
+//        groups.getContentPane().add(img);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(new ActionListener() {

@@ -104,6 +104,6 @@ public class RecipeGateway {
     public static void main(String[] args) {
         RecipeGateway rg = new RecipeGateway(new RecipeCollection());
 
-        rg.getNewRecipes(20);
+        rg.getNewRecipes(30);
     }
 }

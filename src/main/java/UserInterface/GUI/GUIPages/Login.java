@@ -26,6 +26,7 @@ public class Login {
 		frame.setTitle("Recipick");
 		frame.getContentPane().setLayout(null);
 
+
 		// title
 		JLabel label = new JLabel("Recipick");
 		label.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -71,7 +72,14 @@ public class Login {
 		btnLogin.setBounds(260, 138, 89, 23);
 		frame.getContentPane().add(btnLogin);
 
+//		JLabel img = new JLabel("New image");
+//		img.setIcon(new ImageIcon("src/food background.jpeg"));
+//		img.setBounds(0, 0, 460, 350);
+//		frame.getContentPane().add(img);
+
 	}
+
+
 	public void setVisible(boolean b) {
 		frame.setVisible(true);
 	}
@@ -90,4 +98,7 @@ public class Login {
 			JOptionPane.showMessageDialog(null, "User not found", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
+
+
+
 }

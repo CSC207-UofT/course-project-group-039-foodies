@@ -2,12 +2,9 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-import javax.swing.JLabel;
 import java.awt.Font;
-
-import javax.swing.JButton;
 
 public class ViewRecipesByFilter {
     public JFrame viewRecipesByFilter;
@@ -53,17 +50,14 @@ public class ViewRecipesByFilter {
 //                GUIForm.show_recipes.setVisible(true);
 
         });
+
+//        JLabel img = new JLabel("New image");
+//        img.setIcon(new ImageIcon("src/food background.jpeg"));
+//        img.setBounds(0, 0, 460, 300);
+//        viewRecipesByFilter.getContentPane().add(img);
+
         btnServing.setBounds(150, 130, 150, 23);
-        viewRecipesByFilter.getContentPane().add(btnServing);
-
-        JButton btnExit = new JButton("Back");
-        btnExit.addActionListener(e -> {
-            viewRecipesByFilter.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
-
-        });
-        btnExit.setBounds(150, 210, 150, 23);
-        viewRecipesByFilter.getContentPane().add(btnExit);
+        ViewTopPicks.viewRecipeContentPane(btnServing, viewRecipesByFilter);
     }
 
     public void setVisible(boolean b) {
