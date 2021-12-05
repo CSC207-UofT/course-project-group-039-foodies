@@ -26,17 +26,7 @@ public class ViewRecipesByRandom {
             Command getNewRecipe = new GetNewRecipeCommand();
             getNewRecipe.runAction(Application.getInstance());
         });
-        btnReady.setBounds(75, 70, 300, 100);
-        viewByRandom.getContentPane().add(btnReady);
-
-        JButton btnBack = new JButton("Back");
-        btnBack.addActionListener(e -> {
-            viewByRandom.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
-
-        });
-        btnBack.setBounds(150, 210, 150, 23);
-        viewByRandom.getContentPane().add(btnBack);
+        ViewTopPicks.viewRecipeButton(btnReady, viewByRandom);
     }
 
     public void setVisible(boolean b) {

@@ -54,16 +54,7 @@ public class ViewSavedRecipesByFilter {
 
         });
         btnServing.setBounds(150, 130, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnServing);
-
-        JButton btnExit = new JButton("Back");
-        btnExit.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
-
-        });
-        btnExit.setBounds(150, 210, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnExit);
+        ViewTopPicks.viewRecipeContentPane(btnServing, viewSavedRecipesByFilter);
     }
 
     public void setVisible(boolean b) {

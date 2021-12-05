@@ -170,32 +170,29 @@ public class RecipeBook {
     }
 
     /**
-     * Return the top 10 ingredients in a user's recipebook.
+     * Return the top 10 ingredients in a user's RecipeBook.
      *
-     * @return a list of the 10 most frequent ingredients in the subrecipebook.
+     * @return a list of the 10 most frequent ingredients in the SubRecipeBook.
      */
 
-    public HashMap<String, Integer> getTopIngredients() {
+    public ArrayList<String> getTopIngredients() {
         ArrayList<Integer> values = new ArrayList<>(this.getAllIngredients().values());
         values.sort(Collections.reverseOrder());
-
         HashMap<String, Integer> top10Map = new HashMap<>();
-        for (Integer value : values) {for (String ingredient : this.getAllIngredients().keySet()) {
-                if (this.getAllIngredients().get(ingredient).equals(value)) {
-                    top10Map.put(ingredient, value);
-                    values.remove(value);
+        int limit = 0;
+            for (Integer value : values) {
+                if (limit < 11) {
+                    limit ++;
+                    for (String ingredient : this.getAllIngredients().keySet()) {
+                    if (this.getAllIngredients().get(ingredient).equals(value)) {
+                        top10Map.put(ingredient, value);
+                        values.remove(value);
+                        this.getAllIngredients().keySet().remove(ingredient);
+                    }
                 }
             }
-        }
-        int limit = 0;
-        HashMap<String, Integer> top10 = new HashMap<>();
-        for (Map.Entry<String, Integer> set : top10Map.entrySet()) {
-            if (limit < 11){
-                limit ++;
-                top10.put(set.getKey(), set.getValue());
-            }
-        }
-        return top10;
+                }
+        return new ArrayList<>(top10Map.keySet());
     }
 
 

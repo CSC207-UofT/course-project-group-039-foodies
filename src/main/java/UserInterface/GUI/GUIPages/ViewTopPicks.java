@@ -1,5 +1,8 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -20,11 +23,18 @@ public class ViewTopPicks {
 
         JButton btnReady = new JButton("Ready to see your Top Picks?");
         btnReady.addActionListener(e -> {
-            viewTopPicks.setVisible(false);
-//                GUIForm.new_recipes.setVisible(true);
+                    Command getNewRecipeCommand = new GetNewRecipeCommand();
+                    getNewRecipeCommand.runAction(Application.getInstance());
+                });
+        viewRecipeButton(btnReady, viewTopPicks);
+    }
 
-        });
+    static void viewRecipeButton(JButton btnReady, JFrame viewTopPicks) {
         btnReady.setBounds(75, 70, 300, 100);
+        viewRecipeContentPane(btnReady, viewTopPicks);
+    }
+
+    static void viewRecipeContentPane(JButton btnReady, JFrame viewTopPicks) {
         viewTopPicks.getContentPane().add(btnReady);
 
         JButton btnBack = new JButton("Back");
