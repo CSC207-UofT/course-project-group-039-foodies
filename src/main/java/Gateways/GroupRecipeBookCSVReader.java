@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 
 public class GroupRecipeBookCSVReader extends CSVReader {
+<<<<<<< HEAD
     private final static GroupRecipeBookCSVReader instance = new GroupRecipeBookCSVReader(
             System.getProperty("user.dir") +
                     "/src/main/java/Gateways/databases/groupRecipeBooks.csv"); // a singleton
@@ -207,4 +208,6 @@ public class GroupRecipeBookCSVReader extends CSVReader {
             }
         } return groupRecipeBook;
     }
+=======
+>>>>>>> origin/main
 }

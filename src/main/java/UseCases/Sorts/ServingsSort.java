@@ -4,7 +4,7 @@ import main.java.Entities.Recipe;
 import java.util.Arrays;
 
 /**
- * Sort Recipes based on the number of servings (from small to big).
+ * Sort Recipes based on their numbers of servings (from small to big).
  */
 public class ServingsSort implements Sort{
 
