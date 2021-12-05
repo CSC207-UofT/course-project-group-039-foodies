@@ -155,6 +155,7 @@ public class RecipeBook {
         return this.showSubRecipeBook("allrecipes").size();
     }
 
+
     /**
      * Return all the ingredients in a user's RecipeBook and their frequencies.
      * @return a hashmap of ingredients and their frequencies.
