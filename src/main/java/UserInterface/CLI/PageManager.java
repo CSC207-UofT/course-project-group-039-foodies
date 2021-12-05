@@ -13,6 +13,7 @@ import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.UserInterface.Commands.GroupRecipeBookCommands.*;
 import main.java.UserInterface.Commands.GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
 import main.java.UserInterface.Commands.GroupRecipeBookCommands.AddGroupSubRecipeBookCommand;
+//import main.java.UserInterface.Commands.GroupRecipeViewerCommands.GetNewGroupRecipeCommand; //TODO: check
 import main.java.UserInterface.Commands.RecipeBookCommands.*;
 import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
@@ -60,6 +61,14 @@ public class PageManager {
             }
     );
 
+//    Page groupRecipeViewer = new Page(
+//            signedIn,
+//            new Command[]{
+//                    new GetNewGroupRecipeCommand(),
+//
+//            }
+//    );
+
     Page recipeBook = new Page(
             signedIn,
             new Command[] {
@@ -75,11 +84,16 @@ public class PageManager {
     Page groupRecipeBook = new Page(
             signedIn,
             new Command[] {
-                    // TODO: finish the body
+                    new ListGroupSubRecipeBooksCommand(),
+                    new EnterGroupSubRecipeBookCommand(),
+                    new AddGroupSubRecipeBookCommand(),
+                    new DeleteGroupSubRecipeBookCommand(),
+                    new RemoveGroupRecipeCommand(),
+                    new GoBackCommand()
             }
     );
 
-    Page subrecipeBook = new Page(
+    Page subRecipeBook = new Page(
             recipeBook,
             new Command[] {
                     new ListSubRecipeBookRecipesCommand(),
@@ -92,7 +106,10 @@ public class PageManager {
     Page groupSubRecipeBook = new Page(
             groupRecipeBook,
             new Command[] {
-                    // TODO: finish the body
+                    //TODO: new ListGroupSubRecipeBookRecipesCommand(),
+                    new RemoveGroupRecipeCommand(),
+                    //TODO: new RateGroupRecipeCommand(),    do we need this? - check
+                    new GoBackCommand()
             }
     );
 
@@ -134,12 +151,10 @@ public class PageManager {
         setPage(recipeBook);
     }
     public void enterSubRecipeBook() {
-        setPage(subrecipeBook);
+        setPage(subRecipeBook);
     }
     public void enterGroupRecipeBook() { setPage(groupRecipeBook); }
-
     public void enterGroupSubRecipeBook() { setPage(groupSubRecipeBook);}
-
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
