@@ -1,10 +1,9 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
-import main.java.UserInterface.GUI.Application;
+import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
@@ -25,15 +24,15 @@ public class Groups {
 
     private void initialize() {
         groups = new JFrame();
-        groups.setBounds(100, 100, 450, 300);
+        groups.setBounds(80, 100, 450, 300);
         groups.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         groups.setTitle("Recipick");
         groups.getContentPane().setLayout(null);
 
         // title
-        JLabel label = new JLabel("Groups");
+        JLabel label = new JLabel("Manage Groups");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(200, 11, 170, 41);
+        label.setBounds(160, 11, 170, 41);
         groups.getContentPane().add(label);
 
         JButton createGroup = GUIForm.createButtonFromCommand(new CreateGroupCommand());
@@ -47,6 +46,10 @@ public class Groups {
         JButton removeMember = GUIForm.createButtonFromCommand(new RemoveGroupMemberCommand());
         removeMember.setBounds(140, 130, 170, 23);
         groups.getContentPane().add(removeMember);
+
+        JButton viewJoinedGroups = GUIForm.createButtonFromCommand(new ViewGroupsCommand());
+        viewJoinedGroups.setBounds(130, 170, 200, 23);
+        groups.getContentPane().add(viewJoinedGroups);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(new ActionListener() {

@@ -5,6 +5,7 @@ import main.java.Entities.RecipeCollection;
 import main.java.Entities.User;
 import main.java.Gateways.RecipeCSVReader;
 import main.java.UserInterface.CLI.PageManager;
+import main.java.Entities.Group;
 
 abstract public class UserInterface {
     public boolean isRunning;
@@ -12,6 +13,7 @@ abstract public class UserInterface {
     private User user;
     private RecipeCollection recipes;
     private PreferenceBook preferences;
+    private Group group;
 
     protected UserInterface(PageManager pageManager) {
         recipes = RecipeCSVReader.getInstance().getRecipes();
@@ -40,6 +42,8 @@ abstract public class UserInterface {
     public User getUser() {
         return user;
     }
+
+    public Group getGroup() {return group;}
 
     public RecipeCollection getRecipeCollection() {
         return recipes;
