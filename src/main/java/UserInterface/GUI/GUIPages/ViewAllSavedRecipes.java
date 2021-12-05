@@ -2,9 +2,7 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-
-import javax.swing.JButton;
+import javax.swing.*;
 
 public class ViewAllSavedRecipes {
     public JFrame viewAllSavedRecipes;
@@ -29,6 +27,11 @@ public class ViewAllSavedRecipes {
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewAllSavedRecipes.getContentPane().add(btnExit);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewAllSavedRecipes.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

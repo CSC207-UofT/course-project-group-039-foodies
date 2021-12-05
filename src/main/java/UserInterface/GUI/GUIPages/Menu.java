@@ -70,10 +70,10 @@ public class Menu {
 
         });
 
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        menu.getContentPane().add(img);
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        menu.getContentPane().add(img);
 
         btnExit.setBounds(150, 220, 150, 23);
         menu.getContentPane().add(btnExit);

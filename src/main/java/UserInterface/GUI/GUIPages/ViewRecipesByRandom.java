@@ -26,12 +26,13 @@ public class ViewRecipesByRandom {
             Command getNewRecipe = new GetNewRecipeCommand();
             getNewRecipe.runAction(Application.getInstance());
         });
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        viewByRandom.getContentPane().add(img);
 
         ViewTopPicks.viewRecipeButton(btnReady, viewByRandom);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewByRandom.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

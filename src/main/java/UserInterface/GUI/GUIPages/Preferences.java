@@ -53,13 +53,13 @@ public class Preferences {
 
         });
 
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        preferences.getContentPane().add(img);
-
         btnBack.setBounds(150, 210, 150, 23);
         preferences.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        preferences.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

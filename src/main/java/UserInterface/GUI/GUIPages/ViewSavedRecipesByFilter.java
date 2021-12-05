@@ -51,13 +51,13 @@ public class ViewSavedRecipesByFilter {
 
         });
 
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        viewSavedRecipesByFilter.getContentPane().add(img);
-
         btnServing.setBounds(150, 130, 150, 23);
         ViewTopPicks.viewRecipeContentPane(btnServing, viewSavedRecipesByFilter);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewSavedRecipesByFilter.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

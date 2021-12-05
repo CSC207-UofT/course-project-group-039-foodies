@@ -97,13 +97,13 @@ public class Signup {
                 signUp(user, new String(password), fullName, email);
             });
 
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        frame1.getContentPane().add(img);
-
         btnSignup.setBounds(260, 138, 89, 23);
         frame1.getContentPane().add(btnSignup);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        frame1.getContentPane().add(img);
     }
 
     private void signUp(String user, String password, String fullName, String email) {

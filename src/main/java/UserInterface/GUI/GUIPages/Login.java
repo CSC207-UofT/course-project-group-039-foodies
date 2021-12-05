@@ -72,10 +72,10 @@ public class Login {
 		btnLogin.setBounds(260, 138, 89, 23);
 		frame.getContentPane().add(btnLogin);
 
-//		JLabel img = new JLabel("New image");
-//		img.setIcon(new ImageIcon("src/food background.jpeg"));
-//		img.setBounds(0, 0, 460, 350);
-//		frame.getContentPane().add(img);
+		JLabel img = new JLabel("New image");
+		img.setIcon(new ImageIcon("src/white food background.jpeg"));
+		img.setBounds(0, 0, 460, 350);
+		frame.getContentPane().add(img);
 
 	}
 

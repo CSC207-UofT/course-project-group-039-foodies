@@ -46,11 +46,6 @@ public class Groups {
         removeMember.setBounds(140, 130, 170, 23);
         groups.getContentPane().add(removeMember);
 
-//        JLabel img = new JLabel("New image");
-//        img.setIcon(new ImageIcon("src/food background.jpeg"));
-//        img.setBounds(0, 0, 460, 300);
-//        groups.getContentPane().add(img);
-
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -61,6 +56,11 @@ public class Groups {
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        groups.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {
