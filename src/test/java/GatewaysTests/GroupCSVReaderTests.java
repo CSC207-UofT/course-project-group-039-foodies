@@ -49,7 +49,7 @@ public class GroupCSVReaderTests {
 
 
     @Test
-    public void removeGroup() {
+    public void removeGroupTest() {
         database.saveGroup("TestGroupCode1", "TestGroupName1", new ArrayList<>());
         database.saveGroup("TestGroupCode2", "TestGroupName", new ArrayList<>());
         database.saveGroup("TestGroupCode3", "TestGroupName3", new ArrayList<>());
@@ -63,7 +63,7 @@ public class GroupCSVReaderTests {
 
 
     @Test
-    public void addMember() {
+    public void addMemberTest() {
         ArrayList<String> members = new ArrayList<>();
         members.add("TestMember1");
         members.add("TestMember2");
@@ -80,7 +80,7 @@ public class GroupCSVReaderTests {
 
 
     @Test
-    public void removeMember() {
+    public void removeMemberTest() {
         ArrayList<String> members = new ArrayList<>();
         members.add("TestMember1");
         members.add("TestMember2");
@@ -98,7 +98,7 @@ public class GroupCSVReaderTests {
 
 
     @Test
-    public void getJoinedGroups() {
+    public void getJoinedGroupsTest() {
         ArrayList<String> members = new ArrayList<>();
         members.add("TestMember1");
         members.add("TestMember2");
@@ -115,18 +115,18 @@ public class GroupCSVReaderTests {
 
     }
 
+    @Test
+    public void getGroupTest() {
+        ArrayList<String> member = new ArrayList<String>();
+        member.add("TestMember10");
+        member.add("TestMember11");
+        member.add("TestMember12");
 
+        database.saveGroup("TestGroupCodeY", "TestGroupNameY", member);
 
-
-    //    @Test
-//    public void getGroupTest() {
-//        ArrayList<String> member = new ArrayList<String>();
-//        member.add("TestGroupMember");
-//        database.saveGroup("TestGroupName0", "TestGroupCode", member);
-//        Group group = database.getGroup("TestGroupName0");
-//        assertEquals("TestGroupName0", group.getGroupName());
-//        assertEquals("TestGroupCode", group.getGroupCode());
-//        assertEquals(member, group.getGroupMembers());
-//    }
-
+        assertEquals("TestGroupCodeY",
+                database.getGroup("TestGroupNameY", "TestMember10").getGroupCode());
+        assertEquals(member,
+                database.getGroup("TestGroupNameY", "TestMember10").getGroupMembers());
+    }
 }

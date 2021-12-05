@@ -1,7 +1,9 @@
 package main.java.Gateways;
 
 import main.java.Entities.Group;
+import main.java.UseCases.GroupFactory;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,7 +75,7 @@ public class GroupCSVReader extends CSVReader {
         return false;
     }
 
-    
+
     /**
      * Removes a group from the database
      * @param groupCode The group code of the group to remove
@@ -172,6 +174,17 @@ public class GroupCSVReader extends CSVReader {
 
     }
 
+
+    public Group getGroup(String groupName, String username) {
+        for (ArrayList<String> line : readFile()) {
+            if (!line.isEmpty() && line.get(1).equals(groupName) && line.get(2).contains(username)) {
+                String groupCode = line.get(0);
+                String groupMembers = line.get(2);
+                ArrayList<String> members = new ArrayList<>(Arrays.asList(groupMembers.split(",")));
+                return new Group(groupName, groupCode, members);
+            }
+        } return null;
+    }
 }
 
 

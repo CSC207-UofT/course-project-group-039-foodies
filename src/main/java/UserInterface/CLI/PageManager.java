@@ -10,6 +10,9 @@ import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
+import main.java.UserInterface.Commands.GroupRecipeBookCommands.*;
+import main.java.UserInterface.Commands.GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
+import main.java.UserInterface.Commands.GroupRecipeBookCommands.AddGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeBookCommands.*;
 import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
@@ -35,6 +38,7 @@ public class PageManager {
             signedOut,
             new Command[] {
                     new EnterRecipeBookCommand(),
+                    new EnterGroupRecipeBookCommand(),
                     new EnterRecipeViewerCommand(),
                     new SignOutCommand(),
                     new UpdatePreferencesCommand(),
@@ -67,6 +71,14 @@ public class PageManager {
                     new GoBackCommand()
             }
     );
+
+    Page groupRecipeBook = new Page(
+            signedIn,
+            new Command[] {
+                    new AddGroupSubRecipeBookCommand(),
+                    new GoBackCommand()
+            }
+    );
     
     Page subrecipeBook = new Page(
             recipeBook,
@@ -84,7 +96,8 @@ public class PageManager {
                     new CreateGroupCommand(),
                     new AddGroupMemberCommand(),
                     new RemoveGroupMemberCommand(),
-                    new ViewGroupsCommand()
+                    new ViewGroupsCommand(),
+                    new GoBackCommand()
             }
     );
 
@@ -117,6 +130,7 @@ public class PageManager {
     public void enterSubRecipeBook() {
         setPage(subrecipeBook);
     }
+    public void enterGroupRecipeBook() { setPage(groupRecipeBook); }
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }

@@ -11,7 +11,7 @@ public class ViewGroupsCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        String username = UI.queryUser("Input your username");
+        String username = UI.getUser().getUsername();
         String joinedGroups = GroupCSVReader.getInstance().getJoinedGroups(username);
         UI.displayMessage(joinedGroups);
     }
