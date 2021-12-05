@@ -1,6 +1,6 @@
 package main.java.Entities;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *  A Recipe Book that stores a list of the sub-Recipe Books and an default subrecipe book
@@ -154,6 +154,44 @@ public class RecipeBook {
     public int size() {
         return this.showSubRecipeBook("allrecipes").size();
     }
+
+    /**
+     * Return all the ingredients in a user's RecipeBook and their frequencies.
+     * @return a hashmap of ingredients and their frequencies.
+     */
+    public HashMap<String, Integer> getAllIngredients() {
+        HashMap<String, Integer> ingredients = new HashMap<>();
+        for (Recipe recipe : this.getAllRecipes()) {
+            for (String ingredient : recipe.getIngredients()) {
+                ingredients.put(ingredient, ingredients.get(ingredient) + 1);
+            }
+        }
+        return ingredients;
+    }
+
+    /**
+     * Return the top 10 ingredients in a user's recipebook.
+     *
+     * @return a list of the 10 most frequent ingredients in the subrecipebook.
+     */
+
+    public HashMap<String, Integer> getTopIngredients() {
+        ArrayList<Integer> values = new ArrayList<>(this.getAllIngredients().values());
+        values.sort(Collections.reverseOrder());
+
+        HashMap<String, Integer> top10Map = new HashMap<>();
+        for (Integer value : values) {for (String ingredient : this.getAllIngredients().keySet()) {
+                if (this.getAllIngredients().get(ingredient).equals(value)) {
+                    top10Map.put(ingredient, value);
+                    values.remove(value);
+                }
+            }
+        }
+        return top10Map;
+    }
+
+
+
 
 
 }
