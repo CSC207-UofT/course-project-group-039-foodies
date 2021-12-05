@@ -75,8 +75,7 @@ public class PageManager {
     Page groupRecipeBook = new Page(
             signedIn,
             new Command[] {
-                    new AddGroupSubRecipeBookCommand(),
-                    new GoBackCommand()
+                    // TODO: finish the body
             }
     );
 
@@ -87,6 +86,13 @@ public class PageManager {
                     new RemoveRecipeCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()
+            }
+    );
+
+    Page groupSubRecipeBook = new Page(
+            groupRecipeBook,
+            new Command[] {
+                    // TODO: finish the body
             }
     );
 
@@ -131,6 +137,9 @@ public class PageManager {
         setPage(subrecipeBook);
     }
     public void enterGroupRecipeBook() { setPage(groupRecipeBook); }
+
+    public void enterGroupSubRecipeBook() { setPage(groupSubRecipeBook);}
+
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
