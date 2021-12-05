@@ -28,7 +28,7 @@ public class PreferenceBookCSVReader extends CSVReader {
     }
 
     /**
-     * Create a new preference book given a user object. Used when a new user signs up.
+     * Create a new preference book given a user object. Default empty preferences when a new user signs up.
      * @param user The user object being added.
      */
     public void addPreferenceBook(String user) {
@@ -36,8 +36,8 @@ public class PreferenceBookCSVReader extends CSVReader {
         ArrayList<String> emptyRatings = new ArrayList<>();
         ArrayList<String> emptyOmit = new ArrayList<>();
         ArrayList<String> emptyInclude = new ArrayList<>();
-        String emptyDiet = "";
-        addPreferenceBook(user, emptyOmit, emptyInclude, emptyRecipes, emptyRatings, emptyDiet);
+        String defaultDiet = "No Diet";
+        addPreferenceBook(user, emptyOmit, emptyInclude, emptyRecipes, emptyRatings, defaultDiet);
     }
 
     public void addPreferenceBook(String username, ArrayList<String> omit, ArrayList<String> include, ArrayList<String> recipes,
@@ -86,7 +86,8 @@ public class PreferenceBookCSVReader extends CSVReader {
         }
     }
 
-    public void removePreferences(String username, int index, String preference, int prefIndex) {
+    //for removing ratings; linked to recipes
+    public void removePreferences(String username, int index, int prefIndex) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
                 removePreferenceBook(username);
@@ -135,7 +136,7 @@ public class PreferenceBookCSVReader extends CSVReader {
                 }
             }
             removePreferences(username, 3, recipe);
-            removePreferences(username, 4, String.valueOf(rating), index);
+            removePreferences(username, 4, index);
         }
     }
 

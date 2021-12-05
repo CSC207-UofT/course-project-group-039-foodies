@@ -60,6 +60,9 @@ public class UserCSVReader extends CSVReader {
      * @return A boolean representing whether there is a user
      */
     public boolean isUser(String username) {
+        if (readFile().isEmpty()) { //for empty file case
+            return false;
+        }
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
                 return true;

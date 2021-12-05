@@ -22,7 +22,7 @@ public class PreferenceBook{
         this.include = new ArrayList<>();
 //        this.time = new ArrayList<>();
         this.ratingMap = new HashMap<>();
-        this.diet = null;
+        this.diet = "No Diet";
     }
 
     public PreferenceBook(String user, ArrayList<String> omit, ArrayList<String> include) {
@@ -32,7 +32,7 @@ public class PreferenceBook{
         this.include = include;
 //        this.time = time;
         this.ratingMap = new HashMap<>();
-        this.diet = null;
+        this.diet = "No Diet";
     }
 
     public void addRating(Recipe recipe, Double rating) {
