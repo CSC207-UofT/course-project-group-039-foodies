@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.Gateways.GroupCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;

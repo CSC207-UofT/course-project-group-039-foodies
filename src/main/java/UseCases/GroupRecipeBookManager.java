@@ -14,7 +14,6 @@ import java.util.Iterator;
  *A public class which manages the group activities of the OverallRecipeBook.
  */
 public class GroupRecipeBookManager {
-<<<<<<< HEAD
     GroupRecipeBook overallGroupRecipeBook;
 
     /**
@@ -154,6 +153,4 @@ public class GroupRecipeBookManager {
 
 
     public void rateRecipe(User user, String recipeName, int rating) {}
-=======
->>>>>>> origin/main
 }

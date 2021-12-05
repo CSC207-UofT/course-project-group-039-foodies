@@ -4,16 +4,17 @@ import main.java.UserInterface.Commands.AdminCommands.CreateAccountCommand;
 import main.java.UserInterface.Commands.AdminCommands.SignInCommand;
 import main.java.UserInterface.Commands.AdminCommands.SignOutCommand;
 import main.java.UserInterface.Commands.Command;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.EnterGeneralRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.ListGroupSubRecipeBooksCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.*;
 import main.java.UserInterface.Commands.GoBackCommand;
 import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
-import main.java.UserInterface.Commands.GroupRecipeBookCommands.*;
-import main.java.UserInterface.Commands.GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
-import main.java.UserInterface.Commands.GroupRecipeBookCommands.AddGroupSubRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.*;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.AddGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
@@ -37,8 +38,9 @@ public class PageManager {
     Page signedIn = new Page(
             signedOut,
             new Command[] {
-                    new EnterRecipeBookCommand(),
-                    new EnterGroupRecipeBookCommand(),
+                    // new EnterRecipeBookCommand(),
+                    // new EnterGroupRecipeBookCommand(),
+                    new EnterGeneralRecipeBookCommand(),
                     new EnterRecipeViewerCommand(),
                     new SignOutCommand(),
                     new UpdatePreferencesCommand(),
@@ -46,16 +48,11 @@ public class PageManager {
             }
     );
 
-    Page recipeViewer = new Page(
+    Page generalRecipeBook = new Page(
             signedIn,
-            new Command[]  {
-                    new GetNewRecipeCommand(),
-                    new RateRecipeCommand(), //remove this
-                    new AddToRecipeBookCommand(),
-                    new SortRecipeBookCommand(),
-                    new FilterRecipeBookCommand(),
-                    new RemoveFilterCommand(),
-                    new RemoveSortCommand(),
+            new Command[] {
+                    new EnterRecipeBookCommand(),
+                    new EnterGroupRecipeBookCommand(),
                     new GoBackCommand()
             }
     );
@@ -75,12 +72,27 @@ public class PageManager {
     Page groupRecipeBook = new Page(
             signedIn,
             new Command[] {
+                    new ListGroupSubRecipeBooksCommand(),
                     new AddGroupSubRecipeBookCommand(),
                     new GoBackCommand()
             }
     );
+
+    Page recipeViewer = new Page(
+            signedIn,
+            new Command[]  {
+                    new GetNewRecipeCommand(),
+                    new RateRecipeCommand(), //remove this
+                    new AddToRecipeBookCommand(),
+                    new SortRecipeBookCommand(),
+                    new FilterRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
+                    new GoBackCommand()
+            }
+    );
     
-    Page subrecipeBook = new Page(
+    Page subRecipeBook = new Page(
             recipeBook,
             new Command[] {
                     new ListSubRecipeBookRecipesCommand(),
@@ -124,11 +136,12 @@ public class PageManager {
     public void signOut() {
         setPage(signedOut);
     }
+    public void enterGeneralRecipeBook() { setPage(generalRecipeBook); }
     public void enterRecipeBook() {
         setPage(recipeBook);
     }
     public void enterSubRecipeBook() {
-        setPage(subrecipeBook);
+        setPage(subRecipeBook);
     }
     public void enterGroupRecipeBook() { setPage(groupRecipeBook); }
     public void enterRecipeViewer() {
