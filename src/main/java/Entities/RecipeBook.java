@@ -187,7 +187,15 @@ public class RecipeBook {
                 }
             }
         }
-        return top10Map;
+        int limit = 0;
+        HashMap<String, Integer> top10 = new HashMap<>();
+        for (Map.Entry<String, Integer> set : top10Map.entrySet()) {
+            if (limit < 11){
+                limit ++;
+                top10.put(set.getKey(), set.getValue());
+            }
+        }
+        return top10;
     }
 
 
