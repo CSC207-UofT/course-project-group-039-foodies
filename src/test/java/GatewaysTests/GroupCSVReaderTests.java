@@ -88,4 +88,19 @@ public class GroupCSVReaderTests {
         database.addMember("TestGroupCodeC", "TestMember3");
         database.removeMember("TestGroupCodeC", "TestMember3");
     }
+    
+    
+    @Test
+    public void getJoinedGroups() {
+        ArrayList<String> members = new ArrayList<>();
+        members.add("TestMember10");
+        members.add("TestMember20");
+
+        database.saveGroup("TestGroupCode100", "TestGroupName100", members);
+
+        assertTrue(database.isGroup("TestGroupCode100"));
+        assertTrue(database.containsMember("TestGroupCode100", "TestMember10"));
+        assertTrue(database.containsMember("TestGroupCode100", "TestMember20"));
+        assertTrue(database.getJoinedGroups("TestMember10").contains("TestGroupCode100"));
+    }
 }
