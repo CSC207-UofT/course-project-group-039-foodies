@@ -30,8 +30,9 @@ public class Start {
 
         // title
         JLabel label = new JLabel("Recipick", SwingConstants.CENTER);
-        label.setFont(new Font("Tahoma", Font.BOLD, 20));
-        label.setBounds(150, 80, 170, 50);
+        label.setFont(new Font("Copperplate", Font.BOLD, 40));
+        label.setForeground(Color.WHITE);
+        label.setBounds(150, 80, 175, 50);
         start.getContentPane().add(label);
 
         JButton btnLogin = new JButton("Log in");

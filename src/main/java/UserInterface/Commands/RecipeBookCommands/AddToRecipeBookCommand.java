@@ -27,7 +27,7 @@ public class AddToRecipeBookCommand extends Command {
             RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
             String subRecipeBookName = UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to");
             if (recipeBookManager.containsSubRecipeBook(subRecipeBookName)) {
-                SubRecipeBook subrecipebook = recipeBookManager.findsubrecipebook(subRecipeBookName);
+                SubRecipeBook subrecipebook = recipeBookManager.findSubRecipeBook(subRecipeBookName);
                 recipeBookManager.addRecipe(subRecipeBookName, recipe);
                 RecipeBookCSVReader.getInstance().updateRecipeBookCSV(UI.getUser(), subrecipebook);
                 UI.displayMessage("Recipe added successfully");

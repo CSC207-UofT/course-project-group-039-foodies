@@ -5,12 +5,13 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter out the recipes that contains ingredients which may cause allergy.
+ * Filter out the recipes that contain ingredients that may cause allergies.
  */
 public class AllergyFilter implements Filter{
     private final String ingredient;
 
     /**
+     * Initialize the AllergyFilter.
      * @param ingredient Ingredient that may cause allergy.
      */
     public AllergyFilter(String ingredient) {
@@ -18,6 +19,7 @@ public class AllergyFilter implements Filter{
     }
 
     /**
+     * Loop through the Array of Recipes and filter out recipes that contains certain ingredient.
      * @return Array of Recipes that is completely filtered based on the ingredient.
      */
     @Override
@@ -31,6 +33,12 @@ public class AllergyFilter implements Filter{
         return result.toArray(new Recipe[0]);
     }
 
+    /**
+     * Check whether two AllergyFilter classes are same (i.e. filter out same ingredient).
+     * @param obj an instance of a filter class that implements Filter interface.
+     * @return true if obj is another AllergyFilter, and it is filtering same ingredient with itself.
+     * false if obj is not an AllergyFilter, or it is not filtering same ingredient with itself.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof AllergyFilter) {

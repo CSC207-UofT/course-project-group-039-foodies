@@ -5,12 +5,13 @@ import main.java.Entities.Recipe;
 import java.util.ArrayList;
 
 /**
- * Filter Recipes based on the number of servings.
+ * Filter Recipes based on the numbers of servings.
  */
 public class ServingsFilter implements Filter {
     private final int servings;
 
     /**
+     * Initialize the ServingsFilter.
      * @param servings Number of servings.
      */
     public ServingsFilter(int servings) {
@@ -18,6 +19,7 @@ public class ServingsFilter implements Filter {
     }
 
     /**
+     * Loop through Array of Recipes and filter the recipes with certain number of servings.
      * @return Array of Recipes that is completely filtered based on the number of servings.
      */
     @Override
@@ -31,6 +33,12 @@ public class ServingsFilter implements Filter {
         return result.toArray(new Recipe[0]);
     }
 
+    /**
+     * Check whether two ServingsFilter classes are the same (i.e. filter same number of servings).
+     * @param obj an instance of a filter class that implements Filter interface.
+     * @return true if obj is another ServingsFilter, and it is filtering same number of servings with itself.
+     * false if obj is not an ServingsFilter, or it is not filtering same number of servings with itself.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof ServingsFilter) {
