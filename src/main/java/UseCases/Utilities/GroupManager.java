@@ -70,6 +70,7 @@ public class GroupManager {
         }
     }
 
+
     /**
      * Show all the group information that a user has joined in.
      * @param username The username of a user .

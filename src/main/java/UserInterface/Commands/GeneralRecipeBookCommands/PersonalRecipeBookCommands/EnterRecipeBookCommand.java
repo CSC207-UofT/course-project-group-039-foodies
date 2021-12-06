@@ -6,7 +6,8 @@ import main.java.UserInterface.UserInterface;
 
 public class EnterRecipeBookCommand extends Command {
     public EnterRecipeBookCommand() {
-        super("enter recipe book", "Enters the recipe book");
+        super("enter personal recipe book",
+                "Enters the personal recipe book");
     }
 
     @Override
