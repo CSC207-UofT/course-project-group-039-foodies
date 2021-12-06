@@ -102,6 +102,5 @@ public class GroupCSVReaderTests {
         assertTrue(database.containsMember("TestGroupCodeD", "TestMember1"));
         assertTrue(database.containsMember("TestGroupCodeD", "TestMember2"));
         assertTrue(database.getJoinedGroups("TestMember1").contains("TestGroupCodeD"));
-
     }
 }
