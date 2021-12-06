@@ -9,7 +9,7 @@ import main.java.UserInterface.UserInterface;
 
 public class ListSubRecipeBooksCommand extends Command {
     public ListSubRecipeBooksCommand() {
-        super("show subrecipebooks", "show all the SubRecipeBooks contained in RecipeBook");
+        super("show sub recipe books", "show all the SubRecipeBooks contained in RecipeBook");
     }
 
     @Override

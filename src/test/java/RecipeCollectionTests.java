@@ -5,11 +5,9 @@ import main.java.Entities.RecipeCollection;
 import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.RecipeFactory;
 import main.java.UseCases.Sorts.ServingsSort;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;

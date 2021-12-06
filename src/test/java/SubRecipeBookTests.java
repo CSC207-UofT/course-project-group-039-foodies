@@ -19,103 +19,103 @@ public class SubRecipeBookTests {
 
     @Test
     public void addRecipeTest() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         //create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        subrecipebook.addRecipe(recipe1);
-        assertTrue(subrecipebook.containsRecipe(recipe1));
+        subRecipeBook.addRecipe(recipe1);
+        assertTrue(subRecipeBook.containsRecipe(recipe1));
     }
 
     @Test
     public void removeRecipeTest() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         //create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        subrecipebook.addRecipe(recipe1);
-        assertTrue(subrecipebook.containsRecipe(recipe1));
+        subRecipeBook.addRecipe(recipe1);
+        assertTrue(subRecipeBook.containsRecipe(recipe1));
 
         //remove a recipe
-        subrecipebook.removeRecipe(recipe1);
-        assertFalse(subrecipebook.containsRecipe(recipe1));
+        subRecipeBook.removeRecipe(recipe1);
+        assertFalse(subRecipeBook.containsRecipe(recipe1));
     }
 
     @Test
     public void getRecipes() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         // create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        // add recipe to the subrecipebook
-        subrecipebook.addRecipe(recipe1);
+        // add recipe to the subRecipeBook
+        subRecipeBook.addRecipe(recipe1);
 
-        Recipe[] recipes = subrecipebook.getRecipes();
+        Recipe[] recipes = subRecipeBook.getRecipes();
         assertEquals(1, recipes.length);
     }
 
     @Test
     public void getRecipeTest() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         // create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        // add recipe to the subrecipebook
-        subrecipebook.addRecipe(recipe1);
+        // add recipe to the subRecipeBook
+        subRecipeBook.addRecipe(recipe1);
 
-        Recipe recipereturned = subrecipebook.getRecipe("pancakes");
-        assertEquals("pancakes", recipereturned.getName());
+        Recipe recipeReturned = subRecipeBook.getRecipe("pancakes");
+        assertEquals("pancakes", recipeReturned.getName());
     }
 
     @Test
     public void containsRecipeTest() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         // create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        // add recipe to the subrecipebook
-        subrecipebook.addRecipe(recipe1);
-        assertTrue(subrecipebook.containsRecipe(recipe1));
+        // add recipe to the subRecipeBook
+        subRecipeBook.addRecipe(recipe1);
+        assertTrue(subRecipeBook.containsRecipe(recipe1));
     }
 
     @Test
     public void sizeTest() {
-        SubRecipeBook subrecipebook = new SubRecipeBook("123", "123");
+        SubRecipeBook subRecipeBook = new SubRecipeBook("123", "123");
 
         // create new recipe
-        ArrayList<String> pancakeingre = new ArrayList<>();
-        pancakeingre.add("milk");
-        pancakeingre.add("pancake mix");
+        ArrayList<String> pancakeIngredients = new ArrayList<>();
+        pancakeIngredients.add("milk");
+        pancakeIngredients.add("pancake mix");
         Recipe recipe1 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-                pancakeingre, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+                pancakeIngredients, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-        // add recipe to the subrecipebook
-        subrecipebook.addRecipe(recipe1);
-        assertEquals(1, subrecipebook.size());
+        // add recipe to the subRecipeBook
+        subRecipeBook.addRecipe(recipe1);
+        assertEquals(1, subRecipeBook.size());
     }
 }
