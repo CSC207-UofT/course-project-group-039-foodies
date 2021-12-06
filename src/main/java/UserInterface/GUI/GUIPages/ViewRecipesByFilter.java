@@ -36,6 +36,14 @@ public class ViewRecipesByFilter {
         removeFilter.setBounds(150, 100, 150, 23);
         viewRecipesByFilter.getContentPane().add(removeFilter);
 
+        JButton btnExit = new JButton("Back");
+        btnExit.addActionListener(e -> {
+            viewRecipesByFilter.setVisible(false);
+            GUIForm.newRecipes.setVisible(true);
+        });
+        btnExit.setBounds(150, 210, 150, 23);
+        viewRecipesByFilter.getContentPane().add(btnExit);
+
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
         img.setBounds(0, 0, 460, 300);

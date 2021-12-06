@@ -4,8 +4,7 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSavedSortCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import javax.swing.*;
 
 
 /**
@@ -44,6 +43,11 @@ public class ViewSavedRecipesBySort {
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewSavedRecipesBySort.getContentPane().add(btnExit);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewSavedRecipesBySort.getContentPane().add(img);
     }
 
     /**

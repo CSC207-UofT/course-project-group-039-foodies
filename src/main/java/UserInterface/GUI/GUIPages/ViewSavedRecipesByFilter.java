@@ -37,14 +37,16 @@ public class ViewSavedRecipesByFilter {
 
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-            GUIForm.showRecipes.setVisible(true);
-
-            JLabel img = new JLabel("New image");
-            img.setIcon(new ImageIcon("src/food background.jpeg"));
-            img.setBounds(0, 0, 460, 300);
-            viewSavedRecipesByFilter.getContentPane().add(img);
+                    viewSavedRecipesByFilter.setVisible(false);
+                    GUIForm.showRecipes.setVisible(true);
         });
+        btnExit.setBounds(150, 210, 150, 23);
+        viewSavedRecipesByFilter.getContentPane().add(btnExit);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewSavedRecipesByFilter.getContentPane().add(img);
     }
 
     /**
