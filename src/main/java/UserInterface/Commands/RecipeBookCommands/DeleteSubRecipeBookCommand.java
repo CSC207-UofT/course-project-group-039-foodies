@@ -9,7 +9,7 @@ import main.java.UserInterface.UserInterface;
 public class DeleteSubRecipeBookCommand extends Command {
 
     public DeleteSubRecipeBookCommand() {
-        super("delete subrecipebook", "deletes the subrecipe book with name provided");
+        super("delete sub recipe book", "deletes the sub-recipe book with name provided");
     }
 
     public void runAction(UserInterface UI) {

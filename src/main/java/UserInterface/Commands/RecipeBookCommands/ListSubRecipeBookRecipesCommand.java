@@ -14,7 +14,7 @@ import main.java.UserInterface.UserInterface;
 public class ListSubRecipeBookRecipesCommand extends Command {
 
     public ListSubRecipeBookRecipesCommand() {
-        super("show recipes in subrecipebook", "Lists the recipes of the SubRecipeBook");
+        super("show recipes", "Lists the recipes of the SubRecipeBook");
     }
 
     @Override
@@ -23,12 +23,12 @@ public class ListSubRecipeBookRecipesCommand extends Command {
         RecipeBookManager recipebookmanager = new RecipeBookManager(UI.getUser());
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
-                recipebookmanager.findsubrecipebook(subRecipeBookName));
+                recipebookmanager.findSubRecipeBook(subRecipeBookName));
             for (Recipe recipe : subRecipeBookManager.getRecipes()) {
                 UI.displayMessage(recipe.toString());
             }
         } else {
-            UI.displayMessage("The subrecipebook that you requested does not exist");
+            UI.displayMessage("The sub recipe book that you requested does not exist");
         }
     }
 }
