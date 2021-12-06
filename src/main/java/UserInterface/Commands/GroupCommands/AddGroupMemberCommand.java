@@ -26,3 +26,4 @@ public class AddGroupMemberCommand extends Command {
         }
     }
 }
+
