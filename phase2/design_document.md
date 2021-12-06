@@ -1,4 +1,4 @@
-# PHASE 1 : DESIGN DOCUMENT
+# PHASE 2 : DESIGN DOCUMENT
 
 ## Summary of Specification
 
