@@ -23,7 +23,7 @@ public class ListSubRecipeBookRecipesCommand extends Command {
         RecipeBookManager recipebookmanager = new RecipeBookManager(UI.getUser());
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
-                recipebookmanager.findsubrecipebook(subRecipeBookName));
+                recipebookmanager.findSubRecipeBook(subRecipeBookName));
             for (Recipe recipe : subRecipeBookManager.getRecipes()) {
                 UI.displayMessage(recipe.toString());
             }
