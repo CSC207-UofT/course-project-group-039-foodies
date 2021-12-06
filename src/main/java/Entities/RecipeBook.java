@@ -4,6 +4,8 @@ import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 /**
  *  A Recipe Book that stores a list of the sub recipe books for a user.

@@ -41,8 +41,8 @@ public class ViewRecipesByFilter {
         img.setBounds(0, 0, 460, 300);
         viewRecipesByFilter.getContentPane().add(img);
 
-        btnServing.setBounds(150, 130, 150, 23);
-        ViewTopPicks.viewRecipeContentPane(btnServing, viewRecipesByFilter);
+        // btnServing.setBounds(150, 130, 150, 23);
+        // ViewTopPicks.viewRecipeContentPane(btnServing, viewRecipesByFilter);
     }
 
     /**
