@@ -100,7 +100,6 @@ public class GroupCSVReader extends CSVReader {
      * Adds a member to a certain group
      * @param groupCode The group code
      * @param username The username to be added
-     * @return A boolean representing whether a new member is successfully added to a certain group
      */
     public void addMember(String groupCode, String username) {
         if (isGroup(groupCode) && containsMember(groupCode, username)) {
@@ -128,7 +127,6 @@ public class GroupCSVReader extends CSVReader {
      * Removes a member from a certain group
      * @param groupCode The group code
      * @param username The username to be removed
-     * @return A boolean representing whether a new member is successfully removed from a certain group
      */
     public void removeMember(String groupCode, String username) {
         if (isGroup(groupCode) && containsMember(groupCode, username)) {

@@ -6,7 +6,6 @@ import main.java.Entities.Group;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -35,7 +34,7 @@ public class GroupCSVReaderTests {
         member.add("TestMember2");
         member.add("TestMember3");
 
-        Group group0 = new Group("TestGroupCode0", "TestGroupName", member);
+        Group group0 = new Group("TestGroupName", "TestGroupCode0", member);
 
         database.saveGroup(group0);
 
