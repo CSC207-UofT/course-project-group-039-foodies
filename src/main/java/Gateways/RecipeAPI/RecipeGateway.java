@@ -107,3 +107,4 @@ public class RecipeGateway {
         rg.getNewRecipes(30);
     }
 }
+
