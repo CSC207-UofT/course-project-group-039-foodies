@@ -8,7 +8,6 @@ import main.java.Entities.User;
 import main.java.Entities.Group;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *A public class which manages the group activities of the OverallRecipeBook.

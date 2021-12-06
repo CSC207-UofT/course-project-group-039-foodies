@@ -9,10 +9,10 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class Groups {
     public JFrame groups;

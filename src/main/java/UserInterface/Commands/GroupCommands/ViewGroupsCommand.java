@@ -16,3 +16,4 @@ public class ViewGroupsCommand extends Command {
         UI.displayMessage(joinedGroups);
     }
 }
+

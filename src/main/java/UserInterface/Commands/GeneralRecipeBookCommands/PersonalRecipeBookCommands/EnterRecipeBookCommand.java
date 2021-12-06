@@ -4,6 +4,7 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.UserInterface.UserInterface;
 
+
 public class EnterRecipeBookCommand extends Command {
     public EnterRecipeBookCommand() {
         super("enter personal recipe book",

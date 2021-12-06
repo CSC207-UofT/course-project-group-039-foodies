@@ -22,7 +22,6 @@ public class GroupRecipeBook {
                 "a recipebook with all the group recipes ever added"));
     }
 
-
     /**
      * Create a new group sub-recipe book in OverallRecipeBook with name and description description.
      * @param name        - name of subrecipe book
@@ -30,7 +29,6 @@ public class GroupRecipeBook {
      */
     public void addGroupSubRecipeBook(String name, String description) {
     }
-
 
     public void addGroupSubRecipeBook(String name) {
         this.groupSubRecipeBooks.add(new GroupSubRecipeBook(name,

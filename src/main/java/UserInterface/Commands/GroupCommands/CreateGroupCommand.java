@@ -6,6 +6,7 @@ import main.java.Entities.Group;
 import main.java.UseCases.GroupFactory;
 import main.java.Gateways.GroupCSVReader;
 
+
 public class CreateGroupCommand extends Command {
     public CreateGroupCommand()  {
         super("create group", "Creates a new group");

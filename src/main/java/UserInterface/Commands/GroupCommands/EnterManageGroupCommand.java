@@ -16,4 +16,3 @@ public class EnterManageGroupCommand extends Command {
         help.runAction(UI);
     }
 }
-

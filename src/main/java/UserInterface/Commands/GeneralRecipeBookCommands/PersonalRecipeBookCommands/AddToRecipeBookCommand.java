@@ -8,6 +8,7 @@ import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
+
 public class AddToRecipeBookCommand extends Command {
 
     public AddToRecipeBookCommand() {

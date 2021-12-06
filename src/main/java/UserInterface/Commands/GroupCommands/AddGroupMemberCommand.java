@@ -5,7 +5,6 @@ import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
 import main.java.Gateways.UserCSVReader;
 
-
 public class AddGroupMemberCommand extends Command {
     public AddGroupMemberCommand()  {
         super("add group member", "Adds a new group member");
