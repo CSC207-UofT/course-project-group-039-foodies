@@ -1,10 +1,8 @@
-package main.java.UserInterface.Commands.RecipeBookCommands;
+package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
-import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;

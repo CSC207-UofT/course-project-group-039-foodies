@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-
 public class GroupRecipeBookCSVReader extends CSVReader {
     private final static GroupRecipeBookCSVReader instance = new GroupRecipeBookCSVReader(
             System.getProperty("user.dir") +

@@ -66,3 +66,4 @@ public class GroupSubRecipeBookManager {
         groupSubRecipeBook.removeRecipe(recipe);
     }
 }
+

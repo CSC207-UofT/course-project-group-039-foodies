@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class GroupCSVReader extends CSVReader {
     private final static GroupCSVReader instance = new GroupCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/groups.csv"

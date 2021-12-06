@@ -3,10 +3,10 @@ package main.java.UseCases;
 import main.java.Entities.Group;
 import java.util.ArrayList;
 
+
 public class GroupFactory{
 
     private static final ArrayList<String> usedCodes = new ArrayList<>();
-
 
     /**
      * Generates a unique 7 digit group code.

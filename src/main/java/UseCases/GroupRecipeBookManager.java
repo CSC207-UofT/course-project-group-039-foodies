@@ -19,7 +19,8 @@ public class GroupRecipeBookManager {
      * Instantiate an overall recipe book manager for a particular group.
      */
     public GroupRecipeBookManager(Group group) {
-        this.overallGroupRecipeBook = group.getRecipeBook();}
+        this.overallGroupRecipeBook = group.getRecipeBook();
+    }
 
     public GroupRecipeBookManager(GroupRecipeBook overallGroupRecipeBook) {
         this.overallGroupRecipeBook = overallGroupRecipeBook;

@@ -6,7 +6,6 @@ import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
-
 /**
  * Allows the user to list all recipes in the recipe book
  */

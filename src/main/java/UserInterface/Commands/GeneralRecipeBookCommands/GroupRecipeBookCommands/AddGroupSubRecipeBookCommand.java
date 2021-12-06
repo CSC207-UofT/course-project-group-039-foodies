@@ -34,7 +34,7 @@ public class AddGroupSubRecipeBookCommand extends Command {
             groupRecipeBookManager.addSubRecipeBook(groupSubRecipeBookName, groupSubRecipeBookDesc);
 
             if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, groupSubRecipeBookName)) {
-                RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, groupSubRecipeBookName,
+                RecipeBookCSVReader.getInstance().addNewSubRecipeBook(user, groupSubRecipeBookName,
                         groupSubRecipeBookDesc);
                 UI.displayMessage("New SubRecipeBook with name " + groupSubRecipeBookName +
                         " and description " + groupSubRecipeBookDesc + " created successfully");
