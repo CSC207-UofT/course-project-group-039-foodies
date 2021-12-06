@@ -2,7 +2,6 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 
-
 /**
  *  A Group Recipe Book that stores a list of the Group sub-Recipe Books and a default subrecipe book
  *  to which all recipes are added.
