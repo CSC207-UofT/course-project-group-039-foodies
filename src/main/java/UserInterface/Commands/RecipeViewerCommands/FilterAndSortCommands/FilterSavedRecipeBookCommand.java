@@ -4,23 +4,20 @@ import main.java.UseCases.Filters.AllergyFilter;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.Filters.ServingsFilter;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
 /**
- * Filter recipes from the database.
+ * Filter recipes in the saved sub-recipe book.
  */
-public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
+public class FilterSavedRecipeBookCommand extends ChoiceCommand<FilterOption> {
     /**
-     * Initialize FilterRecipeBookCommand.
+     * Initialize FilterSavedRecipeBookCommand.
      */
-    public FilterRecipeBookCommand() {
-        super("filter", "Filters the recipes to be seen");
-    }
+    public FilterSavedRecipeBookCommand() {super("filter", "Filters the saved recipes to be seen"); }
 
     /**
-     * Add filter to the recipes in the database based on its given filter algorithm by the user.
+     * Add filter to the recipes in the saved sub-recipe book based on the given filtering algorithm by the user.
      * @param UI an instance of the user interface.
      */
     @Override
@@ -48,8 +45,8 @@ public class FilterRecipeBookCommand extends ChoiceCommand<FilterOption> {
                 break;
         }
 
-        RecipeCollectionFacade.addFilter(UI.getRecipeCollection(), filter);
+        String subRecipeBook = UI.queryUser("Input the name of Sub-recipe book that you want to filter");
+        UI.getUser().getRecipeBook().addFilter(subRecipeBook, filter);
         GetNewRecipeCommand.initializeIterator(UI);
     }
-
 }

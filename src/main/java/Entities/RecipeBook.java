@@ -3,7 +3,7 @@ package main.java.Entities;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  *  A Recipe Book that stores a list of the sub recipe books for a user.
@@ -210,7 +210,7 @@ public class RecipeBook {
         showSubRecipeBook(subRecipeBook).removeSort();
     }
   
-  /**
+    /**
      * Return all the ingredients in a user's RecipeBook and their frequencies.
      * @return a hashmap of ingredients and their frequencies.
      */
