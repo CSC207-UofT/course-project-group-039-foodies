@@ -4,8 +4,8 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import javax.swing.*;
+import java.awt.Font;
 
 
 /**
@@ -40,10 +40,17 @@ public class ViewRecipesByFilter {
         btnExit.addActionListener(e -> {
             viewRecipesByFilter.setVisible(false);
             GUIForm.newRecipes.setVisible(true);
-
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewRecipesByFilter.getContentPane().add(btnExit);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewRecipesByFilter.getContentPane().add(img);
+
+        // btnServing.setBounds(150, 130, 150, 23);
+        // ViewTopPicks.viewRecipeContentPane(btnServing, viewRecipesByFilter);
     }
 
     /**

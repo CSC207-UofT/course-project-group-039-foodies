@@ -4,6 +4,8 @@ import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 /**
  *  A Recipe Book that stores a list of the sub recipe books for a user.
@@ -208,5 +210,45 @@ public class RecipeBook {
      */
     public void removeSort(String subRecipeBook) {
         showSubRecipeBook(subRecipeBook).removeSort();
+    }
+  
+    /**
+     * Return all the ingredients in a user's RecipeBook and their frequencies.
+     * @return a hashmap of ingredients and their frequencies.
+     */
+    public HashMap<String, Integer> getAllIngredients() {
+        HashMap<String, Integer> ingredients = new HashMap<>();
+        for (Recipe recipe : this.getAllRecipes()) {
+            for (String ingredient : recipe.getIngredients()) {
+                ingredients.put(ingredient, ingredients.get(ingredient) + 1);
+            }
+        }
+        return ingredients;
+    }
+
+    /**
+     * Return the top 10 ingredients in a user's RecipeBook.
+     *
+     * @return a list of the 10 most frequent ingredients in the SubRecipeBook.
+     */
+
+    public ArrayList<String> getTopIngredients() {
+        ArrayList<Integer> values = new ArrayList<>(this.getAllIngredients().values());
+        values.sort(Collections.reverseOrder());
+        HashMap<String, Integer> top10Map = new HashMap<>();
+        int limit = 0;
+            for (Integer value : values) {
+                if (limit < 11) {
+                    limit ++;
+                    for (String ingredient : this.getAllIngredients().keySet()) {
+                    if (this.getAllIngredients().get(ingredient).equals(value)) {
+                        top10Map.put(ingredient, value);
+                        values.remove(value);
+                        this.getAllIngredients().keySet().remove(ingredient);
+                    }
+                }
+            }
+                }
+        return new ArrayList<>(top10Map.keySet());
     }
 }

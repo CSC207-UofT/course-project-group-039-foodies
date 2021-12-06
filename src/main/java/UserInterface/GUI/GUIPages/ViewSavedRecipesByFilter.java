@@ -4,9 +4,8 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSavedFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-
+import javax.swing.*;
+import java.awt.Font;
 
 /**
  * Create GUI page ViewSavedRecipesByFilter, which allows user to filter saved recipes.
@@ -38,12 +37,16 @@ public class ViewSavedRecipesByFilter {
 
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-            GUIForm.showRecipes.setVisible(true);
-
+                    viewSavedRecipesByFilter.setVisible(false);
+                    GUIForm.showRecipes.setVisible(true);
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewSavedRecipesByFilter.getContentPane().add(btnExit);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewSavedRecipesByFilter.getContentPane().add(img);
     }
 
     /**

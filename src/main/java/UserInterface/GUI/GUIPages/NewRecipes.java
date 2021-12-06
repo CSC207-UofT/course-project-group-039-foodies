@@ -3,10 +3,8 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 
 public class NewRecipes {
     public JFrame newRecipes;
@@ -73,8 +71,14 @@ public class NewRecipes {
             GUIForm.menu.setVisible(true);
 
         });
+
         btnBack.setBounds(150, 210, 150, 23);
         newRecipes.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        newRecipes.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {
