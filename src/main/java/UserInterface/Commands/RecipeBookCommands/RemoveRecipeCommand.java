@@ -23,11 +23,11 @@ public class RemoveRecipeCommand extends Command {
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
         SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
-                recipeBookManager.findsubrecipebook(subRecipeBookName));
+                recipeBookManager.findSubRecipeBook(subRecipeBookName));
         if (subRecipeBookManager.containsRecipe(recipeName)) {
             recipeBookManager.removeRecipe(subRecipeBookName,recipeName);
             RecipeBookCSVReader.getInstance().updateRecipeBookCSV(UI.getUser(),
-                    recipeBookManager.findsubrecipebook(subRecipeBookName));
+                    recipeBookManager.findSubRecipeBook(subRecipeBookName));
             UI.displayMessage("Recipe successfully deleted");
         } else {
             UI.displayMessage("Recipe not found in recipe book.");

@@ -2,20 +2,22 @@ package main.java.UseCases;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.SubRecipeBook;
-import main.java.Entities.User;
 
 public class SubRecipeBookManager {
     SubRecipeBook subRecipeBook;
 
-
-    public SubRecipeBookManager(SubRecipeBook recipeBook) {
-        this.subRecipeBook = recipeBook;
+    /**
+     * Create a manager for SubRecipeBook.
+     * @param subRecipeBook - the subRecipeBook
+     */
+    public SubRecipeBookManager(SubRecipeBook subRecipeBook) {
+        this.subRecipeBook = subRecipeBook;
     }
 
     /**
-     * Return whether a recipe of a certain name is contained in a user's sub recipe book
-     * @param recipeName The recipe name we are looking for
-     * @return True if and only if the user contains the recipe
+     * Return whether a Recipe of a certain name is contained in a User's SubRecipeBook.
+     * @param recipeName - the recipe name we are looking for
+     * @return true if and only if the user contains the recipe and false otherwise.
      */
     public boolean containsRecipe(String recipeName) {
         for (Recipe recipe : subRecipeBook.getRecipes()) {
@@ -27,29 +29,15 @@ public class SubRecipeBookManager {
     }
 
     /**
-     * Return whether a recipe object is contained in a user's sub recipe book
-     * @param recipe The recipe name we are looking for
-     * @return True if and only if the user contains the recipe
-     */
-    public boolean containsRecipe(Recipe recipe) {
-        for (int code : subRecipeBook.getCodes()) {
-            if (code == recipe.getRecipeCode()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Return a list of recipes in the user's recipe book
-     * @return The array of recipes
+     * Return a list of Recipes in the User's RecipeBook
+     * @return The array of Recipes
      */
     public Recipe[] getRecipes() {
         return subRecipeBook.getRecipes();
     }
 
     /**
-     * Remove a recipe of a certain name from a user's recipe book
+     * Remove a Recipe of a certain name from a User's RecipeBook.
      * @param recipeName The name of the recipe we are removing
      */
     public void removeRecipe(String recipeName) {
@@ -61,12 +49,11 @@ public class SubRecipeBookManager {
     }
 
     /**
-     * Remove a recipe from a user's recipe book
+     * Remove a Recipe from a User's Recipe Book.
      * @param recipe The recipe object representing the recipe we are removing
      */
     public void removeRecipe(Recipe recipe) {
         subRecipeBook.removeRecipe(recipe);
     }
 
-    public void rateRecipe(User user, String recipeName, int rating) {}
 }
