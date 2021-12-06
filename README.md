@@ -1,4 +1,11 @@
-# Specification
+# Recipick README
+## Instructions
+Run the main method in src.UserInterface.CLI.CommandLineInterface to run the application from a CLI.
+Run the main method in src.UserInterface.GUI.Application to run the application from a GUI.
+
+Note: do not build project with maven.
+
+## Specification
 
 Our team aims to create a programme that is geared towards _food lovers_ looking to make delicious, nutritious foods right in their kitchen.
 * The programme is able to **match users to recipes based on a series of their preferences**. Matches may be made based on likes/ dislikes, dietary restrictions and more. If no preferences is provided, these matches may also be made randomly.

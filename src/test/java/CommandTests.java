@@ -3,12 +3,12 @@ package test.java;
 import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.CLI.CommandLineInterface;
-import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CommandTests {
     private CommandLineInterface runCommands(String[] inputs, int length) {
@@ -40,7 +40,7 @@ public class CommandTests {
 
                 "enter recipe book",
 
-                "add a subrecipebook",
+                "add a sub recipe book",
                 "testName",
                 "testDescription",
 
@@ -48,13 +48,13 @@ public class CommandTests {
 
                 "enter recipe viewer",
 
-                "add to subrecipebook",
+                "add to sub recipe book",
                 "Ramen",
                 "testName"
         }, 6);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.findsubrecipebook("testName").containsRecipe("Ramen"));
+        assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Ramen"));
     }
 
     @Test
@@ -66,7 +66,7 @@ public class CommandTests {
 
                 "enter recipe book",
 
-                "add a subrecipebook",
+                "add a sub recipe book",
                 "testName",
                 "testDescription",
 
@@ -74,7 +74,7 @@ public class CommandTests {
 
                 "enter recipe viewer",
 
-                "add to subrecipebook",
+                "add to sub recipe book",
                 "Ramen",
                 "testName",
 

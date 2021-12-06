@@ -1,14 +1,12 @@
 package main.java.Entities;
 
-import java.util.Scanner;
-
 public class User {
     /**
      * Creates a User object
      */
-    private final String fullname;
-    private final String username;
-    private final String email;
+    private final String fullName;
+    private final String userName;
+    private final String eMail;
     private final RecipeBook recipeBook;
 
     /**
@@ -20,16 +18,16 @@ public class User {
      */
 
     public User(String fullname, String username, String email) {
-        this.fullname = fullname;
-        this.username = username;
-        this.email = email;
+        this.fullName = fullname;
+        this.userName = username;
+        this.eMail = email;
         this.recipeBook = new RecipeBook();
     }
 
     public User(String fullname, String username, String email, RecipeBook recipebook) {
-        this.fullname = fullname;
-        this.username = username;
-        this.email = email;
+        this.fullName = fullname;
+        this.userName = username;
+        this.eMail = email;
         this.recipeBook = recipebook;
     }
 
@@ -39,7 +37,7 @@ public class User {
      * @return - fullname
      */
     public String getFullname() {
-        return this.fullname;
+        return this.fullName;
     }
 
     /**
@@ -49,7 +47,7 @@ public class User {
      */
 
     public String getUsername() {
-        return this.username;
+        return this.userName;
     }
 
     /**
@@ -59,7 +57,7 @@ public class User {
      */
 
     public String getEmail() {
-        return this.email;
+        return this.eMail;
     }
 
     /**
