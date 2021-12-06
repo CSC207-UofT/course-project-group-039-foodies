@@ -1,8 +1,8 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
-import main.java.Gateways.GroupCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
+import main.java.Gateways.GroupCSVReader;
 
 
 public class ViewGroupsCommand extends Command {

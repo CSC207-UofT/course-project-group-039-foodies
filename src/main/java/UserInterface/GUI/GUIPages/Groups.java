@@ -7,11 +7,10 @@ import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
-
 import javax.swing.JLabel;
-import java.awt.Font;
-
 import javax.swing.JButton;
+
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -29,7 +28,6 @@ public class Groups {
         groups.setTitle("Recipick");
         groups.getContentPane().setLayout(null);
 
-        // title
         JLabel label = new JLabel("Manage Groups");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
         label.setBounds(160, 11, 170, 41);

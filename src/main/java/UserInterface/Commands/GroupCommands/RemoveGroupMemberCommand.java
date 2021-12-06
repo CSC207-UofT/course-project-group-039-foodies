@@ -1,14 +1,13 @@
 package main.java.UserInterface.Commands.GroupCommands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
-import main.java.Gateways.GroupCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
+import main.java.Gateways.GroupCSVReader;
 
 
 public class RemoveGroupMemberCommand extends Command {
     public RemoveGroupMemberCommand()  {
-        super("remove group member", "Removes a new group member");
+        super("remove group member", "Removes a group member");
     }
 
     @Override
