@@ -28,41 +28,6 @@ public class ViewSavedRecipesByFilter {
         viewSavedRecipesByFilter.setTitle("Recipick");
         viewSavedRecipesByFilter.getContentPane().setLayout(null);
 
-        // title
-        /*
-        JLabel label = new JLabel("View By Filter");
-        label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(175, 11, 170, 41);
-        viewSavedRecipesByFilter.getContentPane().add(label);
-
-        JButton btnIngredient = new JButton("By Ingredient");
-        btnIngredient.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-//                GUIForm.preferences.setVisible(true);
-
-        });
-        btnIngredient.setBounds(150, 50, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnIngredient);
-
-        JButton btnType = new JButton("By Type");
-        btnType.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-//                GUIForm.new_recipes.setVisible(true);
-
-        });
-        btnType.setBounds(150, 90, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnType);
-
-        JButton btnServing = new JButton("By Servings");
-        btnServing.addActionListener(e -> {
-            viewSavedRecipesByFilter.setVisible(false);
-//                GUIForm.show_recipes.setVisible(true);
-
-        });
-        btnServing.setBounds(150, 130, 150, 23);
-        viewSavedRecipesByFilter.getContentPane().add(btnServing);
-         */
-
         JButton addFilter = GUIForm.createButtonFromCommand(new FilterSavedRecipeBookCommand());
         addFilter.setBounds(150, 50, 150, 23);
         viewSavedRecipesByFilter.getContentPane().add(addFilter);
