@@ -1,8 +1,6 @@
-package main.java.UserInterface.Commands.GroupRecipeBookCommands;
+package main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands;
 
 import main.java.Entities.GroupSubRecipeBook;
-import main.java.Entities.SubRecipeBook;
-import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
