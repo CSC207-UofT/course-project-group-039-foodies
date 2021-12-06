@@ -1,17 +1,22 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-
 import javax.swing.JButton;
 
+
+/**
+ * Create GUI page ViewRecipesByFilter, which allows user to filter recipes in the database.
+ */
 public class ViewRecipesByFilter {
     public JFrame viewRecipesByFilter;
 
+    /**
+     * Initialize ViewRecipesByFilter.
+     */
     public ViewRecipesByFilter() {
         initialize();
     }
@@ -23,38 +28,13 @@ public class ViewRecipesByFilter {
         viewRecipesByFilter.setTitle("Recipick");
         viewRecipesByFilter.getContentPane().setLayout(null);
 
-        // title
-        JLabel label = new JLabel("View By Filter");
-        label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(175, 11, 170, 41);
-        viewRecipesByFilter.getContentPane().add(label);
+        JButton addFilter = GUIForm.createButtonFromCommand(new FilterRecipeBookCommand());
+        addFilter.setBounds(150, 50, 150, 23);
+        viewRecipesByFilter.getContentPane().add(addFilter);
 
-        JButton btnIngredient = new JButton("By Ingredient");
-        btnIngredient.addActionListener(e -> {
-            viewRecipesByFilter.setVisible(false);
-//                GUIForm.preferences.setVisible(true);
-
-        });
-        btnIngredient.setBounds(150, 50, 150, 23);
-        viewRecipesByFilter.getContentPane().add(btnIngredient);
-
-        JButton btnType = new JButton("By Type");
-        btnType.addActionListener(e -> {
-            viewRecipesByFilter.setVisible(false);
-//                GUIForm.new_recipes.setVisible(true);
-
-        });
-        btnType.setBounds(150, 90, 150, 23);
-        viewRecipesByFilter.getContentPane().add(btnType);
-
-        JButton btnServing = new JButton("By Servings");
-        btnServing.addActionListener(e -> {
-            viewRecipesByFilter.setVisible(false);
-//                GUIForm.show_recipes.setVisible(true);
-
-        });
-        btnServing.setBounds(150, 130, 150, 23);
-        viewRecipesByFilter.getContentPane().add(btnServing);
+        JButton removeFilter = GUIForm.createButtonFromCommand(new RemoveFilterCommand());
+        removeFilter.setBounds(150, 100, 150, 23);
+        viewRecipesByFilter.getContentPane().add(removeFilter);
 
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
@@ -66,6 +46,10 @@ public class ViewRecipesByFilter {
         viewRecipesByFilter.getContentPane().add(btnExit);
     }
 
+    /**
+     * Make ViewRecipesByFilter GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
+     */
     public void setVisible(boolean b) {
         viewRecipesByFilter.setVisible(true);
     }

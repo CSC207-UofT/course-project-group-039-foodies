@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class ServingsSort implements Sort{
 
     /**
+     * Return a new array of recipes that is sorted based on their number of servings.
      * @return Array of Recipes that is completely sorted based on the number of servings (from small to big).
      */
     @Override
