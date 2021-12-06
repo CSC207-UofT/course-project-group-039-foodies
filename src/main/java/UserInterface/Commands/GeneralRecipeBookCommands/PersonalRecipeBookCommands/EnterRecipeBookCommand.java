@@ -1,4 +1,4 @@
-package main.java.UserInterface.Commands.GeneralRecipeBookCommands.RecipeBookCommands;
+package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;

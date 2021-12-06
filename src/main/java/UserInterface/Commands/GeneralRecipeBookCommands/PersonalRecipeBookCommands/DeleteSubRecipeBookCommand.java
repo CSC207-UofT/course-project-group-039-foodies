@@ -1,4 +1,4 @@
-package main.java.UserInterface.Commands.GeneralRecipeBookCommands.RecipeBookCommands;
+package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;

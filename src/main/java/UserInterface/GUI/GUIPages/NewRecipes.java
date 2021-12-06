@@ -1,6 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.RecipeBookCommands.AddToRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.JFrame;

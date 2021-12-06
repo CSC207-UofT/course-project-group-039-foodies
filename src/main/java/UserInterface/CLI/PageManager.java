@@ -5,7 +5,7 @@ import main.java.UserInterface.Commands.AdminCommands.SignInCommand;
 import main.java.UserInterface.Commands.AdminCommands.SignOutCommand;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.*;
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.RecipeBookCommands.*;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.*;
 import main.java.UserInterface.Commands.GoBackCommand;
 import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
