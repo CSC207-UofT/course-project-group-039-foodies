@@ -28,46 +28,42 @@ public class GroupCSVReader extends CSVReader {
         super(path, new String[]{"code", "name", "members"});
     }
 
+
     /**
      * Adds a group to the database given a group object
      * @param group The group to add
-     * @return A boolean representing whether the group is successfully added to groups.csv
      */
-    public boolean saveGroup(Group group) {
-        return saveGroup(group.getGroupCode(), group.getGroupName(), group.getGroupMembers());
+    public void saveGroup(Group group) {
+        if (!isGroup(group.getGroupCode())) {
+            saveGroup(group.getGroupCode(), group.getGroupName(), group.getGroupMembers());
+        }
     }
 
     /**
      * Adds a group to groups.csv given all the required information
      * @param groupName The name of the group
      * @param members The list of the group members
-     * @return A boolean representing whether the group is successfully added to groups.csv
      */
-    public boolean saveGroup(String groupCode, String groupName, ArrayList<String> members) {
-        for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(0).equals(groupCode)) {
-                return false;
-            }
+    public void saveGroup(String groupCode, String groupName, ArrayList<String> members) {
+        if (!isGroup(groupCode)) {
+            ArrayList<String> groupData = new ArrayList<>();
+
+            groupData.add(groupCode);
+            groupData.add(groupName);
+            groupData.add(String.join(",", members));
+
+            writeLine(groupData);
         }
-        ArrayList<String> groupData = new ArrayList<>();
-
-        groupData.add(groupCode);
-        groupData.add(groupName);
-        groupData.add(String.join(",", members));
-
-        writeLine(groupData);
-        return true;
     }
 
 
     /**
      * Checks if a group exists with a certain groupName
      * @param groupCode The group code to check
-     * @return A boolean representing whether there is a group with certain groupCode
      */
     public boolean isGroup(String groupCode) {
         for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(0).equals(groupCode)) {
+            if (line.get(0).equals(groupCode)) {
                 return true;
             }
         }
@@ -104,25 +100,26 @@ public class GroupCSVReader extends CSVReader {
      * Adds a member to a certain group
      * @param groupCode The group code
      * @param username The username to be added
-     * @return A boolean representing whether a new member is successfully added to a certain group
      */
-    public boolean addMember(String groupCode, String username) {
-        ArrayList<String> updatedMembers = new ArrayList<>();
-        for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(0).equals(groupCode) &&
-                    !containsMember(groupCode, username)) {
-                String groupName = line.get(1);
-                String members = line.get(2);
-                String[] str = members.split(",");
-                List<String> membersList;
-                membersList = Arrays.asList(str);
-                updatedMembers.addAll(membersList);
-                updatedMembers.add(username);
-                removeGroup(groupCode);
-                saveGroup(groupCode, groupName, updatedMembers);
-                return true;
+    public void addMember(String groupCode, String username) {
+        if (isGroup(groupCode) && containsMember(groupCode, username)) {
+            ArrayList<String> updatedMembers = new ArrayList<>();
+            for (ArrayList<String> line : readFile()) {
+                if (!line.isEmpty() && line.get(0).equals(groupCode) &&
+                        !containsMember(groupCode, username)) {
+                    String groupName = line.get(1);
+                    String members = line.get(2);
+                    String[] str = members.split(",");
+                    List<String> membersList;
+                    membersList = Arrays.asList(str);
+                    updatedMembers.addAll(membersList);
+                    updatedMembers.add(username);
+                    removeGroup(groupCode);
+                    saveGroup(groupCode, groupName, updatedMembers);
+                }
+
             }
-        } return false;
+        }
     }
 
 
@@ -130,29 +127,30 @@ public class GroupCSVReader extends CSVReader {
      * Removes a member from a certain group
      * @param groupCode The group code
      * @param username The username to be removed
-     * @return A boolean representing whether a new member is successfully removed from a certain group
      */
-    public boolean removeMember(String groupCode, String username) {
-        ArrayList<String> updatedMembers = new ArrayList<>();
-        for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(0).equals(groupCode) &&
-                    containsMember(groupCode, username)) {
-                String groupName = line.get(1);
-                String members = line.get(2);
-                String[] str = members.split(",");
-                List<String> membersList;
-                membersList = Arrays.asList(str);
+    public void removeMember(String groupCode, String username) {
+        if (isGroup(groupCode) && containsMember(groupCode, username)) {
+            ArrayList<String> updatedMembers = new ArrayList<>();
+            for (ArrayList<String> line : readFile()) {
+                if (!line.isEmpty() && line.get(0).equals(groupCode) &&
+                        containsMember(groupCode, username)) {
+                    String groupName = line.get(1);
+                    String members = line.get(2);
+                    String[] str = members.split(",");
+                    List<String> membersList;
+                    membersList = Arrays.asList(str);
 
-                for (String member : membersList) {
-                    if (!member.equals(username)) {
-                        updatedMembers.add(member);
+                    for (String member : membersList) {
+                        if (!member.equals(username)) {
+                            updatedMembers.add(member);
+                        }
                     }
+                    removeGroup(groupCode);
+                    saveGroup(groupCode, groupName, updatedMembers);
                 }
-                removeGroup(groupCode);
-                saveGroup(groupCode, groupName, updatedMembers);
-                return true;
             }
-        } return false;
+        }
+
     }
 
 
