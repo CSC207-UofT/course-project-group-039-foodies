@@ -2,12 +2,13 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 
+
 public class Group {
     /** Creates a Group object */
     private final String groupName;
     private final String groupCode;
     private final ArrayList<String> groupMembers;
-    private final GroupRecipeBook groupRecipeBook;
+    private final RecipeBook recipeBook;
 
 
     /**
@@ -18,14 +19,7 @@ public class Group {
         this.groupName = groupName;
         this.groupCode = groupCode;
         this.groupMembers = new ArrayList<>();
-        this.groupRecipeBook = new GroupRecipeBook();
-    }
-
-    public Group(String groupName, String groupCode, ArrayList<String> groupMembers) {
-        this.groupName = groupName;
-        this.groupCode = groupCode;
-        this.groupMembers = groupMembers;
-        this.groupRecipeBook = new GroupRecipeBook();
+        this.recipeBook = new RecipeBook();
     }
 
 
@@ -51,9 +45,9 @@ public class Group {
 
 
     /**
-     * Returns the group's recipebook
-     * @return - return the groupRecipeBook
+     * Returns the group's recipe book
+     * @return - return the recipeBook
      */
-    public GroupRecipeBook getRecipeBook() { return this.groupRecipeBook; }
+    public RecipeBook getRecipeBook() { return this.recipeBook; }
 
 }

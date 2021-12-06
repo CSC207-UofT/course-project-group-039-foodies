@@ -1,18 +1,19 @@
-package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
+import main.java.Entities.RecipeBook;
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
+import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
-
 public class AddToRecipeBookCommand extends Command {
 
     public AddToRecipeBookCommand() {
-        super("add to subrecipebook", "Adds a viewed recipe to your recipe book");
+        super("add to sub recipe book", "Adds a viewed recipe to your recipe book");
     }
 
     @Override
@@ -24,14 +25,14 @@ public class AddToRecipeBookCommand extends Command {
             UI.displayMessage("This recipe does not exist");
         } else {
             RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
-            String subRecipeBookName = UI.queryUser("Input the name of the subrecipe book you would like to add recipe to");
+            String subRecipeBookName = UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to");
             if (recipeBookManager.containsSubRecipeBook(subRecipeBookName)) {
-                SubRecipeBook subrecipebook = recipeBookManager.findsubrecipebook(subRecipeBookName);
+                SubRecipeBook subrecipebook = recipeBookManager.findSubRecipeBook(subRecipeBookName);
                 recipeBookManager.addRecipe(subRecipeBookName, recipe);
                 RecipeBookCSVReader.getInstance().updateRecipeBookCSV(UI.getUser(), subrecipebook);
                 UI.displayMessage("Recipe added successfully");
             }else {
-                UI.displayMessage("The subrecipebook you requested does not exist");
+                UI.displayMessage("The sub-recipe book you requested does not exist");
             }
         }
     }
