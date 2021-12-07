@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.UserPreferencesCommands;
 
-import main.java.Entities.Group;
 import main.java.Entities.Recipe;
 import main.java.Gateways.GroupCSVReader;
 import main.java.Gateways.PreferenceBookCSVReader;
