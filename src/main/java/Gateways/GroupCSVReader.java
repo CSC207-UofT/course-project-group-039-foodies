@@ -5,6 +5,7 @@ import main.java.Entities.Group;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 
 public class GroupCSVReader extends CSVReader {
@@ -30,28 +31,22 @@ public class GroupCSVReader extends CSVReader {
 
 
     /**
-     * Adds a group to the database given a group object
-     * @param group The group to add
-     */
-    public void saveGroup(Group group) {
-        if (!isGroup(group.getGroupCode())) {
-            saveGroup(group.getGroupCode(), group.getGroupName(), group.getGroupMembers());
-        }
-    }
-
-    /**
      * Adds a group to groups.csv given all the required information
-     * @param groupName The name of the group
-     * @param members The list of the group members
+     * @param groupCode The group code of a group
+     * @param groupName The name of a group
+     * @param members The list of group members
      */
     public void saveGroup(String groupCode, String groupName, ArrayList<String> members) {
         if (!isGroup(groupCode)) {
             ArrayList<String> groupData = new ArrayList<>();
-
             groupData.add(groupCode);
             groupData.add(groupName);
-            groupData.add(String.join(",", members));
 
+            StringJoiner groupMembers = new StringJoiner(",", "", ",");
+            for (String member : members) {
+                groupMembers.add(member);
+            }
+            groupData.add(groupMembers.toString());
             writeLine(groupData);
         }
     }
@@ -62,12 +57,14 @@ public class GroupCSVReader extends CSVReader {
      * @param groupCode The group code to check
      */
     public boolean isGroup(String groupCode) {
+        if (readFile().isEmpty()) {
+            return false;
+        }
         for (ArrayList<String> line : readFile()) {
-            if (line.get(0).equals(groupCode)) {
+            if (!line.isEmpty() && line.get(0).equals(groupCode)) {
                 return true;
             }
-        }
-        return false;
+        } return false;
     }
 
 
@@ -96,13 +93,13 @@ public class GroupCSVReader extends CSVReader {
     }
 
 
-    /**
+    /**groupData.add(String.join(",", members));
      * Adds a member to a certain group
      * @param groupCode The group code
      * @param username The username to be added
      */
     public void addMember(String groupCode, String username) {
-        if (isGroup(groupCode) && containsMember(groupCode, username)) {
+        if (isGroup(groupCode) && !containsMember(groupCode, username)) {
             ArrayList<String> updatedMembers = new ArrayList<>();
             for (ArrayList<String> line : readFile()) {
                 if (!line.isEmpty() && line.get(0).equals(groupCode) &&
@@ -117,7 +114,6 @@ public class GroupCSVReader extends CSVReader {
                     removeGroup(groupCode);
                     saveGroup(groupCode, groupName, updatedMembers);
                 }
-
             }
         }
     }
@@ -150,7 +146,6 @@ public class GroupCSVReader extends CSVReader {
                 }
             }
         }
-
     }
 
 
