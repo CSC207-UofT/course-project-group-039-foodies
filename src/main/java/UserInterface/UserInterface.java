@@ -62,3 +62,4 @@ abstract public class UserInterface {
      * @return A PreferenceBook object representing the current user's preference book
      */
     public PreferenceBook getPreferenceBook() { return preferences; }
+}
