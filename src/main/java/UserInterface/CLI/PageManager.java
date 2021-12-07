@@ -12,17 +12,11 @@ import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
-//import main.java.UserInterface.Commands.GroupRecipeViewerCommands.GetNewGroupRecipeCommand; //TODO: check
+import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.*;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.EnterRecipeViewerCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
-import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.*;
 
 public class PageManager {
     Page signedOut = new Page(
@@ -59,13 +53,19 @@ public class PageManager {
             }
     );
 
-//    Page groupRecipeViewer = new Page(
-//            signedIn,
-//            new Command[]{
-//                    new GetNewGroupRecipeCommand(),
-//
-//            }
-//    );
+    Page groupRecipeViewer = new Page(
+            signedIn,
+            new Command[]{
+                    new GetNewGroupRecipeCommand(),
+                    new RateGroupRecipeCommand(), //remove this
+                    new AddToGroupRecipeBookCommand(),
+                    new SortGroupRecipeBookCommand(),
+                    new FilterGroupRecipeBookCommand(),
+                    new RemoveFilterCommand(),
+                    new RemoveSortCommand(),
+                    new GoBackCommand()
+            }
+    );
 
     Page recipeBook = new Page(
             signedIn,
@@ -104,9 +104,9 @@ public class PageManager {
     Page groupSubRecipeBook = new Page(
             groupRecipeBook,
             new Command[] {
-                    //TODO: new ListGroupSubRecipeBookRecipesCommand(),
+                    new ListGroupSubRecipeBookRecipesCommand(),
                     new RemoveGroupRecipeCommand(),
-                    //TODO: new RateGroupRecipeCommand(),    do we need this? - check
+                    new RateGroupRecipeCommand(),
                     new GoBackCommand()
             }
     );

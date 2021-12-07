@@ -18,7 +18,7 @@ public class CreateGroupCommand extends Command {
         String groupName = UI.queryUser("Input your group name");
         Group createdGroup = GroupFactory.createNewGroup(groupName);
 
-        if (!GroupCSVReader.getInstance().saveGroup(createdGroup)) {
+        if (!GroupCSVReader.getInstance().isGroup(createdGroup.getGroupCode())) {
             UI.displayMessage("The group cannot be created; the group already exists");
         } else {
             String groupCode = createdGroup.getGroupCode();

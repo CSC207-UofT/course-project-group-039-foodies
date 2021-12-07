@@ -1,5 +1,7 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands;
+import main.java.Entities.Group;
 import main.java.Entities.GroupRecipeBook;
+import main.java.Gateways.GroupCSVReader;
 import main.java.Gateways.GroupRecipeBookCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
@@ -16,7 +18,9 @@ public class ListGroupRecipeBooksCommand extends Command{
 
     @Override
     public void runAction(UserInterface UI) {
-        GroupRecipeBook grouprecipebook = GroupRecipeBookCSVReader.getInstance().getGroupRecipeBook(UI.getGroup());
+        String groupName = UI.queryUser("Enter the name of the group");
+        Group group = GroupCSVReader.getTestInstance().getGroup(groupName, UI.getUser().getUsername());
+        GroupRecipeBook grouprecipebook = GroupRecipeBookCSVReader.getInstance().getGroupRecipeBook(group);
         GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(grouprecipebook);
         if (groupRecipeBookManager.getRecipes().length == 0) {
             UI.displayMessage("Your recipe book is empty.");
