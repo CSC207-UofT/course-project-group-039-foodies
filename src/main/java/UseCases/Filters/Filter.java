@@ -7,8 +7,9 @@ import main.java.Entities.Recipe;
  */
 public interface Filter {
     /**
-     * @param recipes ArrayList of recipes.
-     * @return filtered ArrayList of recipes.
+     * Method that filter the Array of recipes.
+     * @param recipes Array of recipes.
+     * @return filtered Array of recipes.
      */
     Recipe[] filter(Recipe[] recipes);
 }

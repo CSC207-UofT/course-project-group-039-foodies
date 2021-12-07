@@ -9,7 +9,7 @@ import main.java.UserInterface.UserInterface;
 
 public class EnterSubRecipeBookCommand extends Command {
     public EnterSubRecipeBookCommand() {
-        super("enter subrecipebook", "Enter the SubRecipeBook of given name");
+        super("enter sub recipe book", "Enter the SubRecipeBook of given name");
     }
 
     @Override
@@ -21,7 +21,7 @@ public class EnterSubRecipeBookCommand extends Command {
             Command help = new HelpCommand();
             help.runAction(UI);
         } else {
-            UI.displayMessage("The subrecipebook requested does not exist");
+            UI.displayMessage("The sub recipe book requested does not exist");
         }
     }
 }

@@ -3,23 +3,20 @@ package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComma
 import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.Sorts.Sort;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
 /**
- * Sort recipes from the database.
+ * Sort recipes in the sub-recipe book.
  */
-public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
+public class SortSavedRecipeBookCommand extends ChoiceCommand<RatingOption> {
     /**
-     * Initialize SortRecipeBookCommand.
+     * Initialize SortSavedRecipeBookCommand.
      */
-    public SortRecipeBookCommand() {
-        super("sort", "Sorts the recipes to be seen");
-    }
+    public SortSavedRecipeBookCommand() {super("sort", "Sorts the saved recipes to be seen");}
 
     /**
-     * Set sort to the recipes in the database based on its given sort algorithm by the user.
+     * Set sort given by the user to the saved sub-recipe book.
      * @param UI an instance of the user interface.
      */
     @Override
@@ -39,7 +36,8 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
                 break;
         }
 
-        RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
+        String subRecipeBook = UI.queryUser("Input the name of Sub-recipe book that you want to filter");
+        UI.getUser().getRecipeBook().setSort(subRecipeBook, sort);
         GetNewRecipeCommand.initializeIterator(UI);
     }
 }
