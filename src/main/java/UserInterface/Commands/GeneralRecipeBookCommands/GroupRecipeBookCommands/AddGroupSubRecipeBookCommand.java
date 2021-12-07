@@ -20,7 +20,7 @@ public class AddGroupSubRecipeBookCommand extends Command {
         String groupName = UI.queryUser("Enter the name of the group");
         User user = UI.getUser();
         String username = user.getUsername();
-        Group group = GroupCSVReader.getTestInstance().getGroup(groupName, username);
+        Group group = GroupCSVReader.getInstance().getGroup(groupName, username);
 
         if (!GroupCSVReader.getInstance().getJoinedGroups(username).contains(groupName)) {
             UI.displayMessage("The group does not exist. Please try again with different group name.");
@@ -33,7 +33,7 @@ public class AddGroupSubRecipeBookCommand extends Command {
             groupRecipeBookManager.addSubRecipeBook(groupSubRecipeBookName, groupSubRecipeBookDesc);
 
             if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, groupSubRecipeBookName)) {
-                RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, groupSubRecipeBookName,
+                RecipeBookCSVReader.getInstance().addNewSubRecipeBook(user, groupSubRecipeBookName,
                         groupSubRecipeBookDesc);
                 UI.displayMessage("New SubRecipeBook with name " + groupSubRecipeBookName +
                         " and description " + groupSubRecipeBookDesc + " created successfully");
