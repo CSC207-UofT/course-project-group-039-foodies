@@ -7,7 +7,6 @@ import main.java.UserInterface.UserInterface;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * allows user to update their diet prefrerences.
@@ -32,52 +31,56 @@ public class UpdateDietCommand extends Command {
         switch (diet) {
             case "Pescatarian":
                 //creating list of ingredients to remove; not part of pesc diet
-                List<String> RemoveFromDiet = new ArrayList<String>();
+                List<String> RemoveFromDiet = new ArrayList<>();
                 RemoveFromDiet.addAll(vegetarian);
                 RemoveFromDiet.addAll(vegan);
 
                 //update csv file
+                instance.updateDiet(UI.getUser().getUsername(), "Pescatarian", UI.getPreferenceBook().getDiet());
                 changeDiet(pescatarian, RemoveFromDiet, UI, instance);
 
                 break;
 
             case "Vegetarian":
                 //creating list for vegetarian diet
-                List<String> VegAddToDiet = new ArrayList<String>();
+                List<String> VegAddToDiet = new ArrayList<>();
                 VegAddToDiet.addAll(pescatarian);
                 VegAddToDiet.addAll(vegetarian);
 
                 //update csv file
+                instance.updateDiet(UI.getUser().getUsername(), "Vegetarian", UI.getPreferenceBook().getDiet());
                 changeDiet(VegAddToDiet, vegan, UI, instance);
 
                 break;
 
             case "Vegan":
                 //creating list for vegan diet
-                List<String> VeganAddToDiet = new ArrayList<String>();
+                List<String> VeganAddToDiet = new ArrayList<>();
                 VeganAddToDiet.addAll(pescatarian);
                 VeganAddToDiet.addAll(vegetarian);
                 VeganAddToDiet.addAll(vegan);
 
                 //empty list to remove
-                List<String> VeganRemFromDiet = new ArrayList<String>();
+                List<String> VeganRemFromDiet = new ArrayList<>();
 
                 //update csv
+                instance.updateDiet(UI.getUser().getUsername(), "Vegan", UI.getPreferenceBook().getDiet());
                 changeDiet(VeganAddToDiet, VeganRemFromDiet, UI, instance);
 
                 break;
 
             case "No Diet":
                 //empty list to 'add'
-                List<String> NDAddToDiet = new ArrayList<String>();
+                List<String> NDAddToDiet = new ArrayList<>();
 
                 //list of dietary restrictions to remove
-                List<String> NDRemFromDiet = new ArrayList<String>();
+                List<String> NDRemFromDiet = new ArrayList<>();
                 NDRemFromDiet.addAll(pescatarian);
                 NDRemFromDiet.addAll(vegetarian);
                 NDRemFromDiet.addAll(vegan);
 
                 //update csv
+                instance.updateDiet(UI.getUser().getUsername(), "No Diet", UI.getPreferenceBook().getDiet());
                 changeDiet(NDAddToDiet, NDRemFromDiet, UI, instance);
 
                 break;
