@@ -20,10 +20,13 @@ public class AddGroupMemberCommand extends Command {
             if (!GroupCSVReader.getInstance().isGroup(groupCode)) {
                 UI.displayMessage("The Group Code does not exist. Please try again.");
             } else {
-                GroupCSVReader.getInstance().addMember(groupCode, username);
-                UI.displayMessage("The user has been added to the group");
+                if (GroupCSVReader.getInstance().containsMember(groupCode, username)){
+                    UI.displayMessage("The user already exist in the group");
+                } else {
+                    GroupCSVReader.getInstance().addMember(groupCode, username);
+                    UI.displayMessage("The user has been added to the group");
+                }
             }
         }
     }
 }
-
