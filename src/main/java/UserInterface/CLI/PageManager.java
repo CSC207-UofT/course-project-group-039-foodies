@@ -16,6 +16,7 @@ import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.EnterManageGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
+import main.java.UserInterface.Commands.GroupCommands.DeleteGroupCommand;
 
 import main.java.UserInterface.Commands.RecipeViewerCommands.EnterGroupRecipeViewerCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.*;
@@ -134,6 +135,7 @@ public class PageManager {
                     new AddGroupMemberCommand(),
                     new RemoveGroupMemberCommand(),
                     new ViewGroupsCommand(),
+                    new DeleteGroupCommand(),
                     new GoBackCommand()
             }
     );
