@@ -1,15 +1,12 @@
 package test.java.GatewaysTests;
-
 import main.java.Gateways.GroupCSVReader;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class GroupCSVReaderTests {
     GroupCSVReader database = GroupCSVReader.getTestInstance();
@@ -35,8 +32,7 @@ public class GroupCSVReaderTests {
         member.add("TestMember2");
         member.add("TestMember3");
 
-        assertTrue(database.saveGroup("TestGroupCode0", "TestGroupName", member));
-        assertFalse(database.saveGroup("TestGroupCode0", "TestGroupName", member));
+        database.saveGroup("TestGroupCode0", "TestGroupName0", member);
 
         assertTrue(database.isGroup("TestGroupCode0"));
         assertTrue(database.containsMember("TestGroupCode0", "TestMember1"));
@@ -63,16 +59,15 @@ public class GroupCSVReaderTests {
     public void addMember() {
         ArrayList<String> members = new ArrayList<>();
         members.add("TestMember1");
-        members.add("TestMember2");
 
         database.saveGroup("TestGroupCodeB", "TestGroupNameB", members);
 
         assertTrue(database.isGroup("TestGroupCodeB"));
         assertTrue(database.containsMember("TestGroupCodeB", "TestMember1"));
+
+        database.addMember("TestGroupCodeB", "TestMember2");
         assertTrue(database.containsMember("TestGroupCodeB", "TestMember2"));
-        assertFalse(database.containsMember("TestGroupCodeB", "TestMember3"));
-        assertTrue(database.addMember("TestGroupCodeB", "TestMember3"));
-        assertTrue(database.containsMember("TestGroupCodeB", "TestMember3"));
+
     }
 
 
@@ -88,9 +83,10 @@ public class GroupCSVReaderTests {
         assertTrue(database.containsMember("TestGroupCodeC", "TestMember1"));
         assertTrue(database.containsMember("TestGroupCodeC", "TestMember2"));
         assertFalse(database.containsMember("TestGroupCodeC", "TestMember3"));
-        assertFalse(database.removeMember("TestGroupCodeC", "TestMember3"));
-        assertTrue(database.addMember("TestGroupCodeC", "TestMember3"));
-        assertTrue(database.removeMember("TestGroupCodeC", "TestMember3"));
+
+        database.removeMember("TestGroupCodeC", "TestMember3");
+        database.addMember("TestGroupCodeC", "TestMember3");
+        database.removeMember("TestGroupCodeC", "TestMember3");
     }
 
 
@@ -100,15 +96,12 @@ public class GroupCSVReaderTests {
         members.add("TestMember1");
         members.add("TestMember2");
 
-        database.saveGroup("TestGroupCodeD", "TestGroupNameD", members);
+        database.saveGroup("TestGroupCodeY", "TestGroupNameY", members);
 
-        assertTrue(database.isGroup("TestGroupCodeD"));
-        assertTrue(database.containsMember("TestGroupCodeD", "TestMember1"));
-        assertTrue(database.containsMember("TestGroupCodeD", "TestMember2"));
-        assertTrue(database.getJoinedGroups("TestMember1").contains("TestGroupCodeD"));
-
-        assertTrue(database.removeMember("TestGroupCodeD", "TestMember1"));
-        assertFalse(database.getJoinedGroups("TestMember1").contains("TestGroupCodeD"));
-
+        assertTrue(database.isGroup("TestGroupCodeY"));
+        assertTrue(database.containsMember("TestGroupCodeY", "TestMember1"));
+        assertTrue(database.containsMember("TestGroupCodeY", "TestMember2"));
+        assertFalse(database.containsMember("TestGroupCodeY", "TestMember3"));
+        assertTrue(database.getJoinedGroups("TestMember1").contains("TestGroupCodeY"));
     }
 }
