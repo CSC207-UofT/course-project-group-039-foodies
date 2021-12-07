@@ -7,6 +7,7 @@ import main.java.Entities.Recipe;
  */
 public interface Sort {
     /**
+     * Method that sort the array of recipes.
      * @param recipes ArrayList of recipes.
      * @return filtered ArrayList of recipes.
      */

@@ -6,6 +6,7 @@ import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
+
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -58,6 +59,11 @@ public class Groups {
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        groups.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

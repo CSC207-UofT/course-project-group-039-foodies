@@ -4,12 +4,8 @@ import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipe
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.RemoveRecipeCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
-
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-
-import javax.swing.JButton;
 
 public class RecipeBook {
     public JFrame showRecipes;
@@ -35,10 +31,17 @@ public class RecipeBook {
         byFilter.addActionListener(e -> {
             showRecipes.setVisible(false);
             GUIForm.viewSavedRecipesByFilter.setVisible(true);
-
         });
-        byFilter.setBounds(150, 50, 150, 23);
+        byFilter.setBounds(75, 50, 150, 23);
         showRecipes.getContentPane().add(byFilter);
+
+        JButton bySort = new JButton("By Sort");
+        bySort.addActionListener(e -> {
+            showRecipes.setVisible(false);
+            GUIForm.viewSavedRecipesBySort.setVisible(true);
+        });
+        bySort.setBounds(225, 50, 150, 23);
+        showRecipes.getContentPane().add(bySort);
 
         //JButton showAll = new JButton("Show All");
         //showAll.addActionListener(e -> {
@@ -65,6 +68,11 @@ public class RecipeBook {
         });
         btnBack.setBounds(150, 210, 150, 23);
         showRecipes.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        showRecipes.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

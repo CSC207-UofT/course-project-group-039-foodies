@@ -43,8 +43,14 @@ public class ViewPreferences {
             GUIForm.preferences.setVisible(true);
 
         });
+
         btnBack.setBounds(150, 210, 150, 23);
         viewPreferences.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        viewPreferences.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {
