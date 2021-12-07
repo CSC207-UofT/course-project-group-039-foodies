@@ -8,7 +8,6 @@ import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
-
 public class AddGroupSubRecipeBookCommand extends Command {
 
     public AddGroupSubRecipeBookCommand() {
@@ -34,7 +33,7 @@ public class AddGroupSubRecipeBookCommand extends Command {
             groupRecipeBookManager.addSubRecipeBook(groupSubRecipeBookName, groupSubRecipeBookDesc);
 
             if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, groupSubRecipeBookName)) {
-                RecipeBookCSVReader.getInstance().addNewSubRecipeBook(user, groupSubRecipeBookName,
+                RecipeBookCSVReader.getInstance().addnewSubRecipeBook(user, groupSubRecipeBookName,
                         groupSubRecipeBookDesc);
                 UI.displayMessage("New SubRecipeBook with name " + groupSubRecipeBookName +
                         " and description " + groupSubRecipeBookDesc + " created successfully");
