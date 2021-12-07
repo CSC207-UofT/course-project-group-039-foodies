@@ -4,23 +4,22 @@ import main.java.UseCases.Filters.AllergyFilter;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.Filters.ServingsFilter;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
 /**
- * Remove filter from RecipeBook.
+ * Remove filter from sub-recipe book.
  */
-public class RemoveFilterCommand extends ChoiceCommand<FilterOption> {
+public class RemoveSavedFilterCommand extends ChoiceCommand<FilterOption> {
     /**
-     * Initialize RemoveFilterCommand.
+     * Initialize RemoveSavedFilterCommand.
      */
-    public RemoveFilterCommand() {
-        super("remove filter", "Removes a filter that has been added");
+    public RemoveSavedFilterCommand() {
+        super("remove filter", "Removes a filter from a sub-recipe book.");
     }
 
     /**
-     * Remove filter given by the user from RecipeBook.
+     * Remove filter given by the user from sub-recipe book given by the user.
      * @param UI an instance of the user interface.
      */
     @Override
@@ -30,8 +29,8 @@ public class RemoveFilterCommand extends ChoiceCommand<FilterOption> {
         switch (chooseOption(
                 UI,
                 FilterOption.class,
-                "Input 'allergy' to remove a filter that filters out an allergen from the recipe book, " +
-                        "'foodtype' to remove a filter that filters in a type of food, and " +
+                "Input 'allergy' to remove a filter that filters out an allergen from the sub-recipe " +
+                        "book, and 'foodtype' to remove a filter that filters in a type of food, and " +
                         "'servings' to remove a filter that filters the number of servings."
         )) {
             case allergy:
@@ -51,7 +50,8 @@ public class RemoveFilterCommand extends ChoiceCommand<FilterOption> {
                 break;
         }
 
-        RecipeCollectionFacade.removeFilter(UI.getRecipeCollection(), filter);
+        String subRecipeBook = UI.queryUser("Input the name of Sub-recipe book that you want to remove filter");
+        UI.getUser().getRecipeBook().removeFilter(subRecipeBook, filter);
         GetNewRecipeCommand.initializeIterator(UI);
     }
 }

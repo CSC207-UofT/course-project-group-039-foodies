@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class RatingSort implements Sort {
 
     /**
+     * Return a new array of recipes that is sorted based on their ratings.
      * @return Array of Recipes that is completely sorted based on the ratings.
      */
     @Override
