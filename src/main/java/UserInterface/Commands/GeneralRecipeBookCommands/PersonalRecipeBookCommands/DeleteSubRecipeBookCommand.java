@@ -1,5 +1,6 @@
-package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
+import main.java.Entities.RecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.Commands.Command;
@@ -8,7 +9,7 @@ import main.java.UserInterface.UserInterface;
 public class DeleteSubRecipeBookCommand extends Command {
 
     public DeleteSubRecipeBookCommand() {
-        super("delete subrecipebook", "deletes the subrecipe book with name provided");
+        super("delete sub recipe book", "deletes the sub-recipe book with name provided");
     }
 
     public void runAction(UserInterface UI) {
