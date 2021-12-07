@@ -2,12 +2,9 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-import javax.swing.JLabel;
-import java.awt.Font;
-
-import javax.swing.JButton;
+import java.awt.*;
 
 public class Menu {
     public JFrame menu;
@@ -26,7 +23,8 @@ public class Menu {
         // title
         JLabel label = new JLabel("Menu");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(200, 11, 170, 41);
+//        label.setForeground(Color.WHITE);
+        label.setBounds(200, 20, 170, 41);
         menu.getContentPane().add(label);
 
         JButton btnPreferences = new JButton("Preferences");
@@ -35,7 +33,7 @@ public class Menu {
             GUIForm.preferences.setVisible(true);
 
         });
-        btnPreferences.setBounds(150, 50, 150, 23);
+        btnPreferences.setBounds(150, 60, 150, 23);
         menu.getContentPane().add(btnPreferences);
 
         JButton btnNewRecipes = new JButton("New Recipes");
@@ -44,7 +42,7 @@ public class Menu {
             GUIForm.newRecipes.setVisible(true);
 
         });
-        btnNewRecipes.setBounds(150, 90, 150, 23);
+        btnNewRecipes.setBounds(150, 100, 150, 23);
         menu.getContentPane().add(btnNewRecipes);
 
         JButton btnRecipeBook = new JButton("Saved Recipes");
@@ -53,7 +51,7 @@ public class Menu {
             GUIForm.showRecipes.setVisible(true);
 
         });
-        btnRecipeBook.setBounds(150, 130, 150, 23);
+        btnRecipeBook.setBounds(150, 140, 150, 23);
         menu.getContentPane().add(btnRecipeBook);
 
         JButton btnGroups = new JButton("Groups");
@@ -62,7 +60,7 @@ public class Menu {
             GUIForm.groups.setVisible(true);
 
         });
-        btnGroups.setBounds(150, 170, 150, 23);
+        btnGroups.setBounds(150, 180, 150, 23);
         menu.getContentPane().add(btnGroups);
 
         JButton btnExit = new JButton("Exit");
@@ -71,7 +69,13 @@ public class Menu {
 //                GUIForm.groups.setVisible(true);
 
         });
-        btnExit.setBounds(150, 210, 150, 23);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        menu.getContentPane().add(img);
+
+        btnExit.setBounds(150, 220, 150, 23);
         menu.getContentPane().add(btnExit);
     }
 

@@ -45,7 +45,7 @@ public class Group {
 
 
     /**
-     * Returns the group's recipebook
+     * Returns the group's recipe book
      * @return - return the recipeBook
      */
     public RecipeBook getRecipeBook() { return this.recipeBook; }

@@ -42,10 +42,20 @@ public class EditPreferences {
         textField.setColumns(10);
         textField.setText("");
 
+        JButton add = new JButton("Enter");
+        add.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        add.setBounds(290, 119, 70, 23);
+        editPreferences.getContentPane().add(add);
+
         JTextField textField_1 = new JTextField();
         textField_1.setBounds(200, 161, 86, 20);
         editPreferences.getContentPane().add(textField_1);
         textField_1.setColumns(10);
+
+        JButton add_omit = new JButton("Enter");
+        add_omit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        add_omit.setBounds(290, 161, 70, 23);
+        editPreferences.getContentPane().add(add_omit);
 
 
         JButton btnBack = new JButton("Back");
@@ -54,8 +64,14 @@ public class EditPreferences {
             GUIForm.preferences.setVisible(true);
 
         });
+
         btnBack.setBounds(150, 210, 150, 23);
         editPreferences.getContentPane().add(btnBack);
+
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        editPreferences.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {
