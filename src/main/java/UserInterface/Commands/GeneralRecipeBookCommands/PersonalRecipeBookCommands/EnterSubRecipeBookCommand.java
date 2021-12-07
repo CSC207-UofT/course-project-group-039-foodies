@@ -1,5 +1,7 @@
-package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
+package main.java.UserInterface.Commands.RecipeBookCommands;
 
+import main.java.Entities.RecipeBook;
+import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
@@ -7,7 +9,7 @@ import main.java.UserInterface.UserInterface;
 
 public class EnterSubRecipeBookCommand extends Command {
     public EnterSubRecipeBookCommand() {
-        super("enter subrecipebook", "Enter the SubRecipeBook of given name");
+        super("enter sub recipe book", "Enter the SubRecipeBook of given name");
     }
 
     @Override
@@ -19,8 +21,7 @@ public class EnterSubRecipeBookCommand extends Command {
             Command help = new HelpCommand();
             help.runAction(UI);
         } else {
-            UI.displayMessage("The subrecipebook requested does not exist");
+            UI.displayMessage("The sub recipe book requested does not exist");
         }
     }
 }
-
