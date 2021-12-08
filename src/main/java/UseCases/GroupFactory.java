@@ -8,7 +8,6 @@ public class GroupFactory{
 
     private static final ArrayList<String> usedCodes = new ArrayList<>();
 
-
     /**
      * Generates a unique 7 digit group code.
      */
@@ -31,7 +30,7 @@ public class GroupFactory{
 
 
     /**
-     * Create a new group by adding the User.
+     * Creates a new group.
      * @param groupName The name of the group.
      * @return The created group with the 7 digit group code assigned to the group.
      */

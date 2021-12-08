@@ -1,12 +1,9 @@
 package test.java;
 
 import main.java.Entities.Recipe;
-import main.java.Gateways.GroupCSVReader;
-import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.CLI.CommandLineInterface;
 
-import java.io.File;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -14,7 +11,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CommandTests {
-
     private CommandLineInterface runCommands(String[] inputs, int length) {
         CommandLineInterface CLI = new CommandLineInterface(new Scanner(String.join("\n", inputs)));
         for (int i = 0; i < length; i++) {
@@ -42,8 +38,9 @@ public class CommandTests {
                 "testUserName",
                 "testPassword",
 
-
                 "enter recipe book",
+
+                "enter personal recipe book",
 
                 "add a sub recipe book",
                 "testName",
@@ -56,7 +53,7 @@ public class CommandTests {
                 "add to sub recipe book",
                 "Hot Cross Buns",
                 "testName"
-        }, 6);
+        }, 7);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Hot Cross Buns"));
@@ -71,6 +68,8 @@ public class CommandTests {
 
                 "enter recipe book",
 
+                "enter personal recipe book",
+
                 "add a sub recipe book",
                 "testName",
                 "testDescription",
@@ -87,10 +86,12 @@ public class CommandTests {
 
                 "enter recipe book",
 
+                "enter personal recipe book",
+
                 "remove recipe",
                 "Hot Cross Buns",
                 "testName"
-        }, 9);
+        }, 11);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertFalse(recipeBookManager.containsRecipe("Hot Cross Buns"));
