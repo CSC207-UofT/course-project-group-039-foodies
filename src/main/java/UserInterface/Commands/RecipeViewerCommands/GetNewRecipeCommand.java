@@ -41,7 +41,6 @@ public class GetNewRecipeCommand extends Command {
      */
     public static void initializeIterator(UserInterface UI) {
         isIteratorSet = true;
-        PreferenceBookCSVReader preferences = PreferenceBookCSVReader.getInstance();
         RecipeCollection recipes = UI.getRecipeCollection();
         recipes.removePrefs(UI.getPreferenceBook());
         recipeIterator = RecipeCollectionFacade.getIterator(recipes);
