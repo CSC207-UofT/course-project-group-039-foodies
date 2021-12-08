@@ -75,10 +75,10 @@ public class RecipeBookCSVReader extends CSVReader {
     public boolean isSubRecipeBook(String username, String subRecipeBookName) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(1).equals(username + " - " + subRecipeBookName)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**
@@ -128,22 +128,6 @@ public class RecipeBookCSVReader extends CSVReader {
         removeLine(user.getUsername() + " - " + subRecipeBookName, "username - subRecipeBookName");
     }
 
-    /**
-     * Return the lists of recipes in the sub-recipe book for user.
-     *
-     * @param user - the user whose recipe book is to be returned
-     * @param subRecipeBook - the subRecipeBook from which the recipes to be returned are found.
-     *
-     * @return - the SubRecipeBook's list of recipes
-     */
-    public RecipeCollection getSubRecipeBookRecipesList(User user, SubRecipeBook subRecipeBook) {
-    for (ArrayList<String> line : readFile())
-        if (line.get(1).equals(user.getUsername() + " - " + subRecipeBook.getName())) {
-            ArrayList<String> recipeNames = new ArrayList<>(Arrays.asList(line.get(3). split(", ")));
-            return makeRecipeLists(recipeNames);
-        }
-    return null;
-    }
 
     /**
      * Return a list of recipes found in a sub-recipe book for user with username.
@@ -177,29 +161,6 @@ public class RecipeBookCSVReader extends CSVReader {
             }
         }
         return recipes;
-    }
-
-    /**
-     * Return the recipe book for a particular user.
-     * @param user - the user who the recipe book belongs to.
-     * @return a RecipeBook object for a user
-     */
-    public RecipeBook getUserRecipeBook(User user) {
-        HashMap<SubRecipeBook, RecipeCollection> subRecipeBooks = new HashMap<>();
-        for (ArrayList<String> line: readFile()) {
-            if (line.get(0).equals(user.getUsername())) {
-                // create the subrecipebook
-                String[] usernameSubRecipeBookNameInfo = line.get(1).split(" - ");
-                String subRecipeBookName = usernameSubRecipeBookNameInfo[1];
-                String subRecipeBookDesc = line.get(2);
-                SubRecipeBook subrecipebook = new SubRecipeBook(subRecipeBookName, subRecipeBookDesc);
-                // get the recipes in the subrecipebook
-                RecipeCollection subRecipeBookRecipes = getSubRecipeBookRecipesList(user,subrecipebook);
-                // add to the sub-recipe book - recipes mapping
-                subRecipeBooks.put(subrecipebook, subRecipeBookRecipes);
-            }
-        }
-        return createRecipeBook(subRecipeBooks);
     }
 
     /**

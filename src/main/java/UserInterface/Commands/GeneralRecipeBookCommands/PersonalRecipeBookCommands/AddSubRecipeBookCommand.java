@@ -22,7 +22,7 @@ public class AddSubRecipeBookCommand extends Command {
 
         User user = UI.getUser();
         String username = user.getUsername();
-        if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, subRecipeBookName)) {
+        if (RecipeBookCSVReader.getInstance().isSubRecipeBook(username, subRecipeBookName)) {
             RecipeBookCSVReader.getInstance().addNewSubRecipeBook(user, subRecipeBookName, subRecipeBookDesc);
             UI.displayMessage("New SubRecipeBook with name " + subRecipeBookName + " and description " + subRecipeBookDesc
                     + " created successfully");
