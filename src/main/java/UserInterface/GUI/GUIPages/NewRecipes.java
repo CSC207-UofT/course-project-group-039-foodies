@@ -1,7 +1,7 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.AddToGroupRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -50,7 +50,7 @@ public class NewRecipes {
             GUIForm.viewTopPicks.setVisible(true);
 
         });
-        topPicks.setBounds(150, 90, 150, 23);
+        topPicks.setBounds(150, 80, 150, 23);
         newRecipes.getContentPane().add(topPicks);
 
         JButton random = new JButton("Random");
@@ -59,12 +59,18 @@ public class NewRecipes {
             GUIForm.viewByRandom.setVisible(true);
 
         });
-        random.setBounds(150, 130, 150, 23);
+        random.setBounds(150, 120, 150, 23);
         newRecipes.getContentPane().add(random);
 
         JButton addToRecipeBook = GUIForm.createButtonFromCommand(new AddToRecipeBookCommand());
-        addToRecipeBook.setBounds(150, 170, 150, 23);
+        addToRecipeBook.setBounds(150, 160, 150, 23);
         newRecipes.getContentPane().add(addToRecipeBook);
+
+
+        JButton addToGroupRecipeBook = GUIForm.createButtonFromCommand(new AddToGroupRecipeBookCommand());
+        addToGroupRecipeBook.setBounds(150, 200, 150, 23);
+        newRecipes.getContentPane().add(addToGroupRecipeBook);
+
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
@@ -73,7 +79,7 @@ public class NewRecipes {
 
         });
 
-        btnBack.setBounds(150, 210, 150, 23);
+        btnBack.setBounds(150, 240, 150, 23);
         newRecipes.getContentPane().add(btnBack);
 
         JLabel img = new JLabel("New image");
