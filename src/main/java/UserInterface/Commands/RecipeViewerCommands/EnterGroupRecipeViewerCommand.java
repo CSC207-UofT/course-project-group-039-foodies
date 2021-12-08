@@ -6,7 +6,7 @@ import main.java.UserInterface.UserInterface;
 
 public class EnterGroupRecipeViewerCommand extends Command {
     public EnterGroupRecipeViewerCommand() {
-        super("enter recipe viewer", "Enters the recipe viewer");
+        super("enter group recipe viewer", "Enters the recipe viewer");
     }
 
     @Override

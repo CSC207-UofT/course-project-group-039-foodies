@@ -7,10 +7,10 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
-public class RecipeBook {
+public class PersonalRecipe {
     public JFrame showRecipes;
 
-    public RecipeBook() {
+    public PersonalRecipe() {
         initialize();
     }
 
@@ -22,9 +22,9 @@ public class RecipeBook {
         showRecipes.getContentPane().setLayout(null);
 
         // title
-        JLabel label = new JLabel("Show Recipes");
+        JLabel label = new JLabel("Show Personal Recipes");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(175, 11, 170, 41);
+        label.setBounds(140, 11, 200, 41);
         showRecipes.getContentPane().add(label);
 
         JButton byFilter = new JButton("By Filter");

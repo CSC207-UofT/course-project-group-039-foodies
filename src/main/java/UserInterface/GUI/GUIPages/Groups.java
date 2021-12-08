@@ -27,6 +27,7 @@ public class Groups {
         groups.setTitle("Recipick");
         groups.getContentPane().setLayout(null);
 
+        // title
         JLabel label = new JLabel("Manage Groups");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
         label.setBounds(160, 11, 170, 41);
