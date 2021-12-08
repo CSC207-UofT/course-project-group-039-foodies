@@ -1,10 +1,6 @@
 package main.java.Entities;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import main.java.Entities.User;
-import main.java.Gateways.RecipeCSVReader;
-import main.java.Gateways.UserCSVReader;
 
 public class Recipe {
     /** Creates a Recipe object */

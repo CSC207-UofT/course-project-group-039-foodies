@@ -3,10 +3,7 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
-import java.awt.Font;
-
 
 /**
  * Create GUI page ViewRecipesByFilter, which allows user to filter recipes in the database.
@@ -48,9 +45,6 @@ public class ViewRecipesByFilter {
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
         img.setBounds(0, 0, 460, 300);
         viewRecipesByFilter.getContentPane().add(img);
-
-        // btnServing.setBounds(150, 130, 150, 23);
-        // ViewTopPicks.viewRecipeContentPane(btnServing, viewRecipesByFilter);
     }
 
     /**

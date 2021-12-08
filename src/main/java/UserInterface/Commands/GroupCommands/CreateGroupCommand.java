@@ -8,7 +8,6 @@ import main.java.Gateways.GroupCSVReader;
 
 import java.util.ArrayList;
 
-
 public class CreateGroupCommand extends Command {
     public CreateGroupCommand()  {
         super("create group", "Creates a new group");

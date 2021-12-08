@@ -3,11 +3,8 @@ package main.java.UserInterface.GUI;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.GUI.GUIPages.*;
 import main.java.UserInterface.GUI.GUIPages.Menu;
-
 import javax.swing.*;
 import java.awt.*;
-
-
 
 public class GUIForm {
     public static Start start = new Start();

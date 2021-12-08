@@ -1,11 +1,7 @@
 package test.java;
-import main.java.Entities.Recipe;
-import main.java.Entities.RecipeBook;
+
 import main.java.Entities.User;
 import org.junit.Test;
-
-import java.util.HashMap;
-
 import static org.junit.Assert.*;
 
 public class UserTest {

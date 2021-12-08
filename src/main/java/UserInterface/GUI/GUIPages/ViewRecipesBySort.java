@@ -3,9 +3,7 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
-
 
 /**
  * Create GUI page ViewRecipesBySort, which allows user to sort recipes in the database.

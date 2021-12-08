@@ -8,7 +8,6 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
-
 public class RemoveGroupRecipeCommand extends Command {
     /**
      * Allows the user to remove a group recipe from the group sub recipe book

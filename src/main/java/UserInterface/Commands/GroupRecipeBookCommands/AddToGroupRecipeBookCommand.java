@@ -10,7 +10,6 @@ import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
-
 public class AddToGroupRecipeBookCommand extends Command {
     public AddToGroupRecipeBookCommand() {
         super("add to group subrecipebook", "Adds a viewed recipe to your group recipe book");

@@ -3,7 +3,6 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.AddToGroupRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.AddToRecipeBookCommand;
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
 import java.awt.Font;
 

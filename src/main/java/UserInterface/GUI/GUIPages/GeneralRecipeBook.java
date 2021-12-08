@@ -1,13 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.
-        PersonalRecipeBookCommands.EnterRecipeBookCommand;
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.
-        GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
-
-
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
 import java.awt.Font;
 

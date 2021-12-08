@@ -3,9 +3,7 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.FilterSavedRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSavedFilterCommand;
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
-import java.awt.Font;
 
 /**
  * Create GUI page ViewSavedRecipesByFilter, which allows user to filter saved recipes.

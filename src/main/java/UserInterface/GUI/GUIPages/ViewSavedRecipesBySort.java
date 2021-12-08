@@ -3,9 +3,7 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.SortSavedRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSavedSortCommand;
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
-
 
 /**
  * Create GUI page ViewSavedRecipesBySort, which allows user to sort saved recipes.

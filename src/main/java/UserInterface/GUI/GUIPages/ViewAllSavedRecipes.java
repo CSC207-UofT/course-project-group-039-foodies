@@ -1,7 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
 
 public class ViewAllSavedRecipes {

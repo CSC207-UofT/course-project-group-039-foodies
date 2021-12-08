@@ -1,15 +1,12 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
         AddGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
         DeleteGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
         ListGroupSubRecipeBooksCommand;
-
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
 import java.awt.Font;
 

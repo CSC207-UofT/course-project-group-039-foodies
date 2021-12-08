@@ -2,7 +2,6 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import javax.swing.*;
 import java.awt.*;
-
 import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 import main.java.Gateways.UserCSVReader;

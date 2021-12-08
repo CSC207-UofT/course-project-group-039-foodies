@@ -4,7 +4,6 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
 
-
 public class RemoveGroupMemberCommand extends Command {
     public RemoveGroupMemberCommand()  {
         super("remove group member", "Removes a group member");

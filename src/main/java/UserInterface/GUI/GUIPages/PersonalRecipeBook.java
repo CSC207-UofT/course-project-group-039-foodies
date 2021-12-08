@@ -1,9 +1,7 @@
 package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.*;
-
 import main.java.UserInterface.GUI.GUIForm;
-
 import javax.swing.*;
 import java.awt.Font;
 

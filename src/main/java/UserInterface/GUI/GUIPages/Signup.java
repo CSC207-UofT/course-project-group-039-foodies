@@ -2,7 +2,6 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.UserCSVReader;
-
 import javax.swing.*;
 import java.awt.*;
 
