@@ -25,6 +25,10 @@ public class RecipeGateway {
 
     /**
      * Gets recipes from the Spoonacular API and adds them to recipe.csv
+     *
+     * Do not use this method for large values of number, it is prone to stackOverFlows.
+     * Use safeGetNewRecipes instead.
+     *
      * @param number The number of recipes to add to the database
      */
     public void getNewRecipes(int number) {
@@ -41,6 +45,22 @@ public class RecipeGateway {
                     getIngredients(parsedRecipe),
                     parsedRecipe.get("instructions").toString()
             );
+        }
+    }
+
+    /**
+     * Gets recipes from Spoonacular API and adds them to recipes.csv
+     * Does this by calling getNewRecipes multiple times, avoiding stackOverFlow errors.
+     *
+     * @param number The number of new recipes to be added
+     */
+    public void safeGetNewRecipes(int number) {
+        for (int i = 0; i < number; i += 3) {
+            getNewRecipes(3);
+        }
+        int remaining = number % 3;
+        if (remaining != 0) {
+            getNewRecipes(remaining);
         }
     }
 
@@ -104,7 +124,7 @@ public class RecipeGateway {
     public static void main(String[] args) {
         RecipeGateway rg = new RecipeGateway(new RecipeCollection());
 
-        rg.getNewRecipes(30);
+        rg.safeGetNewRecipes(100);
     }
 }
 

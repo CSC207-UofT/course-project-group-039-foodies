@@ -91,6 +91,8 @@ public class RecipeCSVReader extends CSVReader {
                     ratingCount
             );
 
+
+
             //add to collection
             RecipeCollectionFacade.addRecipe(recipes, newRecipe);
         }

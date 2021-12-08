@@ -1,7 +1,9 @@
 package main.java.Entities;
 
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
+import main.java.UserInterface.UserInterface;
 
 import java.util.*;
 
@@ -172,6 +174,38 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
             if (filter.equals(filterToRemove)) {
                 filters.remove(filter);
                 return;
+            }
+        }
+    }
+
+    /**
+     * removes recipes from RecipeCollection that don't follow the users preferences
+     * @param preferences the users PreferenceBook
+     */
+    public void removePrefs(PreferenceBook preferences) {
+        int inclCount = preferences.getInclude().size();
+
+        for (Recipe recipe : this) {
+            int localInclCount = 0;
+            int localOmitCount = 0;
+
+            for (String ingredient : recipe.getIngredients()) {
+                if (preferences.getOmit().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
+                    localOmitCount ++;
+                }
+                if (preferences.getInclude().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
+                    localInclCount ++;
+                }
+            }
+
+            if (localOmitCount > 0) {
+                this.removeRecipe(recipe.getName());
+                continue;
+            }
+            if (localInclCount != inclCount) {
+                this.removeRecipe(recipe.getName());
             }
         }
     }

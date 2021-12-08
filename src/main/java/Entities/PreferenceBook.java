@@ -1,51 +1,75 @@
 package main.java.Entities;
 
-import main.java.Entities.User;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class PreferenceBook{
-    private final String user;
-//    private final ArrayList<String> type;
+    private final String username;
     private final ArrayList<String> omit;
     private final ArrayList<String> include;
-//    private final ArrayList<String> time;
     private HashMap<String, Double> ratingMap;
+    private String diet;
 
-    public PreferenceBook(String user) {
-        this.user = user;
-//        this.type = new ArrayList<>();
+
+    /**
+     * create a PreferenceBook for a user
+     * @param username username of user
+     */
+    public PreferenceBook(String username) {
+        this.username = username;
         this.omit = new ArrayList<>();
         this.include = new ArrayList<>();
-//        this.time = new ArrayList<>();
         this.ratingMap = new HashMap<>();
-
+        this.diet = "No Diet";
     }
 
-    public PreferenceBook(String user, ArrayList<String> omit, ArrayList<String> include) {
-        this.user = user;
-//        this.type = type;
+    /**
+     * create a default PreferenceBook for a user given an empty omit and include ArrayList
+     * @param username username of user
+     * @param omit ingredients to omit
+     * @param include ingredients to include
+     */
+    public PreferenceBook(String username, ArrayList<String> omit, ArrayList<String> include) {
+        this.username = username;
         this.omit = omit;
         this.include = include;
-//        this.time = time;
         this.ratingMap = new HashMap<>();
+        this.diet = "No Diet";
     }
 
+    /**
+     * Add a rating to the PreferenceBook
+     * @param recipe recipe being rated
+     * @param rating numeric rating
+     */
     public void addRating(Recipe recipe, Double rating) {
         ratingMap.put(recipe.getName(), rating);
     }
 
+    public void addDiet(String diet) { this.diet = diet; }
+
     public void addRating(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
 
-    public boolean contains(String OmitInclRating, String ingredient) {
+    public String getDiet() { return diet; }
+
+    public ArrayList<String> getOmit() { return omit; }
+
+    public ArrayList<String> getInclude() { return include; }
+
+    /**
+     * Checks if an item is in a preference category
+     * @param OmitInclRating preference category
+     * @param item an ingredient or recipe name
+     * @return true if item is in given category
+     */
+    public boolean contains(String OmitInclRating, String item) {
         if (Objects.equals(OmitInclRating, "omit")) {
-            return (this.omit.contains(ingredient));
+            return (this.omit.contains(item));
         } else if (Objects.equals(OmitInclRating, "include")) {
-            return (this.include.contains(ingredient));
+            return (this.include.contains(item));
         } else {
-            return (this.ratingMap.containsKey(ingredient));
+            return (this.ratingMap.containsKey(item));
         }
     }
 

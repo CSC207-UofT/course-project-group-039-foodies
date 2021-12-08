@@ -1,7 +1,6 @@
 package main.java.UserInterface.Commands.AdminCommands;
 
 import main.java.Gateways.PreferenceBookCSVReader;
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.Gateways.UserCSVReader;

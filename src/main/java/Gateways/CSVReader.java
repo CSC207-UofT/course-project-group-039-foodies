@@ -144,16 +144,17 @@ public class CSVReader {
 
         private void startWordState(int index) {
             if (line.charAt(index) == '"') {
-                insideWordState(index + 1, "");
+                insideWordState(index + 1);
             }
         }
 
-        private void insideWordState(int index, String word) {
-            if (line.charAt(index) == '"') {
-                endWordState(index + 1, word);
-            } else {
-                insideWordState(index + 1, word + line.charAt(index));
+        private void insideWordState(int index) {
+            StringBuilder wordBuilder = new StringBuilder();
+            while (line.charAt(index) != '"') {
+                wordBuilder.append(line.charAt(index));
+                index += 1;
             }
+            endWordState(index + 1, wordBuilder.toString());
         }
 
         private void endWordState(int index, String word) {

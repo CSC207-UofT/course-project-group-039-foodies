@@ -14,7 +14,7 @@ public class UpdatePreferencesCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        UI.getPageManager().setUpdatePreferences();
+        UI.getPageManager().enterPreferenceBook();
         Command help = new HelpCommand();
         help.runAction(UI);
     }
