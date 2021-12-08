@@ -1,9 +1,7 @@
 package main.java.Entities;
 
-import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
-import main.java.UserInterface.UserInterface;
 
 import java.util.*;
 
@@ -15,16 +13,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     @Override
     public Iterator<Recipe> iterator() {
-        Recipe[] recipes = dataMap.values().toArray(new Recipe[0]);
-
-        if (usesSort) {
-            recipes = sortAlgorithm.sort(recipes);
-        }
-        for (Filter filter : filters) {
-            recipes = filter.filter(recipes);
-        }
-
-        return Arrays.stream(recipes).iterator();
+        return Arrays.stream(getRecipes()).iterator();
     }
 
     @Override
@@ -134,11 +123,21 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     }
 
     /**
-     * Returns all recipes stored
+     * Returns all recipes stored.
+     * Applies the filters and sorts.
      * @return An array of Recipes stored
      */
     public Recipe[] getRecipes() {
-        return dataMap.values().toArray(new Recipe[0]);
+        Recipe[] recipes = dataMap.values().toArray(new Recipe[0]);
+
+        if (usesSort) {
+            recipes = sortAlgorithm.sort(recipes);
+        }
+        for (Filter filter : filters) {
+            recipes = filter.filter(recipes);
+        }
+
+        return recipes;
     }
 
     /**
