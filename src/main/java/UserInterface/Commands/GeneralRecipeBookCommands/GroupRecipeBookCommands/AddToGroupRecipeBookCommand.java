@@ -32,7 +32,7 @@ public class AddToGroupRecipeBookCommand extends Command {
             } else {
                 GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(group);
 
-                String subGroupRecipeBookName = groupName + UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to." +
+                String subGroupRecipeBookName = UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to. " +
                         "Type AllRecipes if you want to add it to your general sub-recipe book.");
                 if (groupRecipeBookManager.containsSubRecipeBook(subGroupRecipeBookName)) {
                     GroupSubRecipeBook groupSubRecipeBook = groupRecipeBookManager.findSubRecipeBook(subGroupRecipeBookName);
