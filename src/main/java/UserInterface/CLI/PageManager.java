@@ -163,15 +163,21 @@ public class PageManager {
     public void signOut() {
         setPage(signedOut);
     }
-    public void enterGeneralRecipeBook() { setPage(generalRecipeBook);}
+    public void enterGeneralRecipeBook() {
+        setPage(generalRecipeBook);
+    }
     public void enterRecipeBook() {
         setPage(recipeBook);
     }
     public void enterSubRecipeBook() {
         setPage(subRecipeBook);
     }
-    public void enterGroupRecipeBook() { setPage(groupRecipeBook); }
-    public void enterGroupSubRecipeBook() { setPage(groupSubRecipeBook);}
+    public void enterGroupRecipeBook() {
+        setPage(groupRecipeBook); 
+    }
+    public void enterGroupSubRecipeBook() {
+        setPage(groupSubRecipeBook);
+    }
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
