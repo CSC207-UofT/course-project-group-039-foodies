@@ -29,8 +29,8 @@ public class AddToGroupRecipeBookCommand extends Command {
             Group group = GroupCSVReader.getTestInstance().getGroup(groupName, username);
             GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(group);
 
-            String subGroupRecipeBookName = groupName + UI.queryUser("Input the name of the subrecipe book " +
-                    "you would like to add recipe to");
+            String subGroupRecipeBookName = groupName + UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to." +
+                    "Type AllRecipes if you want to add it to your general sub-recipe book.");
             if (groupRecipeBookManager.containsSubRecipeBook(subGroupRecipeBookName)) {
                 GroupSubRecipeBook groupSubRecipeBook = groupRecipeBookManager.findSubRecipeBook(subGroupRecipeBookName);
                 groupRecipeBookManager.addRecipe(subGroupRecipeBookName, recipe);
