@@ -50,6 +50,10 @@ public class ViewRecipeBook {
         btnGoBack.setBounds(150, 210, 150, 23);
         showRecipeBook.getContentPane().add(btnGoBack);
 
+        JLabel img = new JLabel("New image");
+        img.setIcon(new ImageIcon("src/white food background.jpeg"));
+        img.setBounds(0, 0, 460, 300);
+        showRecipeBook.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {showRecipeBook.setVisible(true);

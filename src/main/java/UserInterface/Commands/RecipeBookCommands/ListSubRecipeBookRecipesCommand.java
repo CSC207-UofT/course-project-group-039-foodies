@@ -24,6 +24,9 @@ public class ListSubRecipeBookRecipesCommand extends Command {
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
                 recipebookmanager.findSubRecipeBook(subRecipeBookName));
+            if (subRecipeBookManager.getRecipes().length == 0) {
+                UI.displayMessage("There are no recipes in the recipe book requested");
+            }
             for (Recipe recipe : subRecipeBookManager.getRecipes()) {
                 UI.displayMessage(recipe.toString());
             }

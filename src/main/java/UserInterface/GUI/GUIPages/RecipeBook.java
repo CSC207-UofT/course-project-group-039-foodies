@@ -30,7 +30,7 @@ public class RecipeBook {
         JButton byFilter = new JButton("By Filter");
         byFilter.addActionListener(e -> {
             showRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesByFilter.setVisible(true);
+            GUIForm.viewAllSavedRecipesFiltered.setVisible(true);
         });
         byFilter.setBounds(75, 50, 150, 23);
         showRecipes.getContentPane().add(byFilter);
@@ -38,27 +38,14 @@ public class RecipeBook {
         JButton bySort = new JButton("By Sort");
         bySort.addActionListener(e -> {
             showRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesBySort.setVisible(true);
+            GUIForm.viewAllSavedRecipesSorted.setVisible(true);
         });
         bySort.setBounds(225, 50, 150, 23);
         showRecipes.getContentPane().add(bySort);
 
-        //JButton showAll = new JButton("Show All");
-        //showAll.addActionListener(e -> {
-            // show_recipes.setVisible(false);
-            // GUIForm.viewAllSavedRecipes.setVisible(true);
-
-            //Command displayRecipeBook = new ListRecipeBookCommand();
-            //displayRecipeBook.runAction(Application.getInstance());
-        //});
-
         JButton showAll = GUIForm.createButtonFromCommand(new ListRecipeBookCommand());
         showAll.setBounds(150, 90, 150, 23);
         showRecipes.getContentPane().add(showAll);
-
-        JButton removeRecipe = GUIForm.createButtonFromCommand(new RemoveRecipeCommand());
-        removeRecipe.setBounds(150, 130, 150, 23);
-        showRecipes.getContentPane().add(removeRecipe);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {

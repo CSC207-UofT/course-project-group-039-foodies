@@ -68,14 +68,15 @@ public class Menu {
 //                GUIForm.groups.setVisible(true);
 
         });
+        btnExit.setBounds(150, 220, 150, 23);
+        menu.getContentPane().add(btnExit);
 
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
         img.setBounds(0, 0, 460, 300);
         menu.getContentPane().add(img);
 
-        btnExit.setBounds(150, 220, 150, 23);
-        menu.getContentPane().add(btnExit);
+
     }
 
     public void setVisible(boolean b) {

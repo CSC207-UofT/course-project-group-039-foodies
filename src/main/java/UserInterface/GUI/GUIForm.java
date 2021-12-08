@@ -26,9 +26,12 @@ public class GUIForm {
     public static ViewRecipesByRandom viewByRandom = new ViewRecipesByRandom();
     public static ViewSavedRecipesByFilter viewSavedRecipesByFilter = new ViewSavedRecipesByFilter();
     public static ViewSavedRecipesBySort viewSavedRecipesBySort = new ViewSavedRecipesBySort();
-    public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
+    // public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
     public static ViewAllSubRecipeBooks viewSubRecipeBooks = new ViewAllSubRecipeBooks();
     public static ViewRecipeBook viewRecipeBook = new ViewRecipeBook();
+    public static SubRecipeBook showSubRecipes = new SubRecipeBook();
+    public static ViewAllSavedRecipesSorted viewAllSavedRecipesSorted = new ViewAllSavedRecipesSorted();
+    public static ViewAllSavedRecipesFiltered viewAllSavedRecipesFiltered = new ViewAllSavedRecipesFiltered();
 
     public static void displayMessage(String message) {
         JOptionPane.showMessageDialog(null, createMessage(message));
