@@ -13,16 +13,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     @Override
     public Iterator<Recipe> iterator() {
-        Recipe[] recipes = dataMap.values().toArray(new Recipe[0]);
-
-        if (usesSort) {
-            recipes = sortAlgorithm.sort(recipes);
-        }
-        for (Filter filter : filters) {
-            recipes = filter.filter(recipes);
-        }
-
-        return Arrays.stream(recipes).iterator();
+        return Arrays.stream(getRecipes()).iterator();
     }
 
     @Override
@@ -132,11 +123,21 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     }
 
     /**
-     * Returns all recipes stored
+     * Returns all recipes stored.
+     * Applies the filters and sorts.
      * @return An array of Recipes stored
      */
     public Recipe[] getRecipes() {
-        return dataMap.values().toArray(new Recipe[0]);
+        Recipe[] recipes = dataMap.values().toArray(new Recipe[0]);
+
+        if (usesSort) {
+            recipes = sortAlgorithm.sort(recipes);
+        }
+        for (Filter filter : filters) {
+            recipes = filter.filter(recipes);
+        }
+
+        return recipes;
     }
 
     /**
@@ -172,6 +173,38 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
             if (filter.equals(filterToRemove)) {
                 filters.remove(filter);
                 return;
+            }
+        }
+    }
+
+    /**
+     * removes recipes from RecipeCollection that don't follow the users preferences
+     * @param preferences the users PreferenceBook
+     */
+    public void removePrefs(PreferenceBook preferences) {
+        int inclCount = preferences.getInclude().size();
+
+        for (Recipe recipe : this) {
+            int localInclCount = 0;
+            int localOmitCount = 0;
+
+            for (String ingredient : recipe.getIngredients()) {
+                if (preferences.getOmit().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
+                    localOmitCount ++;
+                }
+                if (preferences.getInclude().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
+                    localInclCount ++;
+                }
+            }
+
+            if (localOmitCount > 0) {
+                this.removeRecipe(recipe.getName());
+                continue;
+            }
+            if (localInclCount != inclCount) {
+                this.removeRecipe(recipe.getName());
             }
         }
     }

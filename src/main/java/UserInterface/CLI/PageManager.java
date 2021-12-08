@@ -16,10 +16,7 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.RemoveSortCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortCommands.SortRecipeBookCommand;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.UpdatePreferencesCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.*;
 
 public class PageManager {
     Page signedOut = new Page(
@@ -86,11 +83,12 @@ public class PageManager {
             }
     );
 
-    Page updatePreferences = new Page(
+    Page preferenceBook = new Page(
             signedIn,
             new Command[] {
                     new UpdateOmitCommand(),
                     new UpdateIncludeCommand(),
+                    new UpdateDietCommand(),
                     new GoBackCommand(),
             }
     );
@@ -118,8 +116,8 @@ public class PageManager {
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
-    public void setUpdatePreferences() {
-        setPage(updatePreferences);
+    public void enterPreferenceBook() {
+        setPage(preferenceBook);
     }
     public void manageGroup() {
         setPage(manageGroup);
