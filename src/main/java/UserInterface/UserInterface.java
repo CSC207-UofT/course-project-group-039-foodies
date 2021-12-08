@@ -3,6 +3,7 @@ package main.java.UserInterface;
 import main.java.Entities.PreferenceBook;
 import main.java.Entities.RecipeCollection;
 import main.java.Entities.User;
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.RecipeCSVReader;
 import main.java.UserInterface.CLI.PageManager;
 
@@ -30,6 +31,7 @@ abstract public class UserInterface {
      */
     public void signIn(User user) {
         this.user = user;
+        buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(user.getUsername()));
     }
 
     /**
@@ -41,18 +43,34 @@ abstract public class UserInterface {
         return user;
     }
 
+    /**
+     * A getter for the current RecipeCollection
+     * @return A RecipeCollection of all recipes
+     */
     public RecipeCollection getRecipeCollection() {
         return recipes;
     }
 
+    /**
+     * A getter for the current PageManager
+     * @return A PageManager
+     */
     public PageManager getPageManager() {
         return pageManager;
     }
 
+    /**
+     * A setter for the current RecipeCollection
+     * @param recipes The RecipeCollection of all recipes
+     */
     public void setRecipeCollection(RecipeCollection recipes) {
         this.recipes = recipes;
     }
 
+    /**
+     * A setter for the current PreferenceBook
+     * @param prefs The PreferenceBook object representing the current user's preference book
+     */
     public void buildPreferences(PreferenceBook prefs) {
         this.preferences = prefs;
     }

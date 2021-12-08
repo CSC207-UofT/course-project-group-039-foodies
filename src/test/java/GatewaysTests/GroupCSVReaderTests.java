@@ -1,6 +1,4 @@
 package test.java.GatewaysTests;
-
-//import main.java.Entities.Group;
 import main.java.Gateways.GroupCSVReader;
 
 import java.io.File;
@@ -13,7 +11,7 @@ import static org.junit.Assert.*;
 public class GroupCSVReaderTests {
     GroupCSVReader database = GroupCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/groupsTest.csv"
+            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\groupsTest.csv"
     );
 
     @Before
@@ -30,33 +28,80 @@ public class GroupCSVReaderTests {
     @Test
     public void saveGroupTest() {
         ArrayList<String> member = new ArrayList<>();
-        member.add("TestGroupMember");
-        member.add("TestGroupMember1");
-        member.add("TestGroupMember2");
-        database.saveGroup("TestGroupName", "TestGroupCode", member);
-        assertTrue(database.isGroup("TestGroupName"));
+        member.add("TestMember1");
+        member.add("TestMember2");
+        member.add("TestMember3");
+
+        database.saveGroup("TestGroupCode0", "TestGroupName0", member);
+
+        assertTrue(database.isGroup("TestGroupCode0"));
+        assertTrue(database.containsMember("TestGroupCode0", "TestMember1"));
+        assertTrue(database.containsMember("TestGroupCode0", "TestMember2"));
+        assertTrue(database.containsMember("TestGroupCode0", "TestMember3"));
     }
 
-//    @Test
-//    public void getGroupTest() {
-//        ArrayList<String> member = new ArrayList<String>();
-//        member.add("TestGroupMember");
-//        database.saveGroup("TestGroupName0", "TestGroupCode", member);
-//        Group group = database.getGroup("TestGroupName0");
-//        assertEquals("TestGroupName0", group.getGroupName());
-//        assertEquals("TestGroupCode", group.getGroupCode());
-//        assertEquals(member, group.getGroupMembers());
-//    }
 
     @Test
-    public void removeGroupTest() {
-        database.saveGroup("TestGroupName1", "TestGroupCode", new ArrayList<>());
-        database.saveGroup("TestGroupName2", "TestGroupCode", new ArrayList<>());
-        database.saveGroup("TestGroupName3", "TestGroupCode", new ArrayList<>());
+    public void removeGroup() {
+        database.saveGroup("TestGroupCode1", "TestGroupName1", new ArrayList<>());
+        database.saveGroup("TestGroupCode2", "TestGroupName", new ArrayList<>());
+        database.saveGroup("TestGroupCode3", "TestGroupName3", new ArrayList<>());
 
-        database.removeGroup("TestGroupName1");
-        assertTrue(database.isGroup("TestGroupName2"));
-        assertTrue(database.isGroup("TestGroupName3"));
-        assertFalse(database.isGroup("TestGroupName1"));
+        database.removeGroup("TestGroupCode1");
+
+        assertTrue(database.isGroup("TestGroupCode2"));
+        assertTrue(database.isGroup("TestGroupCode3"));
+        assertFalse(database.isGroup("TestGroupCode1"));
+    }
+
+
+    @Test
+    public void addMember() {
+        ArrayList<String> members = new ArrayList<>();
+        members.add("TestMember1");
+
+        database.saveGroup("TestGroupCodeB", "TestGroupNameB", members);
+
+        assertTrue(database.isGroup("TestGroupCodeB"));
+        assertTrue(database.containsMember("TestGroupCodeB", "TestMember1"));
+
+        database.addMember("TestGroupCodeB", "TestMember2");
+        assertTrue(database.containsMember("TestGroupCodeB", "TestMember2"));
+
+    }
+
+
+    @Test
+    public void removeMember() {
+        ArrayList<String> members = new ArrayList<>();
+        members.add("TestMember1");
+        members.add("TestMember2");
+
+        database.saveGroup("TestGroupCodeC", "TestGroupNameC", members);
+
+        assertTrue(database.isGroup("TestGroupCodeC"));
+        assertTrue(database.containsMember("TestGroupCodeC", "TestMember1"));
+        assertTrue(database.containsMember("TestGroupCodeC", "TestMember2"));
+        assertFalse(database.containsMember("TestGroupCodeC", "TestMember3"));
+
+        database.removeMember("TestGroupCodeC", "TestMember3");
+        database.addMember("TestGroupCodeC", "TestMember3");
+        database.removeMember("TestGroupCodeC", "TestMember3");
+    }
+
+
+    @Test
+    public void getJoinedGroups() {
+        ArrayList<String> members = new ArrayList<>();
+        members.add("TestMember1");
+        members.add("TestMember2");
+
+        database.saveGroup("TestGroupCodeY", "TestGroupNameY", members);
+
+        assertTrue(database.isGroup("TestGroupCodeY"));
+        assertTrue(database.containsMember("TestGroupCodeY", "TestMember1"));
+        assertTrue(database.containsMember("TestGroupCodeY", "TestMember2"));
+        assertFalse(database.containsMember("TestGroupCodeY", "TestMember3"));
+        assertTrue(database.getJoinedGroups("TestMember1").contains("TestGroupCodeY"));
     }
 }

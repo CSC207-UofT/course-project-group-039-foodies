@@ -1,17 +1,16 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.RecipeBookCommands.ListRecipeBookCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.RemoveRecipeCommand;
-import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.ListRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.RemoveRecipeCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 import java.awt.Font;
 
-public class RecipeBook {
+public class PersonalRecipe {
     public JFrame showRecipes;
 
-    public RecipeBook() {
+    public PersonalRecipe() {
         initialize();
     }
 
@@ -23,9 +22,9 @@ public class RecipeBook {
         showRecipes.getContentPane().setLayout(null);
 
         // title
-        JLabel label = new JLabel("Show Recipes");
+        JLabel label = new JLabel("Show Personal Recipes");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(175, 11, 170, 41);
+        label.setBounds(140, 11, 200, 41);
         showRecipes.getContentPane().add(label);
 
         JButton byFilter = new JButton("By Filter");
@@ -60,10 +59,6 @@ public class RecipeBook {
         JButton removeRecipe = GUIForm.createButtonFromCommand(new RemoveRecipeCommand());
         removeRecipe.setBounds(150, 130, 150, 23);
         showRecipes.getContentPane().add(removeRecipe);
-
-        JButton addRating = GUIForm.createButtonFromCommand(new RateRecipeCommand());
-        addRating.setBounds(150, 170, 150, 23);
-        showRecipes.getContentPane().add(addRating);
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {

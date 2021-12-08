@@ -47,7 +47,9 @@ public class AllergyFilterTest {
         Recipe[] filtered = allergy.filter(recipes.getRecipes());
 
         assertEquals(2, filtered.length);
-        assertEquals("food1", filtered[0].getName());
-        assertEquals("food2", filtered[1].getName());
+        assertTrue(
+                (filtered[0].getName().equals("food1") && filtered[1].getName().equals("food2")) ||
+                        (filtered[0].getName().equals("food2") && filtered[1].getName().equals("food1"))
+        );
     }
 }

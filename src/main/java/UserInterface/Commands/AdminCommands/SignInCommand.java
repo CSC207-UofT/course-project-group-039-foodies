@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.AdminCommands;
 
-import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.Gateways.UserCSVReader;
@@ -19,7 +18,6 @@ public class SignInCommand extends Command {
         if (UserCSVReader.getInstance().isUser(username)) {
             if (UserCSVReader.getInstance().isCorrectPassword(username, password)) {
                 UI.signIn(UserCSVReader.getInstance().getUser(username));
-                UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(username));
                 UI.getPageManager().signIn();
                 UI.displayMessage("You have successfully signed in");
 
