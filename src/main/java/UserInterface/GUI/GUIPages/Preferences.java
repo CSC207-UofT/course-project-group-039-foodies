@@ -43,7 +43,7 @@ public class Preferences {
 
         // modify omit
         JButton omit = GUIForm.createButtonFromCommand(new UpdateOmitCommand());
-        omit.setBounds(115, 130, 130, 23);
+        omit.setBounds(115, 130, 220, 23);
         preferences.getContentPane().add(omit);
 
         // modify diet
