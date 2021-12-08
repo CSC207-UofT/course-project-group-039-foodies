@@ -153,3 +153,4 @@ public class CommandTests {
         assertTrue(recipes.next().getServings() <= recipes.next().getServings());
     }
 }
+
