@@ -140,11 +140,12 @@ public class PageManager {
             }
     );
 
-    Page updatePreferences = new Page(
+    Page preferenceBook = new Page(
             signedIn,
             new Command[] {
                     new UpdateOmitCommand(),
                     new UpdateIncludeCommand(),
+                    new UpdateDietCommand(),
                     new GoBackCommand(),
             }
     );
@@ -184,8 +185,8 @@ public class PageManager {
     public void enterGroupRecipeViewer() {
         setPage(groupRecipeViewer);
     }
-    public void setUpdatePreferences() {
-        setPage(updatePreferences);
+    public void enterPreferenceBook() {
+        setPage(preferenceBook);
     }
     public void manageGroup() {
         setPage(manageGroup);
