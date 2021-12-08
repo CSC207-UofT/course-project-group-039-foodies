@@ -157,7 +157,7 @@ public class GroupCSVReader extends CSVReader {
     public String getJoinedGroups(String username) {
         StringBuilder groups = new StringBuilder();
         for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(2).contains(username)) {
+            if (!line.isEmpty() && contains(line.get(2).split(","), username)) {
                 String groupCode = line.get(0);
                 String groupName = line.get(1);
                 groups.append(groupName).append(" : ").append(groupCode).append("\n");
@@ -166,10 +166,30 @@ public class GroupCSVReader extends CSVReader {
 
     }
 
+    /**
+     * Return whether the username is in the list of names
+     * @param names The list of username
+     * @param find The username to find
+     * @return Whether the username is in the list of names
+     */
+    private boolean contains(String[] names, String find) {
+        for (String name : names) {
+            if (name.equals(find)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    /**
+     * Returns the group containing the user username, with name groupName
+     * @param groupName The name of the group
+     * @param username The name of the user
+     * @return The group if it exists and null if it doesn't exist
+     */
     public Group getGroup(String groupName, String username) {
         for (ArrayList<String> line : readFile()) {
-            if (!line.isEmpty() && line.get(1).equals(groupName) && line.get(2).contains(username)) {
+            if (!line.isEmpty() && line.get(1).equals(groupName) && contains(line.get(2).split(","), username)) {
                 String groupCode = line.get(0);
                 String groupMembers = line.get(2);
                 ArrayList<String> members = new ArrayList<>(Arrays.asList(groupMembers.split(",")));

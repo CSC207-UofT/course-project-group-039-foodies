@@ -26,18 +26,22 @@ public class AddToGroupRecipeBookCommand extends Command {
         } else {
             String groupName = UI.queryUser("Enter the name of the group you would like to add recipe to");
             String username = UI.getUser().getUsername();
-            Group group = GroupCSVReader.getTestInstance().getGroup(groupName, username);
-            GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(group);
+            Group group = GroupCSVReader.getInstance().getGroup(groupName, username);
+            if (group == null) {
+                UI.displayMessage("The group does not exist");
+            } else {
+                GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(group);
 
-            String subGroupRecipeBookName = groupName + UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to." +
-                    "Type AllRecipes if you want to add it to your general sub-recipe book.");
-            if (groupRecipeBookManager.containsSubRecipeBook(subGroupRecipeBookName)) {
-                GroupSubRecipeBook groupSubRecipeBook = groupRecipeBookManager.findSubRecipeBook(subGroupRecipeBookName);
-                groupRecipeBookManager.addRecipe(subGroupRecipeBookName, recipe);
-                GroupRecipeBookCSVReader.getInstance().updateRecipeBookCSV(group.getGroupName(), groupSubRecipeBook);
-                UI.displayMessage("Recipe added successfully");
-            }else {
-                UI.displayMessage("The subrecipebook you requested does not exist");
+                String subGroupRecipeBookName = groupName + UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to." +
+                        "Type AllRecipes if you want to add it to your general sub-recipe book.");
+                if (groupRecipeBookManager.containsSubRecipeBook(subGroupRecipeBookName)) {
+                    GroupSubRecipeBook groupSubRecipeBook = groupRecipeBookManager.findSubRecipeBook(subGroupRecipeBookName);
+                    groupRecipeBookManager.addRecipe(subGroupRecipeBookName, recipe);
+                    GroupRecipeBookCSVReader.getInstance().updateRecipeBookCSV(group.getGroupName(), groupSubRecipeBook);
+                    UI.displayMessage("Recipe added successfully");
+                } else {
+                    UI.displayMessage("The subrecipebook you requested does not exist");
+                }
             }
         }
     }
