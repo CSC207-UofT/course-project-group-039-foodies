@@ -1,8 +1,12 @@
 package main.java.UserInterface.Commands.RecipeViewerCommands;
 
+import main.java.Entities.PreferenceBook;
+import main.java.Entities.RecipeCollection;
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
+import main.java.UserInterface.GUI.GUIPages.Preferences;
 import main.java.UserInterface.UserInterface;
 
 import java.util.Iterator;
@@ -37,6 +41,9 @@ public class GetNewRecipeCommand extends Command {
      */
     public static void initializeIterator(UserInterface UI) {
         isIteratorSet = true;
-        recipeIterator = RecipeCollectionFacade.getIterator(UI.getRecipeCollection());
+        PreferenceBookCSVReader preferences = PreferenceBookCSVReader.getInstance();
+        RecipeCollection recipes = UI.getRecipeCollection();
+        recipes.removePrefs(UI.getPreferenceBook());
+        recipeIterator = RecipeCollectionFacade.getIterator(recipes);
     }
 }
