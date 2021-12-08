@@ -1,9 +1,12 @@
 package test.java;
 
 import main.java.Entities.Recipe;
+import main.java.Gateways.GroupCSVReader;
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.CLI.CommandLineInterface;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -11,6 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CommandTests {
+
     private CommandLineInterface runCommands(String[] inputs, int length) {
         CommandLineInterface CLI = new CommandLineInterface(new Scanner(String.join("\n", inputs)));
         for (int i = 0; i < length; i++) {
@@ -38,6 +42,7 @@ public class CommandTests {
                 "testUserName",
                 "testPassword",
 
+
                 "enter recipe book",
 
                 "enter personal recipe book",
@@ -51,12 +56,12 @@ public class CommandTests {
                 "enter recipe viewer",
 
                 "add to sub recipe book",
-                "Ramen",
+                "Hot Cross Buns",
                 "testName"
         }, 7);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Ramen"));
+        assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Hot Cross Buns"));
     }
 
     @Test
@@ -79,7 +84,7 @@ public class CommandTests {
                 "enter recipe viewer",
 
                 "add to sub recipe book",
-                "Ramen",
+                "Hot Cross Buns",
                 "testName",
 
                 "go back",
@@ -89,12 +94,12 @@ public class CommandTests {
                 "enter personal recipe book",
 
                 "remove recipe",
-                "Ramen",
+                "Hot Cross Buns",
                 "testName"
         }, 11);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertFalse(recipeBookManager.containsRecipe("Ramen"));
+        assertFalse(recipeBookManager.containsRecipe("Hot Cross Buns"));
     }
 
     @Test
