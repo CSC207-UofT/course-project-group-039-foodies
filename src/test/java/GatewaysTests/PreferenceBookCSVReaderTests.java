@@ -12,7 +12,7 @@ import java.io.IOException;
 public class PreferenceBookCSVReaderTests {
     PreferenceBookCSVReader database = PreferenceBookCSVReader.getTestInstance();
     File databaseFile = new File(
-            System.getProperty("user.dir") + "\\src\\test\\java\\GatewaysTests\\preferencesTest.csv"
+            System.getProperty("user.dir") + "/src/test/java/GatewaysTests/preferencesTest.csv"
     );
 
     @Before
@@ -35,6 +35,7 @@ public class PreferenceBookCSVReaderTests {
     }
     @Test
     public void savePrefTest() {
+        database.addPreferenceBook("TestUser");
         database.updateDiet("TestUser", "Vegan", "No Diet");
         database.updateOmit("TestUser", "add", "eggs");
         database.updateInclude("TestUser", "add", "broccoli");
@@ -45,14 +46,15 @@ public class PreferenceBookCSVReaderTests {
     }
     @Test
     public void removePrefTest() {
+        database.addPreferenceBook("TestUser");
         database.updateOmit("TestUser", "add", "eggs");
         database.updateInclude("TestUser", "add", "broccoli");
 
         database.updateOmit("TestUser", "remove", "eggs");
         database.updateInclude("TestUser", "remove", "broccoli");
 
-        assert !database.getPreferenceBook("TestUser").contains("omit", "eggs");
-        assert !database.getPreferenceBook("TestUser").contains("include", "broccoli");
+        assertFalse(database.getPreferenceBook("TestUser").contains("omit", "eggs"));
+        assertFalse(database.getPreferenceBook("TestUser").contains("include", "broccoli"));
 
         database.removePreferenceBook("TestUser");
     }
