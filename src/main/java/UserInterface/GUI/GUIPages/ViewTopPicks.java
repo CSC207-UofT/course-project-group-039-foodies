@@ -1,7 +1,7 @@
 package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.Commands.Command;
-import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewTopPickCommand;
 import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 
@@ -23,8 +23,8 @@ public class ViewTopPicks {
 
         JButton btnReady = new JButton("Ready to see your Top Picks?");
         btnReady.addActionListener(e -> {
-                    Command getNewRecipeCommand = new GetNewRecipeCommand();
-                    getNewRecipeCommand.runAction(Application.getInstance());
+                    Command getNewTopPickCommand = new GetNewTopPickCommand();
+                    getNewTopPickCommand.runAction(Application.getInstance());
                 });
         viewRecipeButton(btnReady, viewTopPicks);
     }

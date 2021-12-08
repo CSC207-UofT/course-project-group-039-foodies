@@ -124,7 +124,7 @@ public class RecipeGateway {
     public static void main(String[] args) {
         RecipeGateway rg = new RecipeGateway(new RecipeCollection());
 
-        rg.safeGetNewRecipes(100);
+        rg.safeGetNewRecipes(10);
     }
 }
 
