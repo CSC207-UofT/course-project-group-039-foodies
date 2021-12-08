@@ -1,6 +1,5 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.UserCSVReader;
 
 import javax.swing.*;
@@ -112,7 +111,6 @@ public class Signup {
             JOptionPane.showMessageDialog(null, "The user cannot be created; the username is already taken");
         } else {
             UserCSVReader.getInstance().addUser(user, password, fullName, email);
-            PreferenceBookCSVReader.getInstance().addPreferenceBook(user);
             JOptionPane.showMessageDialog(null, "Sign Up Successful", "ALERT", JOptionPane.INFORMATION_MESSAGE);
             frame1.setVisible(false);
         }
