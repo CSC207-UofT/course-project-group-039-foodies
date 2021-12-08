@@ -3,11 +3,10 @@ package main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBo
 import main.java.Entities.User;
 import main.java.Entities.Group;
 import main.java.Gateways.GroupCSVReader;
-import main.java.Gateways.RecipeBookCSVReader;
+import main.java.Gateways.GroupRecipeBookCSVReader;
 import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
-
 
 public class AddGroupSubRecipeBookCommand extends Command {
 
@@ -21,7 +20,7 @@ public class AddGroupSubRecipeBookCommand extends Command {
         String groupName = UI.queryUser("Enter the name of the group");
         User user = UI.getUser();
         String username = user.getUsername();
-        Group group = GroupCSVReader.getTestInstance().getGroup(groupName, username);
+        Group group = GroupCSVReader.getInstance().getGroup(groupName, username);
 
         if (!GroupCSVReader.getInstance().getJoinedGroups(username).contains(groupName)) {
             UI.displayMessage("The group does not exist. Please try again with different group name.");
@@ -33,8 +32,8 @@ public class AddGroupSubRecipeBookCommand extends Command {
             GroupRecipeBookManager groupRecipeBookManager = new GroupRecipeBookManager(group);
             groupRecipeBookManager.addSubRecipeBook(groupSubRecipeBookName, groupSubRecipeBookDesc);
 
-            if (!RecipeBookCSVReader.getInstance().isSubRecipeBook(username, groupSubRecipeBookName)) {
-                RecipeBookCSVReader.getInstance().addNewSubRecipeBook(user, groupSubRecipeBookName,
+            if (!GroupRecipeBookCSVReader.getInstance().isSubRecipeBook(username, groupSubRecipeBookName)) {
+                GroupRecipeBookCSVReader.getInstance().addNewSubRecipeBook(group, groupSubRecipeBookName,
                         groupSubRecipeBookDesc);
                 UI.displayMessage("New SubRecipeBook with name " + groupSubRecipeBookName +
                         " and description " + groupSubRecipeBookDesc + " created successfully");

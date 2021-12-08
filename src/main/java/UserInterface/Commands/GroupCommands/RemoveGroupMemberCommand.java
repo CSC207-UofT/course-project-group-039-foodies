@@ -16,7 +16,7 @@ public class RemoveGroupMemberCommand extends Command {
         if (!GroupCSVReader.getInstance().isGroup(groupCode)) {
             UI.displayMessage("The Group Code does not exist. Please try again.");
         } else {
-            String username = UI.queryUser("Input the username of a new member to be removed");
+            String username = UI.queryUser("Input the username of a member to be removed");
             if (!GroupCSVReader.getInstance().containsMember(groupCode, username)) {
                 UI.displayMessage("The username does not exist. Please try again.");
             } else {

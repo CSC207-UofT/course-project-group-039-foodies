@@ -4,24 +4,14 @@ import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.Sorts.Sort;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
-import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
-/**
- * Sort recipes from the database.
- */
-public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
-    /**
-     * Initialize SortRecipeBookCommand.
-     */
-    public SortRecipeBookCommand() {
-        super("sort", "Sorts the recipes to be seen");
+public class SortGroupRecipeBookCommand extends ChoiceCommand<RatingOption> {
+    public SortGroupRecipeBookCommand() {
+        super("sort", "Sorts the group recipes to be seen");
     }
 
-    /**
-     * Set sort to the recipes in the database based on its given sort algorithm by the user.
-     * @param UI an instance of the user interface.
-     */
     @Override
     public void runAction(UserInterface UI) {
         Sort sort = null;
@@ -40,6 +30,7 @@ public class SortRecipeBookCommand extends ChoiceCommand<RatingOption> {
         }
 
         RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
-        GetNewRecipeCommand.initializeIterator(UI);
+        GetNewGroupRecipeCommand.initializeIterator(UI);
     }
 }
+

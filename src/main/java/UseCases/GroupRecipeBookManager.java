@@ -2,7 +2,6 @@ package main.java.UseCases;
 
 import main.java.Entities.Recipe;
 import main.java.Entities.GroupRecipeBook;
-import main.java.Entities.SubRecipeBook;
 import main.java.Entities.GroupSubRecipeBook;
 import main.java.Entities.User;
 import main.java.Entities.Group;
@@ -42,12 +41,12 @@ public class GroupRecipeBookManager {
 
     /**
      * Return whether a groupSubRecipeBook of a certain name is contained in a group's overall recipe book
-     * @param subRecipeBookInterested The groupSubRecipeBook name we are looking for
+     * @param groupSubRecipeBookInterested The groupSubRecipeBook name we are looking for
      * @return True if and only if the group contains the groupSubRecipeBook
      */
-    public boolean containsSubRecipeBook(SubRecipeBook subRecipeBookInterested) {
+    public boolean containsSubRecipeBook(GroupSubRecipeBook groupSubRecipeBookInterested) {
         for (GroupSubRecipeBook groupSubRecipeBook : overallGroupRecipeBook.getGroupSubRecipeBooks()) {
-            if (groupSubRecipeBook.getName().equals(subRecipeBookInterested.getName())) {
+            if (groupSubRecipeBook.getName().equals(groupSubRecipeBookInterested.getName())) {
                 return true;
             }
         }

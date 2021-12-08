@@ -4,7 +4,6 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.UserInterface.UserInterface;
 
-
 public class EnterGroupRecipeBookCommand extends Command {
     public EnterGroupRecipeBookCommand() {
         super("enter group recipe book",
@@ -18,4 +17,3 @@ public class EnterGroupRecipeBookCommand extends Command {
         help.runAction(UI);
     }
 }
-
