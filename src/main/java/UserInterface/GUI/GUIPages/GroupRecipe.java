@@ -30,7 +30,7 @@ public class GroupRecipe {
         JButton byFilter = new JButton("By Filter");
         byFilter.addActionListener(e -> {
             showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesByFilter.setVisible(true);
+            GUIForm.viewGroupRecipesByFilter.setVisible(true);
         });
         byFilter.setBounds(75, 50, 150, 23);
         showGroupRecipes.getContentPane().add(byFilter);
@@ -38,7 +38,7 @@ public class GroupRecipe {
         JButton bySort = new JButton("By Sort");
         bySort.addActionListener(e -> {
             showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesBySort.setVisible(true);
+            GUIForm.viewGroupRecipesBySort.setVisible(true);
         });
         bySort.setBounds(225, 50, 150, 23);
         showGroupRecipes.getContentPane().add(bySort);

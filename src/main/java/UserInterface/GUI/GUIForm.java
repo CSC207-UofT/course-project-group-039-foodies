@@ -34,6 +34,8 @@ public class GUIForm {
     public static ViewRecipesByRandom viewByRandom = new ViewRecipesByRandom();
     public static ViewSavedRecipesByFilter viewSavedRecipesByFilter = new ViewSavedRecipesByFilter();
     public static ViewSavedRecipesBySort viewSavedRecipesBySort = new ViewSavedRecipesBySort();
+    public static ViewGroupRecipesByFilter viewGroupRecipesByFilter = new ViewGroupRecipesByFilter();
+    public static ViewGroupRecipesBySort viewGroupRecipesBySort = new ViewGroupRecipesBySort();
     public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
 
     public static void displayMessage(String message) {
