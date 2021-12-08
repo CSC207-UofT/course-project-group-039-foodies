@@ -1,6 +1,8 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
+import main.java.UserInterface.UserInterface;
 
 import javax.swing.*;
 
@@ -21,15 +23,15 @@ public class ViewPreferences {
         viewPreferences.getContentPane().setLayout(null);
 
         // saved preferences panel
-        JLabel lbltitle = new JLabel("Saved Preferences");
+        JLabel lbltitle = new JLabel("Preferences");
         lbltitle.setFont(new Font("Tahoma", Font.BOLD, 13));
         lbltitle.setBounds(170, 63, 200, 23);
         viewPreferences.getContentPane().add(lbltitle);
 
-        JLabel ingredients = new JLabel("Ingredients to Include:");
-        ingredients.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        ingredients.setBounds(55, 119, 300, 23);
-        viewPreferences.getContentPane().add(ingredients);
+        JLabel include = new JLabel("Ingredients to Include:");
+        include.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        include.setBounds(55, 119, 300, 23);
+        viewPreferences.getContentPane().add(include);
 
         JLabel omit = new JLabel("Ingredients to Omit:");
         omit.setFont(new Font("Tahoma", Font.PLAIN, 12));

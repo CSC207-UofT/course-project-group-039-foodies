@@ -1,5 +1,11 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
+import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
+import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateDietCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -23,39 +29,41 @@ public class EditPreferences {
         // saved preferences panel
         JLabel lbltitle = new JLabel("Edit Preferences");
         lbltitle.setFont(new Font("Tahoma", Font.BOLD, 13));
-        lbltitle.setBounds(170, 63, 200, 23);
+        lbltitle.setBounds(170, 15, 200, 23);
         editPreferences.getContentPane().add(lbltitle);
 
-        JLabel ingredients = new JLabel("Add Ingredient to Include:");
-        ingredients.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        ingredients.setBounds(55, 119, 300, 23);
-        editPreferences.getContentPane().add(ingredients);
+        JButton include = GUIForm.createButtonFromCommand(new UpdateIncludeCommand());
+        include.setBounds(115, 55, 220, 23);
+        editPreferences.getContentPane().add(include);
 
-        JLabel omit = new JLabel("Add Ingredient to Omit:");
-        omit.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        omit.setBounds(55, 159, 300, 23);
+        JButton omit = GUIForm.createButtonFromCommand(new UpdateOmitCommand());
+        omit.setBounds(115, 95, 220, 23);
         editPreferences.getContentPane().add(omit);
 
-        JTextField textField = new JTextField();
-        textField.setBounds(200, 121, 86, 20);
-        editPreferences.getContentPane().add(textField);
-        textField.setColumns(10);
-        textField.setText("");
+        JButton diet = GUIForm.createButtonFromCommand(new UpdateDietCommand());
+        diet.setBounds(125, 135, 200, 23);
+        editPreferences.getContentPane().add(diet);
 
-        JButton add = new JButton("Enter");
-        add.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        add.setBounds(290, 119, 70, 23);
-        editPreferences.getContentPane().add(add);
-
-        JTextField textField_1 = new JTextField();
-        textField_1.setBounds(200, 161, 86, 20);
-        editPreferences.getContentPane().add(textField_1);
-        textField_1.setColumns(10);
-
-        JButton add_omit = new JButton("Enter");
-        add_omit.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        add_omit.setBounds(290, 161, 70, 23);
-        editPreferences.getContentPane().add(add_omit);
+//        JTextField textField = new JTextField();
+//        textField.setBounds(200, 121, 86, 20);
+//        editPreferences.getContentPane().add(textField);
+//        textField.setColumns(10);
+//        textField.setText("");
+//
+//        JButton add = new JButton("Enter");
+//        add.setFont(new Font("Tahoma", Font.PLAIN, 12));
+//        add.setBounds(290, 119, 70, 23);
+//        editPreferences.getContentPane().add(add);
+//
+//        JTextField textField_1 = new JTextField();
+//        textField_1.setBounds(200, 161, 86, 20);
+//        editPreferences.getContentPane().add(textField_1);
+//        textField_1.setColumns(10);
+//
+//        JButton add_omit = new JButton("Enter");
+//        add_omit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+//        add_omit.setBounds(290, 161, 70, 23);
+//        editPreferences.getContentPane().add(add_omit);
 
 
         JButton btnBack = new JButton("Back");

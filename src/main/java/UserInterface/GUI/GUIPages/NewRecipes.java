@@ -1,6 +1,7 @@
 package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.Commands.RecipeBookCommands.AddToRecipeBookCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
