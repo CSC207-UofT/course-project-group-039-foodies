@@ -7,6 +7,8 @@ import main.java.UserInterface.GUI.GUIPages.Menu;
 import javax.swing.*;
 import java.awt.*;
 
+
+
 public class GUIForm {
     public static Start start = new Start();
     public static Login login = new Login();
