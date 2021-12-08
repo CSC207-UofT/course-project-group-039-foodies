@@ -183,10 +183,9 @@ public class PageManager {
     }
     public void setUpdatePreferences() {
         setPage(updatePreferences);
-
+    }
     public void enterPreferenceBook() {
         setPage(preferenceBook);
-
     }
     public void manageGroup() {
         setPage(manageGroup);
@@ -197,6 +196,4 @@ public class PageManager {
     public Command[] getAvailableCommands() {
         return currentPage.getAvailableCommands();
     }
-
-
 }
