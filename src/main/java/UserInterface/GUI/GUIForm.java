@@ -32,14 +32,17 @@ public class GUIForm {
     public static ViewRecipesBySort viewRecipesBySort = new ViewRecipesBySort();
     public static ViewTopPicks viewTopPicks = new ViewTopPicks();
     public static ViewRecipesByRandom viewByRandom = new ViewRecipesByRandom();
-    public static ViewSavedRecipesByFilter viewSavedRecipesByFilter = new ViewSavedRecipesByFilter();
-    public static ViewSavedRecipesBySort viewSavedRecipesBySort = new ViewSavedRecipesBySort();
+    public static ViewSubRecipeBookRecipesByFilter viewSavedRecipesByFilter = new ViewSubRecipeBookRecipesByFilter();
+    public static ViewSubRecipeBookRecipesBySort viewSavedRecipesBySort = new ViewSubRecipeBookRecipesBySort();
     // public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
     public static ViewAllSubRecipeBooks viewSubRecipeBooks = new ViewAllSubRecipeBooks();
     public static ViewRecipeBook viewRecipeBook = new ViewRecipeBook();
     public static SubRecipeBook showSubRecipes = new SubRecipeBook();
+    public static GroupSubRecipeBook showGroupSubRecipeBook = new GroupSubRecipeBook();
     public static ViewAllSavedRecipesSorted viewAllSavedRecipesSorted = new ViewAllSavedRecipesSorted();
     public static ViewAllSavedRecipesFiltered viewAllSavedRecipesFiltered = new ViewAllSavedRecipesFiltered();
+    public static ViewGroupSubRecipeBookBySort viewGroupSubRecipeBookBySort = new ViewGroupSubRecipeBookBySort();
+    public static FilterGroupSubRecipeBooks viewGroupSubRecipeBookFiltered = new FilterGroupSubRecipeBooks();
 
     public static void displayMessage(String message) {
         JOptionPane.showMessageDialog(null, createMessage(message));
