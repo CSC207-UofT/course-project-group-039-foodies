@@ -17,7 +17,7 @@ public class ListRecipeBookCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        RecipeBook recipebook = RecipeBookCSVReader.getInstance().getUserRecipeBook(UI.getUser());
+        RecipeBook recipebook = UI.getUser().getRecipeBook();
         RecipeBookManager recipeBookManager = new RecipeBookManager(recipebook);
         if (recipeBookManager.getRecipes().length == 0) {
             UI.displayMessage("Your recipe book is empty.");
