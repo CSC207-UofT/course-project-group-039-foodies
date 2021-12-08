@@ -2,6 +2,7 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 
+
 /**
  *  A Group Recipe Book that stores a list of the Group sub-Recipe Books and a default subrecipe book
  *  to which all recipes are added.
@@ -21,21 +22,23 @@ public class GroupRecipeBook {
                 "a recipebook with all the group recipes ever added"));
     }
 
+
     /**
      * Create a new group sub-recipe book in OverallRecipeBook with name and description description.
      * @param name        - name of subrecipe book
      * @param description - description of subrecipe book
      */
     public void addGroupSubRecipeBook(String name, String description) {
+        this.groupSubRecipeBooks.add(new GroupSubRecipeBook(name, description));
     }
+
 
     public void addGroupSubRecipeBook(String name) {
         this.groupSubRecipeBooks.add(new GroupSubRecipeBook(name,
                 " "));
     }
 
-
-    public void addSubRecipeBook(GroupSubRecipeBook groupSubRecipeBook) {
+    public void addGroupSubRecipeBook(GroupSubRecipeBook groupSubRecipeBook) {
         groupSubRecipeBooks.add(groupSubRecipeBook);
     }
 
@@ -100,4 +103,3 @@ public class GroupRecipeBook {
     }
 
 }
-
