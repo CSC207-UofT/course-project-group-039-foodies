@@ -18,7 +18,7 @@ public class GroupRecipeBook {
      */
     public GroupRecipeBook() {
         this.groupSubRecipeBooks = new ArrayList<>();
-        this.groupSubRecipeBooks.add(new GroupSubRecipeBook("allrecipes",
+        this.groupSubRecipeBooks.add(new GroupSubRecipeBook("AllRecipes",
                 "a recipebook with all the group recipes ever added"));
     }
 
@@ -33,27 +33,38 @@ public class GroupRecipeBook {
     }
 
 
+    /**
+     * Adds a new GroupSubRecipeBook
+     * @param name The name of the new GroupSubRecipeBook
+     */
     public void addGroupSubRecipeBook(String name) {
         this.groupSubRecipeBooks.add(new GroupSubRecipeBook(name,
                 " "));
     }
 
+    /**
+     * Adds a new GroupSubRecipeBook
+     * @param groupSubRecipeBook The GroupSubRecipeBook object
+     */
     public void addGroupSubRecipeBook(GroupSubRecipeBook groupSubRecipeBook) {
         groupSubRecipeBooks.add(groupSubRecipeBook);
     }
 
 
+    /**
+     * Removes a GroupSubRecipeBook
+     * @param groupSubRecipeBook The GroupSubRecipeBook object
+     */
     public void removeGroupSubRecipeBook(GroupSubRecipeBook groupSubRecipeBook) {
         groupSubRecipeBooks.remove(groupSubRecipeBook);
     }
 
 
-    public GroupSubRecipeBook showGroupSubRecipeBook(GroupSubRecipeBook groupSubRecipeBook) {
-        int groupSubRecipeBookIndex = this.groupSubRecipeBooks.indexOf(groupSubRecipeBook);
-        return this.groupSubRecipeBooks.get(groupSubRecipeBookIndex);
-    }
-
-
+    /**
+     * A getter for a GroupSubRecipeBook
+     * @param groupSubRecipeBookName The name of the GroupSubRecipeBook
+     * @return The GroupSubRecipeBook with the name groupSubRecipeBookName
+     */
     public GroupSubRecipeBook showGroupSubRecipeBook(String groupSubRecipeBookName) {
         for (GroupSubRecipeBook groupSubrecipebook : groupSubRecipeBooks) {
             if (groupSubrecipebook.getName().equals(groupSubRecipeBookName)) {
@@ -64,42 +75,72 @@ public class GroupRecipeBook {
     }
 
 
+    /**
+     * Returns all the GroupSubRecipeBooks
+     * @return An arraylist of all GroupSubRecipeBooks
+     */
     public ArrayList<GroupSubRecipeBook> getGroupSubRecipeBooks() {
         return groupSubRecipeBooks;
     }
 
 
+    /**
+     * Returns all recipes in the AllRecipes GroupSubRecipeBook
+     * @return An array of all recipes
+     */
     public Recipe[] getAllRecipes() {
         return this.showGroupSubRecipeBook(
-                "allrecipes").getRecipes();
+                "AllRecipes").getRecipes();
     }
 
 
-    public void addRecipe(String subRecipeBookName, Recipe recipe) {
-        showGroupSubRecipeBook(subRecipeBookName).addRecipe(recipe);
-        this.showGroupSubRecipeBook("allrecipes").addRecipe(recipe);
+    /**
+     * Adds a Recipe to a GroupSubRecipeBook
+     * @param groupSubRecipeBookName The name of the GroupSubRecipeBook
+     * @param recipe The recipe to add
+     */
+    public void addRecipe(String groupSubRecipeBookName, Recipe recipe) {
+        showGroupSubRecipeBook(groupSubRecipeBookName).addRecipe(recipe);
+        this.showGroupSubRecipeBook("AllRecipes").addRecipe(recipe);
     }
 
 
-    public void removeRecipe(String subRecipeBookName , Recipe recipe) {
-        showGroupSubRecipeBook(subRecipeBookName).removeRecipe(recipe);
-        this.showGroupSubRecipeBook("allrecipes").removeRecipe(recipe);
+    /**
+     * Removes a Recipe from a GroupSubRecipeBook
+     * @param groupSubRecipeBookName The name of the GroupSubRecipeBook
+     * @param recipe The recipe to remove
+     */
+    public void removeRecipe(String groupSubRecipeBookName, Recipe recipe) {
+        showGroupSubRecipeBook(groupSubRecipeBookName).removeRecipe(recipe);
+        this.showGroupSubRecipeBook("AllRecipes").removeRecipe(recipe);
     }
 
 
-    public void removeRecipe(String subRecipeBookName, Integer recipecode) {
-        showGroupSubRecipeBook(subRecipeBookName).removeRecipe(recipecode);
-        this.showGroupSubRecipeBook("allrecipes").removeRecipe(recipecode);
+    /**
+     * Removes a Recipe from a GroupSubRecipeBook
+     * @param groupSubRecipeBookName The name of the GroupSubRecipeBook
+     * @param recipeCode The code of the Recipe to remove
+     */
+    public void removeRecipe(String groupSubRecipeBookName, Integer recipeCode) {
+        showGroupSubRecipeBook(groupSubRecipeBookName).removeRecipe(recipeCode);
+        this.showGroupSubRecipeBook("AllRecipes").removeRecipe(recipeCode);
     }
 
 
+    /**
+     * Returns the recipe codes of all Recipes in all the GroupSubRecipeBooks
+     * @return An array of codes
+     */
     public Integer[] getCodes() {
-        return this.showGroupSubRecipeBook("allrecipes").getCodes();
+        return this.showGroupSubRecipeBook("AllRecipes").getCodes();
     }
 
 
+    /**
+     * Returns the number of recipes stored
+     * @return The size
+     */
     public int size() {
-        return this.showGroupSubRecipeBook("allrecipes").size();
+        return this.showGroupSubRecipeBook("AllRecipes").size();
     }
-
 }
