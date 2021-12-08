@@ -42,8 +42,9 @@ public class CommandTests {
                 "testUserName",
                 "testPassword",
 
-
                 "enter recipe book",
+
+                "enter personal recipe book",
 
                 "add a sub recipe book",
                 "testName",
@@ -54,12 +55,12 @@ public class CommandTests {
                 "enter recipe viewer",
 
                 "add to sub recipe book",
-                "Hot Cross Buns",
+                "Ramen",
                 "testName"
-        }, 6);
+        }, 7);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
-        assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Hot Cross Buns"));
+        assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Ramen"));
     }
 
     @Test
