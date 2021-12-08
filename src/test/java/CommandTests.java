@@ -40,6 +40,8 @@ public class CommandTests {
 
                 "enter recipe book",
 
+                "enter personal recipe book",
+
                 "add a sub recipe book",
                 "testName",
                 "testDescription",
@@ -51,7 +53,7 @@ public class CommandTests {
                 "add to sub recipe book",
                 "Ramen",
                 "testName"
-        }, 6);
+        }, 7);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertTrue(recipeBookManager.findSubRecipeBook("testName").containsRecipe("Ramen"));
@@ -66,6 +68,8 @@ public class CommandTests {
 
                 "enter recipe book",
 
+                "enter personal recipe book",
+
                 "add a sub recipe book",
                 "testName",
                 "testDescription",
@@ -82,10 +86,12 @@ public class CommandTests {
 
                 "enter recipe book",
 
+                "enter personal recipe book",
+
                 "remove recipe",
                 "Ramen",
                 "testName"
-        }, 9);
+        }, 11);
 
         RecipeBookManager recipeBookManager = new RecipeBookManager(CLI.getUser());
         assertFalse(recipeBookManager.containsRecipe("Ramen"));
