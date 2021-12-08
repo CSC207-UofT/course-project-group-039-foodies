@@ -42,15 +42,6 @@ public class GroupRecipeBookTests {
     }
 
     @Test
-    public void showGroupSubRecipeBookTest() {
-        GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
-        overallGroupRecipeBook.addGroupSubRecipeBook(groupSubRecipeBook1);
-        overallGroupRecipeBook.addGroupSubRecipeBook(groupSubRecipeBook2);
-        GroupSubRecipeBook shownGroupSubRecipeBook = overallGroupRecipeBook.showGroupSubRecipeBook(groupSubRecipeBook1);
-        assertEquals(groupSubRecipeBook1, shownGroupSubRecipeBook);
-    }
-
-    @Test
     public void getGroupSubRecipeBooksTest(){
         GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
         overallGroupRecipeBook.addGroupSubRecipeBook(groupSubRecipeBook1);
