@@ -1,5 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.UserCSVReader;
 
 import javax.swing.*;
@@ -87,15 +88,15 @@ public class Signup {
         btnSignup.setBounds(260, 178, 89, 23);
         frame1.getContentPane().add(btnSignup);
         btnSignup.addActionListener(e -> {
-                String email,user,fullName;
-                char[] password;
-                email = textField.getText();
-                user = textField1.getText();
-                password = textField2.getPassword();
-                fullName = textField3.getText();
+            String email,user,fullName;
+            char[] password;
+            email = textField.getText();
+            user = textField1.getText();
+            password = textField2.getPassword();
+            fullName = textField3.getText();
 
-                signUp(user, new String(password), fullName, email);
-            });
+            signUp(user, new String(password), fullName, email);
+        });
 
         btnSignup.setBounds(260, 138, 89, 23);
         frame1.getContentPane().add(btnSignup);
@@ -111,6 +112,7 @@ public class Signup {
             JOptionPane.showMessageDialog(null, "The user cannot be created; the username is already taken");
         } else {
             UserCSVReader.getInstance().addUser(user, password, fullName, email);
+            PreferenceBookCSVReader.getInstance().addPreferenceBook(user);
             JOptionPane.showMessageDialog(null, "Sign Up Successful", "ALERT", JOptionPane.INFORMATION_MESSAGE);
             frame1.setVisible(false);
         }

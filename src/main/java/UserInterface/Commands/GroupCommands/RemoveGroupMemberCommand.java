@@ -12,7 +12,11 @@ public class RemoveGroupMemberCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        String groupCode = UI.queryUser("Input your 7 digit Group Code");
+        String user = UI.getUser().getUsername();
+        String joinedGroups = GroupCSVReader.getInstance().getJoinedGroups(user);
+
+        String groupCode = UI.queryUser("Your groups are :\n" + joinedGroups
+                +"Input your 7 digit Group Code");
         if (!GroupCSVReader.getInstance().isGroup(groupCode)) {
             UI.displayMessage("The Group Code does not exist. Please try again.");
         } else {

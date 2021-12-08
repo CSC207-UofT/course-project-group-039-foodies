@@ -4,6 +4,8 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GeneralRecipes {
     public JFrame generalRecipes;
@@ -42,6 +44,18 @@ public class GeneralRecipes {
         });
         btngroupRecipe.setBounds(130, 150, 190, 23);
         generalRecipes.getContentPane().add(btngroupRecipe);
+
+
+        JButton btnBack = new JButton("Back to Menu");
+        btnBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                generalRecipes.setVisible(false);
+                GUIForm.menu.setVisible(true);
+
+            }
+        });
+        btnBack.setBounds(150, 210, 150, 23);
+        generalRecipes.getContentPane().add(btnBack);
 
 
         JLabel img = new JLabel("New image");

@@ -1,5 +1,6 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
+
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
@@ -23,7 +24,8 @@ public class AddToRecipeBookCommand extends Command {
             UI.displayMessage("This recipe does not exist");
         } else {
             RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
-            String subRecipeBookName = UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to");
+            String subRecipeBookName = UI.queryUser("Input the name of the sub-recipe book you would like to add recipe to." +
+                    "Type AllRecipes if you want to add it to your general sub-recipe book.");
             if (recipeBookManager.containsSubRecipeBook(subRecipeBookName)) {
                 SubRecipeBook subrecipebook = recipeBookManager.findSubRecipeBook(subRecipeBookName);
                 recipeBookManager.addRecipe(subRecipeBookName, recipe);
@@ -35,4 +37,3 @@ public class AddToRecipeBookCommand extends Command {
         }
     }
 }
-
