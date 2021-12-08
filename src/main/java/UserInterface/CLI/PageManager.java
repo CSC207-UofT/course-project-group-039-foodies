@@ -47,6 +47,8 @@ public class PageManager {
             }
     );
 
+
+
     Page generalRecipeBook = new Page(
             signedIn,
             new Command[] {
@@ -108,6 +110,7 @@ public class PageManager {
             }
     );
 
+
     Page subRecipeBook = new Page(
             recipeBook,
             new Command[] {
@@ -155,36 +158,47 @@ public class PageManager {
     public void setPage(Page page) {
         currentPage = page;
     }
+
     public Command findCommand(String name) {
         return currentPage.findCommand(name);
     }
+
     public void signIn() {
         setPage(signedIn);
     }
+
     public void signOut() {
         setPage(signedOut);
     }
+
     public void enterGeneralRecipeBook() {
         setPage(generalRecipeBook);
     }
+
     public void enterRecipeBook() {
         setPage(recipeBook);
     }
+
+    public void enterGroupRecipeBook() {
+        setPage(groupRecipeBook);
+    }
+
     public void enterSubRecipeBook() {
         setPage(subRecipeBook);
     }
-    public void enterGroupRecipeBook() {
-        setPage(groupRecipeBook); 
-    }
+
     public void enterGroupSubRecipeBook() {
         setPage(groupSubRecipeBook);
     }
+
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
+
     public void enterGroupRecipeViewer() {
         setPage(groupRecipeViewer);
     }
+
     public void enterPreferenceBook() {
         setPage(preferenceBook);
     }
@@ -197,6 +211,4 @@ public class PageManager {
     public Command[] getAvailableCommands() {
         return currentPage.getAvailableCommands();
     }
-
-
 }
