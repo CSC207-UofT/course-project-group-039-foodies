@@ -27,25 +27,28 @@ public class Preferences {
         label.setBounds(175, 11, 170, 41);
         preferences.getContentPane().add(label);
 
+        // view saved preferences
         JButton viewSavedPreferences = new JButton("View Saved Preferences");
         viewSavedPreferences.addActionListener(e -> {
             preferences.setVisible(false);
             GUIForm.viewPreferences.setVisible(true);
 
         });
-        viewSavedPreferences.setBounds(150, 50, 150, 23);
+        viewSavedPreferences.setBounds(125, 50, 200, 23);
         preferences.getContentPane().add(viewSavedPreferences);
 
+        // modify preferences
         JButton modifyPreferences = new JButton("Add/Edit Preferences");
         modifyPreferences.addActionListener(e -> {
             preferences.setVisible(false);
             GUIForm.editPreferences.setVisible(true);
 
         });
-        modifyPreferences.setBounds(150, 90, 150, 23);
+
+        modifyPreferences.setBounds(125, 90, 200, 23);
         preferences.getContentPane().add(modifyPreferences);
 
-
+        // back button
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             preferences.setVisible(false);

@@ -1,18 +1,17 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.GroupCommands.AddGroupMemberCommand;
 import main.java.UserInterface.Commands.GroupCommands.CreateGroupCommand;
 import main.java.UserInterface.Commands.GroupCommands.RemoveGroupMemberCommand;
-import main.java.UserInterface.GUI.Application;
+import main.java.UserInterface.Commands.GroupCommands.ViewGroupsCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
-import javax.swing.*;
-
 import java.awt.Font;
-
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+
 
 public class Groups {
     public JFrame groups;
@@ -23,15 +22,15 @@ public class Groups {
 
     private void initialize() {
         groups = new JFrame();
-        groups.setBounds(100, 100, 450, 300);
+        groups.setBounds(80, 100, 450, 300);
         groups.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         groups.setTitle("Recipick");
         groups.getContentPane().setLayout(null);
 
         // title
-        JLabel label = new JLabel("Groups");
+        JLabel label = new JLabel("Manage Groups");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(200, 11, 170, 41);
+        label.setBounds(160, 11, 170, 41);
         groups.getContentPane().add(label);
 
         JButton createGroup = GUIForm.createButtonFromCommand(new CreateGroupCommand());
@@ -46,6 +45,10 @@ public class Groups {
         removeMember.setBounds(140, 130, 170, 23);
         groups.getContentPane().add(removeMember);
 
+        JButton viewJoinedGroups = GUIForm.createButtonFromCommand(new ViewGroupsCommand());
+        viewJoinedGroups.setBounds(130, 170, 200, 23);
+        groups.getContentPane().add(viewJoinedGroups);
+
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -56,11 +59,6 @@ public class Groups {
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
-
-        JLabel img = new JLabel("New image");
-        img.setIcon(new ImageIcon("src/white food background.jpeg"));
-        img.setBounds(0, 0, 460, 300);
-        groups.getContentPane().add(img);
     }
 
     public void setVisible(boolean b) {

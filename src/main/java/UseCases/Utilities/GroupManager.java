@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class GroupManager {
     static HashMap<String, ArrayList<String>> groupMap = new HashMap<>();
+    static HashMap<String, String> groupNameMap = new HashMap<>();
 
     /**
      * Return whether a group with a certain group code is in the groupMap
@@ -26,10 +27,13 @@ public class GroupManager {
      */
     public static boolean addGroup(Group group) {
         String groupCode = group.getGroupCode();
+        String groupName = group.getGroupName();
+
         if (groupMap.containsKey(groupCode)) {
             return false;
         } else {
             groupMap.put(groupCode, group.getGroupMembers());
+            groupNameMap.put(groupCode, groupName);
             return true;
         }
     }
@@ -64,5 +68,20 @@ public class GroupManager {
         } else {
             return false;
         }
+    }
+
+
+    /**
+     * Show all the group information that a user has joined in.
+     * @param username The username of a user .
+     * @return the group name and the group code of the groups that a user has joined in.
+     */
+    public static String getJoinedGroups(String username) {
+        StringBuilder groups = new StringBuilder();
+        for (String groupCode : groupMap.keySet()) {
+            if (groupMap.get(groupCode).contains(username)) {
+                groups.append(groupCode).append(" : ").append(groupNameMap.get(groupCode)).append("\n");
+            }
+        } return groups.toString();
     }
 }

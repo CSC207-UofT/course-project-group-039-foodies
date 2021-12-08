@@ -1,6 +1,5 @@
 package main.java.Gateways;
 
-import main.java.Entities.RecipeBook;
 import main.java.Entities.User;
 import main.java.UseCases.UserFactory;
 
@@ -60,6 +59,9 @@ public class UserCSVReader extends CSVReader {
      * @return A boolean representing whether there is a user
      */
     public boolean isUser(String username) {
+        if (readFile().isEmpty()) { //for empty file case
+            return false;
+        }
         for (ArrayList<String> line : readFile()) {
             if (line.get(0).equals(username)) {
                 return true;
