@@ -11,7 +11,7 @@ import main.java.UserInterface.UserInterface;
 public class AddGroupSubRecipeBookCommand extends Command {
 
     public AddGroupSubRecipeBookCommand() {
-        super("add a subrecipebook",
+        super("add a group sub recipe book",
                 "Adds a new sub recipe book to the user's group recipe book");
     }
 

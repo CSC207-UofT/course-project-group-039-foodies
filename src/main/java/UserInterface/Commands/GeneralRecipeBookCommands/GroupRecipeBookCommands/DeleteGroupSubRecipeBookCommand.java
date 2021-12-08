@@ -9,7 +9,7 @@ import main.java.UseCases.GroupRecipeBookManager;
 
 public class DeleteGroupSubRecipeBookCommand extends Command{
     public DeleteGroupSubRecipeBookCommand() {
-        super("delete GroupSubRecipeBook", "deletes the GroupSubRecipeBook with name provided");
+        super("delete group sub recipe book", "deletes the GroupSubRecipeBook with name provided");
     }
 
     public void runAction(UserInterface UI) {

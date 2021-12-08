@@ -1,12 +1,12 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.ListRecipeBookCommand;
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.RemoveRecipeCommand;
 
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
         AddGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
         DeleteGroupSubRecipeBookCommand;
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.
+        ListGroupSubRecipeBooksCommand;
 
 import main.java.UserInterface.GUI.GUIForm;
 
@@ -35,13 +35,29 @@ public class GroupRecipeBook {
 
 
         JButton addSubRecipeBook = GUIForm.createButtonFromCommand(new AddGroupSubRecipeBookCommand());
-        addSubRecipeBook.setBounds(150, 90, 150, 23);
+        addSubRecipeBook.setBounds(115, 90, 230, 23);
         groupRecipeBook.getContentPane().add(addSubRecipeBook);
 
 
         JButton deleteSubRecipeBook = GUIForm.createButtonFromCommand(new DeleteGroupSubRecipeBookCommand());
-        deleteSubRecipeBook.setBounds(150, 130, 150, 23);
+        deleteSubRecipeBook.setBounds(115, 130, 230, 23);
         groupRecipeBook.getContentPane().add(deleteSubRecipeBook);
+
+
+        JButton showGroupSubRecipeBook = GUIForm.createButtonFromCommand(new ListGroupSubRecipeBooksCommand());
+        showGroupSubRecipeBook.setBounds(130, 170, 200, 23);
+        groupRecipeBook.getContentPane().add(showGroupSubRecipeBook);
+
+
+
+        JButton btnBack = new JButton("Back to Menu");
+        btnBack.addActionListener(e -> {
+            groupRecipeBook.setVisible(false);
+            GUIForm.menu.setVisible(true);
+        });
+        btnBack.setBounds(150, 210, 150, 23);
+        groupRecipeBook.getContentPane().add(btnBack);
+
 
 
     }
