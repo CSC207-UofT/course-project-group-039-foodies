@@ -63,73 +63,73 @@ public class GroupRecipeBookTests {
         assertEquals(expected, groupSubRecipeBooks);
     }
 
-//     @Test
-//     public void getAllRecipesTest() {
-//         ArrayList<String> pancakeIngredient = new ArrayList<>();
+    @Test
+    public void getAllRecipesTest() {
+        ArrayList<String> pancakeIngredient = new ArrayList<>();
 
-//         // make a groupRecipe
-//         pancakeIngredient.add("milk");
-//         pancakeIngredient.add("pancake mix");
-//         Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-//                 pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+        // make a groupRecipe
+        pancakeIngredient.add("milk");
+        pancakeIngredient.add("pancake mix");
+        Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
+                pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-//         GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
-//         GroupRecipeBookManager grouprecipebookmanager = new GroupRecipeBookManager(overallGroupRecipeBook);
+        GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
+        GroupRecipeBookManager grouprecipebookmanager = new GroupRecipeBookManager(overallGroupRecipeBook);
 
-//         // make a groupSubRecipeBook
-//         grouprecipebookmanager.addSubRecipeBook("subRecipeBook1", "a subRecipeBook");
+        // make a groupSubRecipeBook
+        grouprecipebookmanager.addSubRecipeBook("subRecipeBook1", "a subRecipeBook");
 
-//         // add the groupRecipe to the groupSubRecipeBook
-//         grouprecipebookmanager.addRecipe("subRecipeBook1", groupRecipe3);
-//         Recipe[] groupRecipes = overallGroupRecipeBook.getAllRecipes();
-//         assertEquals(1, groupRecipes.length);
-//     }
+        // add the groupRecipe to the groupSubRecipeBook
+        grouprecipebookmanager.addRecipe("subRecipeBook1", groupRecipe3);
+        Recipe[] groupRecipes = overallGroupRecipeBook.getAllRecipes();
+        assertEquals(1, groupRecipes.length);
+    }
 
-//     @Test
-//     public void addRecipeTest() {
-//         // make a recipe
-//         ArrayList<String> pancakeIngredient = new ArrayList<>();
-//         pancakeIngredient.add("milk");
-//         pancakeIngredient.add("pancake mix");
-//         Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-//                 pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+    @Test
+    public void addRecipeTest() {
+        // make a recipe
+        ArrayList<String> pancakeIngredient = new ArrayList<>();
+        pancakeIngredient.add("milk");
+        pancakeIngredient.add("pancake mix");
+        Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
+                pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-//         GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
-//         overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
-//         overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
-//         assertTrue(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
-//     }
+        GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
+        overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
+        overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
+        assertTrue(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
+    }
 
-//     @Test
-//     public void removeRecipe() {
-//         // make a recipe
-//         ArrayList<String> pancakeIngredient = new ArrayList<>();
-//         pancakeIngredient.add("milk");
-//         pancakeIngredient.add("pancake mix");
-//         Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-//                 pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+    @Test
+    public void removeRecipe() {
+        // make a recipe
+        ArrayList<String> pancakeIngredient = new ArrayList<>();
+        pancakeIngredient.add("milk");
+        pancakeIngredient.add("pancake mix");
+        Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
+                pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-//         GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
-//         overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
-//         overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
-//         assertTrue(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
-//         overallGroupRecipeBook.removeRecipe("subRecipeBook1", groupRecipe3 );
-//         assertFalse(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
-//     }
+        GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
+        overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
+        overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
+        assertTrue(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
+        overallGroupRecipeBook.removeRecipe("subRecipeBook1", groupRecipe3 );
+        assertFalse(overallGroupRecipeBook.showGroupSubRecipeBook("subRecipeBook1").containsRecipe(groupRecipe3));
+    }
 
-//     @Test
-//     public void sizeTest() {
-//         // make a recipe
-//         ArrayList<String> pancakeIngredient = new ArrayList<>();
-//         pancakeIngredient.add("milk");
-//         pancakeIngredient.add("pancake mix");
-//         Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
-//                 pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
+    @Test
+    public void sizeTest() {
+        // make a recipe
+        ArrayList<String> pancakeIngredient = new ArrayList<>();
+        pancakeIngredient.add("milk");
+        pancakeIngredient.add("pancake mix");
+        Recipe groupRecipe3 = RecipeFactory.createRecipe("pancakes", "breakfast", 2,
+                pancakeIngredient, "Add milk to pancake mix. Combine. Fry pancakes on pan");
 
-//         GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
-//         overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
-//         overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
-//         assertEquals(1, overallGroupRecipeBook.size());
-//     }
-// }
+        GroupRecipeBook overallGroupRecipeBook = new GroupRecipeBook();
+        overallGroupRecipeBook.addGroupSubRecipeBook("subRecipeBook1", "a subRecipeBook");
+        overallGroupRecipeBook.addRecipe("subRecipeBook1", groupRecipe3);
+        assertEquals(1, overallGroupRecipeBook.size());
+    }
+}
 
