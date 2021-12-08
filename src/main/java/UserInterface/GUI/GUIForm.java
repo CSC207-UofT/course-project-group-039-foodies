@@ -7,6 +7,8 @@ import main.java.UserInterface.GUI.GUIPages.Menu;
 import javax.swing.*;
 import java.awt.*;
 
+
+
 public class GUIForm {
     public static Start start = new Start();
     public static Login login = new Login();
@@ -14,7 +16,15 @@ public class GUIForm {
     public static Menu menu = new Menu();
     public static Preferences preferences = new Preferences();
     public static NewRecipes newRecipes = new NewRecipes();
-    public static RecipeBook showRecipes = new RecipeBook();
+
+    public static GeneralRecipes generalRecipes = new GeneralRecipes();
+    public static PersonalRecipe showRecipes = new PersonalRecipe();
+    public static GroupRecipe showGroupRecipes = new GroupRecipe();
+
+    public static GeneralRecipeBook generalRecipeBook = new GeneralRecipeBook();
+    public static PersonalRecipeBook personalRecipeBook = new PersonalRecipeBook();
+    public static GroupRecipeBook groupRecipeBook = new GroupRecipeBook();
+
     public static Groups groups = new Groups();
     public static ViewPreferences viewPreferences = new ViewPreferences();
     public static EditPreferences editPreferences = new EditPreferences();

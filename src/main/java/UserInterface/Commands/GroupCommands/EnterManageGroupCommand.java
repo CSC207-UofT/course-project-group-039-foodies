@@ -6,7 +6,7 @@ import main.java.UserInterface.UserInterface;
 
 public class EnterManageGroupCommand extends Command {
     public EnterManageGroupCommand() {
-        super("manage groups", "Manage your groups");
+        super("manage groups", "Manages your groups");
     }
 
     @Override
@@ -16,4 +16,3 @@ public class EnterManageGroupCommand extends Command {
         help.runAction(UI);
     }
 }
-

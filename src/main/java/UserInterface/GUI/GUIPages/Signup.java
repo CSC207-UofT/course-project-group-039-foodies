@@ -88,15 +88,15 @@ public class Signup {
         btnSignup.setBounds(260, 178, 89, 23);
         frame1.getContentPane().add(btnSignup);
         btnSignup.addActionListener(e -> {
-                String email,user,fullName;
-                char[] password;
-                email = textField.getText();
-                user = textField1.getText();
-                password = textField2.getPassword();
-                fullName = textField3.getText();
+            String email,user,fullName;
+            char[] password;
+            email = textField.getText();
+            user = textField1.getText();
+            password = textField2.getPassword();
+            fullName = textField3.getText();
 
-                signUp(user, new String(password), fullName, email);
-            });
+            signUp(user, new String(password), fullName, email);
+        });
 
         btnSignup.setBounds(260, 138, 89, 23);
         frame1.getContentPane().add(btnSignup);
