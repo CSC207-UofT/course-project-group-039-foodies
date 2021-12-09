@@ -1,5 +1,9 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.Gateways.UserCSVReader;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateDietCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -23,36 +27,34 @@ public class Preferences {
         // title
         JLabel label = new JLabel("Preferences");
         label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(175, 11, 170, 41);
+        label.setBounds(175, 10, 170, 41);
         preferences.getContentPane().add(label);
 
         // view saved preferences
-        JButton viewSavedPreferences = new JButton("View Saved Preferences");
-        viewSavedPreferences.addActionListener(e -> {
-            preferences.setVisible(false);
-            GUIForm.viewPreferences.setVisible();
-
-        });
-        viewSavedPreferences.setBounds(125, 50, 200, 23);
+        JButton viewSavedPreferences = GUIForm.createButtonFromCommand(new ViewPreferencesCommand());
+        viewSavedPreferences.setBounds(115, 50, 220, 23);
         preferences.getContentPane().add(viewSavedPreferences);
 
-        // modify preferences
-        JButton modifyPreferences = new JButton("Add/Edit Preferences");
-        modifyPreferences.addActionListener(e -> {
-            preferences.setVisible(false);
-            GUIForm.editPreferences.setVisible();
+        // modify include
+        JButton include = GUIForm.createButtonFromCommand(new UpdateIncludeCommand());
+        include.setBounds(115, 90, 220, 23);
+        preferences.getContentPane().add(include);
 
-        });
+        // modify omit
+        JButton omit = GUIForm.createButtonFromCommand(new UpdateOmitCommand());
+        omit.setBounds(115, 130, 220, 23);
+        preferences.getContentPane().add(omit);
 
-        modifyPreferences.setBounds(125, 90, 200, 23);
-        preferences.getContentPane().add(modifyPreferences);
+        // modify diet
+        JButton diet = GUIForm.createButtonFromCommand(new UpdateDietCommand());
+        diet.setBounds(125, 170, 200, 23);
+        preferences.getContentPane().add(diet);
 
         // back button
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             preferences.setVisible(false);
             GUIForm.menu.setVisible();
-
         });
 
         btnBack.setBounds(150, 210, 150, 23);

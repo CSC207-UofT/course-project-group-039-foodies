@@ -26,8 +26,6 @@ public class GUIForm {
     public static GroupRecipeBook groupRecipeBook = new GroupRecipeBook();
 
     public static Groups groups = new Groups();
-    public static ViewPreferences viewPreferences = new ViewPreferences();
-    public static EditPreferences editPreferences = new EditPreferences();
     public static ViewRecipesByFilter viewRecipesByFilter = new ViewRecipesByFilter();
     public static ViewRecipesBySort viewRecipesBySort = new ViewRecipesBySort();
     public static ViewTopPicks viewTopPicks = new ViewTopPicks();
