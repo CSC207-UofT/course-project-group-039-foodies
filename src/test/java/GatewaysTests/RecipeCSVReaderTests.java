@@ -63,7 +63,12 @@ public class RecipeCSVReaderTests {
         database.removeRecipe("TestName1");
         Recipe[] recipes = database.getRecipes().getRecipes();
         assertEquals(recipes.length, 2);
-        assertEquals(recipes[0].getName(), "TestName0");
-        assertEquals(recipes[1].getName(), "TestName2");
+        if (recipes[0].getName().equals("TestName0")) {
+            assertEquals(recipes[1].getName(), "TestName1");
+        } else if (recipes[0].getName().equals("TestName1")) {
+            assertEquals(recipes[1].getName(), "TestName0");
+        } else {
+            fail();
+        }
     }
 }
