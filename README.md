@@ -15,7 +15,9 @@ Our team aims to create a programme that is geared towards _food lovers_ looking
     * create groups where they can view recipes that fit everyones' preferences, as well as, share the recipes they like to members of a group.
     * create their own recipes and upload it to the database
     * rate recipes that they have tried
-* The programme also has a feature where data from all users can be aggregated, analysed and be presented in the form of:
+    * view recipes sorted by rating or by servings
+    * view racipes filtered by dietary restrictions or preferences
+    * view their most recommended recipes
+* The programme also plans to have a feature where data from all users can be aggregated, analysed and be presented in the form of:
     * most popular recipes in certain categories
-    * most highly rated recipes
     * recipes rising in popularity
