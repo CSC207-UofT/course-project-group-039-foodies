@@ -47,9 +47,9 @@ public class Groups {
         groups.getContentPane().add(viewJoinedGroups);
 
         JButton btnBack = new JButton("Back to Menu");
-        btnBack.addActionListener(e -> {
+        btnBack.addActionListener(e ->  {
             groups.setVisible(false);
-            GUIForm.menu.setVisible();
+            GUIForm.menu.setVisible(true);
 
         });
         btnBack.setBounds(150, 210, 150, 23);
