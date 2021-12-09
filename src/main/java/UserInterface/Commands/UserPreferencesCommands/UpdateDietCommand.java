@@ -29,7 +29,7 @@ public class UpdateDietCommand extends Command {
 
         //cases for adding different diets
         switch (diet) {
-            case "Pescatarian" -> {
+            case "Pescatarian":
                 //creating list of ingredients to remove; not part of pesc diet
                 List<String> RemoveFromDiet = new ArrayList<>();
                 RemoveFromDiet.addAll(vegetarian);
@@ -38,8 +38,10 @@ public class UpdateDietCommand extends Command {
                 //update csv file
                 instance.updateDiet(UI.getUser().getUsername(), "Pescatarian", UI.getPreferenceBook().getDiet());
                 changeDiet(pescatarian, RemoveFromDiet, UI, instance);
-            }
-            case "Vegetarian" -> {
+
+                break;
+
+            case "Vegetarian":
                 //creating list for vegetarian diet
                 List<String> VegAddToDiet = new ArrayList<>();
                 VegAddToDiet.addAll(pescatarian);
@@ -48,8 +50,10 @@ public class UpdateDietCommand extends Command {
                 //update csv file
                 instance.updateDiet(UI.getUser().getUsername(), "Vegetarian", UI.getPreferenceBook().getDiet());
                 changeDiet(VegAddToDiet, vegan, UI, instance);
-            }
-            case "Vegan" -> {
+
+                break;
+
+            case "Vegan":
                 //creating list for vegan diet
                 List<String> VeganAddToDiet = new ArrayList<>();
                 VeganAddToDiet.addAll(pescatarian);
@@ -62,8 +66,10 @@ public class UpdateDietCommand extends Command {
                 //update csv
                 instance.updateDiet(UI.getUser().getUsername(), "Vegan", UI.getPreferenceBook().getDiet());
                 changeDiet(VeganAddToDiet, VeganRemFromDiet, UI, instance);
-            }
-            case "No Diet" -> {
+
+                break;
+
+            case "No Diet":
                 //empty list to 'add'
                 List<String> NDAddToDiet = new ArrayList<>();
 
@@ -76,8 +82,12 @@ public class UpdateDietCommand extends Command {
                 //update csv
                 instance.updateDiet(UI.getUser().getUsername(), "No Diet", UI.getPreferenceBook().getDiet());
                 changeDiet(NDAddToDiet, NDRemFromDiet, UI, instance);
-            }
-            default -> UI.displayMessage("This option does not exist");
+
+                break;
+
+            default:
+                UI.displayMessage("This option does not exist");
+                break;
         }
         UI.buildPreferences(PreferenceBookCSVReader.getInstance().getPreferenceBook(UI.getUser().getUsername()));
     }
