@@ -157,6 +157,4 @@ public class GroupRecipeBookManager {
     public void addRecipe(String subRecipeBookName, Recipe recipe) {
         overallGroupRecipeBook.addRecipe(subRecipeBookName, recipe);
     }
-
-    public void rateRecipe(User user, String recipeName, int rating) {}
 }
