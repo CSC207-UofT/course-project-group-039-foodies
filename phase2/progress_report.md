@@ -84,7 +84,7 @@ MICHELLE
 
 * ##### PULL REQUESTS
   * Pull Request 110 in Phase 2 included changes from the GUI changes that I made with respect to RecipeBook and its subsidiaries. 
-  * Another Pull Request was made in Phase 1 for RecipeBook and its subsidiaries. 
+  * Pull Requests 40, 41 and 43  were made in Phase 1 for RecipeBook and its subsidiaries. 
 
 Milica
 * ##### Phase 1:
