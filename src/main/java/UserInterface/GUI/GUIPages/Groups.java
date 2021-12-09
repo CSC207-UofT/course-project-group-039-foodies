@@ -49,7 +49,7 @@ public class Groups {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e ->  {
             groups.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
