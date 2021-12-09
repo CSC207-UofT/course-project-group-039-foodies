@@ -49,6 +49,9 @@
   * Removing repeated code code smells
   * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
+* #### Significant pull request
+  * I helped implement many features that where essential to the moving forward of the project, but perhaps the most important one is pull request #14, 'Completely refactored out RecipeDatabase', where I completely removed the RecipeDatabase entity. I did this by identifying its responsibilities and and splitting it up into three main parts. Each part became the basis for a large part of the code. The RecipeCollection became the basis for the RecipeBooks, the RecipeCSVReader became the basis for all the databases in the program. 
+
 
 #### Emily
 * ##### TASKS DONE: 
