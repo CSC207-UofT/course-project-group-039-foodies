@@ -4,6 +4,9 @@ import main.java.UserInterface.UserInterface;
 
 import java.awt.*;
 
+/**
+ * Runs GUI of the program.
+ */
 public class Application extends UserInterface {
     private static final Application instance = new Application();
 
@@ -11,6 +14,10 @@ public class Application extends UserInterface {
         super(null);
     }
 
+    /**
+     * Gets the instance.
+     * @return instance of the Application.
+     */
     public static Application getInstance() {
         return instance;
     }
@@ -25,6 +32,10 @@ public class Application extends UserInterface {
         return GUIForm.queryUser(message);
     }
 
+    /**
+     * Runs Application.
+     * @param args list of arguments.
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> GUIForm.start.start.setVisible(true));
     }

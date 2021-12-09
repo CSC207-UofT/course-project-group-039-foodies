@@ -7,6 +7,9 @@ import main.java.UserInterface.GUI.Application;
 import main.java.UserInterface.GUI.GUIForm;
 import main.java.Gateways.UserCSVReader;
 
+/**
+ * Login page (Login Screen).
+ */
 public class Login {
 
 	public JFrame frame;

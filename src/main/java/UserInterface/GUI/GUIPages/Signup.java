@@ -6,6 +6,9 @@ import main.java.Gateways.UserCSVReader;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Sign up page.
+ */
 public class Signup {
 
     public JFrame frame1;

@@ -10,6 +10,9 @@ import java.awt.Font;
 import javax.swing.*;
 
 
+/**
+ * Group page (Manage Groups).
+ */
 public class Groups {
     public JFrame groups;
 

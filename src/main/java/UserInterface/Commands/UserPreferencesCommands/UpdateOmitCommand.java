@@ -5,7 +5,6 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
 import java.util.Objects;
-// possible usecase import
 
 /**
  * allows user to update the list of ingredients they want to omit from their recommended recipes.

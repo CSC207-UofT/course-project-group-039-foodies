@@ -4,6 +4,9 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to enter manage group page.
+ */
 public class EnterManageGroupCommand extends Command {
     public EnterManageGroupCommand() {
         super("manage groups", "Manages your groups");

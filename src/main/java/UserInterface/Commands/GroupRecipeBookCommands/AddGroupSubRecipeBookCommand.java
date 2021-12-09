@@ -8,6 +8,9 @@ import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to add group sub-recipe book.
+ */
 public class AddGroupSubRecipeBookCommand extends Command {
 
     public AddGroupSubRecipeBookCommand() {

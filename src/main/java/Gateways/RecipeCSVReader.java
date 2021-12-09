@@ -8,19 +8,30 @@ import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Reads recipe CSV file.
+ */
 public class RecipeCSVReader extends CSVReader {
     private final static RecipeCSVReader instance = new RecipeCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/recipes.csv"
-    ); // a singleton
+    );
 
     private final static RecipeCSVReader testInstance = new RecipeCSVReader(
             System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipesTest.csv"
-    ); // a singleton for testing safely
+    );
 
+    /**
+     * Get instance of the RecipeCSVReader.
+     * @return instance of the RecipeCSVReader.
+     */
     public static RecipeCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get test instance of the RecipeCSVReader.
+     * @return test instance of the RecipeCSVReader.
+     */
     public static RecipeCSVReader getTestInstance() {
         return testInstance;
     }

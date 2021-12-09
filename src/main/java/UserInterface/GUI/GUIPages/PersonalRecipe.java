@@ -7,6 +7,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * Personal Recipe page (Show Personal Recipes).
+ */
 public class PersonalRecipe {
     public JFrame showRecipes;
 

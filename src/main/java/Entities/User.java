@@ -10,13 +10,12 @@ public class User {
     private final RecipeBook recipeBook;
 
     /**
-     * Creates a user with a name, username, email and  with code recipe code to the Recipe Book
+     * Creates a user with a name, username, and email.
      *
      * @param fullname - the user's first and last name
      * @param username - the user's unique username
      * @param email    - the user's email address
      */
-
     public User(String fullname, String username, String email) {
         this.fullName = fullname;
         this.userName = username;
@@ -24,6 +23,13 @@ public class User {
         this.recipeBook = new RecipeBook();
     }
 
+    /**
+     * Creates a user with a name, username, email, and recipe book.
+     * @param fullname full name of the user.
+     * @param username username of the user.
+     * @param email email of the user.
+     * @param recipebook recipe book of the user.
+     */
     public User(String fullname, String username, String email, RecipeBook recipebook) {
         this.fullName = fullname;
         this.userName = username;
@@ -45,7 +51,6 @@ public class User {
      *
      * @return - return the username
      */
-
     public String getUsername() {
         return this.userName;
     }
@@ -55,7 +60,6 @@ public class User {
      *
      * @return - return the email address
      */
-
     public String getEmail() {
         return this.eMail;
     }
@@ -65,7 +69,6 @@ public class User {
      *
      * @return - return the recipebook
      */
-
     public RecipeBook getRecipeBook() {
         return this.recipeBook;
     }

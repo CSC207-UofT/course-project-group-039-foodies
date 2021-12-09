@@ -6,13 +6,23 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
 
+/**
+ * Allows user to list group sub-recipe books.
+ */
 public class ListGroupSubRecipeBooksCommand extends Command {
+    /**
+     * Initialize ListGroupSubRecipeBooksCommand.
+     */
     public ListGroupSubRecipeBooksCommand() {
-        super("show group subrecipebooks", "show all the GroupSubRecipeBooks " +
+        super("show group sub-recipe books", "show all the GroupSubRecipeBooks " +
                 "contained in GroupRecipeBook");
     }
 
 
+    /**
+     * List group sub-recipe books.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         getUsername(UI);

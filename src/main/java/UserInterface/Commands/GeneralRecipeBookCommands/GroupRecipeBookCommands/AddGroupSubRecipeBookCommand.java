@@ -8,13 +8,23 @@ import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to add group sub-recipe book.
+ */
 public class AddGroupSubRecipeBookCommand extends Command {
 
+    /**
+     * Initialize AddGroupSubRecipeBookCommand.
+     */
     public AddGroupSubRecipeBookCommand() {
         super("add a group sub recipe book",
                 "Adds a new sub recipe book to the user's group recipe book");
     }
 
+    /**
+     * Add group sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String groupName = UI.queryUser("Enter the name of the group");

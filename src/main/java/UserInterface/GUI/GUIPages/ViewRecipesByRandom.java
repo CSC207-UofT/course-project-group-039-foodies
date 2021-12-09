@@ -6,6 +6,9 @@ import main.java.UserInterface.GUI.Application;
 
 import javax.swing.*;
 
+/**
+ * View recipes by random page.
+ */
 public class ViewRecipesByRandom {
     public JFrame viewByRandom;
 

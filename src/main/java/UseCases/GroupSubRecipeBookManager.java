@@ -4,6 +4,9 @@ import main.java.Entities.Recipe;
 import main.java.Entities.GroupSubRecipeBook;
 
 
+/**
+ * Manages group sub-recipe book.
+ */
 public class GroupSubRecipeBookManager {
     GroupSubRecipeBook groupSubRecipeBook;
     public GroupSubRecipeBookManager(GroupSubRecipeBook groupRecipeBook) {

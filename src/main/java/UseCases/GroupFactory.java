@@ -4,6 +4,9 @@ import main.java.Entities.Group;
 import java.util.ArrayList;
 
 
+/**
+ * Factory which produce Group.
+ */
 public class GroupFactory{
 
     private static final ArrayList<String> usedCodes = new ArrayList<>();

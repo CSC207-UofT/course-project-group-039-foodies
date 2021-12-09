@@ -14,6 +14,10 @@ public class RemoveRecipeCommand extends Command {
         super("remove recipe", "Removes a recipe from the sub recipe book");
     }
 
+    /**
+     * Remove recipe.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Input the name of the recipe to remove");

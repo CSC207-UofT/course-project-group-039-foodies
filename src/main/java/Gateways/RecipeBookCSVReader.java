@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-
+/**
+ * Reads recipe book CSV file.
+ */
 public class RecipeBookCSVReader extends CSVReader {
     private final static RecipeBookCSVReader instance = new RecipeBookCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/recipebooksfile.csv"
@@ -18,10 +20,18 @@ public class RecipeBookCSVReader extends CSVReader {
             System.getProperty("user.dir") + "/src/test/java/GatewaysTests/recipebookTests.csv"
     ); // a singleton for testing safely
 
+    /**
+     * Get instance of the RecipeBookCSVReader.
+     * @return instance of the RecipeBookCSVReader.
+     */
     public static RecipeBookCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get test instance of the RecipeBookCSVReader.
+     * @return test instance of the RecipeBookCSVReader.
+     */
     public static RecipeBookCSVReader getTestInstance() {
         return testInstance;
     }

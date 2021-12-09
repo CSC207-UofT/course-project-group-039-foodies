@@ -12,11 +12,18 @@ import main.java.UserInterface.UserInterface;
  * Allows the user to list all recipes in the group recipe book
  */
 public class ListGroupRecipeBooksCommand extends Command{
+    /**
+     * Initialize ListGroupRecipeBooksCommand.
+     */
     public ListGroupRecipeBooksCommand() {
         super("list all recipes",
                 "Lists all recipes in the group recipe book");
     }
 
+    /**
+     * List all group recipe books.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String groupName = UI.queryUser("Enter the name of the group");

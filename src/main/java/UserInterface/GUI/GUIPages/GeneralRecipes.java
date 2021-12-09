@@ -5,6 +5,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * General recipes page (Saved Recipes).
+ */
 public class GeneralRecipes {
     public JFrame generalRecipes;
 

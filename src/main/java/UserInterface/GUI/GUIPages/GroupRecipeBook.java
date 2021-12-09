@@ -15,6 +15,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * Group recipe book page (Group Recipe Books).
+ */
 public class GroupRecipeBook {
     public JFrame groupRecipeBook;
 
