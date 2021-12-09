@@ -72,5 +72,4 @@ public class PreferenceBook{
             return (this.ratingMap.containsKey(item));
         }
     }
-
 }
