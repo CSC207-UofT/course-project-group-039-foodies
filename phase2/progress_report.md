@@ -82,6 +82,10 @@ MICHELLE
   * I refactored code, mostly writing JavaDoc and fixing camelCase issues.
   * I reviewed pull requests 
 
+* ##### PULL REQUESTS
+  * Pull Request 110 in Phase 2 included changes from the GUI changes that I made with respect to RecipeBook and its subsidiaries. 
+  * Another Pull Request was made in Phase 1 for RecipeBook and its subsidiaries. 
+
 Milica
 * ##### Phase 1:
   * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
