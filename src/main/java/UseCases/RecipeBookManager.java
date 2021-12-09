@@ -63,6 +63,9 @@ import java.util.ArrayList;
      */
     public void removeSubRecipeBook(String subRecipeBookName) {
         SubRecipeBook subRecipeBookToRemove = overallRecipeBook.showSubRecipeBook(subRecipeBookName);
+        for (Recipe recipe : subRecipeBookToRemove.recipes) {
+            overallRecipeBook.removeRecipe(subRecipeBookName, recipe);
+        }
         overallRecipeBook.removeSubRecipeBook(subRecipeBookToRemove);
     }
 
