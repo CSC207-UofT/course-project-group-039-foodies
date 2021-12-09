@@ -33,21 +33,21 @@ public class RemoveSavedFilterCommand extends ChoiceCommand<FilterOption> {
                         "book, and 'foodtype' to remove a filter that filters in a type of food, and " +
                         "'servings' to remove a filter that filters the number of servings."
         )) {
-            case allergy -> {
+            case allergy:
                 String ingredient = UI.queryUser("Input the name of the ingredient that " +
                         "the filter to remove filters out");
                 filter = new AllergyFilter(ingredient);
-            }
-            case foodtype -> {
+                break;
+            case foodtype:
                 String foodtype = UI.queryUser("Input the name of the food type that the filter to remove filters in");
                 filter = new FoodTypeFilter(foodtype);
-            }
-            case servings -> {
+                break;
+            case servings:
                 int servings = Integer.parseInt(
                         UI.queryUser("Input the number of servings that the filter to remove filters in")
                 );
                 filter = new ServingsFilter(servings);
-            }
+                break;
         }
 
         String subRecipeBook = UI.queryUser("Input the name of Sub-recipe book that you want to remove filter");

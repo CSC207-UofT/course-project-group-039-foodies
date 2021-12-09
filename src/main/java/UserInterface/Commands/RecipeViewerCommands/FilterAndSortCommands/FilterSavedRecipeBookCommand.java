@@ -31,18 +31,18 @@ public class FilterSavedRecipeBookCommand extends ChoiceCommand<FilterOption> {
                         "'foodtype' to filter in a type of food, and " +
                         "'servings' to filter the number of servings."
         )) {
-            case allergy -> {
+            case allergy:
                 String ingredient = UI.queryUser("Input the name of the ingredient to filter out");
                 filter = new AllergyFilter(ingredient);
-            }
-            case foodtype -> {
+                break;
+            case foodtype:
                 String foodtype = UI.queryUser("Input the name of the food type to filter in");
                 filter = new FoodTypeFilter(foodtype);
-            }
-            case servings -> {
+                break;
+            case servings:
                 int servings = Integer.parseInt(UI.queryUser("Input the number of servings you need"));
                 filter = new ServingsFilter(servings);
-            }
+                break;
         }
 
         String subRecipeBook = UI.queryUser("Input the name of Sub-recipe book that you want to filter");
