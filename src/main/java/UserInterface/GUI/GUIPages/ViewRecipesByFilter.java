@@ -6,6 +6,7 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 
+
 /**
  * Create GUI page ViewRecipesByFilter, which allows user to filter recipes in the database.
  */

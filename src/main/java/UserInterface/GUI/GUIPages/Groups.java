@@ -8,8 +8,7 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import java.awt.Font;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 
 /**
  * Group page (Manage Groups).
@@ -52,8 +51,8 @@ public class Groups {
 
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e ->  {
-                groups.setVisible(false);
-                GUIForm.menu.setVisible(true);
+            groups.setVisible(false);
+            GUIForm.menu.setVisible(true);
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
