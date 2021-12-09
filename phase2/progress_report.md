@@ -13,7 +13,8 @@
   * Phase 2
     * I have heavily focused on implementing classes that are related to group and group recipe books. While the implementation for group entities was mostly done in phase 1, I had to add entities for group recipe books and group sub recipe books. I have implemented most of the Commands that are related to Group, GroupRecipeBook, and GroupSubRecipeBook and have implemented CSV Readers and their tests for Group and GroupRecipeBook. I worked on modifying the PageManager and GroupRecipeBook entity so that all commands for GroupRecipeBook can work properly without any errors. I have also helped Emily in implementing GUI for groups and group recipe books and have worked on fixing Camel Cases and docstrings. 
   * Pull request
-    * Pull request #98 (https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/98). This pull request contained most of the changes or additions we made for phase 2. Worked on creating new commands and CSV readers and updating any changes for entities and GUI. 
+    * Pull request #98 (https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/98). 
+    * This pull request contained most of the changes or additions we made for phase 2. Worked on creating new commands and CSV readers and updating any changes for entities and GUI. 
 
 
 #### Dohyun
@@ -49,12 +50,15 @@
   * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
 
-Emily 
-- Phase 1: The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
-- Phase 2: The main focus was to complete all classes that are necessary for the group feature including group, group recipe books and group sub recipe books in the programme with Judy. Some commands that were not fully implemented during Phase 1 were completed. A few more entities for group recipe books and group sub recipe books were created to get started with further implementations. I have done some refactoring so the GroupManager could get removed and GroupCSVReader is used instead. Another huge focus was implementing the GUI. Since there were some interfaces already existing in the GUI, without breaking the pre-existing layout, group-related interfaces were added and pre-existing interfaces were modified. 
-- Significant pull request: Pull Request #96
-https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/96#issue-1074088319.
-This includes the majority of implementations that are related to the group feature. Merging this pull request has been delayed a bit due to some conflicts and maven errors. Since this contains a huge number of changes to the files, the summary of the major changes has been commented on for reviewers.
+#### Emily
+* ##### TASKS DONE: 
+  * Phase 1 
+    * The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
+  * Phase 2: 
+    * The main focus was to complete all classes that are necessary for the group feature including group, group recipe books and group sub recipe books in the programme with Judy. Some commands that were not fully implemented during Phase 1 were completed. A few more entities for group recipe books and group sub recipe books were created to get started with further implementations. I have done some refactoring so the GroupManager could get removed and GroupCSVReader is used instead. Another huge focus was implementing the GUI. Since there were some interfaces already existing in the GUI, without breaking the pre-existing layout, group-related interfaces were added and pre-existing interfaces were modified. 
+  * Significant pull request: Pull Request #96
+    * https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/96#issue-1074088319.
+    * This includes the majority of implementations that are related to the group feature. Merging this pull request has been delayed a bit due to some conflicts and maven errors. Since this contains a huge number of changes to the files, the summary of the major changes has been commented on for reviewers.
 
 
 HELENA
