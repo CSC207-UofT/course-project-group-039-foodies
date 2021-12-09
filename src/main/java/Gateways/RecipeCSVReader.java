@@ -30,20 +30,6 @@ public class RecipeCSVReader extends CSVReader {
     }
 
     /**
-     * Adds a recipe to recipes.csv
-     * @param recipe The recipe to add
-     */
-    public void saveRecipe(Recipe recipe) {
-        saveRecipe(
-                recipe.getName(),
-                recipe.getFoodType(),
-                recipe.getServings(),
-                recipe.getIngredients(),
-                recipe.getInstructions()
-        );
-    }
-
-    /**
      * Adds a recipe to recipes.csv given all the required information
      * @param name The name of the recipe
      * @param type The type of the recipe

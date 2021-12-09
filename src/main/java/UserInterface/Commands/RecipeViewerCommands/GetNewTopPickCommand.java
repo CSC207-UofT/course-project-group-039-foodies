@@ -11,11 +11,11 @@ import java.util.Iterator;
 /**
  * Allows the user to view a new recipe to rate
  */
-public class GetNewRecipeCommand extends Command {
+public class GetNewTopPickCommand extends Command {
     private static Iterator<Recipe> recipeIterator; // Uses the lazy loading design pattern to be instantiated
     private static boolean isIteratorSet = false;
 
-    public GetNewRecipeCommand() {
+    public GetNewTopPickCommand() {
         super("get new recipe", "Gets a new recipe to rate");
     }
 
@@ -36,11 +36,10 @@ public class GetNewRecipeCommand extends Command {
      * by taking the current RecipeCollection stored in the UI
      * @param UI The userInterface being used
      */
-
     public static void initializeIterator(UserInterface UI) {
         isIteratorSet = true;
         RecipeCollection recipes = UI.getRecipeCollection();
-        recipes.removePrefs(UI.getPreferenceBook());
+        recipes.removeNonTopPicks(UI.getUser().getRecipeBook());
         recipeIterator = RecipeCollectionFacade.getIterator(recipes);
     }
 }

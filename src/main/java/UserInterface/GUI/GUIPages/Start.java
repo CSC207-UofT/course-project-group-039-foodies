@@ -38,21 +38,12 @@ public class Start {
         JButton btnLogin = new JButton("Log in");
         btnLogin.setBounds(190, 138, 89, 23);
         start.getContentPane().add(btnLogin);
-        btnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                GUIForm.login.setVisible(true);
-            }
-        });
+        btnLogin.addActionListener(e -> GUIForm.login.setVisible());
 
         JButton btnSignup = new JButton("Sign up");
         btnSignup.setBounds(190, 170, 89, 23);
         start.getContentPane().add(btnSignup);
-        btnSignup.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                GUIForm.signup.setVisible(true);
-            }
-
-        });
+        btnSignup.addActionListener(e -> GUIForm.signup.setVisible());
 
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/food background.jpeg"));

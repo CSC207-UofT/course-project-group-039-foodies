@@ -26,19 +26,23 @@ public class RateGroupRecipeCommand extends Command{
 
         if (grouprecipeBookManager.containsRecipe(groupRecipeName) && !(UI.getPreferenceBook().contains("rating",
                 groupRecipeName))) {
-            double rating = Double.parseDouble(UI.queryUser("Enter rating from 1-5"));
-            Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), groupRecipeName); //getting recipe from RecipeCollection
-            recipe.addRating(rating); //recipe object is updated
-            RecipeCSVReader.getInstance().addRating(groupRecipeName, recipe.rating, recipe.ratingCount); //csv is updated
-            PreferenceBookCSVReader.getInstance().updateRatings(UI.getUser().getUsername(), "add",
-                    groupRecipeName, rating);
-            UI.displayMessage("Recipe successfully rated");
+            getRating(UI, groupRecipeName);
         } else if (UI.getPreferenceBook().contains("rating",
                 groupRecipeName)) {
             UI.displayMessage("You have already rated this recipe");
         } else {
             UI.displayMessage("Group recipe book does not contain " + groupRecipeName);
         }
+    }
+
+    static void getRating(UserInterface UI, String groupRecipeName) {
+        double rating = Double.parseDouble(UI.queryUser("Enter rating from 1-5"));
+        Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), groupRecipeName); //getting recipe from RecipeCollection
+        recipe.addRating(rating); //recipe object is updated
+        RecipeCSVReader.getInstance().addRating(groupRecipeName, recipe.rating, recipe.ratingCount); //csv is updated
+        PreferenceBookCSVReader.getInstance().updateRatings(UI.getUser().getUsername(), "add",
+                groupRecipeName, rating);
+        UI.displayMessage("Recipe successfully rated");
     }
 }
 

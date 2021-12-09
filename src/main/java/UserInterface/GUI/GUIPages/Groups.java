@@ -8,9 +8,6 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import java.awt.Font;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 
 
 public class Groups {
@@ -50,18 +47,16 @@ public class Groups {
         groups.getContentPane().add(viewJoinedGroups);
 
         JButton btnBack = new JButton("Back to Menu");
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                groups.setVisible(false);
-                GUIForm.menu.setVisible(true);
+        btnBack.addActionListener(e -> {
+            groups.setVisible(false);
+            GUIForm.menu.setVisible();
 
-            }
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         groups.setVisible(true);
     }
 }

@@ -23,6 +23,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Adds a recipe from the collection
+     *
      * @param recipe The Recipe object to add
      */
     public void addRecipe(Recipe recipe) {
@@ -31,6 +32,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Removes Recipe from the collection
+     *
      * @param name The name of the recipe to remove
      */
     public void removeRecipe(String name) {
@@ -42,6 +44,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Removes Recipe from the collection given recipecode
+     *
      * @param recipecode The recipecode of the recipe to remove
      */
     public void removeRecipe(Integer recipecode) {
@@ -50,6 +53,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Removes Recipe from the collection
+     *
      * @param recipe The Recipe object to remove
      */
     public void removeRecipe(Recipe recipe) {
@@ -60,6 +64,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Returns a Recipe object with a certain name.
+     *
      * @param name A String representing the name of the recipe
      * @return A Recipe object if the recipe is included, and null otherwise
      */
@@ -74,6 +79,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Finds a recipe in the RecipeCollection given a recipecode
+     *
      * @param recipecode The recipecode of the recipe to find
      * @return The recipe to find
      */
@@ -83,6 +89,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Returns whether a recipe is contained
+     *
      * @param recipe The recipe being searched for
      * @return Whether the recipe is contained
      */
@@ -93,6 +100,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Returns whether a recipecode is contained
+     *
      * @param recipecode The recipecode being searched for
      * @return Whether a recipecode is contained
      */
@@ -107,6 +115,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Returns whether there exists a recipe object with a certain name in dataList
+     *
      * @param name A String representing the name of the recipe
      * @return Whether the recipe is contained in dataList
      */
@@ -116,6 +125,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Returns all the recipecodes
+     *
      * @return An array of recipecodes of each recipe
      */
     public Integer[] getRecipeCodes() {
@@ -125,6 +135,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
     /**
      * Returns all recipes stored.
      * Applies the filters and sorts.
+     *
      * @return An array of Recipes stored
      */
     public Recipe[] getRecipes() {
@@ -142,6 +153,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Sets the sort interface that the recipeCollection should apply
+     *
      * @param sort The sort interface to use
      */
     public void setSort(Sort sort) {
@@ -158,6 +170,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Sets a filter interface that the recipeCollection should apply
+     *
      * @param filter The filter interface to use
      */
     public void addFilter(Filter filter) {
@@ -166,6 +179,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * Removes a filter interface from the filters that the recipeCollection should apply
+     *
      * @param filterToRemove The filter interface to remove
      */
     public void removeFilter(Filter filterToRemove) {
@@ -179,6 +193,7 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
     /**
      * removes recipes from RecipeCollection that don't follow the users preferences
+     *
      * @param preferences the users PreferenceBook
      */
     public void removePrefs(PreferenceBook preferences) {
@@ -190,12 +205,12 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
 
             for (String ingredient : recipe.getIngredients()) {
                 if (preferences.getOmit().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
-                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
-                    localOmitCount ++;
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length() - 1))) {
+                    localOmitCount++;
                 }
                 if (preferences.getInclude().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
-                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length()-1))) {
-                    localInclCount ++;
+                        preferences.getOmit().contains(ingredient.substring(0, ingredient.length() - 1))) {
+                    localInclCount++;
                 }
             }
 
@@ -205,6 +220,20 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
             }
             if (localInclCount != inclCount) {
                 this.removeRecipe(recipe.getName());
+            }
+        }
+    }
+
+    public void removeNonTopPicks(RecipeBook topIngredients) {
+        for (Recipe recipe : this) {
+            int num = 0;
+            for (String ingredient : topIngredients.getTopIngredients()) {
+                if (recipe.getIngredients().contains(ingredient)) {
+                    num++;
+                }
+                if (num < 3) {
+                    removeRecipe(recipe);
+                }
             }
         }
     }

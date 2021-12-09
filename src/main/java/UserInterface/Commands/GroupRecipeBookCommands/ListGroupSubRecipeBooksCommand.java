@@ -16,14 +16,6 @@ public class ListGroupSubRecipeBooksCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        String username = UI.getUser().getUsername();
-        UI.displayMessage("Your groups are: \n" +
-                GroupCSVReader.getInstance().getJoinedGroups(username));
-        String groupName = UI.queryUser("Enter the name of the group you want to view");
-        GroupRecipeBookManager groupRecipeBookManager =
-                new GroupRecipeBookManager(GroupCSVReader.getInstance().getGroup(groupName, username));
-        for (GroupSubRecipeBook groupSubRecipeBook: groupRecipeBookManager.getSubRecipeBooks()) {
-            UI.displayMessage(groupSubRecipeBook.getName());
-        }
+        main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.ListGroupSubRecipeBooksCommand.getUsername(UI);
     }
 }

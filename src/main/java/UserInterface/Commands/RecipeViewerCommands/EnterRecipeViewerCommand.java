@@ -1,9 +1,7 @@
 package main.java.UserInterface.Commands.RecipeViewerCommands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
-import main.java.Gateways.RecipeCSVReader;
 import main.java.UserInterface.UserInterface;
 
 public class EnterRecipeViewerCommand extends Command {

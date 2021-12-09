@@ -146,6 +146,7 @@ public class PageManager {
     Page preferenceBook = new Page(
             signedIn,
             new Command[] {
+                    new ViewPreferencesCommand(),
                     new UpdateOmitCommand(),
                     new UpdateIncludeCommand(),
                     new UpdateDietCommand(),

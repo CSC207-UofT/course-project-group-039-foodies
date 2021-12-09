@@ -30,7 +30,7 @@ public class Menu {
         JButton btnPreferences = new JButton("Preferences");
         btnPreferences.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.preferences.setVisible(true);
+            GUIForm.preferences.setVisible();
 
         });
         btnPreferences.setBounds(150, 60, 150, 23);
@@ -40,7 +40,7 @@ public class Menu {
         JButton btnNewRecipes = new JButton("New Recipes");
         btnNewRecipes.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
+            GUIForm.newRecipes.setVisible();
 
         });
         btnNewRecipes.setBounds(150, 100, 150, 23);
@@ -50,7 +50,7 @@ public class Menu {
         JButton btnGeneralRecipes = new JButton("Saved Recipes");
         btnGeneralRecipes.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.generalRecipes.setVisible(true);
+            GUIForm.generalRecipes.setVisible();
         });
         btnGeneralRecipes.setBounds(150, 140, 150, 23);
         menu.getContentPane().add(btnGeneralRecipes);
@@ -59,7 +59,7 @@ public class Menu {
         JButton btnGeneralRecipeBook = new JButton("Recipe Books");
         btnGeneralRecipeBook.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.generalRecipeBook.setVisible(true);
+            GUIForm.generalRecipeBook.setVisible();
         });
         btnGeneralRecipeBook.setBounds(150, 180, 150, 23);
         menu.getContentPane().add(btnGeneralRecipeBook);
@@ -68,7 +68,7 @@ public class Menu {
         JButton btnGroups = new JButton("Groups");
         btnGroups.addActionListener(e -> {
             menu.setVisible(false);
-            GUIForm.groups.setVisible(true);
+            GUIForm.groups.setVisible();
 
         });
         btnGroups.setBounds(150, 220, 150, 23);
@@ -76,9 +76,7 @@ public class Menu {
 
 
         JButton btnExit = new JButton("Exit");
-        btnExit.addActionListener(e -> {
-            menu.setVisible(false);
-        });
+        btnExit.addActionListener(e -> menu.setVisible(false));
 
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
@@ -89,7 +87,7 @@ public class Menu {
         menu.getContentPane().add(btnExit);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         menu.setVisible(true);
     }
 }

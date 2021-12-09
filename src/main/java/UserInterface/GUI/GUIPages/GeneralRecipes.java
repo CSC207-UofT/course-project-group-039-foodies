@@ -4,8 +4,6 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GeneralRecipes {
     public JFrame generalRecipes;
@@ -31,7 +29,7 @@ public class GeneralRecipes {
         JButton savedPersonalRecipes = new JButton("Saved Personal Recipes");
         savedPersonalRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showRecipes.setVisible(true);
+            GUIForm.showRecipes.setVisible();
         });
         savedPersonalRecipes.setBounds(130, 110, 190, 23);
         generalRecipes.getContentPane().add(savedPersonalRecipes);
@@ -40,19 +38,17 @@ public class GeneralRecipes {
         JButton btnGroupRecipes = new JButton("Saved Group Recipes");
         btnGroupRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showGroupRecipes.setVisible(true);
+            GUIForm.showGroupRecipes.setVisible();
         });
         btnGroupRecipes.setBounds(130, 150, 190, 23);
         generalRecipes.getContentPane().add(btnGroupRecipes);
 
 
         JButton btnBack = new JButton("Back to Menu");
-        btnBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                generalRecipes.setVisible(false);
-                GUIForm.menu.setVisible(true);
+        btnBack.addActionListener(e -> {
+            generalRecipes.setVisible(false);
+            GUIForm.menu.setVisible();
 
-            }
         });
         btnBack.setBounds(150, 210, 150, 23);
         generalRecipes.getContentPane().add(btnBack);
@@ -64,7 +60,7 @@ public class GeneralRecipes {
         generalRecipes.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         generalRecipes.setVisible(true);
     }
 }

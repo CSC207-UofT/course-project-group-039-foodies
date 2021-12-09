@@ -176,21 +176,5 @@ A lot of the code was refactored in Phase 1. Some examples of these include the 
 * The Command classes - In practice, this made it very easy for all of the team to add new functionality. Because the interface is the bare minimum required, and each command has exactly one responsibility, it was easy for the team to quickly add new features without needing to worry about the implementation of the user interface.
 * The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
-### Brief Summary of Tasks undertaken by each member and Next Steps to be taken
-
-#### DOHYUN
-
-#### EMILY
-
-#### HAYUN
-
-#### HELENA
-
-#### MARK
-
-#### MICHELLE
-
-#### MILICA
-
 
 
