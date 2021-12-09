@@ -66,13 +66,13 @@ public class RecipeBookCSVReader extends CSVReader {
     }
 
     /**
-     * Checks if the sub-recipe book exists with a certain username and subRecipeBookName.
+     * Checks if the sub-recipe book with a certain username and subRecipeBookName does not exist.
      *
      * @param username - the username to check
      * @param subRecipeBookName - the name of the sub-recipe book
-     * @return true iff there is a sub-recipe book with the name subRecipeBookName for a user with name username
+     * @return true iff there is no sub-recipe book with the name subRecipeBookName for a user with name username
      */
-    public boolean isSubRecipeBook(String username, String subRecipeBookName) {
+    public boolean isNotSubRecipeBook(String username, String subRecipeBookName) {
         for (ArrayList<String> line : readFile()) {
             if (line.get(1).equals(username + " - " + subRecipeBookName)) {
                 return false;

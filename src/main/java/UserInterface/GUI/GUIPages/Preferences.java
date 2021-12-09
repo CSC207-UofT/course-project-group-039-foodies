@@ -1,9 +1,9 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.Gateways.UserCSVReader;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateDietCommand;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.ViewPreferencesCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
