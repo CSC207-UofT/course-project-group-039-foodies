@@ -236,4 +236,23 @@ public class RecipeBookCSVReader extends CSVReader {
             }
         } return recipebook;
     }
+
+    /**
+     * Return a string with the names of the SubRecipeBooks for a User.
+     *
+     * @param username the name of the user
+     * @return a string of the SubRecipeBooks for a user
+     */
+    public String getSubRecipeBook(String username) {
+        StringBuilder subRecipeBooks = new StringBuilder();
+        for (ArrayList<String> line : readFile()) {
+            if (!line.isEmpty()) {
+                if (line.get(0).equals(username)) {
+                    String[] usernameSubRecipeBookNameInfo = line.get(1).split(" - ");
+                    String subRecipeBookName = usernameSubRecipeBookNameInfo[1];
+                    subRecipeBooks.append(subRecipeBookName);
+                }
+            }
+        } return subRecipeBooks.toString();
+    }
 }
