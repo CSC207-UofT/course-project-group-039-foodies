@@ -1,22 +1,23 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
 import main.java.Entities.Recipe;
-import main.java.Entities.RecipeBook;
-import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.SubRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
 /**
- * List the recipes found in subrecipebook
+ * List the recipes found in sub-recipe book.
  */
 public class ListSubRecipeBookRecipesCommand extends Command {
-
     public ListSubRecipeBookRecipesCommand() {
         super("show recipes", "Lists the recipes of the SubRecipeBook");
     }
 
+    /**
+     * List recipes in the sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String subRecipeBookName = UI.queryUser("Please confirm the recipe book you would like to see recipes for");

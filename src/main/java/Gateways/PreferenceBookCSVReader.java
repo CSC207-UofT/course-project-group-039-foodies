@@ -4,19 +4,30 @@ import main.java.Entities.PreferenceBook;
 
 import java.util.*;
 
+/**
+ * Reads preference book CSV file.
+ */
 public class PreferenceBookCSVReader extends CSVReader {
     private final static PreferenceBookCSVReader instance = new PreferenceBookCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/preferences.csv"
-    ); // a singleton
+    );
 
     private final static PreferenceBookCSVReader testInstance = new PreferenceBookCSVReader(
             System.getProperty("user.dir") + "/src/test/java/GatewaysTests/preferencesTest.csv"
-    ); // a singleton for testing safely
+    );
 
+    /**
+     * Get the instance of the PreferenceBookCSVReader.
+     * @return instance of the PreferenceBookCSVReader.
+     */
     public static PreferenceBookCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get the test instance of the PreferenceBookCSVReader.
+     * @return test instance of the PreferenceBookCSVReader.
+     */
     public static PreferenceBookCSVReader getTestInstance() {
         return testInstance;
     }

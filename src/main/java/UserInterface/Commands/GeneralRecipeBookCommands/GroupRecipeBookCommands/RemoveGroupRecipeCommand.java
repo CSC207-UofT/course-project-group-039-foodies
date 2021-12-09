@@ -9,14 +9,21 @@ import main.java.UseCases.GroupRecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
 
+/**
+ * Allows user to remove group recipe frome the group sub-recipe book.
+ */
 public class RemoveGroupRecipeCommand extends Command {
     /**
-     * Allows the user to remove a group recipe from the group sub recipe book
+     * Initialize RemoveGroupRecipeCommand.
      */
     public RemoveGroupRecipeCommand() {
         super("remove group recipe", "Removes a group recipe from the group sub recipe book");
     }
 
+    /**
+     * Remove group recipes.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String groupName = UI.queryUser("Enter the name of the group");

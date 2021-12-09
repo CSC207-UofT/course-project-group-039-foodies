@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
-
 import main.java.Entities.SubRecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.Utilities.RecipeCollectionFacade;
@@ -9,12 +8,21 @@ import main.java.Entities.Recipe;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to add to sub-recipe book.
+ */
 public class AddToRecipeBookCommand extends Command {
-
+    /**
+     * Initialize AddToRecipeBookCommand.
+     */
     public AddToRecipeBookCommand() {
         super("add to sub recipe book", "Adds a viewed recipe to your recipe book");
     }
 
+    /**
+     * Add to sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Enter the name of the recipe you want to add");

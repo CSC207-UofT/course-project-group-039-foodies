@@ -5,11 +5,18 @@ import main.java.UserInterface.Commands.HelpCommand;
 import main.java.Gateways.UserCSVReader;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to sign in.
+ */
 public class SignInCommand extends Command {
     public SignInCommand() {
         super("sign in", "Signs into a user");
     }
 
+    /**
+     * Sign it.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String username = UI.queryUser("Enter your username");

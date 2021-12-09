@@ -4,6 +4,9 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 
+/**
+ * View all saved recipes page.
+ */
 public class ViewAllSavedRecipes {
     public JFrame viewAllSavedRecipes;
 

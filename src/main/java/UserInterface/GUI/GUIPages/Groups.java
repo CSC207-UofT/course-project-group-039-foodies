@@ -11,8 +11,9 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
-
+/**
+ * Group page (Manage Groups).
+ */
 public class Groups {
     public JFrame groups;
 

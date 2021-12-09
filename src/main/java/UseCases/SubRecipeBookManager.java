@@ -3,6 +3,9 @@ package main.java.UseCases;
 import main.java.Entities.Recipe;
 import main.java.Entities.SubRecipeBook;
 
+/**
+ * Manages sub-recipe book.
+ */
 public class SubRecipeBookManager {
     SubRecipeBook subRecipeBook;
 

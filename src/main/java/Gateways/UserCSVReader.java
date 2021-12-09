@@ -5,19 +5,30 @@ import main.java.UseCases.UserFactory;
 
 import java.util.ArrayList;
 
+/**
+ * Reads user CSV file.
+ */
 public class UserCSVReader extends CSVReader {
     private final static UserCSVReader instance = new UserCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/users.csv"
-    ); // a singleton
+    );
 
     private final static UserCSVReader testInstance = new UserCSVReader(
             System.getProperty("user.dir") + "/src/test/java/GatewaysTests/usersTest.csv"
-    ); // a singleton for testing safely
+    );
 
+    /**
+     * Get instance of the UserCSVReader.
+     * @return instance of the UserCSVReader.
+     */
     public static UserCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get test instance of the UserCSVReader.
+     * @return test instance of the UserCSVReader.
+     */
     public static UserCSVReader getTestInstance() {
         return testInstance;
     }

@@ -11,11 +11,21 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
 
+/**
+ * Allows user to add to group recipe book.
+ */
 public class AddToGroupRecipeBookCommand extends Command {
+    /**
+     * Initialize AddToGroupRecipeBookCommand.
+     */
     public AddToGroupRecipeBookCommand() {
         super("add to group subrecipebook", "Adds a viewed recipe to your group recipe book");
     }
 
+    /**
+     * Add to group recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Enter the name of the recipe you want to add");

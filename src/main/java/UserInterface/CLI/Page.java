@@ -14,6 +14,11 @@ public class Page {
     private Command[] commands;
     protected Page parent;
 
+    /**
+     * Initialize page with parent page and list of commands.
+     * @param parent parent page.
+     * @param commands list of commands.
+     */
     public Page(Page parent, Command[] commands) {
         this.parent = parent;
         this.commands = commands;
@@ -46,6 +51,10 @@ public class Page {
         return new CommandNotFound();
     }
 
+    /**
+     * Get parent page.
+     * @return parent page
+     */
     public Page getParent() {
         return parent;
     }

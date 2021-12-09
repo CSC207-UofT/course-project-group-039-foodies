@@ -1,6 +1,7 @@
 package main.java.Entities;
 
-/** A category/ sub recipe book found in group's overall recipe book. Stores the group's saved recipes for this category.
+/**
+ * A category / sub recipe book found in group's overall recipe book. Stores the group's saved recipes for this category.
  */
 public class GroupSubRecipeBook {
     public final RecipeCollection recipes;
@@ -18,7 +19,6 @@ public class GroupSubRecipeBook {
 
     /**
      * Instantiate an empty group sub-recipe book with name.
-     *
      * @param  name - user provided name for the GroupSubRecipeBook
      */
     public GroupSubRecipeBook(String name) {
@@ -29,7 +29,6 @@ public class GroupSubRecipeBook {
 
     /**
      * Instantiate an empty group sub-recipe book with name and description.
-     *
      * @param name - user provided name of the GroupSubRecipeBook
      * @param description - user provided description for the GroupSubRecipeBook
      */

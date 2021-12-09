@@ -8,6 +8,9 @@ import main.java.Gateways.PreferenceBookCSVReader;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Allows user to view preferences.
+ */
 public class ViewPreferencesCommand extends Command {
     public ViewPreferencesCommand() {super("view current preferences", "Displays your current " +
             "preferences");}

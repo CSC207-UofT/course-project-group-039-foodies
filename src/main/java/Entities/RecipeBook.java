@@ -9,14 +9,12 @@ import java.util.HashMap;
 
 /**
  *  A Recipe Book that stores a list of the sub recipe books for a user.
- *
  */
 public class RecipeBook {
     public final ArrayList<SubRecipeBook> userSubRecipeBooks;
 
     /**
      * Instantiate the overall RecipeBook when a new User registers with the app and has an empty RecipeBook.
-     *
      */
     public RecipeBook() {
         this.userSubRecipeBooks = new ArrayList<>();
@@ -26,7 +24,6 @@ public class RecipeBook {
 
     /**
      * Create a new SubRecipeBook in the overall RecipeBook with name - name and description - description.
-     *
      * @param name        - name of sub-recipe book
      * @param description - description of sub-recipe book
      */
@@ -36,7 +33,6 @@ public class RecipeBook {
 
     /**
      * Add a SubRecipeBook to the overall RecipeBook by providing a name.
-     *
      * @param name - name of sub-recipe book
      */
     public void addSubRecipeBook(String name) {
@@ -45,7 +41,6 @@ public class RecipeBook {
 
     /**
      * Add a SubRecipeBook to the user's overall RecipeBook.
-     *
      * @param subRecipeBook - a sub- recipe book to be added
      */
     public void addSubRecipeBook(SubRecipeBook subRecipeBook) {
@@ -55,7 +50,6 @@ public class RecipeBook {
 
     /**
      * Remove a SubRecipeBook from the overall RecipeBook.
-     *
      * @param subRecipeBook - the sub-recipe book to be deleted
      */
     public void removeSubRecipeBook(SubRecipeBook subRecipeBook) {
@@ -64,7 +58,6 @@ public class RecipeBook {
 
     /**
      * Return a SubRecipeBook from the overall RecipeBook.
-     *
      * @param subRecipeBook - the sub-recipe book to return
      * @return a SubRecipeBook
      */
@@ -75,7 +68,6 @@ public class RecipeBook {
 
     /**
      * Return a SubRecipeBook from the overall RecipeBook.
-     *
      * @param subRecipeBookName - the name of the sub-recipe book to return
      * @return a SubRecipeBook
      */
@@ -90,7 +82,6 @@ public class RecipeBook {
 
     /**
      * Return a list of all the SubRecipeBook.
-     *
      * @return a list of the user's SubRecipeBooks in their overall RecipeBook
      */
     public ArrayList<SubRecipeBook> getSubRecipeBooks() {
@@ -99,7 +90,6 @@ public class RecipeBook {
 
     /**
      * Return all the Recipes the User has saved as a list.
-     *
      * @return a list of the Recipes that a user has saved
      */
     public Recipe[] getAllRecipes() {
@@ -108,7 +98,6 @@ public class RecipeBook {
 
     /**
      * Add a Recipe to SubRecipeBook requested and the sub-recipe book AllRecipes.
-     *
      * @param subRecipeBookName - the sub-recipe book to add the recipe to
      * @param recipe - the Recipe to be added
      */
@@ -119,7 +108,6 @@ public class RecipeBook {
 
     /**
      * Remove Recipe - recipe from a SubRecipeBook with name subRecipeBookName.
-     *
      * @param subRecipeBookName - sub-recipe book from which the recipe is removed
      * @param recipe - the Recipe to be removed
      */
@@ -130,7 +118,6 @@ public class RecipeBook {
 
     /**
      * Remove the Recipe with recipeCode from the SubRecipeBook.
-     *
      * @param subRecipeBookName - the sub-recipe book to remove the recipe from
      * @param recipeCode - a unique Integer code identifier for Recipe
      */
@@ -141,7 +128,6 @@ public class RecipeBook {
 
     /**
      * Return the codes of all Recipes in the User's SubRecipeBooks.
-     *
      * @return - return the codes for recipes found in the user's recipe book.
      */
     public Integer[] getCodes() {
@@ -150,7 +136,6 @@ public class RecipeBook {
 
     /**
      * Retrieve the Recipe with recipeCode.
-     *
      * @param recipeCode - a unique Integer code identifier for Recipe
      * @return - return the recipe with recipeCode
      */
@@ -160,7 +145,6 @@ public class RecipeBook {
 
     /**
      * Retrieve the Recipe with name - recipeName.
-     *
      * @param recipeName - the name of the recipe to return
      * @return a Recipe object with name- recipeName
      */
@@ -170,7 +154,6 @@ public class RecipeBook {
 
     /**
      * Return the number of Recipes in the RecipeBook.
-     *
      * @return an int indicating the number of recipes overall that the user has saved in their recipe book.
      */
     public int size() {
@@ -228,7 +211,6 @@ public class RecipeBook {
 
     /**
      * Return the top 10 ingredients in a user's RecipeBook.
-     *
      * @return a list of the 10 most frequent ingredients in the SubRecipeBook.
      */
 

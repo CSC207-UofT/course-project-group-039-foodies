@@ -4,7 +4,9 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
 
-
+/**
+ * Allows user to remove group member from the group.
+ */
 public class RemoveGroupMemberCommand extends Command {
     public RemoveGroupMemberCommand()  {
         super("remove group member", "Removes a group member");

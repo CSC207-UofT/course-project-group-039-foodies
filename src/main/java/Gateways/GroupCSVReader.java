@@ -8,19 +8,30 @@ import java.util.List;
 import java.util.StringJoiner;
 
 
+/**
+ * Reads group CSV file.
+ */
 public class GroupCSVReader extends CSVReader {
     private final static GroupCSVReader instance = new GroupCSVReader(
             System.getProperty("user.dir") + "/src/main/java/Gateways/databases/groups.csv"
-    ); // a singleton
+    );
 
     private final static GroupCSVReader testInstance = new GroupCSVReader(
             System.getProperty("user.dir") + "/src/test/java/GatewaysTests/groupsTest.csv"
-    ); // a singleton for testing safely
+    );
 
+    /**
+     * Get the instance.
+     * @return instance of the GroupCSVReader.
+     */
     public static GroupCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get the test instance.
+     * @return test instance of the GroupCSVReader.
+     */
     public static GroupCSVReader getTestInstance() {
         return testInstance;
     }

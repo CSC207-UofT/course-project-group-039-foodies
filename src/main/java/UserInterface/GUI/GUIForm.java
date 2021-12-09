@@ -7,8 +7,9 @@ import main.java.UserInterface.GUI.GUIPages.Menu;
 import javax.swing.*;
 import java.awt.*;
 
-
-
+/**
+ * GUI form.
+ */
 public class GUIForm {
     public static Start start = new Start();
     public static Login login = new Login();
@@ -32,12 +33,20 @@ public class GUIForm {
     public static ViewRecipesByRandom viewByRandom = new ViewRecipesByRandom();
     public static ViewSavedRecipesByFilter viewSavedRecipesByFilter = new ViewSavedRecipesByFilter();
     public static ViewSavedRecipesBySort viewSavedRecipesBySort = new ViewSavedRecipesBySort();
-    public static ViewAllSavedRecipes viewAllSavedRecipes = new ViewAllSavedRecipes();
 
+    /**
+     * Display message.
+     * @param message message in string.
+     */
     public static void displayMessage(String message) {
         JOptionPane.showMessageDialog(null, createMessage(message));
     }
 
+    /**
+     * Gets input from the user.
+     * @param message message in string.
+     * @return string input from the user.
+     */
     public static String queryUser(String message) {
         return (String) JOptionPane.showInputDialog(
                 null,
@@ -70,6 +79,11 @@ public class GUIForm {
         return scroll;
     }
 
+    /**
+     * Creates button based on the command.
+     * @param command instance of the command
+     * @return instance of the JButton
+     */
     public static JButton createButtonFromCommand(Command command) {
         JButton button = new JButton(capitalize(command.getName()));
         button.addActionListener(e -> command.runAction(Application.getInstance()));
@@ -96,6 +110,9 @@ public class GUIForm {
         return newString.toString();
     }
 
+    /**
+     * Runs GUIForm.
+     */
     public GUIForm(){
     }
 }

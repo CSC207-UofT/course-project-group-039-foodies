@@ -7,6 +7,9 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 
+/**
+ * View top picks page.
+ */
 public class ViewTopPicks {
     public JFrame viewTopPicks;
 

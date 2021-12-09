@@ -8,6 +8,9 @@ import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to filter group recipe book.
+ */
 public class FilterGroupRecipeBookCommand extends ChoiceCommand<FilterOption> {
     public FilterGroupRecipeBookCommand() {
         super("filter", "Filters the group recipes to be seen");

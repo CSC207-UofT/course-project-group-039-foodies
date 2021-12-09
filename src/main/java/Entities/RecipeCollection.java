@@ -2,20 +2,30 @@ package main.java.Entities;
 
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Sorts.Sort;
-
 import java.util.*;
 
+/**
+ * Collection of recipes.
+ */
 public class RecipeCollection extends AbstractCollection<Recipe> implements Iterable<Recipe> {
     final HashMap<Integer, Recipe> dataMap = new HashMap<>();
     Sort sortAlgorithm = null;
     HashSet<Filter> filters = new HashSet<>();
     boolean usesSort = false;
 
+    /**
+     * Run iterator.
+     * @return Iterator of recipe.
+     */
     @Override
     public Iterator<Recipe> iterator() {
         return Arrays.stream(getRecipes()).iterator();
     }
 
+    /**
+     * Get the size of the dataMap.
+     * @return int size of the dataMap.
+     */
     @Override
     public int size() {
         return dataMap.size();

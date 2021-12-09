@@ -7,6 +7,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * Group recipe page (Show Group Recipes).
+ */
 public class GroupRecipe {
     public JFrame showGroupRecipes;
 

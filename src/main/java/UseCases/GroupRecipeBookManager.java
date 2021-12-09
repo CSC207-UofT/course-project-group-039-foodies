@@ -15,12 +15,15 @@ public class GroupRecipeBookManager {
     GroupRecipeBook overallGroupRecipeBook;
 
     /**
-     * Instantiate an overall recipe book manager for a particular group.
+     * Instantiate an overall recipe book manager for a particular group with group.
      */
     public GroupRecipeBookManager(Group group) {
         this.overallGroupRecipeBook = group.getRecipeBook();
     }
 
+    /**
+     * Instantiate an overall recipe book manager for a particular group with group recipe book.
+     */
     public GroupRecipeBookManager(GroupRecipeBook overallGroupRecipeBook) {
         this.overallGroupRecipeBook = overallGroupRecipeBook;
     }
@@ -88,6 +91,11 @@ public class GroupRecipeBookManager {
     }
 
 
+    /**
+     * Checks whether group recipe book contains recipe.
+     * @param recipeName  name of the recipe.
+     * @return true if it contains the recipe, false if it does not contain the recipe.
+     */
     public boolean containsRecipe(String recipeName) {
         for (Recipe recipe : overallGroupRecipeBook.getAllRecipes()) {
             if (recipe.getName().equals(recipeName)) {
@@ -149,7 +157,6 @@ public class GroupRecipeBookManager {
     public void addRecipe(String subRecipeBookName, Recipe recipe) {
         overallGroupRecipeBook.addRecipe(subRecipeBookName, recipe);
     }
-
 
     public void rateRecipe(User user, String recipeName, int rating) {}
 }

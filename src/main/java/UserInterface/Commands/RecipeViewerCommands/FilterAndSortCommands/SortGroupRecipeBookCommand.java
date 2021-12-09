@@ -7,6 +7,9 @@ import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to sort group recipe book.
+ */
 public class SortGroupRecipeBookCommand extends ChoiceCommand<RatingOption> {
     public SortGroupRecipeBookCommand() {
         super("sort", "Sorts the group recipes to be seen");

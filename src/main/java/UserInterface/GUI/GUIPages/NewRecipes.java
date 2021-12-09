@@ -7,6 +7,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * New Recipes page.
+ */
 public class NewRecipes {
     public JFrame newRecipes;
 

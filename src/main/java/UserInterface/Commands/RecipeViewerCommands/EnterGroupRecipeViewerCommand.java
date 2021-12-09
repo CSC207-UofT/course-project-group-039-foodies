@@ -4,6 +4,9 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to enter group recipe viewer page.
+ */
 public class EnterGroupRecipeViewerCommand extends Command {
     public EnterGroupRecipeViewerCommand() {
         super("enter group recipe viewer", "Enters the recipe viewer");

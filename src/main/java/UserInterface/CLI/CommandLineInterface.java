@@ -11,12 +11,19 @@ import main.java.UserInterface.UserInterface;
 public class CommandLineInterface extends UserInterface {
     private final Scanner keyboard;
 
+    /**
+     * Initialize CommandLineInterface with Scanner keyboard.
+     * @param keyboard keyboard
+     */
     public CommandLineInterface(Scanner keyboard) {
         super(new PageManager());
         isRunning = true;
         this.keyboard = keyboard;
     }
 
+    /**
+     * Initialize CommandLineInterface with Scanner(System.in) of the CommandLineInterface.
+     */
     public CommandLineInterface() {
         this(new Scanner(System.in));
     }
@@ -60,6 +67,10 @@ public class CommandLineInterface extends UserInterface {
         return this.getPageManager().findCommand(input);
     }
 
+    /**
+     * Runs the CommandLineInterface.
+     * @param args list of arguments
+     */
     public static void main(String[] args) {
         CommandLineInterface CLI = new CommandLineInterface();
         CLI.displayMessage("Welcome to Recipick! Type \"help\" to see is a list of commands.");

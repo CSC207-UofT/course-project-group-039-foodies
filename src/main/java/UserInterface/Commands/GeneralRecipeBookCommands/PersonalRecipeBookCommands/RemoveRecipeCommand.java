@@ -1,9 +1,7 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
-import main.java.Entities.RecipeBook;
 import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.SubRecipeBookManager;
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.Commands.Command;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
@@ -16,6 +14,10 @@ public class RemoveRecipeCommand extends Command {
         super("remove recipe", "Removes a recipe from the sub recipe book");
     }
 
+    /**
+     * Remove recipe.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String recipeName = UI.queryUser("Input the name of the recipe to remove");

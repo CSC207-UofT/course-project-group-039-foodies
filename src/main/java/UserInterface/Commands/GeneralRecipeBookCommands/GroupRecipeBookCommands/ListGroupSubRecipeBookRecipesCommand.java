@@ -8,11 +8,21 @@ import main.java.UseCases.GroupSubRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to list recipes in group sub-recipe book.
+ */
 public class ListGroupSubRecipeBookRecipesCommand extends Command{
+    /**
+     * Initialize ListGroupSubRecipeBookRecipesCommand.
+     */
     public ListGroupSubRecipeBookRecipesCommand() {
         super("show recipes in subrecipebook", "Lists the recipes of the SubRecipeBook");
     }
 
+    /**
+     * List recipes in group sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String groupName = UI.queryUser("Enter the name of the group");

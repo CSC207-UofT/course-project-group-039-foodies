@@ -3,10 +3,12 @@ package main.java.UserInterface.GUI.GUIPages;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.GUI.Application;
-import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 
+/**
+ * View recipes by random page.
+ */
 public class ViewRecipesByRandom {
     public JFrame viewByRandom;
 

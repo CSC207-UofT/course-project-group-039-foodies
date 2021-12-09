@@ -7,11 +7,21 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.Commands.HelpCommand;
 import main.java.UserInterface.UserInterface;
 
+/**
+ * Allows user to enter group sub-recipe book.
+ */
 public class EnterGroupSubRecipeBookCommand extends Command {
+    /**
+     * Initialize EnterGroupSubRecipeBookCommand.
+     */
     public EnterGroupSubRecipeBookCommand() {
         super("enter GroupSubRecipeBook", "Enter the GroupSubRecipeBook of given name");
     }
 
+    /**
+     * Enter group sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String groupName = UI.queryUser("Enter the name of the group");

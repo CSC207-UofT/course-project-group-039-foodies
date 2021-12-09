@@ -4,6 +4,9 @@ import main.java.Entities.Recipe;
 
 import java.util.ArrayList;
 
+/**
+ * Factory which produce recipe.
+ */
 public class RecipeFactory {
     private static int nextRecipeCode;
 
