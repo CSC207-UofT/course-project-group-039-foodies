@@ -36,9 +36,14 @@ Dohyun
   * Removing repeated code code smells
   * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
+
 Emily 
-- Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
-- I will continue to work on implementing a few more Group commands with Recipebook and add them to GUI. 
+- Phase 1: The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
+- Phase 2: The main focus was to complete all classes that are necessary for the group feature including group, group recipe books and group sub recipe books in the programme with Judy. Some commands that were not fully implemented during Phase 1 were completed. A few more entities for group recipe books and group sub recipe books were created to get started with further implementations. I have done some refactoring so the GroupManager could get removed and GroupCSVReader is used instead. Another huge focus was implementing the GUI. Since there were some interfaces already existing in the GUI, without breaking the pre-existing layout, group-related interfaces were added and pre-existing interfaces were modified. 
+- Significant pull request: Pull Request #96
+https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/96#issue-1074088319
+This includes the majority of implementations that are related to the group feature. Merging this pull request has been delayed a bit due to some conflicts and maven errors. Since this contains a huge number of changes to the files, the summary of the major changes has been commented on for reviewers.
+
 
 HELENA
 - My main task was setting up a GUI that thoroughly represents our program. Using Java’s SwingX framework. I was the primary contributor for all design decisions revolving around the UI and UX in the GUI by formatting and adding different components to maximize the usability and visual aspect of our program. I also implemented a “Top Picks'' algorithm that would predict a series of recipes that a user would like based on the user’s previous recipe choices. I did some basic bug fixes and resolved remaining IntelliJ warnings at the end.
