@@ -120,12 +120,10 @@ _State Pattern_:
 * Used to parse a line of a csv file, in the CSVReader class, allowing for the csv file to store strings with commas that can be read easily and cleanly
 * Used to parse a line of json in JSONParser
 
-#### Design Patterns to be implemented in phase 2:
-
 _Observer_:
 * Make PrefenceBook and RecipeBook observers so that when a user rates a new recipe, both can be updated
 
-#### Other Features to be added in phase 2:
+#### Other Features to be added in Future if we continue to develop:
 Factories: 
 * We currently have 4 factory classes, maybe we can create a factory interface.
 
