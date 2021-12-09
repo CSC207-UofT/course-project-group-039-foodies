@@ -5,6 +5,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Menu page.
+ */
 public class Menu {
     public JFrame menu;
 

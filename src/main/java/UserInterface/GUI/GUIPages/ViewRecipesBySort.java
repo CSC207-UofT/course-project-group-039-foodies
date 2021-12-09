@@ -6,7 +6,6 @@ import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
 
-
 /**
  * Create GUI page ViewRecipesBySort, which allows user to sort recipes in the database.
  */

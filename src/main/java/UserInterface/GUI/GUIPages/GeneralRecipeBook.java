@@ -5,6 +5,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * General recipe book page (Show Recipe Books).
+ */
 public class GeneralRecipeBook {
     public JFrame generalRecipeBook;
 

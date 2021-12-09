@@ -4,7 +4,9 @@ import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
 
-
+/**
+ * Allows user to view groups.
+ */
 public class ViewGroupsCommand extends Command {
     public ViewGroupsCommand()  {super("view my groups",
                 "Displays all the groups that you've joined");}

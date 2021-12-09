@@ -5,10 +5,11 @@ import main.java.UserInterface.UserInterface;
 import main.java.Entities.Group;
 import main.java.UseCases.GroupFactory;
 import main.java.Gateways.GroupCSVReader;
-
 import java.util.ArrayList;
 
-
+/**
+ * Allows user to create group.
+ */
 public class CreateGroupCommand extends Command {
     public CreateGroupCommand()  {
         super("create group", "Creates a new group");

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * Preference book which contains
+ */
 public class PreferenceBook{
     private final String username;
     private final ArrayList<String> omit;
@@ -38,14 +41,34 @@ public class PreferenceBook{
         this.diet = "No Diet";
     }
 
+    /**
+     * Add diet to the preference book.
+     * @param diet diet of a perference book.
+     */
     public void addDiet(String diet) { this.diet = diet; }
 
+    /**
+     * Add rating to the preference book.
+     * @param ratings rating of the preference book.
+     */
     public void addRating(HashMap<String, Double> ratings) { this.ratingMap = ratings; }
 
+    /**
+     * Get diet from the preference book.
+     * @return diet of a preference book.
+     */
     public String getDiet() { return diet; }
 
+    /**
+     * Get ingredients to omit.
+     * @return ArrayList of ingredients to omit.
+     */
     public ArrayList<String> getOmit() { return omit; }
 
+    /**
+     * Get ingredients to include.
+     * @return ArrayList of ingredients to include.
+     */
     public ArrayList<String> getInclude() { return include; }
 
     /**

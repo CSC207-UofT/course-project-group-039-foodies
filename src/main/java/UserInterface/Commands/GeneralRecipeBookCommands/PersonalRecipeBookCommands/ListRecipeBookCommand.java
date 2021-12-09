@@ -6,13 +6,17 @@ import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.UserInterface;
 
 /**
- * Allows the user to list all recipes in the recipe book
+ * Allows the user to list all recipes in the recipe book.
  */
 public class ListRecipeBookCommand extends Command {
     public ListRecipeBookCommand() {
         super("list all recipes", "Lists all recipes in the recipe book");
     }
 
+    /**
+     * List recipe books.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         RecipeBook recipebook = UI.getUser().getRecipeBook();

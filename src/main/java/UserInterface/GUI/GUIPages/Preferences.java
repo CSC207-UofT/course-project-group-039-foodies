@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import java.awt.Font;
 
+/**
+ * Preferences page.
+ */
 public class Preferences {
     public JFrame preferences;
 

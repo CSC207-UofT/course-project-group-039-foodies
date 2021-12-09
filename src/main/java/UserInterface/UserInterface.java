@@ -7,6 +7,9 @@ import main.java.Gateways.PreferenceBookCSVReader;
 import main.java.Gateways.RecipeCSVReader;
 import main.java.UserInterface.CLI.PageManager;
 
+/**
+ * Abstract user interface.
+ */
 abstract public class UserInterface {
     public boolean isRunning;
     private final PageManager pageManager;
@@ -19,8 +22,17 @@ abstract public class UserInterface {
         this.pageManager = pageManager;
     }
 
+    /**
+     * Display Message.
+     * @param message string message.
+     */
     abstract public void displayMessage(String message);
 
+    /**
+     * Gets input from the user.
+     * @param message string message.
+     * @return string input from the user.
+     */
     abstract public String queryUser(String message);
 
 

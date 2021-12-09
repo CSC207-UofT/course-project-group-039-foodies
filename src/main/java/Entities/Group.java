@@ -2,18 +2,19 @@ package main.java.Entities;
 
 import java.util.ArrayList;
 
-
+/**
+ * A Group object which contains name, code, ArrayList of members, and group recipe book.
+ */
 public class Group {
-    /** Creates a Group object */
     private final String groupName;
     private final String groupCode;
     private final ArrayList<String> groupMembers;
     private final GroupRecipeBook groupRecipeBook;
 
-
     /**
-     * Creates a group with a name, group code, group members, and Recipe Book.
-     * @param groupName - the name of a group
+     * Create a group with name and code.
+     * @param groupName name of the group.
+     * @param groupCode code of the group.
      */
     public Group(String groupName, String groupCode) {
         this.groupName = groupName;
@@ -22,6 +23,12 @@ public class Group {
         this.groupRecipeBook = new GroupRecipeBook();
     }
 
+    /**
+     * Create a group with name, code, and ArrayList of members.
+     * @param groupName name of the group.
+     * @param groupCode code of the group.
+     * @param groupMembers ArrayList of members.
+     */
     public Group(String groupName, String groupCode, ArrayList<String> groupMembers) {
         this.groupName = groupName;
         this.groupCode = groupCode;
@@ -30,26 +37,26 @@ public class Group {
     }
 
     /**
-     * Returns the group's name.
-     * @return - groupName
+     * Gets the group's name.
+     * @return name of the group.
      */
     public String getGroupName() {return this.groupName;}
 
     /**
-     * Returns the group's unique code.
-     * @return - groupCode
+     * Gets the group's unique code.
+     * @return code of the group.
      */
     public String getGroupCode() {return this.groupCode;}
 
     /**
-     * Returns the list of the group members.
-     * @return - groupMembers
+     * Gets the list of the group members.
+     * @return ArrayList of members.
      */
     public ArrayList<String> getGroupMembers() { return this.groupMembers; }
 
     /**
-     * Returns the group's recipebook
-     * @return - return the groupRecipeBook
+     * Gets the group's recipe book.
+     * @return group recipe book of the group.
      */
     public GroupRecipeBook getRecipeBook() { return this.groupRecipeBook; }
 

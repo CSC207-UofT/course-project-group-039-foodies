@@ -8,6 +8,9 @@ import main.java.UserInterface.GUI.GUIForm;
 import javax.swing.*;
 import java.awt.Font;
 
+/**
+ * Personal recipe books page.
+ */
 public class PersonalRecipeBook {
     public JFrame personalRecipeBook;
 

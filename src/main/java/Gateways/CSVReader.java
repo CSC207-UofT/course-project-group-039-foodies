@@ -7,6 +7,9 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Reads CSV file.
+ */
 public class CSVReader {
     String databasePath;
     String tempPath = System.getProperty("user.dir") + "/src/main/java/Gateways/databases/temp.csv";

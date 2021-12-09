@@ -8,19 +8,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * Reads group recipe book CSV file.
+ */
 public class GroupRecipeBookCSVReader extends CSVReader {
     private final static GroupRecipeBookCSVReader instance = new GroupRecipeBookCSVReader(
             System.getProperty("user.dir") +
-                    "/src/main/java/Gateways/databases/groupRecipeBooks.csv"); // a singleton
+                    "/src/main/java/Gateways/databases/groupRecipeBooks.csv");
 
     private final static GroupRecipeBookCSVReader testInstance = new GroupRecipeBookCSVReader(
             System.getProperty("user.dir") +
-                    "/src/test/java/GatewaysTests/groupRecipesTest.csv"); // a singleton for testing safely
+                    "/src/test/java/GatewaysTests/groupRecipesTest.csv");
 
+    /**
+     * Get the instance of the GroupRecipeBookCSVReader.
+     * @return instance of the GroupRecipeBookCSVReader.
+     */
     public static GroupRecipeBookCSVReader getInstance() {
         return instance;
     }
 
+    /**
+     * Get the test instance of the GroupRecipeBookCSVReader.
+     * @return test instance of the GroupRecipeBookCSVReader.
+     */
     public static GroupRecipeBookCSVReader getTestInstance() {
         return testInstance;
     }
@@ -117,7 +128,7 @@ public class GroupRecipeBookCSVReader extends CSVReader {
     }
 
     /**
-     * Return the lists of recipes in the groupSubRecipeBook with name SubRecipeBookName for group.
+     * Return the lists of recipes in the groupSubRecipeBook with name and SubRecipeBookName for group.
      * @param groupName - the name of the group which recipeBook is to be returned
      * @param groupSubRecipeBook - the subRecipeBook from which the recipes to be returned are found.
      *
@@ -132,6 +143,13 @@ public class GroupRecipeBookCSVReader extends CSVReader {
         return null;
     }
 
+    /**
+     * Return the lists of recipes in the groupSubRecipeBook with group and SubRecipeBookName for group.
+     * @param group - the group which recipeBook is to be returned
+     * @param groupSubRecipeBook - the subRecipeBook from which the recipes to be returned are found.
+     *
+     * @return - the SubRecipeBook
+     */
     public RecipeCollection getSubRecipeBookRecipesList(Group group, GroupSubRecipeBook groupSubRecipeBook) {
         for (ArrayList<String> line : readFile())
             if (!line.isEmpty() && line.get(1).equals(group.getGroupName() + " - " + groupSubRecipeBook.getName())) {
@@ -159,7 +177,7 @@ public class GroupRecipeBookCSVReader extends CSVReader {
     }
 
     /**
-     * Return a list of the GroupSubRecipesBooks for a particular group.
+     * Return a list of the GroupSubRecipesBooks for a particular group with the group.
      * @param group - the group which the groupSubRecipeBooks correspond to.
      * @return an arraylist containing the groupSubRecipeBooks of group
      */
@@ -179,6 +197,11 @@ public class GroupRecipeBookCSVReader extends CSVReader {
         return createRecipeBook(groupSubRecipeBooks);
     }
 
+    /**
+     * Return a list of the GroupSubRecipesBooks for a particular group with the group name.
+     * @param groupName - the name of the group which the groupSubRecipeBooks correspond to.
+     * @return an arraylist containing the groupSubRecipeBooks of group
+     */
     public GroupRecipeBook getGroupRecipeBook(String groupName) {
         HashMap<GroupSubRecipeBook, RecipeCollection> groupSubRecipeBooks = new HashMap<>();
         for (ArrayList<String> line : readFile()) {

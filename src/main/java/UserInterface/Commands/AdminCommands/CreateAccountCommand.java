@@ -13,6 +13,10 @@ public class CreateAccountCommand extends Command {
         super("create account", "Creates a new account");
     }
 
+    /**
+     * Create account.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         String fullName = UI.queryUser("Input your Full Name");

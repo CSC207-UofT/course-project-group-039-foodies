@@ -26,6 +26,9 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand
 
 import main.java.UserInterface.Commands.UserPreferencesCommands.*;
 
+/**
+ * Manages page.
+ */
 public class PageManager {
     Page signedOut = new Page(
             null,
@@ -156,59 +159,111 @@ public class PageManager {
 
     Page currentPage = signedOut;
 
+    /**
+     * Set page to its current page.
+     * @param page page
+     */
     public void setPage(Page page) {
         currentPage = page;
     }
 
+    /**
+     * Find the command.
+     * @param name name of the command.
+     * @return found command.
+     */
     public Command findCommand(String name) {
         return currentPage.findCommand(name);
     }
 
+    /**
+     * Set page to sign in page.
+     */
     public void signIn() {
         setPage(signedIn);
     }
 
+    /**
+     * Set page to sign out page.
+     */
     public void signOut() {
         setPage(signedOut);
     }
 
+    /**
+     * Set page to general recipe book.
+     */
     public void enterGeneralRecipeBook() {
         setPage(generalRecipeBook);
     }
 
+    /**
+     * Set page to recipe book.
+     */
     public void enterRecipeBook() {
         setPage(recipeBook);
     }
 
+    /**
+     * Set page to group recipe book.
+     */
     public void enterGroupRecipeBook() {
         setPage(groupRecipeBook);
     }
 
+    /**
+     * Set page to sub-recipe book.
+     */
     public void enterSubRecipeBook() {
         setPage(subRecipeBook);
     }
 
+    /**
+     * Set page to group sub-recipe book.
+     */
     public void enterGroupSubRecipeBook() {
         setPage(groupSubRecipeBook);
     }
 
+    /**
+     * Set page to recipe viewer.
+     */
     public void enterRecipeViewer() {
         setPage(recipeViewer);
     }
 
+    /**
+     * Set page to group recipe viewer.
+     */
     public void enterGroupRecipeViewer() {
         setPage(groupRecipeViewer);
     }
 
+    /**
+     * Set page to preference book.
+     */
     public void enterPreferenceBook() {
         setPage(preferenceBook);
     }
+
+    /**
+     * Set page to manage group.
+     */
     public void manageGroup() {
         setPage(manageGroup);
     }
+
+    /**
+     * Set page to previous page.
+     */
     public void goBack() {
         setPage(currentPage.getParent());
     }
+
+    /**
+     * Get available commands.
+     * @return available commands.
+     */
     public Command[] getAvailableCommands() {
         return currentPage.getAvailableCommands();
     }
