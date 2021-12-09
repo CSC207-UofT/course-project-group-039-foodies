@@ -97,7 +97,7 @@ Milica
   * I made a powerpoint for the presentation
 
 * #### Phase 2:
-  * Wrote the accessibility report
+  * Wrote the accessibility report + UML
   * Created preference commands for declaring a diet and viewing current preferences
   * Connected preference-related code to GUI, refactoring existing GUI pages
   * Wrote code to apply users’ preferences to the recipe collection so they are showed a personalized recipe selection
