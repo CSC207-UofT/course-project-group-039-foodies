@@ -50,7 +50,6 @@ public class Groups {
         btnBack.addActionListener(e ->  {
             groups.setVisible(false);
             GUIForm.menu.setVisible(true);
-
         });
         btnBack.setBounds(150, 210, 150, 23);
         groups.getContentPane().add(btnBack);
