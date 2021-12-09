@@ -30,11 +30,11 @@ Dohyun
     * I helped coordinate work on the GUI this phase.
     * I reviewed and refactored my team mates' code, helping identify issues and get everything working together.
 
-* ##### NEXT STEPS:
-  * I plan to refactor how the GUI and CLI operate internally to make the implementation more SOLID, so that a nice looking GUI can be created while having all code be shared and seperated.
-  * Fix the bugs in the issues tab.
-  * Fix the remaining dependency issues.
-  * Implement an observer design pattern to allow RecipeBook and PreferenceBook to coordinate on rating recipes.
+* ##### If there was more I time, I would work on:
+  * Adding a feature that allows users to add their own recipes.
+  * Seperating the presenter from the controller in commands, allowing the GUI and CLI to share code perfectly, while making the GUI as nice as possible
+  * Removing repeated code code smells
+  * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
 Emily 
 - Heavily focused on implementing Group related classes and commands including Group, GroupManager, GroupFactory (using the Factory Design Pattern), Group tests and a number of commands. Group class and GroupFactory class were modified based on group member’s feedback. 
