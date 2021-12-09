@@ -38,15 +38,6 @@ public class PreferenceBook{
         this.diet = "No Diet";
     }
 
-    /**
-     * Add a rating to the PreferenceBook
-     * @param recipe recipe being rated
-     * @param rating numeric rating
-     */
-    public void addRating(Recipe recipe, Double rating) {
-        ratingMap.put(recipe.getName(), rating);
-    }
-
     public void addDiet(String diet) { this.diet = diet; }
 
     public void addRating(HashMap<String, Double> ratings) { this.ratingMap = ratings; }

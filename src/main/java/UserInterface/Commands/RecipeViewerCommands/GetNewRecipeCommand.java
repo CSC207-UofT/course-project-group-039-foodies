@@ -39,6 +39,7 @@ public class GetNewRecipeCommand extends Command {
      * by taking the current RecipeCollection stored in the UI
      * @param UI The userInterface being used
      */
+
     public static void initializeIterator(UserInterface UI) {
         isIteratorSet = true;
         RecipeCollection recipes = UI.getRecipeCollection();
