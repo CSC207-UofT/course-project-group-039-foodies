@@ -13,8 +13,7 @@
   * Phase 2
     * I have heavily focused on implementing classes that are related to group and group recipe books. While the implementation for group entities was mostly done in phase 1, I had to add entities for group recipe books and group sub recipe books. I have implemented most of the Commands that are related to Group, GroupRecipeBook, and GroupSubRecipeBook and have implemented CSV Readers and their tests for Group and GroupRecipeBook. I worked on modifying the PageManager and GroupRecipeBook entity so that all commands for GroupRecipeBook can work properly without any errors. I have also helped Emily in implementing GUI for groups and group recipe books and have worked on fixing Camel Cases and docstrings. 
   * Pull request
-    * Pull request #98 (https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/98). 
-    * This pull request contained most of the changes or additions we made for phase 2. Worked on creating new commands and CSV readers and updating any changes for entities and GUI. 
+    * Pull request #98 (https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/98). This pull request contained most of the changes or additions we made for phase 2. Worked on creating new commands and CSV readers and updating any changes for entities and GUI. 
 
 
 #### Dohyun
@@ -49,24 +48,24 @@
   * Removing repeated code code smells
   * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
-* #### Significant pull request
-  * I helped implement many features that where essential to the moving forward of the project, but perhaps the most important one is pull request #14, 'Completely refactored out RecipeDatabase', where I completely removed the RecipeDatabase entity. I did this by identifying its responsibilities and and splitting it up into three main parts. Each part became the basis for a large part of the code. The RecipeCollection became the basis for the RecipeBooks, the RecipeCSVReader became the basis for all the databases in the program. 
 
-
-#### Emily
-* ##### TASKS DONE: 
-  * Phase 1 
-    * The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
-  * Phase 2: 
-    * The main focus was to complete all classes that are necessary for the group feature including group, group recipe books and group sub recipe books in the programme with Judy. Some commands that were not fully implemented during Phase 1 were completed. A few more entities for group recipe books and group sub recipe books were created to get started with further implementations. I have done some refactoring so the GroupManager could get removed and GroupCSVReader is used instead. Another huge focus was implementing the GUI. Since there were some interfaces already existing in the GUI, without breaking the pre-existing layout, group-related interfaces were added and pre-existing interfaces were modified. 
-  * Significant pull request: Pull Request #96
-    * https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/96#issue-1074088319.
-    * This includes the majority of implementations that are related to the group feature. Merging this pull request has been delayed a bit due to some conflicts and maven errors. Since this contains a huge number of changes to the files, the summary of the major changes has been commented on for reviewers.
+Emily 
+- Phase 1: The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
+- Phase 2: The main focus was to complete all classes that are necessary for the group feature including group, group recipe books and group sub recipe books in the programme with Judy. Some commands that were not fully implemented during Phase 1 were completed. A few more entities for group recipe books and group sub recipe books were created to get started with further implementations. I have done some refactoring so the GroupManager could get removed and GroupCSVReader is used instead. Another huge focus was implementing the GUI. Since there were some interfaces already existing in the GUI, without breaking the pre-existing layout, group-related interfaces were added and pre-existing interfaces were modified. 
+- Significant pull request: Pull Request #96
+https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/96#issue-1074088319.
+This includes the majority of implementations that are related to the group feature. Merging this pull request has been delayed a bit due to some conflicts and maven errors. Since this contains a huge number of changes to the files, the summary of the major changes has been commented on for reviewers.
 
 
 HELENA
+* #### PHASE 1
 - My main task was setting up a GUI that thoroughly represents our program. Using Java’s SwingX framework. I was the primary contributor for all design decisions revolving around the UI and UX in the GUI by formatting and adding different components to maximize the usability and visual aspect of our program. I also implemented a “Top Picks'' algorithm that would predict a series of recipes that a user would like based on the user’s previous recipe choices. I did some basic bug fixes and resolved remaining IntelliJ warnings at the end.
 - I plan on continuing to add to the GUI and improving our UI and UX design(increasing functionality and visual apealness, maintaining a certain style), elaborating on the implementation of the Top Picks algorithm and am thinking about adding new methods for data analytics/stats on food trends found in individuals and across all users.
+
+* #### PHASE 2
+- I focused on finishing the implementation of the TopPicks algorithm that predicts recipes that users will like and adding the necessary command and GUI page so that the user can interact with it. I made additional changes to the UI/UX design of the GUI, by changing the background, fonts colour and size. I also worked on fixing Camel Case. I also focused on removing code smells. I removed all unused imports, inverted some methods, deleted empty classes as well as unused methods and refactored duplicated methods to address almost all IntelliJ warnings. 
+Significant pull requests: #107 https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/107 and #83 https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/83 These pull requests include a majority of the implementation for TopPicks, UX/UI GUI design changes, and refactoring. 
+
 
 MICHELLE
 
