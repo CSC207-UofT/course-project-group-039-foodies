@@ -23,54 +23,55 @@ public class GroupRecipe {
 
         // title
         JLabel label = new JLabel("Show Group Recipes");
-        setFont(label, showGroupRecipes);
+        label.setFont(new Font("Tahoma", Font.BOLD, 17));
+        label.setBounds(140, 11, 200, 41);
+        showGroupRecipes.getContentPane().add(label);
 
+//        // By Filter option
+//        JButton byFilter = new JButton("By Filter");
+//        byFilter.addActionListener(e -> {
+//            showGroupRecipes.setVisible(false);
+//            GUIForm.viewAllSavedRecipesFiltered.setVisible(true);
+//        });
+//        byFilter.setBounds(75, 50, 150, 23);
+//        showGroupRecipes.getContentPane().add(byFilter);
+
+//        // By Sort option
+//        JButton bySort = new JButton("By Sort");
+//        bySort.addActionListener(e -> {
+//            showGroupRecipes.setVisible(false);
+//            GUIForm.viewAllSavedRecipesSorted.setVisible(true);
+//        });
+//        bySort.setBounds(225, 50, 150, 23);
+//        showGroupRecipes.getContentPane().add(bySort);
+
+        // Show All the Group Recipes Option
         JButton showAll = GUIForm.createButtonFromCommand(new ListGroupRecipeBooksCommand());
         showAll.setBounds(150, 90, 150, 23);
         showGroupRecipes.getContentPane().add(showAll);
 
-        JButton removeRecipe = GUIForm.createButtonFromCommand(new RemoveGroupRecipeCommand());
-        removeRecipe.setBounds(150, 130, 150, 23);
-        showGroupRecipes.getContentPane().add(removeRecipe);
+//        JButton removeRecipe = GUIForm.createButtonFromCommand(new RemoveGroupRecipeCommand());
+//        removeRecipe.setBounds(150, 130, 150, 23);
+//        showGroupRecipes.getContentPane().add(removeRecipe);
 
-        JButton btnBack = new JButton("Back to Menu");
+        // Go Back Option
+        JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             showGroupRecipes.setVisible(false);
-            GUIForm.menu.setVisible();
+            GUIForm.generalRecipes.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
         showGroupRecipes.getContentPane().add(btnBack);
 
+        // background
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
         img.setBounds(0, 0, 460, 300);
         showGroupRecipes.getContentPane().add(img);
     }
 
-    static void setFont(JLabel label, JFrame showGroupRecipes) {
-        label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(140, 11, 200, 41);
-        showGroupRecipes.getContentPane().add(label);
-
-        JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesByFilter.setVisible();
-        });
-        byFilter.setBounds(75, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(byFilter);
-
-        JButton bySort = new JButton("By Sort");
-        bySort.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesBySort.setVisible();
-        });
-        bySort.setBounds(225, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(bySort);
-    }
-
-    public void setVisible() {
+    public void setVisible(boolean b) {
         showGroupRecipes.setVisible(true);
     }
 }

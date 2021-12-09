@@ -26,22 +26,22 @@ public class GeneralRecipes {
         generalRecipes.getContentPane().add(label);
 
 
-        JButton btnpersonalRecipe = new JButton("Saved Personal Recipes");
-        btnpersonalRecipe.addActionListener(e -> {
+        JButton savedPersonalRecipes = new JButton("Saved Personal Recipes");
+        savedPersonalRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showRecipes.setVisible();
+            GUIForm.showRecipes.setVisible(true);
         });
-        btnpersonalRecipe.setBounds(130, 110, 190, 23);
-        generalRecipes.getContentPane().add(btnpersonalRecipe);
+        savedPersonalRecipes.setBounds(130, 110, 190, 23);
+        generalRecipes.getContentPane().add(savedPersonalRecipes);
 
 
-        JButton btngroupRecipe = new JButton("Saved Group Recipes");
-        btngroupRecipe.addActionListener(e -> {
+        JButton btnGroupRecipes = new JButton("Saved Group Recipes");
+        btnGroupRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showGroupRecipes.setVisible();
+            GUIForm.showGroupRecipes.setVisible(true);
         });
-        btngroupRecipe.setBounds(130, 150, 190, 23);
-        generalRecipes.getContentPane().add(btngroupRecipe);
+        btnGroupRecipes.setBounds(130, 150, 190, 23);
+        generalRecipes.getContentPane().add(btnGroupRecipes);
 
 
         JButton btnBack = new JButton("Back to Menu");

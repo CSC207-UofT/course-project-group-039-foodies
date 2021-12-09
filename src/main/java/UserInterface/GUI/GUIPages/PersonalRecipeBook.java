@@ -1,5 +1,6 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands.EnterGroupSubRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.*;
 
 import main.java.UserInterface.GUI.GUIForm;
@@ -27,26 +28,34 @@ public class PersonalRecipeBook {
         label.setBounds(140, 11, 200, 41);
         personalRecipeBook.getContentPane().add(label);
 
-
+        // option to add a sub recipe book
         JButton addSubRecipeBook = GUIForm.createButtonFromCommand(new AddSubRecipeBookCommand());
-        addSubRecipeBook.setBounds(130, 90, 200, 23);
+        addSubRecipeBook.setBounds(130, 50, 200, 23);
         personalRecipeBook.getContentPane().add(addSubRecipeBook);
 
-
+        // option to delete a sub recipe book
         JButton deleteSubRecipeBook = GUIForm.createButtonFromCommand(new DeleteSubRecipeBookCommand());
-        deleteSubRecipeBook.setBounds(130, 130, 200, 23);
+        deleteSubRecipeBook.setBounds(130, 90, 200, 23);
         personalRecipeBook.getContentPane().add(deleteSubRecipeBook);
 
-
+        // option to see all sub recipe books
         JButton showSubRecipeBook = GUIForm.createButtonFromCommand(new ListSubRecipeBooksCommand());
-        showSubRecipeBook.setBounds(130, 170, 200, 23);
+        showSubRecipeBook.setBounds(130, 130, 200, 23);
         personalRecipeBook.getContentPane().add(showSubRecipeBook);
 
+        // option to enter sub recipe book
+        JButton enterSubRecipeBook = GUIForm.createButtonFromCommand(new EnterSubRecipeBookCommand());
+        enterSubRecipeBook.setBounds(130, 170, 200, 23);
+        enterSubRecipeBook.addActionListener(e -> {
+            personalRecipeBook.setVisible(false);
+            GUIForm.showSubRecipes.setVisible(true);
+        });
+        personalRecipeBook.getContentPane().add(enterSubRecipeBook);
 
-        JButton btnBack = new JButton("Back to Menu");
+        JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             personalRecipeBook.setVisible(false);
-            GUIForm.menu.setVisible();
+            GUIForm.generalRecipeBook.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -55,7 +64,7 @@ public class PersonalRecipeBook {
 
     }
 
-    public void setVisible() {
+    public void setVisible(boolean b) {
         personalRecipeBook.setVisible(true);
     }
 }

@@ -1,6 +1,8 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
 import main.java.Entities.Recipe;
+import main.java.Entities.RecipeBook;
+import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UseCases.RecipeBookManager;
 import main.java.UseCases.SubRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
@@ -22,6 +24,9 @@ public class ListSubRecipeBookRecipesCommand extends Command {
         if (recipebookmanager.containsSubRecipeBook(subRecipeBookName)) {
             SubRecipeBookManager subRecipeBookManager = new SubRecipeBookManager(
                 recipebookmanager.findSubRecipeBook(subRecipeBookName));
+            if (subRecipeBookManager.getRecipes().length == 0) {
+                UI.displayMessage("There are no recipes in the recipe book requested");
+            }
             for (Recipe recipe : subRecipeBookManager.getRecipes()) {
                 UI.displayMessage(recipe.toString());
             }

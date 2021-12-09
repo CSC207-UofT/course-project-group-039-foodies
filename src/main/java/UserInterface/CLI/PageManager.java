@@ -102,8 +102,8 @@ public class PageManager {
                     new GetNewGroupRecipeCommand(),
                     new RateGroupRecipeCommand(), //remove this
                     new AddToGroupRecipeBookCommand(),
-                    new SortGroupRecipeBookCommand(),
-                    new FilterGroupRecipeBookCommand(),
+                   //  new SortGroupRecipeBookCommand(), //remove
+                   // new FilterGroupRecipeBookCommand(), //remove
                     new RemoveFilterCommand(),
                     new RemoveSortCommand(),
                     new GoBackCommand()
@@ -114,7 +114,7 @@ public class PageManager {
     Page subRecipeBook = new Page(
             recipeBook,
             new Command[] {
-                    new ListSubRecipeBookRecipesCommand(),
+                    new ListSubRecipeBooksCommand(),
                     new RemoveRecipeCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()
