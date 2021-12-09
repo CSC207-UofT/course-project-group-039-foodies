@@ -2,6 +2,7 @@ package main.java.UserInterface.GUI.GUIPages;
 
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.ListRecipeBookCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.RemoveRecipeCommand;
+import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -32,6 +33,10 @@ public class PersonalRecipe {
         removeRecipe.setBounds(150, 130, 150, 23);
         showRecipes.getContentPane().add(removeRecipe);
 
+        JButton rateRecipe = GUIForm.createButtonFromCommand(new RateRecipeCommand());
+        rateRecipe.setBounds(150, 170, 150, 23);
+        showRecipes.getContentPane().add(rateRecipe);
+        
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             showRecipes.setVisible(false);
