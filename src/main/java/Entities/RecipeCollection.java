@@ -197,18 +197,18 @@ public class RecipeCollection extends AbstractCollection<Recipe> implements Iter
      * @param preferences the users PreferenceBook
      */
     public void removePrefs(PreferenceBook preferences) {
-        int inclCount = preferences.getInclude().size();
+        int inclCount = preferences.getInclude().size() - 1;
 
         for (Recipe recipe : this) {
             int localInclCount = 0;
             int localOmitCount = 0;
 
             for (String ingredient : recipe.getIngredients()) {
-                if (preferences.getOmit().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                if (preferences.getOmit().contains(ingredient) || preferences.getOmit().contains(ingredient + "s") ||
                         preferences.getOmit().contains(ingredient.substring(0, ingredient.length() - 1))) {
                     localOmitCount++;
                 }
-                if (preferences.getInclude().contains(ingredient) | preferences.getOmit().contains(ingredient + "s") |
+                if (preferences.getInclude().contains(ingredient) || preferences.getOmit().contains(ingredient + "s") ||
                         preferences.getOmit().contains(ingredient.substring(0, ingredient.length() - 1))) {
                     localInclCount++;
                 }
