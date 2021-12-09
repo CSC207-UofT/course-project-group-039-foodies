@@ -27,23 +27,23 @@ public class GroupRecipe {
         label.setBounds(140, 11, 200, 41);
         showGroupRecipes.getContentPane().add(label);
 
-        // By Filter option
-        JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewAllSavedRecipesFiltered.setVisible(true);
-        });
-        byFilter.setBounds(75, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(byFilter);
+//        // By Filter option
+//        JButton byFilter = new JButton("By Filter");
+//        byFilter.addActionListener(e -> {
+//            showGroupRecipes.setVisible(false);
+//            GUIForm.viewAllSavedRecipesFiltered.setVisible(true);
+//        });
+//        byFilter.setBounds(75, 50, 150, 23);
+//        showGroupRecipes.getContentPane().add(byFilter);
 
-        // By Sort option
-        JButton bySort = new JButton("By Sort");
-        bySort.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewAllSavedRecipesSorted.setVisible(true);
-        });
-        bySort.setBounds(225, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(bySort);
+//        // By Sort option
+//        JButton bySort = new JButton("By Sort");
+//        bySort.addActionListener(e -> {
+//            showGroupRecipes.setVisible(false);
+//            GUIForm.viewAllSavedRecipesSorted.setVisible(true);
+//        });
+//        bySort.setBounds(225, 50, 150, 23);
+//        showGroupRecipes.getContentPane().add(bySort);
 
         // Show All the Group Recipes Option
         JButton showAll = GUIForm.createButtonFromCommand(new ListGroupRecipeBooksCommand());

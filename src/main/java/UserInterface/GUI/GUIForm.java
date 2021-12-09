@@ -41,8 +41,6 @@ public class GUIForm {
     public static GroupSubRecipeBook showGroupSubRecipeBook = new GroupSubRecipeBook();
     public static ViewAllSavedRecipesSorted viewAllSavedRecipesSorted = new ViewAllSavedRecipesSorted();
     public static ViewAllSavedRecipesFiltered viewAllSavedRecipesFiltered = new ViewAllSavedRecipesFiltered();
-    public static ViewGroupSubRecipeBookBySort viewGroupSubRecipeBookBySort = new ViewGroupSubRecipeBookBySort();
-    public static FilterGroupSubRecipeBooks viewGroupSubRecipeBookFiltered = new FilterGroupSubRecipeBooks();
 
     public static void displayMessage(String message) {
         JOptionPane.showMessageDialog(null, createMessage(message));

@@ -27,24 +27,6 @@ public class GroupSubRecipeBook {
         label.setBounds(165, 11, 170, 41);
         showGroupSubRecipeBook.getContentPane().add(label);
 
-        // filter option
-        JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(e -> {
-            showGroupSubRecipeBook.setVisible(false);
-            GUIForm.viewGroupSubRecipeBookFiltered.setVisible(true);
-        });
-        byFilter.setBounds(75, 50, 150, 23);
-        showGroupSubRecipeBook.getContentPane().add(byFilter);
-
-        // sort option
-        JButton bySort = new JButton("By Sort");
-        bySort.addActionListener(e -> {
-            showGroupSubRecipeBook.setVisible(false);
-            GUIForm.viewGroupSubRecipeBookBySort.setVisible(true);
-        });
-        bySort.setBounds(225, 50, 150, 23);
-        showGroupSubRecipeBook.getContentPane().add(bySort);
-
         // show recipes in sub-recipe book option
         JButton showAll = GUIForm.createButtonFromCommand(new ListSubRecipeBookRecipesCommand());
         showAll.setBounds(150, 90, 150, 23);
