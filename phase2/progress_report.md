@@ -63,17 +63,18 @@ HELENA
 
 MICHELLE
 
-* ##### TASKS DONE: 
-  * I created, updated and refactored the following classes RecipeBook, SubRecipeBook, RecipeBookManager, SubRecipeBookManager, RecipeBookCSVReader and RecipeCommands. 
+* ##### PHASE 1: 
+  * I created, updated and refactored the following classes RecipeBook, SubRecipeBook, RecipeBookManager, SubRecipeBookManager, RecipeBookCSVReader and RecipeCommands.
   * I wrote tests for RecipeBook and SubRecipeBook
   * I participated in some of the design decisions.
-  * I worked on the MarkDown file for the Design Document.
+  * I worked on majority of the MarkDown file for the Design Document.
   * I also worked on some of sectons of the Design Document with team members.
 
-* ##### NEXT STEPS: 
-  * I plan to continue testing the classes that I have written above and offer help to my other members.
-  * I plan on potentially helping with the GUI. 
-  * I plan to work on reviewing my teammates pull requests
+* ##### PHASE 2: 
+  * I worked on the RecipeBook and Sub-Recipe Book structure in the GUI (the pages related to these and edited some of the commands etc) as a major part of Phase 2.
+  * I assisted on the TopPicks through discussion with Helena on how to implement some of the methods and how to approach the algorithm.
+  * I refactored code, mostly writing JavaDoc and fixing camelCase issues.
+  * I reviewed pull requests 
 
 Milica
 * ##### TASKS DONE:
