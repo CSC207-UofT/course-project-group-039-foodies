@@ -48,6 +48,9 @@
   * Removing repeated code code smells
   * Integrating menus into the app so that the app can recommend the best recipes in a restaurant
 
+* #### Significant pull request
+  * I helped implement many features that where essential to the moving forward of the project, but perhaps the most important one is pull request #14, 'Completely refactored out RecipeDatabase', where I completely removed the RecipeDatabase entity. I did this by identifying its responsibilities and and splitting it up into three main parts. Each part became the basis for a large part of the code. The RecipeCollection became the basis for the RecipeBooks, the RecipeCSVReader became the basis for all the databases in the program. 
+
 
 Emily 
 - Phase 1: The main focus was to set up a base layer of groups in our programme by implementing all the Group related classes including Group (Entity), GroupManager(Use Cases) and 4 commands in GroupCommands package (User Interface). Following the Single Responsibility Principle, GroupFactory (Use Cases) was created with the single responsibility of creating a group safely. A number of test cases were created to test the functionality and correctness of the classes that are created in Phase 1. I will be working on implementing a few more commands in GroupCommands and adding them to the GUI in Phase 2.
