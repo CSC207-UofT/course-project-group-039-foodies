@@ -5,7 +5,6 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
-import java.awt.Font;
 
 
 /**
@@ -39,7 +38,7 @@ public class ViewRecipesByFilter {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
             viewRecipesByFilter.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
+            GUIForm.newRecipes.setVisible();
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewRecipesByFilter.getContentPane().add(btnExit);
@@ -55,9 +54,8 @@ public class ViewRecipesByFilter {
 
     /**
      * Make ViewRecipesByFilter GUI page visible or invisible.
-     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
      */
-    public void setVisible(boolean b) {
+    public void setVisible() {
         viewRecipesByFilter.setVisible(true);
     }
 }

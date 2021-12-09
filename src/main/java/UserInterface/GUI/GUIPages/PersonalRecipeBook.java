@@ -46,7 +46,7 @@ public class PersonalRecipeBook {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             personalRecipeBook.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -55,7 +55,7 @@ public class PersonalRecipeBook {
 
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         personalRecipeBook.setVisible(true);
     }
 }

@@ -40,7 +40,7 @@ public class ViewTopPicks {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             viewTopPicks.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
+            GUIForm.newRecipes.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -52,7 +52,7 @@ public class ViewTopPicks {
         viewTopPicks.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         viewTopPicks.setVisible(true);
     }
 }

@@ -1,11 +1,5 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.
-        PersonalRecipeBookCommands.EnterRecipeBookCommand;
-import main.java.UserInterface.Commands.GeneralRecipeBookCommands.
-        GroupRecipeBookCommands.EnterGroupRecipeBookCommand;
-
-
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -35,7 +29,7 @@ public class GeneralRecipeBook {
         JButton btnPersonalRecipeBook = new JButton("Personal Recipe Books");
         btnPersonalRecipeBook.addActionListener(e -> {
             generalRecipeBook.setVisible(false);
-            GUIForm.personalRecipeBook.setVisible(true);
+            GUIForm.personalRecipeBook.setVisible();
                 });
         btnPersonalRecipeBook.setBounds(130, 110, 190, 23);
         generalRecipeBook.getContentPane().add(btnPersonalRecipeBook);
@@ -44,7 +38,7 @@ public class GeneralRecipeBook {
         JButton btnGroupRecipeBook = new JButton("Group Recipe Books");
         btnGroupRecipeBook.addActionListener(e -> {
             generalRecipeBook.setVisible(false);
-            GUIForm.groupRecipeBook.setVisible(true);
+            GUIForm.groupRecipeBook.setVisible();
                 });
         btnGroupRecipeBook.setBounds(130, 150, 190, 23);
         generalRecipeBook.getContentPane().add(btnGroupRecipeBook);
@@ -53,7 +47,7 @@ public class GeneralRecipeBook {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             generalRecipeBook.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -66,7 +60,7 @@ public class GeneralRecipeBook {
         generalRecipeBook.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         generalRecipeBook.setVisible(true);
     }
 }

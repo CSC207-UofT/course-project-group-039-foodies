@@ -1,10 +1,7 @@
 package main.java.UserInterface.Commands.UserPreferencesCommands;
 
-import main.java.Entities.Recipe;
 import main.java.Gateways.PreferenceBookCSVReader;
-import main.java.Gateways.RecipeCSVReader;
 import main.java.UseCases.RecipeBookManager;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -23,13 +20,7 @@ public class RateRecipeCommand extends Command {
 
         if (recipeBookManager.containsRecipe(recipeName) && !(UI.getPreferenceBook().contains("rating",
                 recipeName))) {
-            double rating = Double.parseDouble(UI.queryUser("Enter rating from 1-5"));
-            Recipe recipe = RecipeCollectionFacade.findRecipe(UI.getRecipeCollection(), recipeName); //getting recipe from RecipeCollection
-            recipe.addRating(rating); //recipe object is updated
-            RecipeCSVReader.getInstance().addRating(recipeName, recipe.rating, recipe.ratingCount); //csv is updated
-            PreferenceBookCSVReader.getInstance().updateRatings(UI.getUser().getUsername(), "add",
-                    recipeName, rating);
-            UI.displayMessage("Recipe successfully rated");
+            RateGroupRecipeCommand.getRating(UI, recipeName);
         } else if (UI.getPreferenceBook().contains("rating",
                 recipeName)) {
             UI.displayMessage("You have already rated this recipe");

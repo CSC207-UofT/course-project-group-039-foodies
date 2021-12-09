@@ -40,7 +40,7 @@ public class ViewPreferences {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             viewPreferences.setVisible(false);
-            GUIForm.preferences.setVisible(true);
+            GUIForm.preferences.setVisible();
 
         });
 
@@ -53,7 +53,7 @@ public class ViewPreferences {
         viewPreferences.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         viewPreferences.setVisible(true);
     }
 }

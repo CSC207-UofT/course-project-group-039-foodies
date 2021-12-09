@@ -24,18 +24,18 @@ public class FilterGroupRecipeBookCommand extends ChoiceCommand<FilterOption> {
                         "'foodtype' to filter in a type of food, and " +
                         "'servings' to filter the number of servings."
         )) {
-            case allergy:
+            case allergy -> {
                 String ingredient = UI.queryUser("Input the name of the ingredient to filter out");
                 filter = new AllergyFilter(ingredient);
-                break;
-            case foodtype:
+            }
+            case foodtype -> {
                 String foodtype = UI.queryUser("Input the name of the food type to filter in");
                 filter = new FoodTypeFilter(foodtype);
-                break;
-            case servings:
+            }
+            case servings -> {
                 int servings = Integer.parseInt(UI.queryUser("Input the number of servings you need"));
                 filter = new ServingsFilter(servings);
-                break;
+            }
         }
 
         RecipeCollectionFacade.addFilter(UI.getRecipeCollection(), filter);

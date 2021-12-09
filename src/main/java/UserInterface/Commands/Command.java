@@ -1,6 +1,5 @@
 package main.java.UserInterface.Commands;
 
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.UserInterface;
 
 public abstract class Command {

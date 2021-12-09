@@ -20,7 +20,7 @@ public class Signup {
     /**
      * Initialize the contents of the frame1.
      */
-    public void setVisible(boolean b) {
+    public void setVisible() {
         frame1.setVisible(true);
     }
     private void initialize() {

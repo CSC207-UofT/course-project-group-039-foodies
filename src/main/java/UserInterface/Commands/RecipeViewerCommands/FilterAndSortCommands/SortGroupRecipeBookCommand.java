@@ -14,20 +14,15 @@ public class SortGroupRecipeBookCommand extends ChoiceCommand<RatingOption> {
 
     @Override
     public void runAction(UserInterface UI) {
-        Sort sort = null;
-        switch (chooseOption(
+        Sort sort = switch (chooseOption(
                 UI,
                 RatingOption.class,
                 "Input 'rating' to sort by rating, " +
                         "and 'servings' to sort by servings"
         )) {
-            case rating:
-                sort = new RatingSort();
-                break;
-            case servings:
-                sort = new ServingsSort();
-                break;
-        }
+            case rating -> new RatingSort();
+            case servings -> new ServingsSort();
+        };
 
         RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
         GetNewGroupRecipeCommand.initializeIterator(UI);

@@ -23,26 +23,7 @@ public class GroupRecipe {
 
         // title
         JLabel label = new JLabel("Show Group Recipes");
-        label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(140, 11, 200, 41);
-        showGroupRecipes.getContentPane().add(label);
-
-        JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesByFilter.setVisible(true);
-        });
-        byFilter.setBounds(75, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(byFilter);
-
-        JButton bySort = new JButton("By Sort");
-        bySort.addActionListener(e -> {
-            showGroupRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesBySort.setVisible(true);
-        });
-        bySort.setBounds(225, 50, 150, 23);
-        showGroupRecipes.getContentPane().add(bySort);
-
+        setFont(label, showGroupRecipes);
 
         JButton showAll = GUIForm.createButtonFromCommand(new ListGroupRecipeBooksCommand());
         showAll.setBounds(150, 90, 150, 23);
@@ -55,7 +36,7 @@ public class GroupRecipe {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             showGroupRecipes.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -67,7 +48,29 @@ public class GroupRecipe {
         showGroupRecipes.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    static void setFont(JLabel label, JFrame showGroupRecipes) {
+        label.setFont(new Font("Tahoma", Font.BOLD, 17));
+        label.setBounds(140, 11, 200, 41);
+        showGroupRecipes.getContentPane().add(label);
+
+        JButton byFilter = new JButton("By Filter");
+        byFilter.addActionListener(e -> {
+            showGroupRecipes.setVisible(false);
+            GUIForm.viewSavedRecipesByFilter.setVisible();
+        });
+        byFilter.setBounds(75, 50, 150, 23);
+        showGroupRecipes.getContentPane().add(byFilter);
+
+        JButton bySort = new JButton("By Sort");
+        bySort.addActionListener(e -> {
+            showGroupRecipes.setVisible(false);
+            GUIForm.viewSavedRecipesBySort.setVisible();
+        });
+        bySort.setBounds(225, 50, 150, 23);
+        showGroupRecipes.getContentPane().add(bySort);
+    }
+
+    public void setVisible() {
         showGroupRecipes.setVisible(true);
     }
 }

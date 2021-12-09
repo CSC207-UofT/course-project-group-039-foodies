@@ -61,7 +61,7 @@ public class EditPreferences {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             editPreferences.setVisible(false);
-            GUIForm.preferences.setVisible(true);
+            GUIForm.preferences.setVisible();
 
         });
 
@@ -74,7 +74,7 @@ public class EditPreferences {
         editPreferences.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         editPreferences.setVisible(true);
     }
 }

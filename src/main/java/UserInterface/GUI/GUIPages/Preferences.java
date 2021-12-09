@@ -1,6 +1,5 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.Gateways.UserCSVReader;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
@@ -31,7 +30,7 @@ public class Preferences {
         JButton viewSavedPreferences = new JButton("View Saved Preferences");
         viewSavedPreferences.addActionListener(e -> {
             preferences.setVisible(false);
-            GUIForm.viewPreferences.setVisible(true);
+            GUIForm.viewPreferences.setVisible();
 
         });
         viewSavedPreferences.setBounds(125, 50, 200, 23);
@@ -41,7 +40,7 @@ public class Preferences {
         JButton modifyPreferences = new JButton("Add/Edit Preferences");
         modifyPreferences.addActionListener(e -> {
             preferences.setVisible(false);
-            GUIForm.editPreferences.setVisible(true);
+            GUIForm.editPreferences.setVisible();
 
         });
 
@@ -52,7 +51,7 @@ public class Preferences {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             preferences.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
 
@@ -65,7 +64,7 @@ public class Preferences {
         preferences.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         preferences.setVisible(true);
     }
 
