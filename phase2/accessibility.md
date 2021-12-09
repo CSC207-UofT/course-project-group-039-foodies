@@ -1,6 +1,6 @@
 # ACCESSIBILITY ACCOMMODATIONS IN RECIPICK 
 
-## Accessibility Accommodations present in the current programme
+## How ReciPick Adheres to the 7 Principles of Universal Design
 Equitable Use
 - Simplistic design appeals to all users
 - Security for all users available with a username and password login, password is hidden at login
@@ -31,6 +31,12 @@ Size and space for approach and use
 - The GUI screen and text is large enough to be read comfortably
 
 
-## Accessibility Accommodations that can be implemented in the future
+## Accessibility Accommodations That Can Be Implemented in the Future
 - A screen reader can be added to the programme to accommodate persons with sight impairments.
 - Move all actions to the same window instead of having multiple windows for lower physical effort
+
+## Who is ReciPick Marketed Towards?
+We designed Recipick for several target users; food-lovers who want to up their game in the kitchen by exploring new recipes, people with several food restrictions who want new meal ideas that fit their needs and people who are busy or cooking for a family/multiple roommates that need a way to organize their diet. ReciPick pulls data from the Spoonacular API which has over 5000 recipes for food-lovers to try out. Also, users are able to set preferences to omit or include certain ingredients from their recipe selection so people with allergies or strict diets are able to enjoy ReciPick. Finally, ReciPick allows users to organize recipes they like into labeled subrecipe books for later access, and families and roommates can join groups to share subrecipe books amongst eachother (for example, a group can create a shared subrecipe book called "Sunday Dinner").
+
+
+
