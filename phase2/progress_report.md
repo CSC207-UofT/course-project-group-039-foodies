@@ -1,17 +1,11 @@
 # PROGRESS REPORT
 
-## OUTSTANDING QUESTIONS 
-1. What is the best way of cleanly separating controllers from the GUI, so that all code can be shared between the CLI and GUI and the single responsibility principle can be maintained?
-  * If we were to do this using commands, how do we get the GUI to have well formatted output?
-2. Some of our methods take 4+ parameters, like the RecipeFactoryClass. What is the best way to deal with this?
-3. Is there a better way for the controller and gateway classes to be able to access entities other than by creating facade usecases?
-
 ## WHAT HAS WORKED WELL THUS FAR?
 * _Packaging by Layer followed by Components_ - This has worked in that we are more likely to adhere to the Clean Architecture while we develop the programme and it is easier to find and fix any areas where it was not followed. Furthermore, separating by components afterwards works well as it means that we can manage the visibility of parts of our code.
 * The Command classes - In practice, this made it very easy for all of the team to add new functionality. Because the interface is the bare minimum required, and each command has exactly one responsibility, it was easy for the team to quickly add new features without needing to worry about the implementation of the user interface.
 * The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
-## A summary of what each group member has been working on and plans to work on next
+## A summary of what each group member has been working on in Phase 2
 Judy
 - I have mostly worked on Group related classes for phase 1 (implemented Group, GroupManager, GroupCSVReader, GroupCSVReaderTest, and some groups.csv). I have also helped Michelle in implementing some of the Recipebook tests such as RecipeBookManager and SubRecipeBookManager tests. For the last two days, I have worked on refactoring GroupCommands so that we can use CSV methods in the GroupCommands.
 - For phase 2, I will be working on refactoring existing Group Commands and implementing the methods to connect Recipebook to the group entities. 
