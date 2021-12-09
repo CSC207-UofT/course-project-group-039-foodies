@@ -6,9 +6,14 @@
 * The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
 ## A summary of what each group member has been working on in Phase 2
-Judy
-- I have mostly worked on Group related classes for phase 1 (implemented Group, GroupManager, GroupCSVReader, GroupCSVReaderTest, and some groups.csv). I have also helped Michelle in implementing some of the Recipebook tests such as RecipeBookManager and SubRecipeBookManager tests. For the last two days, I have worked on refactoring GroupCommands so that we can use CSV methods in the GroupCommands.
-- For phase 2, I will be working on refactoring existing Group Commands and implementing the methods to connect Recipebook to the group entities. 
+#### Judy
+* ##### TASKS DONE: 
+  * Phase 1 
+    * I have mostly worked on Group related classes for phase 1 (implemented Group, GroupManager, GroupCSVReader, GroupCSVReaderTest, and some groups.csv). I have also helped Michelle in implementing some of the Recipebook tests such as RecipeBookManager and SubRecipeBookManager tests. For the last two days, I have worked on refactoring GroupCommands so that we can use CSV methods in the GroupCommands. For phase 2, I will be working on refactoring existing Group Commands and implementing the methods to connect Recipebook to the group entities. 
+  * Phase 2
+    * I have heavily focused on implementing classes that are related to group and group recipe books. While the implementation for group entities was mostly done in phase 1, I had to add entities for group recipe books and group sub recipe books. I have implemented most of the Commands that are related to Group, GroupRecipeBook, and GroupSubRecipeBook and have implemented CSV Readers and their tests for Group and GroupRecipeBook. I worked on modifying the PageManager and GroupRecipeBook entity so that all commands for GroupRecipeBook can work properly without any errors. I have also helped Emily in implementing GUI for groups and group recipe books and have worked on fixing Camel Cases and docstrings. 
+  * Pull request
+    * 
 
 Dohyun
 - In Phase 1: Mainly focused on filtering and sorting algorithms of our program. Implemented AllergyFilter class, ServingsFilter class, ServingSort class and ServingComparator class, Sort interface, RatingSort class and RatingComparator class, test classes for all the classes that I implemented in Phase 1. Modified filter and sort tests to use RecipeCollection instead of DatabaseManager, filter and sort interfaces so that they get an array of recipes directly when calling filter/sort method not when initializing, and all codes that I implemented to work with modified filter and sort interfaces. Added Javadoc for all classes and interfaces that I implemented in Phase 0 and 1. Organized the test classes, using packaging by components (e.g. FilterTests and SortTests). Added design decisions and design patterns into the Design Document.
