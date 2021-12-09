@@ -29,7 +29,7 @@ public class GeneralRecipes {
         JButton savedPersonalRecipes = new JButton("Saved Personal Recipes");
         savedPersonalRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showRecipes.setVisible();
+            GUIForm.showRecipes.setVisible(true);
         });
         savedPersonalRecipes.setBounds(130, 110, 190, 23);
         generalRecipes.getContentPane().add(savedPersonalRecipes);
@@ -38,7 +38,7 @@ public class GeneralRecipes {
         JButton btnGroupRecipes = new JButton("Saved Group Recipes");
         btnGroupRecipes.addActionListener(e -> {
             generalRecipes.setVisible(false);
-            GUIForm.showGroupRecipes.setVisible();
+            GUIForm.showGroupRecipes.setVisible(true);
         });
         btnGroupRecipes.setBounds(130, 150, 190, 23);
         generalRecipes.getContentPane().add(btnGroupRecipes);

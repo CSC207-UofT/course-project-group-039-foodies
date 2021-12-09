@@ -114,7 +114,7 @@ public class PageManager {
     Page subRecipeBook = new Page(
             recipeBook,
             new Command[] {
-                    new main.java.UserInterface.Commands.RecipeBookCommands.ListSubRecipeBookRecipesCommand(),
+                    new ListSubRecipeBooksCommand(),
                     new RemoveRecipeCommand(),
                     new RateRecipeCommand(),
                     new GoBackCommand()

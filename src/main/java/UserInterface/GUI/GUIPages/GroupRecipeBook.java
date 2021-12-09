@@ -63,7 +63,7 @@ public class GroupRecipeBook {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             groupRecipeBook.setVisible(false);
-            GUIForm.generalRecipeBook.setVisible(true);
+            GUIForm.generalRecipeBook.setVisible();
         });
         btnBack.setBounds(150, 210, 150, 23);
         groupRecipeBook.getContentPane().add(btnBack);

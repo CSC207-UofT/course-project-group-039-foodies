@@ -1,7 +1,7 @@
 package main.java.UserInterface.GUI.GUIPages;
 
+import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.ListSubRecipeBookRecipesCommand;
 import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands.RemoveRecipeCommand;
-import main.java.UserInterface.Commands.RecipeBookCommands.ListSubRecipeBookRecipesCommand;
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;

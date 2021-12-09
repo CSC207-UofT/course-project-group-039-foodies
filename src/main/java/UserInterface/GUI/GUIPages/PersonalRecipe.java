@@ -54,7 +54,7 @@ public class PersonalRecipe {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             showRecipes.setVisible(false);
-            GUIForm.generalRecipes.setVisible(true);
+            GUIForm.generalRecipes.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);

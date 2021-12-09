@@ -58,7 +58,7 @@ public class GroupRecipe {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(e -> {
             showGroupRecipes.setVisible(false);
-            GUIForm.generalRecipes.setVisible(true);
+            GUIForm.generalRecipes.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);

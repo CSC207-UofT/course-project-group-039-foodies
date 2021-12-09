@@ -45,7 +45,7 @@ public class ViewRecipeBook {
         JButton btnGoBack = new JButton("Back to Menu");
         btnGoBack.addActionListener(e-> {
             showRecipeBook.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
         });
         btnGoBack.setBounds(150, 210, 150, 23);
         showRecipeBook.getContentPane().add(btnGoBack);
