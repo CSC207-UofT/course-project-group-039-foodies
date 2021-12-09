@@ -83,13 +83,16 @@ MICHELLE
   * I reviewed pull requests 
 
 Milica
-* ##### TASKS DONE:
+* ##### Phase 1:
   * I created and added updates to PreferenceBook, PreferenceBookCSVReader, the UserPreferencesCommands, 
   * I added rating functionality to Recipe and RecipeCSVReader
   * I made some minor changes to a few other CLI commands
   * I made a powerpoint for the presentation
 
-* ##### NEXT STEPS:
-  * I will add more preference options to PreferenceBook (UpdateDietCommand)
-  * I will create comprehensive tests for PreferenceBook related methods
-  * I will help my teammates with any outstanding work
+* #### Phase 2:
+  * Wrote the accessibility report
+  * Created preference commands for declaring a diet and viewing current preferences
+  * Connected preference-related code to GUI, refactoring existing GUI pages
+  * Wrote code to apply users’ preferences to the recipe collection so they are showed a personalized recipe selection
+  * General refactoring
+  * In pull request #105 I connected all my work preferences to the GUI and refeactored its structure
