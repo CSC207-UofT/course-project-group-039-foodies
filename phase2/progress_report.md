@@ -6,14 +6,15 @@
 * The CSVReader class - By abstracting out the code for modifying csv files, it was very easy for the team to create their own databases simply by extending this CSVReader class without needing to worry about how it works internally. When bugs emerged in the CSVReader class, none of the other code had to be changed.
 
 ## A summary of what each group member has been working on in Phase 2
-#### Judy
+#### Hayun (Judy)
 * ##### TASKS DONE: 
   * Phase 1 
     * I have mostly worked on Group related classes for phase 1 (implemented Group, GroupManager, GroupCSVReader, GroupCSVReaderTest, and some groups.csv). I have also helped Michelle in implementing some of the Recipebook tests such as RecipeBookManager and SubRecipeBookManager tests. For the last two days, I have worked on refactoring GroupCommands so that we can use CSV methods in the GroupCommands. For phase 2, I will be working on refactoring existing Group Commands and implementing the methods to connect Recipebook to the group entities. 
   * Phase 2
     * I have heavily focused on implementing classes that are related to group and group recipe books. While the implementation for group entities was mostly done in phase 1, I had to add entities for group recipe books and group sub recipe books. I have implemented most of the Commands that are related to Group, GroupRecipeBook, and GroupSubRecipeBook and have implemented CSV Readers and their tests for Group and GroupRecipeBook. I worked on modifying the PageManager and GroupRecipeBook entity so that all commands for GroupRecipeBook can work properly without any errors. I have also helped Emily in implementing GUI for groups and group recipe books and have worked on fixing Camel Cases and docstrings. 
   * Pull request
-    * 
+    * Pull request #98 (https://github.com/CSC207-UofT/course-project-group-039-foodies/pull/98). This pull request contained most of the changes or additions we made for phase 2. Worked on creating new commands and CSV readers and updating any changes for entities and GUI. 
+
 
 #### Dohyun
 * ##### TASKS DONE: 
