@@ -1,10 +1,8 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands;
 import main.java.Entities.Group;
 import main.java.Entities.GroupRecipeBook;
-import main.java.Entities.RecipeBook;
 import main.java.Gateways.GroupCSVReader;
 import main.java.Gateways.GroupRecipeBookCSVReader;
-import main.java.UseCases.RecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.Entities.Recipe;
 import main.java.UseCases.GroupRecipeBookManager;

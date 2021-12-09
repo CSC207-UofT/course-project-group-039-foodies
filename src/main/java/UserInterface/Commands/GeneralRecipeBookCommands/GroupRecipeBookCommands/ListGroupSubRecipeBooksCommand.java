@@ -1,10 +1,7 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.GroupRecipeBookCommands;
 
 import main.java.Entities.GroupSubRecipeBook;
-import main.java.Entities.Recipe;
 import main.java.UseCases.GroupRecipeBookManager;
-import main.java.UseCases.RecipeBookManager;
-import main.java.UseCases.SubRecipeBookManager;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 import main.java.Gateways.GroupCSVReader;
@@ -18,6 +15,10 @@ public class ListGroupSubRecipeBooksCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
+        getUsername(UI);
+    }
+
+    public static void getUsername(UserInterface UI) {
         String username = UI.getUser().getUsername();
         UI.displayMessage("Your groups are: \n" +
                 GroupCSVReader.getInstance().getJoinedGroups(username));

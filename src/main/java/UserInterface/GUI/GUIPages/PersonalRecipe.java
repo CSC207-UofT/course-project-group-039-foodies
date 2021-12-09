@@ -5,7 +5,6 @@ import main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipe
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
-import java.awt.Font;
 
 public class PersonalRecipe {
     public JFrame showRecipes;
@@ -23,34 +22,7 @@ public class PersonalRecipe {
 
         // title
         JLabel label = new JLabel("Show Personal Recipes");
-        label.setFont(new Font("Tahoma", Font.BOLD, 17));
-        label.setBounds(140, 11, 200, 41);
-        showRecipes.getContentPane().add(label);
-
-        JButton byFilter = new JButton("By Filter");
-        byFilter.addActionListener(e -> {
-            showRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesByFilter.setVisible(true);
-        });
-        byFilter.setBounds(75, 50, 150, 23);
-        showRecipes.getContentPane().add(byFilter);
-
-        JButton bySort = new JButton("By Sort");
-        bySort.addActionListener(e -> {
-            showRecipes.setVisible(false);
-            GUIForm.viewSavedRecipesBySort.setVisible(true);
-        });
-        bySort.setBounds(225, 50, 150, 23);
-        showRecipes.getContentPane().add(bySort);
-
-        //JButton showAll = new JButton("Show All");
-        //showAll.addActionListener(e -> {
-            // show_recipes.setVisible(false);
-            // GUIForm.viewAllSavedRecipes.setVisible(true);
-
-            //Command displayRecipeBook = new ListRecipeBookCommand();
-            //displayRecipeBook.runAction(Application.getInstance());
-        //});
+        GroupRecipe.setFont(label, showRecipes);
 
         JButton showAll = GUIForm.createButtonFromCommand(new ListRecipeBookCommand());
         showAll.setBounds(150, 90, 150, 23);
@@ -63,7 +35,7 @@ public class PersonalRecipe {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             showRecipes.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
@@ -75,7 +47,7 @@ public class PersonalRecipe {
         showRecipes.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         showRecipes.setVisible(true);
     }
 }

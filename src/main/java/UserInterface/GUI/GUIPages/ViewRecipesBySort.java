@@ -38,7 +38,7 @@ public class ViewRecipesBySort {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
             viewRecipesBySort.setVisible(false);
-            GUIForm.newRecipes.setVisible(true);
+            GUIForm.newRecipes.setVisible();
 
         });
         btnExit.setBounds(150, 210, 150, 23);
@@ -52,9 +52,8 @@ public class ViewRecipesBySort {
 
     /**
      * Make ViewRecipesBySort GUI page visible or invisible.
-     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
      */
-    public void setVisible(boolean b) {
+    public void setVisible() {
         viewRecipesBySort.setVisible(true);
     }
 }

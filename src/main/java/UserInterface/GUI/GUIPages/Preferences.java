@@ -1,6 +1,5 @@
 package main.java.UserInterface.GUI.GUIPages;
 
-import main.java.Gateways.UserCSVReader;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateDietCommand;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateIncludeCommand;
 import main.java.UserInterface.Commands.UserPreferencesCommands.UpdateOmitCommand;
@@ -55,8 +54,7 @@ public class Preferences {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             preferences.setVisible(false);
-            GUIForm.menu.setVisible(true);
-
+            GUIForm.menu.setVisible();
         });
 
         btnBack.setBounds(150, 210, 150, 23);
@@ -68,7 +66,7 @@ public class Preferences {
         preferences.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         preferences.setVisible(true);
     }
 

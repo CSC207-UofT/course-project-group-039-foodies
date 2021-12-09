@@ -1,7 +1,5 @@
 package main.java.UserInterface.Commands;
 
-import main.java.Entities.User;
-import main.java.UserInterface.CLI.CommandLineInterface;
 import main.java.UserInterface.UserInterface;
 
 /**

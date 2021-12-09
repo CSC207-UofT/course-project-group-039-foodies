@@ -27,15 +27,6 @@ public class UserCSVReader extends CSVReader {
     }
 
     /**
-     * Adds a user to the database given a user object
-     * @param user The user object being added
-     * @param password The password of the user
-     */
-    public void addUser(User user, String password) {
-        addUser(user.getUsername(), password, user.getFullname(), user.getEmail());
-    }
-
-    /**
      * Adds a user to the database given the necessary information
      * @param username The username of the user being added
      * @param password The password of the user being added

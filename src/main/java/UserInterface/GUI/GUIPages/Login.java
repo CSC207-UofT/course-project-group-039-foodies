@@ -80,7 +80,7 @@ public class Login {
 	}
 
 
-	public void setVisible(boolean b) {
+	public void setVisible() {
 		frame.setVisible(true);
 	}
 
@@ -90,7 +90,7 @@ public class Login {
 				JOptionPane.showMessageDialog(null, "Log In Successful", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 				Application.getInstance().signIn(UserCSVReader.getInstance().getUser(user));
 				frame.setVisible(false);
-				GUIForm.menu.setVisible(true);
+				GUIForm.menu.setVisible();
 			} else {
 				JOptionPane.showMessageDialog(null, "Wrong Password", "MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 			}

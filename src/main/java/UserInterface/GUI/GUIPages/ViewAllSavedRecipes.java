@@ -22,7 +22,7 @@ public class ViewAllSavedRecipes {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
             viewAllSavedRecipes.setVisible(false);
-            GUIForm.showRecipes.setVisible(true);
+            GUIForm.showRecipes.setVisible();
 
         });
         btnExit.setBounds(150, 210, 150, 23);

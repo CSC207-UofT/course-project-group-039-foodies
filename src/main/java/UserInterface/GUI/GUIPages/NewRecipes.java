@@ -30,7 +30,7 @@ public class NewRecipes {
         JButton byFilter = new JButton("By Filter");
         byFilter.addActionListener(e -> {
             newRecipes.setVisible(false);
-            GUIForm.viewRecipesByFilter.setVisible(true);
+            GUIForm.viewRecipesByFilter.setVisible();
 
         });
         byFilter.setBounds(75, 50, 150, 23);
@@ -39,7 +39,7 @@ public class NewRecipes {
         JButton bySort = new JButton("By Sort");
         bySort.addActionListener(e -> {
             newRecipes.setVisible(false);
-            GUIForm.viewRecipesBySort.setVisible(true);
+            GUIForm.viewRecipesBySort.setVisible();
         });
         bySort.setBounds(225, 50, 150, 23);
         newRecipes.getContentPane().add(bySort);
@@ -47,7 +47,7 @@ public class NewRecipes {
         JButton topPicks = new JButton("Top Picks");
         topPicks.addActionListener(e -> {
             newRecipes.setVisible(false);
-            GUIForm.viewTopPicks.setVisible(true);
+            GUIForm.viewTopPicks.setVisible();
 
         });
         topPicks.setBounds(150, 80, 150, 23);
@@ -56,7 +56,7 @@ public class NewRecipes {
         JButton random = new JButton("Random");
         random.addActionListener(e -> {
             newRecipes.setVisible(false);
-            GUIForm.viewByRandom.setVisible(true);
+            GUIForm.viewByRandom.setVisible();
 
         });
         random.setBounds(150, 120, 150, 23);
@@ -75,7 +75,7 @@ public class NewRecipes {
         JButton btnBack = new JButton("Back to Menu");
         btnBack.addActionListener(e -> {
             newRecipes.setVisible(false);
-            GUIForm.menu.setVisible(true);
+            GUIForm.menu.setVisible();
 
         });
 
@@ -88,7 +88,7 @@ public class NewRecipes {
         newRecipes.getContentPane().add(img);
     }
 
-    public void setVisible(boolean b) {
+    public void setVisible() {
         newRecipes.setVisible(true);
     }
 }

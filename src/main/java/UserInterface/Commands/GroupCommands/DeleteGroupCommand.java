@@ -2,8 +2,6 @@ package main.java.UserInterface.Commands.GroupCommands;
 
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
-import main.java.Entities.Group;
-import main.java.UseCases.GroupFactory;
 import main.java.Gateways.GroupCSVReader;
 
 
