@@ -10,7 +10,7 @@ Flexibility in Use
 
 Simple and Intuitive use
 - Error messages and prompts are simple; no need to reveal any internal processes, just enough information is given to the user
-- Pages have ~five options to keep it simple and not overwhelm the user
+- Pages have ~ five options to keep it simple and not overwhelm the user
 
 Perceptible information
 - Sans serif font is used for simplicity and readability 
