@@ -22,7 +22,7 @@ public class GetNewRecipeCommand extends Command {
     @Override
     public void runAction(UserInterface UI) {
         // If the iterator hasn't been set yet, or we have already iterated over all elements
-        if (!isIteratorSet || !recipeIterator.hasNext()) {
+        if (!isIteratorSet || recipeIterator == null || !recipeIterator.hasNext()) {
             initializeIterator(UI);
         }
 
