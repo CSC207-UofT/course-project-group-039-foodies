@@ -5,17 +5,18 @@ import main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComman
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
+import java.awt.Font;
 
 /**
  * Create GUI page ViewSavedRecipesByFilter, which allows user to filter saved recipes.
  */
-public class ViewSavedRecipesByFilter {
+public class ViewSubRecipeBookRecipesByFilter {
     public JFrame viewSavedRecipesByFilter;
 
     /**
      * Initialize ViewSavedRecipesByFilter.
      */
-    public ViewSavedRecipesByFilter() {
+    public ViewSubRecipeBookRecipesByFilter() {
         initialize();
     }
 
@@ -37,7 +38,7 @@ public class ViewSavedRecipesByFilter {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
                     viewSavedRecipesByFilter.setVisible(false);
-                    GUIForm.showRecipes.setVisible();
+                    GUIForm.showSubRecipes.setVisible(true);
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewSavedRecipesByFilter.getContentPane().add(btnExit);
@@ -50,8 +51,9 @@ public class ViewSavedRecipesByFilter {
 
     /**
      * Make ViewSavedRecipesByFilter GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
      */
-    public void setVisible() {
+    public void setVisible(boolean b) {
         viewSavedRecipesByFilter.setVisible(true);
     }
 }

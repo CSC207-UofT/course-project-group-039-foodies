@@ -136,6 +136,7 @@ PreferenceBook:
 * Extensive use of _pull requests_ to manage our main branch was made. All changes to the code base had to go through a pull request first and be reviewed by other team members before merging.
 * _Reviews feature_ for some pull requests, like pull request #13, was used to highlight what specifically must be changed.
 * _Github issues_ was used to highlight important problems with the code that must be discussed and fixed.
+* Github TODO, In Progress, Done feature was used to manage and organize which parts should each of us do.
 
 
 ## TESTING DONE

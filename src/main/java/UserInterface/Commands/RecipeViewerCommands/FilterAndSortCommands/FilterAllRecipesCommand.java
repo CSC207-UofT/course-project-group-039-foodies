@@ -4,15 +4,23 @@ import main.java.UseCases.Filters.AllergyFilter;
 import main.java.UseCases.Filters.Filter;
 import main.java.UseCases.Filters.FoodTypeFilter;
 import main.java.UseCases.Filters.ServingsFilter;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
-import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
-public class FilterGroupRecipeBookCommand extends ChoiceCommand<FilterOption> {
-    public FilterGroupRecipeBookCommand() {
-        super("filter", "Filters the group recipes to be seen");
-    }
+/**
+ * Filter recipes in the saved sub-recipe book.
+ */
+public class FilterAllRecipesCommand extends ChoiceCommand<FilterOption> {
 
+    /**
+     * Initialize FilterSavedRecipeBookCommand.
+     */
+    public FilterAllRecipesCommand() {super("filter", "Filters the saved recipes to be seen"); }
+
+    /**
+     * Add filter to the recipes in the all saved recipes based on the given filtering algorithm by the user.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         Filter filter = null;
@@ -37,9 +45,7 @@ public class FilterGroupRecipeBookCommand extends ChoiceCommand<FilterOption> {
                 filter = new ServingsFilter(servings);
                 break;
         }
-
-        RecipeCollectionFacade.addFilter(UI.getRecipeCollection(), filter);
-        GetNewGroupRecipeCommand.initializeIterator(UI);
+        UI.getUser().getRecipeBook().addFilter("AllRecipes", filter);
+        GetNewRecipeCommand.initializeIterator(UI);
     }
 }
-

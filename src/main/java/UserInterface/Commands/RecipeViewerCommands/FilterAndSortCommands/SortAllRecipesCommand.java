@@ -3,15 +3,22 @@ package main.java.UserInterface.Commands.RecipeViewerCommands.FilterAndSortComma
 import main.java.UseCases.Sorts.RatingSort;
 import main.java.UseCases.Sorts.ServingsSort;
 import main.java.UseCases.Sorts.Sort;
-import main.java.UseCases.Utilities.RecipeCollectionFacade;
-import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewGroupRecipeCommand;
+import main.java.UserInterface.Commands.RecipeViewerCommands.GetNewRecipeCommand;
 import main.java.UserInterface.UserInterface;
 
-public class SortGroupRecipeBookCommand extends ChoiceCommand<RatingOption> {
-    public SortGroupRecipeBookCommand() {
-        super("sort", "Sorts the group recipes to be seen");
-    }
+/**
+ * Sort recipes in the sub-recipe book.
+ */
+public class SortAllRecipesCommand extends ChoiceCommand<RatingOption> {
+    /**
+     * Initialize SortSavedRecipeBookCommand.
+     */
+    public SortAllRecipesCommand() {super("sort", "Sorts the saved recipes to be seen");}
 
+    /**
+     * Set sort given by the user to the saved sub-recipe book.
+     * @param UI an instance of the user interface.
+     */
     @Override
     public void runAction(UserInterface UI) {
         Sort sort = null;
@@ -29,8 +36,7 @@ public class SortGroupRecipeBookCommand extends ChoiceCommand<RatingOption> {
                 break;
         }
 
-        RecipeCollectionFacade.setSort(UI.getRecipeCollection(), sort);
-        GetNewGroupRecipeCommand.initializeIterator(UI);
+        UI.getUser().getRecipeBook().setSort("AllRecipes", sort);
+        GetNewRecipeCommand.initializeIterator(UI);
     }
 }
-

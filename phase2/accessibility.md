@@ -39,4 +39,5 @@ Size and space for approach and use
 We designed Recipick for several target users; food-lovers who want to up their game in the kitchen by exploring new recipes, people with several food restrictions who want new meal ideas that fit their needs and people who are busy or cooking for a family/multiple roommates that need a way to organize their diet. ReciPick pulls data from the Spoonacular API which has over 5000 recipes for food-lovers to try out. Also, users are able to set preferences to omit or include certain ingredients from their recipe selection so people with allergies or strict diets are able to enjoy ReciPick. Finally, ReciPick allows users to organize recipes they like into labeled subrecipe books for later access, and families and roommates can join groups to share subrecipe books amongst eachother (for example, a group can create a shared subrecipe book called "Sunday Dinner").
 
 ## Which Demographics Are Less Likely to Use ReciPick?
+Because our application is used locally and not remotely through a web app, those who are not able to download a program and would like to use a recipe service over the internet would likely not choose ReciPick. 
 

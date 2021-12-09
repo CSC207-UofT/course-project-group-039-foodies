@@ -10,13 +10,13 @@ import javax.swing.*;
 /**
  * Create GUI page ViewSavedRecipesBySort, which allows user to sort saved recipes.
  */
-public class ViewSavedRecipesBySort {
+public class ViewSubRecipeBookRecipesBySort {
     public JFrame viewSavedRecipesBySort;
 
     /**
      * Initialize ViewSavedRecipesBySort.
      */
-    public ViewSavedRecipesBySort() {
+    public ViewSubRecipeBookRecipesBySort() {
         initialize();
     }
 
@@ -38,8 +38,7 @@ public class ViewSavedRecipesBySort {
         JButton btnExit = new JButton("Back");
         btnExit.addActionListener(e -> {
             viewSavedRecipesBySort.setVisible(false);
-            GUIForm.showRecipes.setVisible();
-
+            GUIForm.showSubRecipes.setVisible(true);
         });
         btnExit.setBounds(150, 210, 150, 23);
         viewSavedRecipesBySort.getContentPane().add(btnExit);
@@ -52,8 +51,9 @@ public class ViewSavedRecipesBySort {
 
     /**
      * Make ViewSavedRecipesBySort GUI page visible or invisible.
+     * @param b true if the page needs to be visible, or false if the page needs to be invisible.
      */
-    public void setVisible() {
+    public void setVisible(boolean b) {
         viewSavedRecipesBySort.setVisible(true);
     }
 }

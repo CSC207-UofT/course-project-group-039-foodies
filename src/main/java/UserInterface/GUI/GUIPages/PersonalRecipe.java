@@ -6,6 +6,7 @@ import main.java.UserInterface.Commands.UserPreferencesCommands.RateRecipeComman
 import main.java.UserInterface.GUI.GUIForm;
 
 import javax.swing.*;
+import java.awt.Font;
 
 public class PersonalRecipe {
     public JFrame showRecipes;
@@ -23,8 +24,29 @@ public class PersonalRecipe {
 
         // title
         JLabel label = new JLabel("Show Personal Recipes");
-        GroupRecipe.setFont(label, showRecipes);
+        label.setFont(new Font("Tahoma", Font.BOLD, 17));
+        label.setBounds(140, 11, 200, 41);
+        showRecipes.getContentPane().add(label);
 
+        // by Filter Option
+        JButton byFilter = new JButton("By Filter");
+        byFilter.addActionListener(e -> {
+            showRecipes.setVisible(false);
+            GUIForm.viewAllSavedRecipesFiltered.setVisible(true);
+        });
+        byFilter.setBounds(75, 50, 150, 23);
+        showRecipes.getContentPane().add(byFilter);
+
+        // by Sort Option
+        JButton bySort = new JButton("By Sort");
+        bySort.addActionListener(e -> {
+            showRecipes.setVisible(false);
+            GUIForm.viewAllSavedRecipesSorted.setVisible(true);
+        });
+        bySort.setBounds(225, 50, 150, 23);
+        showRecipes.getContentPane().add(bySort);
+
+        // show all recipes option
         JButton showAll = GUIForm.createButtonFromCommand(new ListRecipeBookCommand());
         showAll.setBounds(150, 90, 150, 23);
         showRecipes.getContentPane().add(showAll);
@@ -38,21 +60,23 @@ public class PersonalRecipe {
         showRecipes.getContentPane().add(rateRecipe);
         
         JButton btnBack = new JButton("Back to Menu");
+
         btnBack.addActionListener(e -> {
             showRecipes.setVisible(false);
-            GUIForm.menu.setVisible();
+            GUIForm.generalRecipes.setVisible();
 
         });
         btnBack.setBounds(150, 210, 150, 23);
         showRecipes.getContentPane().add(btnBack);
 
+        // background image
         JLabel img = new JLabel("New image");
         img.setIcon(new ImageIcon("src/white food background.jpeg"));
         img.setBounds(0, 0, 460, 300);
         showRecipes.getContentPane().add(img);
     }
 
-    public void setVisible() {
+    public void setVisible(boolean b) {
         showRecipes.setVisible(true);
     }
 }

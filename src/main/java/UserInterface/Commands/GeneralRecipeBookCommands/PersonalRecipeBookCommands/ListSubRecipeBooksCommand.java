@@ -1,7 +1,6 @@
 package main.java.UserInterface.Commands.GeneralRecipeBookCommands.PersonalRecipeBookCommands;
 
-import main.java.Entities.SubRecipeBook;
-import main.java.UseCases.RecipeBookManager;
+import main.java.Gateways.RecipeBookCSVReader;
 import main.java.UserInterface.Commands.Command;
 import main.java.UserInterface.UserInterface;
 
@@ -12,10 +11,13 @@ public class ListSubRecipeBooksCommand extends Command {
 
     @Override
     public void runAction(UserInterface UI) {
-        RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
-        for (SubRecipeBook subrecipebook: recipeBookManager.getSubRecipeBooks()) {
-            UI.displayMessage(subrecipebook.getName());
+        String username = UI.getUser().getUsername();
+        UI.displayMessage("The following are your sub-recipe books: \nAllRecipes \n" +
+                RecipeBookCSVReader.getInstance().getSubRecipeBook(username));
+//
+//        RecipeBookManager recipeBookManager = new RecipeBookManager(UI.getUser());
+//        for (SubRecipeBook subrecipebook: recipeBookManager.getSubRecipeBooks()) {
+//            UI.displayMessage(subrecipebook.getName());
         }
     }
-}
 
