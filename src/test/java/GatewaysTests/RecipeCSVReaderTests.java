@@ -64,8 +64,8 @@ public class RecipeCSVReaderTests {
         Recipe[] recipes = database.getRecipes().getRecipes();
         assertEquals(recipes.length, 2);
         if (recipes[0].getName().equals("TestName0")) {
-            assertEquals(recipes[1].getName(), "TestName1");
-        } else if (recipes[0].getName().equals("TestName1")) {
+            assertEquals(recipes[1].getName(), "TestName2");
+        } else if (recipes[0].getName().equals("TestName2")) {
             assertEquals(recipes[1].getName(), "TestName0");
         } else {
             fail();
